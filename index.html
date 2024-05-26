@@ -1,23 +1,122 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="utf-8">
-<title>WAPH-Derek Corniello</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Derek Corniello's Professional Website</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <style>
+        body {
+            background-color: #1F1F1F;
+            color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        .profile-pic {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 10px;
+        }
+
+        .bgdark {
+            background-color: #1F1F1F;
+        }
+
+        .fgdark {
+            background-color: #282828;
+        }
+
+        .accent1 {
+            background-color: #333fff;
+        }
+
+        .card {
+            margin-top: 2;
+            margin-bottom: 2;
+        }
+
+        .flex-grow {
+            flex-grow: 1;
+        }
+
+        .linkbutton {
+            width: 50px;
+            height: 50px;
+            font-size: 50px;
+            margin: 5px;
+            color: white;
+        }
+
+        .icon-container {
+            display: flex;
+            justify-content: right;
+        }
+
+        .gradient-header {
+            background: linear-gradient(#333FFF, #1F1F1F);
+        }
+    </style>
 </head>
-<body>
-<div id="top">	
-  <h1>Web Application Programming and Hacking</h1>
-  <h2>Front-end Web Development Individual Project - index.html</h2> 
-  <h3>Instructor: Dr. Phu Phung</h3>
-</div>
-<div id="menubar">
-  <h3>Student: Derek Corniello</h3>
-</div>
-<div id="main">
-  <p>A simple HTML page </p>
-  <p>Main landing page of the project</p>
-  <p>My Info: ...</p>
-  Using the <a href="https://www.w3schools.com/html"> W3Schools template</a>	
-</div>
+
+<body class="bgdark">
+
+    <header class="accent1 p-4 gradient-header">
+        <div class="row align-items-center">
+            <div class="d-flex align-items-start align-items-center">
+                <img src="./headshot.jpg" alt="Derek's Profile Picture" class="profile-pic mr-3">
+                <div>
+                    <span class="h4">Derek Corniello</span><br>
+                    <span>Student at University of Cincinnati<span><br>
+                            <span>Studying Computer Science (B.S) and Software Engineering (M.Eng)<span><br>
+                </div>
+            </div>
+            <!-- Social Icons -->
+            <div class="mt-0 icon-container col">
+                <a href="https://twitter.com/DerekCorniello" class="linkbutton"><i class="bi bi-twitter"></i></a>
+                <!-- Twitter icon -->
+                <a href="https://linkedin.com/in/Derek-Corniello" class="linkbutton"><i class="bi bi-linkedin"></i></a>
+                <!-- LinkedIn icon -->
+                <a href="https://github.com/DerekCorniello" class="linkbutton"><i class="bi bi-github"></i></a>
+                <!-- GitHub icon -->
+            </div>
+        </div>
+    </header>
+    <main class="p-4 flex-grow bgdark">
+        Test
+    </main>
+    <footer class="fgdark p-4 mt-4 gradient-footer row">
+        <div class="text-white text-left mb-0 col" id="footer-time"></div>
+        <div class="text-white text-right mb-0 col">Created by - Derek Corniello</div>
+        <script>
+            function displayTime() {
+                const now = new Date();
+
+                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+                const dayOfWeek = daysOfWeek[now.getDay()];
+
+                const hours = String(now.getHours()).padStart(2, '0');
+                const minutes = String(now.getMinutes()).padStart(2, '0');
+
+                const month = String(now.getMonth() + 1).padStart(2, '0');
+                const day = String(now.getDate()).padStart(2, '0');
+                const year = now.getFullYear();
+
+                const formattedDate = `${dayOfWeek}, ${month}/${day}/${year} - ${hours}:${minutes}`;
+                document.getElementById('footer-time').innerHTML = formattedDate;
+            }
+            setInterval(displayTime, 500)
+        </script>
+    </footer>
 </body>
+
 </html>
