@@ -6,118 +6,141 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Derek Corniello's Professional Website</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!--Bootstrap CSS-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous">
-        </script>
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin');
-        body {
-            background-color: #1F1F1F;
-            color: white;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-            margin: 0;
-            font-family: 'Ubuntu', "times new roman", times, roman, serif;
-        }
+    <!--Bootsrap Icons-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" <!--Bootstrap JS-->
+        integrity = "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin = "anonymous" >
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> <!--Vue.js-->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!--Axios-->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Chart.js-->
+    <script src="./js/main.js"></script>
+    <link rel="stylesheet" href="./css/styles.css">
 
-        .profile-pic {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 10px;
-        }
-
-        .bgdark {
-            background-color: #1F1F1F;
-        }
-
-        .fgdark {
-            background-color: #282828;
-        }
-
-        .accent1 {
-            background-color: #333fff;
-        }
-
-        .card {
-            margin-top: 2;
-            margin-bottom: 2;
-        }
-
-        .flex-grow {
-            flex-grow: 1;
-        }
-
-        .linkbutton {
-            width: 50px;
-            height: 50px;
-            font-size: 50px;
-            margin: 5px;
-            color: white;
-        }
-
-        .icon-container {
-            display: flex;
-            justify-content: right;
-        }
-
-        .gradient-header {
-            background: linear-gradient(#333FFF, #1F1F1F);
-        }
-    </style>
 </head>
 
 <body class="bgdark">
-
     <header class="accent1 p-4 gradient-header">
         <div class="row align-items-center">
             <div class="d-flex align-items-start align-items-center">
+                <!--Banner / Header -->
                 <img src="./assets/headshot.jpg" alt="Derek's Profile Picture" class="profile-pic mr-3">
                 <div>
                     <span class="h4">Derek Corniello</span><br>
                     <span>Student at University of Cincinnati<span><br>
-                            <span>Studying Computer Science (B.S) and Software Engineering (M.Eng)<span><br>
+                            <span>Studying Computer Science (B.S.) and Software Engineering (M.Eng.)<span><br>
+                                    <script>
+                                        var shown = false;
+
+                                        function toggleEmail() {
+                                            if (shown) {
+                                                document.getElementById('email').innerHTML = "Click here to show my email!";
+                                                shown = false;
+                                            } else {
+                                                var myemail = "<a href='mailto:corniedj" + "@" + "mail.uc.edu'>corniedj" + "@" + "mail.uc.edu</a><br>Toggle Email";
+                                                document.getElementById('email').innerHTML = myemail;
+                                                shown = true;
+                                            }
+                                        } 
+                                    </script>
+
+                                    <div id="email" onclick="toggleEmail()">Click here to show my email!</div>
                 </div>
             </div>
             <!-- Social Icons -->
             <div class="mt-0 icon-container col">
                 <a href="https://twitter.com/DerekCorniello" class="linkbutton"><i class="bi bi-twitter"></i></a>
-                <!-- Twitter icon -->
                 <a href="https://linkedin.com/in/Derek-Corniello" class="linkbutton"><i class="bi bi-linkedin"></i></a>
-                <!-- LinkedIn icon -->
                 <a href="https://github.com/DerekCorniello" class="linkbutton"><i class="bi bi-github"></i></a>
-                <!-- GitHub icon -->
             </div>
         </div>
     </header>
-    <main class="p-4 flex-grow bgdark">
-        Test
+    <!--Main body of the page-->
+    <main class="p-4 flex-grow bg-fgdark">
+        <div id="app" class="app">
+            <!--contains a larger 'main' column and a smaller 'side' column-->
+            <div class="row">
+                <!--Main column-->
+                <div class="main-col">
+                    <div class="card fgdark text-white">
+                        <div class="card-body ">
+                            <h4 class="card-title">About Me</h4>
+                            <div class="card-text" style="text-align: left;">
+                                Hello! I am a Software and Unity Developer currently pursuing my Bachelor of Science in
+                                Computer Science at the University of Cincinnati. I am actively seeking an internship
+                                opportunity at a Tech Company where my skills in Software Engineering, Software
+                                Improvement, Game Development, AI Development, or Data Science can contribute to the
+                                company's success.<br><br>
+
+                                During my time at UC and in previous job opportunities, I have honed various skills
+                                including project management, teamwork, leadership in team settings, and effective
+                                communication with co-workers and team members. Additionally, I possess extensive
+                                experience with multiple programming languages acquired through classroom learning,
+                                coding camps, and personal projects, which are showcased on my GitHub Profile.
+                                Specifically, I have: <br><br>
+                                <ul style="text-align: left;">
+                                    <li>5 years of experience with C# with applications and Unity Game Engine</li>
+                                    <li>3 years of experience with Python in AI, data science, web applications and
+                                        applications</li>
+                                    <li>2 years of experience with C++ for applications.</li>
+                                    <li>Introductory experience with HTML/CSS/JavaScript/PHP, and some frontend
+                                        frameworks for web design</li>
+                                    <li>Introductory experience with MySQL and Postgres for databases</li>
+                                </ul>
+                                Please feel free to reach out to me! I am enthusiastic about exploring new opportunities
+                                and contributing to innovative projects.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!--Side column-->
+                <div class="side-col">
+                    <div class="card fgdark text-white">
+                        <div class="card-body">
+                            <h4 class="card-title">Contact Info</h4>
+                            <div class="card-text">
+                                Email: <a href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a><br>
+                                Phone Number: (440) 821-5281<br>
+                                Cincinnati, OH<br>
+                            </div>
+                        </div>
+                    </div>
+ 
+                    <div class="card fgdark text-white">
+                        <div class="card-body">
+                            <h4 class="card-title">Clock</h4>
+                            <div class="card-text">
+                                <canvas id="analog-clock" width="200" height="200" fg-dark></canvas>
+                                <br>
+                                <div id="digital-time" style="font-size: 50px;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card fgdark text-white">
+                        <div class="card-body">
+                            <h4 class="card-title">GitHub Stats</h4>
+                            <div class="card-text">
+                                <div v-if="languages">
+                                    <h3>Languages Used:</h3>
+                                    <canvas height="400" length="400" id="languageChart"></canvas>
+                                </div>
+                                <div v-else>
+                                    <p>Loading...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+        </script>
     </main>
+    <!--Footer-->
     <footer class="fgdark p-4 mt-4 gradient-footer row">
         <div class="text-white text-left mb-0 col" id="footer-time"></div>
         <div class="text-white text-right mb-0 col">Created by - Derek Corniello</div>
-        <script>
-            function displayTime() {
-                const now = new Date();
-
-                const daysOfWeek = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-                const dayOfWeek = daysOfWeek[now.getDay()];
-
-                const hours = String(now.getHours()).padStart(2, '0');
-                const minutes = String(now.getMinutes()).padStart(2, '0');
-
-                const month = String(now.getMonth() + 1).padStart(2, '0');
-                const day = String(now.getDate()).padStart(2, '0');
-                const year = now.getFullYear();
-
-                const formattedDate = `${dayOfWeek}, ${month}/${day}/${year} - ${hours}:${minutes}`;
-                document.getElementById('footer-time').innerHTML = formattedDate;
-            }
-            setInterval(displayTime, 500)
-        </script>
     </footer>
 </body>
 

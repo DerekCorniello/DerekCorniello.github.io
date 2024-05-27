@@ -1,0 +1,82 @@
+@import url('https://fonts.googleapis.com/css?family=Ubuntu:regular,bold&subset=Latin');
+body {
+    background-color: #1F1F1F;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Ubuntu', "times new roman", times, roman, serif;
+}
+
+.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 10px;
+}
+
+.bgdark {
+    background-color: #1F1F1F;
+}
+
+.fgdark {
+    background-color: #282828;
+}
+
+.accent1 {
+    background-color: #333fff;
+}
+
+.card {
+    margin-top: 2;
+    margin-bottom: 2;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.linkbutton {
+    width: 50px;
+    height: 50px;
+    font-size: 50px;
+    margin: 5px;
+    color: white;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: right;
+}
+
+.gradient-header {
+    background: linear-gradient(#333FFF, #1F1F1F);
+}
+
+.main-col {
+    justify-content: flex-start;
+    width: 60%;
+    margin-right: 5%;
+    margin-left: 5%;
+}
+
+.side-col {
+    justify-content: flex-end;
+    width: 20%;
+    margin-left: 2.5%;
+    margin-right: 5%;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px
+}
+.card-title, .card-text {
+    text-align: center;
+}
+
