@@ -15,10 +15,12 @@
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> <!--Vue.js-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!--Axios-->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Chart.js-->
-    <script src="./js/main.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jQuery-->
+    <script src="./scripts/main.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
 
 </head>
+
 
 <body class="bgdark">
     <header class="accent1 p-4 gradient-header">
@@ -45,7 +47,8 @@
                                         } 
                                     </script>
 
-                                    <div id="email" onclick="toggleEmail()">Click here to show my email!</div>
+                                    <div id="email" class="clickable-text" onclick="toggleEmail()">Click here to show my
+                                        email!</div>
                 </div>
             </div>
             <!-- Social Icons -->
@@ -57,15 +60,60 @@
         </div>
     </header>
     <!--Main body of the page-->
-    <main class="p-4 flex-grow bg-fgdark">
+    <main class="p-4 flex-grow bg-fgdark container-fluid">
+        <div style="text-align: center; margin-top: 20px;" id="welcome-message">Welcome Message</div>
+        <script>
+            function getCookie(name) {
+                var nameEQ = name + "=";
+                var cookies = document.cookie.split(';');
+                for (var i = 0; i < cookies.length; i++) {
+                    var cookie = cookies[i];
+                    while (cookie.charAt(0) == ' ') {
+                        cookie = cookie.substring(1, cookie.length);
+                    }
+                    if (cookie.indexOf(nameEQ) == 0) {
+                        return cookie.substring(nameEQ.length, cookie.length);
+                    }
+                }
+                return null;
+            }
+
+            function setCookie(name, value, days) {
+                var expires = "";
+                if (days) {
+                    var date = new Date();
+                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+                    expires = "; expires=" + date.toUTCString();
+                }
+                document.cookie = name + "=" + (value || "") + expires + "; path=/";
+            }
+
+            function displayWelcomeMessage() {
+                var username = getCookie("username");
+                if (!username) {
+                    var currentDate = new Date();
+                    var dateString = currentDate.toUTCString();
+                    $("#welcome-message").text("Welcome to my homepage!");
+                    setCookie("username", "YOURusername", 90); // Set cookie for 90 days
+                    setCookie("lastVisit", dateString, 90); // Set cookie for last visit time
+                } else {
+                    var lastVisit = getCookie("lastVisit");
+                    $("#welcome-message").text("Welcome back! Your last visit was " + lastVisit);
+                }
+            }
+
+            // Call the function to display the welcome message
+            displayWelcomeMessage();
+        </script>
         <div id="app" class="app">
             <!--contains a larger 'main' column and a smaller 'side' column-->
             <div class="row">
                 <!--Main column-->
                 <div class="main-col">
-                    <div class="card fgdark text-white">
-                        <div class="card-body ">
+                    <div class="card fgdark text-white container">
+                        <div class="card-body">
                             <h4 class="card-title">About Me</h4>
+                            <hr>
                             <div class="card-text" style="text-align: left;">
                                 Hello! I am a Software and Unity Developer currently pursuing my Bachelor of Science in
                                 Computer Science at the University of Cincinnati. I am actively seeking an internship
@@ -93,23 +141,48 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card fgdark text-white container">
+                        <div class="card-body">
+                            <h4 class="card-title" style="margin-bottom: 5px;">Comedy Section</h4>
+                            <hr>
+                            <div class="card-text" style="font-size: 12px; margin-bottom: 10px;">Refreshes Every Minute
+                            </div>
+                            <br>
+                            <h5 class="card-title">Random Reddit Meme</h5>
+                            <hr>
+                            <div class="card-text">
+                                <a id="meme-title" href=""></a><br>
+                                <p id="meme-descr"></p>
+                                <img style="height: 400px;" class="card-textm img-fluid" id="meme-img" src=""
+                                    alt="Random Meme">
+                            </div>
+                            <br><br>
+                            <h5 class="card-title">Random Joke</h5>
+                            <hr>
+                            <div class="card-text" id="joke">Loading Joke...</div>
+                            <div class="card-text clickable-text" id="joke-punchline"></div>
+                        </div>
+                    </div>
                 </div>
                 <!--Side column-->
                 <div class="side-col">
-                    <div class="card fgdark text-white">
+                    <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">Contact Info</h4>
+                            <hr>
                             <div class="card-text">
-                                Email: <a href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a><br>
+                                Email: <a class="clickable-text"
+                                    href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a><br>
                                 Phone Number: (440) 821-5281<br>
                                 Cincinnati, OH<br>
                             </div>
                         </div>
                     </div>
- 
-                    <div class="card fgdark text-white">
+
+                    <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">Clock</h4>
+                            <hr>
                             <div class="card-text">
                                 <canvas id="analog-clock" width="200" height="200" fg-dark></canvas>
                                 <br>
@@ -117,9 +190,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="card fgdark text-white">
+                    <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">GitHub Stats</h4>
+                            <hr>
                             <div class="card-text">
                                 <div v-if="languages">
                                     <h3>Languages Used:</h3>
@@ -131,14 +205,23 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card fgdark text-white container">
+                        <div class="card-body">
+                            <h4 class="card-title">Visitors</h4>
+                            <hr>
+                            <div class="card-text">
+                                <a href="https://info.flagcounter.com/Guos"><img
+                                        src="https://s01.flagcounter.com/count2/Guos/bg_282828/txt_FFFFFF/border_FFFFFF/columns_1/maxflags_5/viewers_3/labels_1/pageviews_0/flags_0/percent_0/"
+                                        alt="Flag Counter" border="0"></a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
-        <script>
-        </script>
     </main>
     <!--Footer-->
-    <footer class="fgdark p-4 mt-4 gradient-footer row">
+    <footer class="fgdark p-4 mt-4 gradient-footer row" style="min-height: 2vh; min-width: 2vh;">
         <div class="text-white text-left mb-0 col" id="footer-time"></div>
         <div class="text-white text-right mb-0 col">Created by - Derek Corniello</div>
     </footer>
