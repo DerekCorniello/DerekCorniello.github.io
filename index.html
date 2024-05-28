@@ -117,7 +117,8 @@
                             <hr>
                             <div class="card-text" style="text-align: left;">
                                 Hello! I am a Software and Unity Developer currently pursuing my Bachelor of Science in
-                                Computer Science at the University of Cincinnati. I am actively seeking an internship
+                                Computer Science and Masters of Engineering in Software Engineering at the University of
+                                Cincinnati. I am actively seeking an internship
                                 opportunity at a Tech Company where my skills in Software Engineering, Software
                                 Improvement, Game Development, AI Development, or Data Science can contribute to the
                                 company's success.<br><br>
@@ -144,24 +145,21 @@
                     </div>
                     <div class="card fgdark text-white container">
                         <div class="card-body">
-                            <h4 class="card-title" style="margin-bottom: 5px;">Comedy Section</h4>
-                            <hr>
-                            <div class="card-text" style="font-size: 12px; margin-bottom: 10px;">Refreshes Every Minute
-                            </div>
-                            <br>
-                            <h5 class="card-title">Random Reddit Meme</h5>
+                            <h4 class="card-title">GitHub Stats</h4>
                             <hr>
                             <div class="card-text">
-                                <a id="meme-title" href=""></a><br>
-                                <p id="meme-descr"></p>
-                                <img style="height: 400px;" class="card-textm img-fluid" id="meme-img" src=""
-                                    alt="Random Meme">
+                                <div v-if="languages">
+                                    <h3>Languages Used:</h3>
+                                    <canvas class="flex" style="margin: auto; padding: 0;" height="400" length="400"
+                                        id="languageChart"></canvas>
+                                </div>
+                                <br>
+                                <div v-else>
+                                    <p>Loading...</p>
+                                </div>
+                                <img width="90%" class="card" style="margin: auto; padding: 0;"
+                                    src="https://github-readme-activity-graph.vercel.app/graph?username=DerekCorniello&area=true&theme=react-dark&days=30&custom_title=Derek%20Corniellos%20GitHub%20Contributions%20(Last%2030%20Days)&hide_border=true">
                             </div>
-                            <br><br>
-                            <h5 class="card-title">Random Joke</h5>
-                            <hr>
-                            <div class="card-text" id="joke">Loading Joke...</div>
-                            <div class="card-text clickable-text" id="joke-punchline"></div>
                         </div>
                     </div>
                 </div>
@@ -193,19 +191,27 @@
                     </div>
                     <div class="card fgdark text-white container">
                         <div class="card-body">
-                            <h4 class="card-title">GitHub Stats</h4>
+                            <h4 class="card-title" style="margin-bottom: 5px;">Comedy Section</h4>
+                            <hr>
+                            <div class="card-text" style="font-size: 12px; margin-bottom: 10px;">Refreshes Every Minute
+                            </div>
+                            <br>
+                            <h5 class="card-title">Random Reddit Meme</h5>
                             <hr>
                             <div class="card-text">
-                                <div v-if="languages">
-                                    <h3>Languages Used:</h3>
-                                    <canvas height="400" length="400" id="languageChart"></canvas>
-                                </div>
-                                <div v-else>
-                                    <p>Loading...</p>
-                                </div>
+                                <a id="meme-title" href=""></a><br>
+                                <p id="meme-descr"></p>
+                                <img style="height: 300px;" class="card-textm img-fluid" id="meme-img" src=""
+                                    alt="Random Meme">
                             </div>
+                            <br><br>
+                            <h5 class="card-title">Random Joke</h5>
+                            <hr>
+                            <div class="card-text" id="joke">Loading Joke...</div>
+                            <div class="card-text clickable-text" id="joke-punchline"></div>
                         </div>
                     </div>
+
                     <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">Visitors</h4>
