@@ -115,10 +115,9 @@ document.addEventListener("DOMContentLoaded", function() {
     new Vue({
         el: '#app',
         data: {
+            // I know I don't need this, but I wanted the experience with doing it differently
             username: 'DerekCorniello',
             languages: null,
-            //GitHub only allows for 60 calls to the api per hour, which only allows about 4-5 reloads per hour without a PAT
-            //token: ''
         },
         created() {
             this.fetchGithubLanguages();
@@ -129,17 +128,10 @@ document.addEventListener("DOMContentLoaded", function() {
             // Changes them to percentages, and uses Chart.js to create a nice chart!
             async fetchGithubLanguages() {
                 try {
-                    const reposResponse = await axios.get(`https://api.github.com/users/${this.username}/repos`, {
-                        headers: {
-                            'Authorization': `token ${this.token}`
-                        }
-                    });
-                    const repos = reposResponse.data;
-                    const languagePromises = repos.map(repo => axios.get(repo.languages_url, {
-                        headers: {
-                            'Authorization': `token ${this.token}`
-                        }
-                    }));
+                    const reposResponse = await axios.get(`https://api.github.com/users/${this.username}/repos`, {});
+                    const repoNames = reposResponse.data.map(entry => entry.name);
+                    console.log(repoNames);
+                    const languagePromises = repoNames.map(repo => axios.get(`https://api.github.com/repos/${this.username}/${repo}/languages`, {}));
                     const languagesResponses = await Promise.all(languagePromises);
 
                     let totalLines = 0;
@@ -194,6 +186,7 @@ document.addEventListener("DOMContentLoaded", function() {
                                     color: "#FFFFFF",
                                     usePointStyle: true,
                                 },
+                                position: 'bottom'
                             }
                         }
                     }
