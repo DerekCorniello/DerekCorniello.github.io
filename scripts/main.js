@@ -128,10 +128,20 @@ document.addEventListener("DOMContentLoaded", function() {
             // Changes them to percentages, and uses Chart.js to create a nice chart!
             async fetchGithubLanguages() {
                 try {
-                    const reposResponse = await axios.get(`https://api.github.com/users/${this.username}/repos`, {});
+                    const reposResponse = await axios.get(`https://api.github.com/users/${this.username}/repos`, {
+                        headers: {
+                            'User-Agent': 'request',
+                            "Authorization": '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'
+                        }
+                    });
                     const repoNames = reposResponse.data.map(entry => entry.name);
                     console.log(repoNames);
-                    const languagePromises = repoNames.map(repo => axios.get(`https://api.github.com/repos/${this.username}/${repo}/languages`, {}));
+                    const languagePromises = repoNames.map(repo => axios.get(`https://api.github.com/repos/${this.username}/${repo}/languages`, {
+                        headers: {
+                            'User-Agent': 'request',
+                            "Authorization": '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'
+                        }
+                    }));
                     const languagesResponses = await Promise.all(languagePromises);
 
                     let totalLines = 0;

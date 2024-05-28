@@ -89,17 +89,18 @@
             }
 
             function displayWelcomeMessage() {
-                var username = getCookie("username");
-                if (!username) {
-                    var currentDate = new Date();
-                    var dateString = currentDate.toUTCString();
+                var cookie = getCookie("lastVisitDC");
+                var currentDate = new Date();
+                var dateString = currentDate.toLocaleString();
+
+                if (!cookie) {
                     $("#welcome-message").text("Welcome to my homepage!");
-                    setCookie("username", "YOURusername", 90); // Set cookie for 90 days
-                    setCookie("lastVisit", dateString, 90); // Set cookie for last visit time
                 } else {
-                    var lastVisit = getCookie("lastVisit");
+                    var lastVisit = cookie;
                     $("#welcome-message").text("Welcome back! Your last visit was " + lastVisit);
                 }
+
+                setCookie("lastVisitDC", dateString, 90);
             }
 
             // Call the function to display the welcome message
