@@ -121,7 +121,8 @@
                                 Cincinnati. I am actively seeking an internship
                                 opportunity at a Tech Company where my skills in Software Engineering, Software
                                 Improvement, Game Development, AI Development, or Data Science can contribute to the
-                                company's success.<br><br>
+                                company's success. I have previously been employed through Chipotle, University of
+                                Cincinnati, and Siemens DISW, in which I learned a lot of my skills.<br><br>
 
                                 During my time at UC and in previous job opportunities, I have honed various skills
                                 including project management, teamwork, leadership in team settings, and effective
@@ -137,7 +138,7 @@
                                     <li>Introductory experience with HTML/CSS/JavaScript/PHP, and some frontend
                                         frameworks for web design</li>
                                     <li>Introductory experience with MySQL and Postgres for databases</li>
-                                </ul>
+                                </ul><br>
                                 Please feel free to reach out to me! I am enthusiastic about exploring new opportunities
                                 and contributing to innovative projects.
                             </div>
@@ -153,12 +154,45 @@
                                     <canvas class="flex" style="margin: auto; padding: 0;" height="400" length="400"
                                         id="languageChart"></canvas>
                                 </div>
-                                <br>
                                 <div v-else>
                                     <p>Loading...</p>
                                 </div>
+                                <br>
                                 <img width="90%" class="card" style="margin: auto; padding: 0;"
                                     src="https://github-readme-activity-graph.vercel.app/graph?username=DerekCorniello&area=true&theme=react-dark&days=30&custom_title=Derek%20Corniellos%20GitHub%20Contributions%20(Last%2030%20Days)&hide_border=true">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card fgdark text-white container mt-5">
+                        <div class="card-body">
+                            <h4 class="card-title">Contact Me</h4>
+                            <hr>
+                            <div class="card-text" style="text-align: left;">
+                                <form method="POST" action="./scripts/send_message.php">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-4">
+                                            <label for="name">Name</label>
+                                            <input type="text" class="form-control" id="name" name="name"
+                                                placeholder="Name" required>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="topic">Topic</label>
+                                            <input type="text" class="form-control" id="topic" name="topic"
+                                                placeholder="Topic" required>
+                                        </div>
+                                        <div class="form-group col-md-4">
+                                            <label for="email">Email</label>
+                                            <input type="email" class="form-control" id="email" name="email"
+                                                placeholder="Email" required>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="message">Message</label>
+                                        <textarea class="form-control" id="message" name="message" rows="5"
+                                            placeholder="Your message" required></textarea>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Send</button>
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -173,17 +207,44 @@
                                 Email: <a class="clickable-text"
                                     href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a><br>
                                 Phone Number: (440) 821-5281<br>
-                                Cincinnati, OH<br>
+                                Here is a <a href="./assets/DerekCornielloResume.pdf">link to my resume</a>!
+                                <br>
                             </div>
                         </div>
                     </div>
-
+                    <div class="card fgdark text-white container">
+                        <div class="card-body">
+                            <h4 class="card-title">Top Skills at My Jobs</h4>
+                            <hr>
+                            <div class="card-text" style="text-align: left;">
+                                <div style="text-align: left;">Siemens DISW</div>
+                                <ul>
+                                    <li>Project Management</li>
+                                    <li>Software Development</li>
+                                    <li>Collaboration</li>
+                                </ul>
+                                <div style="text-align: left;">University of Cincinnati</div>
+                                <ul>
+                                    <li>Leadership</li>
+                                    <li>Planning / Time Management</li>
+                                    <li>Mentorship</li>
+                                </ul>
+                                <div style="text-align: left;">Chipotle Mexican Grill</div>
+                                <ul>
+                                    <li>Teamwork Skills</li>
+                                    <li>Communication</li>
+                                    <li>Management</li>
+                                </ul>
+                                Please check out my resume for further detail!
+                            </div>
+                        </div>
+                    </div>
                     <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">Clock</h4>
                             <hr>
                             <div class="card-text">
-                                <canvas id="analog-clock" width="200" height="200" fg-dark></canvas>
+                                <canvas id="analog-clock" width="100%" height="100%" fg-dark></canvas>
                                 <br>
                                 <div id="digital-time" style="font-size: 50px;"></div>
                             </div>
@@ -211,26 +272,19 @@
                             <div class="card-text clickable-text" id="joke-punchline"></div>
                         </div>
                     </div>
-
-                    <div class="card fgdark text-white container">
-                        <div class="card-body">
-                            <h4 class="card-title">Visitors</h4>
-                            <hr>
-                            <div class="card-text">
-                                <a href="https://info.flagcounter.com/Guos"><img
-                                        src="https://s01.flagcounter.com/count2/Guos/bg_282828/txt_FFFFFF/border_FFFFFF/columns_1/maxflags_5/viewers_3/labels_1/pageviews_0/flags_0/percent_0/"
-                                        alt="Flag Counter" border="0"></a>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </main>
+    <a style="text-align: center;" href="./views/waph.html">Click here to see the WAPH course.</a>
     <!--Footer-->
     <footer class="fgdark p-4 mt-4 gradient-footer row" style="min-height: 2vh; min-width: 2vh;">
         <div class="text-white text-left mb-0 col" id="footer-time"></div>
-        <div class="text-white text-right mb-0 col">Created by - Derek Corniello</div>
+        <a href="https://info.flagcounter.com/Guos"><img
+                src="https://s01.flagcounter.com/count2/Guos/bg_282828/txt_FFFFFF/border_FFFFFF/columns_1/maxflags_5/viewers_3/labels_1/pageviews_0/flags_0/percent_0/"
+                alt="Flag Counter" border="0"></a>
+        <div class="text-white text-right mb-0 col">Created by - Derek Corniello - <a href="">Click to see the source
+                code!</a></div>
     </footer>
 </body>
 

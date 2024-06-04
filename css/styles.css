@@ -86,6 +86,10 @@ body {
     cursor: pointer;
 }
 
+.form-control {
+    background: #2F2F2F;
+}
+
 hr {
     border-top: 2px solid white
 }
