@@ -37,8 +37,6 @@ document.addEventListener("DOMContentLoaded", function() {
         hours = (hours % 12 || 12).toString().padStart(2, '0');
         const formattedDate = `${dayOfWeek}, ${month}/${day}/${year} - ${hours}:${minutes} ${amOrPm}`;
         document.getElementById('footer-time').innerHTML = formattedDate;
-        console.log(formattedDate);
-        console.log(document.getElementById('footer-time').innerHTML)
     }
 
 
