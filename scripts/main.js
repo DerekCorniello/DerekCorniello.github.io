@@ -1,11 +1,12 @@
 // Wait until the HTML document is fully loaded before running the script
 document.addEventListener("DOMContentLoaded", function() {
-    // Function to load a script file
-    function loadScript(url, callback) {
+
+    function loadScript(url, callback, errorCallback) {
         var script = document.createElement("script");
         script.type = "text/javascript";
         script.src = url;
         script.onload = callback;
+        script.onerror = errorCallback;
         document.body.appendChild(script);
     }
 
@@ -19,25 +20,6 @@ document.addEventListener("DOMContentLoaded", function() {
         hours = (hours % 12 || 12).toString().padStart(2, '0');
         document.getElementById("digital-time").innerHTML = `${hours}:${minutes} ${amOrPm}`;
     }
-
-    // Load the clock script and draw the clock
-    loadScript("https://waph-uc.github.io/clock.js", function() {
-        var canvas = document.getElementById("analog-clock");
-        var ctx = canvas.getContext("2d");
-        var radius = canvas.height / 2;
-        ctx.translate(radius, radius);
-        radius = radius * 0.90;
-        setInterval(drawClock, 500);
-
-        function drawClock() {
-            drawFace(ctx, radius);
-            drawNumbers(ctx, radius);
-            drawTime(ctx, radius);
-            updateDigitalTime();
-        }
-    });
-
-    // Function to display the time in the footer
     function displayTime() {
         const now = new Date();
 
@@ -55,10 +37,37 @@ document.addEventListener("DOMContentLoaded", function() {
         hours = (hours % 12 || 12).toString().padStart(2, '0');
         const formattedDate = `${dayOfWeek}, ${month}/${day}/${year} - ${hours}:${minutes} ${amOrPm}`;
         document.getElementById('footer-time').innerHTML = formattedDate;
+        console.log(formattedDate);
+        console.log(document.getElementById('footer-time').innerHTML)
     }
-    setInterval(displayTime, 500)
 
 
+    // Load the clock script and draw the clock
+    loadScript(
+        "https://waph-uc.github.io/clock.js",
+        function() {
+            var canvas = document.getElementById("analog-clock");
+            var ctx = canvas.getContext("2d");
+            var radius = canvas.height / 2;
+            ctx.translate(radius, radius);
+            radius = radius * 0.90;
+            setInterval(drawClock, 500);
+
+            function drawClock() {
+                displayTime();
+                updateDigitalTime();
+                drawFace(ctx, radius);
+                drawNumbers(ctx, radius);
+                drawTime(ctx, radius);
+            }
+        },
+        function() {
+            document.getElementById("clock-failure-message").style.display = "block";
+            document.getElementById("analog-clock").style.display = "none";
+        }
+    );
+
+    setInterval(updateDigitalTime, 500)
     function loadJokeSection() {
         // Fetch a joke from the jokeAPI
         $.get("https://v2.jokeapi.dev/joke/Any", function(result) {
@@ -168,6 +177,8 @@ document.addEventListener("DOMContentLoaded", function() {
                     });
                 } catch (error) {
                     console.error('Error fetching GitHub languages:', error);
+                    document.getElementById("languageChart-failure-message").style.display = "block";
+                    document.getElementById("languageChart").style.display = "none";
                 }
             },
 

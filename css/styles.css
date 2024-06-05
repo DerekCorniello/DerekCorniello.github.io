@@ -97,4 +97,16 @@ hr {
 html, body {
     max-width: 100%;
     overflow-x: hidden;
+    overflow-y: auto;
+}
+
+canvas, img {
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  padding: auto;
+}
+
+:root {
+  overscroll-behavior: none;
 }
