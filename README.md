@@ -9,7 +9,8 @@
 **Email**: corniedj@mail.uc.edu
 
 **Short-bio**: I am a second year CS student with experience in OOP languages and a love for game and app design. 
-![Derek's Headshot](../../images/headshot.jpg){width=100 height=150}
+
+![Derek's Headshot](./assets/headshot.jpg){width=100 height=150}
 
 ## Repository Information
 
