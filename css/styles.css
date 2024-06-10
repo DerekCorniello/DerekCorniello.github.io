@@ -55,20 +55,6 @@ body {
     background: linear-gradient(#333FFF, #1F1F1F);
 }
 
-.main-col {
-    justify-content: flex-start;
-    width: 60%;
-    margin-right: 5%;
-    margin-left: 5%;
-}
-
-.side-col {
-    justify-content: flex-end;
-    width: 20%;
-    margin-left: 2.5%;
-    margin-right: 5%;
-}
-
 .card {
     display: flex;
     justify-content: center;

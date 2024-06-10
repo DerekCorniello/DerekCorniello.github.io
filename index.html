@@ -110,7 +110,7 @@
             <!--contains a larger 'main' column and a smaller 'side' column-->
             <div class="row">
                 <!--Main column-->
-                <div class="main-col">
+                <div class="col-md-8">
                     <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">About Me</h4>
@@ -166,9 +166,40 @@
                             </div>
                         </div>
                     </div>
+                    <div class="card fgdark text-white container">
+                        <div class="card-body">
+                            <h4 class="card-title">Contact Me</h4><br>
+                            <div class="card-text"></div>
+                            <form class="row g-3" action="https://formsubmit.co/corniedj@mail.uc.edu">
+                                <div class="col-md-6">
+                                    <label type="text" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label type="text" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                                <div class="col-md-6" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">E-mail</label>
+                                    <input type="text" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">Phone Number (optional)</label>
+                                    <input type="text" class="form-control" id="phoneNumber">
+                                </div>
+                                <div class="col-md-12" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">Comments</label>
+                                    <textarea class="form-control" id="comments" rows="5"></textarea>
+                                </div><br>
+                                <div class="col-md-12" style="padding-top: 2.5%;">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                 </div>
                 <!--Side column-->
-                <div class="side-col">
+                <div class="col-md-4">
                     <div class="card fgdark text-white container">
                         <div class="card-body">
                             <h4 class="card-title">Contact Info</h4>
