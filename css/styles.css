@@ -72,8 +72,9 @@ body {
     cursor: pointer;
 }
 
-.form-control {
-    background: #2F2F2F;
+.form-control, .label {
+    background: #2F2F2F !important;
+    color: white !important; 
 }
 
 hr {
