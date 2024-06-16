@@ -10,7 +10,9 @@
 
 **Short-bio**: I am a second year CS student with experience in OOP languages and a love for game and app design. 
 
-![Derek's Headshot](./assets/headshot.jpg){width=100 height=150}
+<div align="center">
+    <img src="../../images/headshot.jpg" alt="Derek's headshot" width="100" height="150">
+</div>
 
 ## Repository Information
 
