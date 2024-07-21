@@ -32,23 +32,6 @@
                     <span class="h4">Derek Corniello</span><br>
                     <span>Student at University of Cincinnati<span><br>
                             <span>Studying Computer Science (B.S.) and Software Engineering (M.Eng.)<span><br>
-                                    <script>
-                                        var shown = false;
-
-                                        function toggleEmail() {
-                                            if (shown) {
-                                                document.getElementById('email').innerHTML = "Click here to show my email!";
-                                                shown = false;
-                                            } else {
-                                                var myemail = "<a href='mailto:corniedj" + "@" + "mail.uc.edu'>corniedj" + "@" + "mail.uc.edu</a><br>Toggle Email";
-                                                document.getElementById('email').innerHTML = myemail;
-                                                shown = true;
-                                            }
-                                        } 
-                                    </script>
-
-                                    <div id="email" class="clickable-text" onclick="toggleEmail()">Click here to show my
-                                        email!</div>
                 </div>
             </div>
             <!-- Social Icons -->
@@ -61,51 +44,6 @@
     </header>
     <!--Main body of the page-->
     <main class="p-4 flex-grow bg-fgdark container-fluid">
-        <div style="text-align: center; margin-top: 20px;" id="welcome-message">Welcome Message</div>
-        <script>
-            function getCookie(name) {
-                var nameEQ = name + "=";
-                var cookies = document.cookie.split(';');
-                for (var i = 0; i < cookies.length; i++) {
-                    var cookie = cookies[i];
-                    while (cookie.charAt(0) == ' ') {
-                        cookie = cookie.substring(1, cookie.length);
-                    }
-                    if (cookie.indexOf(nameEQ) == 0) {
-                        return cookie.substring(nameEQ.length, cookie.length);
-                    }
-                }
-                return null;
-            }
-
-            function setCookie(name, value, days) {
-                var expires = "";
-                if (days) {
-                    var date = new Date();
-                    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-                    expires = "; expires=" + date.toUTCString();
-                }
-                document.cookie = name + "=" + (value || "") + expires + "; path=/";
-            }
-
-            function displayWelcomeMessage() {
-                var cookie = getCookie("lastVisitDC");
-                var currentDate = new Date();
-                var dateString = currentDate.toLocaleString();
-
-                if (!cookie) {
-                    $("#welcome-message").text("Welcome to my homepage!");
-                } else {
-                    var lastVisit = cookie;
-                    $("#welcome-message").text("Welcome back! Your last visit was " + lastVisit);
-                }
-
-                setCookie("lastVisitDC", dateString, 90);
-            }
-
-            // Call the function to display the welcome message
-            displayWelcomeMessage();
-        </script>
         <div id="app" class="app">
             <!--contains a larger 'main' column and a smaller 'side' column-->
             <div class="row">
@@ -160,41 +98,11 @@
                                 <div v-else>
                                     <p>Failed to load language breakdown.</p>
                                 </div>
-                                <img style="max-width='90%', height: auto;" class="card img-fluid"
-                                    style="margin: auto; padding: 0;" alt="Failed to load commit history."
-                                    src="https://github-readme-activity-graph.vercel.app/graph?username=DerekCorniello&area=true&theme=react-dark&days=30&custom_title=Derek%20Corniellos%20GitHub%20Contributions%20(Last%2030%20Days)&hide_border=true">
+                                <br>
+                                <img style="max-width='90%', height: auto; border-radius: 40px; padding: auto;"
+                                    class="img-fluid" alt="Failed to load commit history."
+                                    src="https://github-readme-activity-graph.vercel.app/graph?username=DerekCorniello&area=true&theme=react-dark&days=30&custom_title=Derek%20Corniello's%20GitHub%20Contributions%20(Last%2030%20Days)&hide_border=true">
                             </div>
-                        </div>
-                    </div>
-                    <div hidden class="card fgdark text-white container">
-                        <div class="card-body">
-                            <h4 class="card-title">Contact Me</h4><br>
-                            <div class="card-text"></div>
-                            <form class="row g-3">
-                                <div class="col-md-6">
-                                    <label type="text" class="form-label">First Name</label>
-                                    <input type="text" class="form-control" id="firstName" name="FirstName" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label type="text" class="form-label">Last Name</label>
-                                    <input type="text" class="form-control" id="lastName" name="LastName" required>
-                                </div>
-                                <div class="col-md-6" style="padding-top: 2.5%;">
-                                    <label type="text" class="form-label">E-mail</label>
-                                    <input type="text" class="form-control" id="emailInfo" name="email" required>
-                                </div>
-                                <div class="col-md-6" style="padding-top: 2.5%;">
-                                    <label type="text" class="form-label">Phone Number (optional)</label>
-                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
-                                </div>
-                                <div class="col-md-12" style="padding-top: 2.5%;">
-                                    <label type="text" class="form-label">Comments</label>
-                                    <textarea class="form-control" id="comments" rows="5" name="comments" require></textarea>
-                                </div><br>
-                                <div class="col-md-12" style="padding-top: 2.5%;">
-                                    <button type="submit" class="btn btn-primary">Submit</button>
-                                </div>
-                            </form>
                         </div>
                     </div>
                 </div>
@@ -207,7 +115,7 @@
                             <div class="card-text">
                                 Email: <a class="clickable-text"
                                     href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a><br>
-                                Phone Number: (440) 821-5281<br>
+                                Phone Number: <a href="tel:4408215281">(440) 821-5281</a><br>
                                 Here is a <a href="./assets/DerekCornielloResume.pdf">link to my resume</a>!
                                 <br>
                             </div>
@@ -242,57 +150,52 @@
                     </div>
                     <div class="card fgdark text-white container">
                         <div class="card-body">
-                            <h4 class="card-title">Clock</h4>
+                            <h4 class="card-title">Check out my Blog Posts!</h4>
                             <hr>
                             <div class="card-text">
-
-                                <canvas id="analog-clock" class="flex text-center" width="150%"
-                                    alt="Clock failed to load."></canvas>
-                                <div id="clock-failure-message" style="display: none;">Failed to load Analog Clock</div>
-                                <div id="digital-time"></div>
+                                <a href="./views/blog.html">Click here</a> to see my blog posts!
                             </div>
                         </div>
                     </div>
-                    <div class="card fgdark text-white container">
+                    <div hidden class="card fgdark text-white container">
                         <div class="card-body">
-                            <h4 class="card-title" style="margin-bottom: 5px;">Comedy Section</h4>
-                            <hr>
-                            <div class="card-text" style="font-size: 12px; margin-bottom: 10px;">Refreshes Every Minute
-                            </div>
-                            <br>
-                            <h5 class="card-title">Random Reddit Meme</h5>
-                            <hr>
-                            <div class="card-text">
-                                <a id="meme-title" href=""></a><br>
-                                <p id="meme-descr"></p>
-                                <img class="card-textm img-fluid" id="meme-img" src=""
-                                    alt="Random Meme failed to load.">
-                            </div>
-                            <br><br>
-                            <h5 class="card-title">Random Joke</h5>
-                            <hr>
-                            <div class="card-text" id="joke">Failed to load joke.</div>
-                            <div class="card-text text-primary clickable-text" id="joke-punchline"></div>
-                            <br>
-                            <div style="font-size: 75%; text-align: center;">Disclaimer: This section uses a public API
-                                and I claim no
-                                responsibility for anything in this section.</div>
+                            <h4 class="card-title">Contact Me</h4><br>
+                            <div class="card-text"></div>
+                            <form class="row g-3" action="">
+                                <div class="col-md-6">
+                                    <label type="text" class="form-label">First Name</label>
+                                    <input type="text" class="form-control" id="firstName" name="FirstName" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label type="text" class="form-label">Last Name</label>
+                                    <input type="text" class="form-control" id="lastName" name="LastName" required>
+                                </div>
+                                <div class="col-md-6" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">E-mail</label>
+                                    <input type="text" class="form-control" id="emailInfo" name="email" required>
+                                </div>
+                                <div class="col-md-6" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">Phone Number (optional)</label>
+                                    <input type="text" class="form-control" id="phoneNumber" name="phoneNumber">
+                                </div>
+                                <div class="col-md-12" style="padding-top: 2.5%;">
+                                    <label type="text" class="form-label">Comments</label>
+                                    <textarea class="form-control" id="comments" rows="5" name="comments"
+                                        require></textarea>
+                                </div><br>
+                                <div class="col-md-12" style="padding-top: 2.5%;">
+                                    <button type="submit" class="btn btn-primary">Submit</button>
+                                </div>
+                            </form>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        Made for the <a style="" href="./views/waph.html">WAPH</a> course.
     </main>
     <!--Footer-->
     <footer class="fgdark p-4 mt-4 gradient-footer row" style="min-height: 2vh; min-width: 2vh;">
-        <div class="text-white text-left mb-0 col" id="footer-time"></div>
-        <a href="https://info.flagcounter.com/Guos"><img
-                src="https://s01.flagcounter.com/count2/Guos/bg_282828/txt_FFFFFF/border_FFFFFF/columns_1/maxflags_5/viewers_3/labels_1/pageviews_0/flags_0/percent_0/"
-                alt="Flag Counter" border="0"></a>
-        <div class="text-white text-right mb-0 col">Created by - Derek Corniello - <a href="./assets/source.pdf">Click
-                to see the source
-                code!</a></div>
+        <div class="text-white text-right mb-0 col">Created by - Derek Corniello</div>
     </footer>
 </body>
 

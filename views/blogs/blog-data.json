@@ -1,0 +1,11 @@
+{
+    "blog1": {
+        "title": "My Transition from VSC*de to NeoVim",
+        "description": "My experience with transitioning from VSC*de to NeoVim. This include setting up NeoVim, lazy.nvim, Mason, and other plugins that help my development cycle. Thank you to ThePrimeagen for providing guides to help me through this!",
+        "link": "blogs/nvim.html",
+        "tags": [
+            "productivity",
+            "editor"
+        ]
+    }
+}
