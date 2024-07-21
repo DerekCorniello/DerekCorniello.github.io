@@ -24,7 +24,6 @@ document.addEventListener("DOMContentLoaded", function() {
                         }
                     });
                     const repoNames = reposResponse.data.map(entry => entry.name);
-                    console.log(repoNames);
                     const languagePromises = repoNames.map(repo => axios.get(`https://api.github.com/repos/${this.username}/${repo}/languages`, {
                         headers: {
                             'User-Agent': 'request',
