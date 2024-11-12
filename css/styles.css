@@ -41,6 +41,10 @@ body {
     color: white;
 }
 
+a.linkbutton:hover {
+    color: white;
+}
+
 .icon-container {
     display: flex;
     justify-content: right;
