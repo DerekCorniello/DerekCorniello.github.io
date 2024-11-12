@@ -20,25 +20,40 @@
 <body class="bgdark">
     <header class="accent1 p-4 gradient-header">
         <div class="row align-items-center">
+            <!--Banner / Header -->
             <div class="d-flex align-items-start align-items-center">
-                <!--Banner / Header -->
                 <img src="../../assets/headshot.jpg" alt="Derek's Profile Picture" class="profile-pic mr-3">
                 <div>
                     <span class="h4">Derek Corniello</span><br>
                     <span>Student at University of Cincinnati<span><br>
-                            <span>Studying Computer Science (B.S.) and Software Engineering (M.Eng.)<span><br>
+                            <span>Studying Computer Science (B.S.)<span><br>
+                                    <span>and Software Engineering (M.Eng.)<span><br>
                 </div>
             </div>
-            <!-- Social Icons -->
+            <div class="d-flex align-items-start align-items-center"
+                style="font-size: 30px; margin-left: 18%; margin-top: 2.5%;">
+                <span><a style="color: white;" href="../../index.html"><b>Home</b></a></span>
+            </div>
+            <div class="d-flex align-items-start align-items-center"
+                style="font-size: 30px; margin-left: 4%; margin-top: 2.5%;">
+                <span><a style="color: white;" href="../blog.html"><b>Blog</b></a></span>
+            </div>
+            <div class="d-flex align-items-start align-items-center"
+                style="font-size: 30px; margin-left: 4%; margin-top: 2.5%;">
+                <span><a style="color: white;" href="../projects.html"><b>Portfolio</b></a></span>
+            </div> <!-- Social Icons -->
             <div class="mt-0 icon-container col">
-                <a href="https://twitter.com/DerekCorniello" class="linkbutton"><i class="bi bi-twitter"></i></a>
-                <a href="https://linkedin.com/in/Derek-Corniello" class="linkbutton"><i class="bi bi-linkedin"></i></a>
-                <a href="https://github.com/DerekCorniello" class="linkbutton"><i class="bi bi-github"></i></a>
+                <a href="https://twitter.com/DerekCorniello" class="linkbutton" target="_blank"><i
+                        class="bi bi-twitter"></i></a>
+                <a href="https://linkedin.com/in/Derek-Corniello" class="linkbutton" target="_blank"><i
+                        class="bi bi-linkedin"></i></a>
+                <a href="https://github.com/DerekCorniello" class="linkbutton" target="_blank"><i
+                        class="bi bi-github"></i></a>
             </div>
         </div>
     </header>
-    <!--Main body of the page-->
-    <main style="line-height: 1.75; word-spacing: 2px;" class="p-4 flex-grow bg-fgdark container-fluid col-sm-12 col-lg-10 col-md-10">
+    <main style="line-height: 1.75; word-spacing: 2px;"
+        class="p-4 flex-grow bg-fgdark container-fluid col-sm-12 col-lg-10 col-md-10">
         <div style="text-align: center;" id="app" class="app">
             <div class="card fgdark text-white container">
                 <div class="card-body">
@@ -74,7 +89,8 @@
                         <br><br>
                         I was astonished watching him program, and one day I realized that he was not an incredibly
                         fast, 200 WPS typer. Through the little I actually watched him type, and watching the screen
-                        change inside the editor, I was astonished as to how he was getting it done so quickly. I knew he
+                        change inside the editor, I was astonished as to how he was getting it done so quickly. I knew
+                        he
                         wasn't using anything different in terms of hardware, so it <b>must</b> be some sort of plugin.
                         I went to his office one evening, and asked about it.
                         <br><br>
@@ -96,11 +112,11 @@
                         <br><br>
                         The key concept that really helped me in learning the motions is the structure. If you have
                         ever watched a video instructing you how to use Vim, you should be familiar with the
-from flask import Flask, request, jsonify, abort
-import psycopg2
-from psycopg2.extras import RealDictCursor
-import os
-from dotenv import load_dotenv
+                        from flask import Flask, request, jsonify, abort
+                        import psycopg2
+                        from psycopg2.extras import RealDictCursor
+                        import os
+                        from dotenv import load_dotenv
                         [command]-[count]-[object] structure. You can do many different things given this notation and
                         Vim's supported commands. For example, if I wanted to edit the last 3 words (split by spaces), I
                         can execute the command 'c3b' when I am on the end of the line! Now it is just learning
@@ -153,7 +169,8 @@ from dotenv import load_dotenv
                             href="https://github.com/wbthomason/packer.nvim">Packer</a>. Ultimately the choice is up to
                         you. Personally, I went a little bit crazy with all of the packages and ended up breaking my
                         configuration, and starting over... more times than I remember. Writing Lua was not something I
-                        had ever done before either. I had never heard of an lsp before, so that was new as well!So I was
+                        had ever done before either. I had never heard of an lsp before, so that was new as well!So I
+                        was
                         thrown to the wolves, persay, but it ultimately landed me in a way better spot.
                         <br><br>
                         Fast forward to today. I use NeoVim daily. For work, school, and personal use. I tell my friends
@@ -166,7 +183,12 @@ from dotenv import load_dotenv
                         <br><br>
                         <h4>Concluding Remarks</h4>
                         <hr>
-                        In the end, I see myself standing with NeoVim for a very long time. I don't see myself moving back to VSC*de any time soon. The flexibility and understanding that I have for my editor is unremarkable, the speed is blazingly fast, and my enjoyment for writing scripts is through the roof. Please, push yourself to new heights and never stay comfortable in your environment. Strive for a better development environment. For efficiency. For *enjoying* coding. Thank you for reading, please reach out to me with any feedback!
+                        In the end, I see myself standing with NeoVim for a very long time. I don't see myself moving
+                        back to VSC*de any time soon. The flexibility and understanding that I have for my editor is
+                        unremarkable, the speed is blazingly fast, and my enjoyment for writing scripts is through the
+                        roof. Please, push yourself to new heights and never stay comfortable in your environment.
+                        Strive for a better development environment. For efficiency. For *enjoying* coding. Thank you
+                        for reading, please reach out to me with any feedback!
                     </div>
                 </div>
             </div>
