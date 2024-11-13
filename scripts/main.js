@@ -17,15 +17,19 @@ document.addEventListener("DOMContentLoaded", function() {
             // Changes them to percentages, and uses Chart.js to create a nice chart!
             async fetchGithubLanguages() {
                 try {
+                    // The authentication is a readonly key, so there is nothing that can be attacked through this
+                    // Tested in curl to ensure there are no issues
                     const reposResponse = await axios.get(`https://api.github.com/users/${this.username}/repos`, {
                         headers: {
                             'User-Agent': 'request',
+                            'Authorization': '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'
                         }
                     });
                     const repoNames = reposResponse.data.map(entry => entry.name);
                     const languagePromises = repoNames.map(repo => axios.get(`https://api.github.com/repos/${this.username}/${repo}/languages`, {
                         headers: {
                             'User-Agent': 'request',
+                            'Authorization': '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'
                         }
                     }));
                     const languagesResponses = await Promise.all(languagePromises);
