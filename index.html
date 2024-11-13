@@ -14,7 +14,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script> <!--Vue.js-->
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script> <!--Axios-->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--Chart.js-->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!--jQuery-->
     <script src="./scripts/main.js"></script>
     <link rel="stylesheet" href="./css/styles.css">
@@ -104,16 +103,13 @@
                             <h4 class="card-title">GitHub Stats</h4>
                             <hr>
                             <div class="card-text">
-                                <div v-if="languages">
-                                    <h3>Languages Used:</h3>
-                                    <br>
-                                    <canvas class="d-flex" style="width: 50%; margin: auto; padding: 0;"
-                                        id="languageChart"></canvas>
-                                    <div id="languageChart-failure-message" style="display: none;">Failed to load
-                                        language breakdown. This error is likely due to a rate limit.</div>
-                                </div>
-                                <div v-else>
-                                    <p>Failed to load language breakdown.</p>
+                                <div class="flex-grow">
+                                    <img style="max-width='40%', height: auto; border-radius: 40px; padding: auto; margin-right: 5%;"
+                                        class="img-fluid" alt="Failed to git history."
+                                        src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&theme=blue-green&show_icons=true&hide_border=true&layout=compact">
+                                    <img style="max-width='60%', height: auto; border-radius: 40px; padding: auto;"
+                                        class="img-fluid" alt="Failed to git history."
+                                        src="https://github-readme-streak-stats.herokuapp.com/?user=DerekCorniello&theme=blue-green&hide_border=true">
                                 </div>
                                 <br>
                                 <img style="max-width='90%', height: auto; border-radius: 40px; padding: auto;"

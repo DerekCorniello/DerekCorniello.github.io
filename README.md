@@ -9,8 +9,7 @@ My personal portfolio site that showcases my skills, work, and projects as a sof
 
 ## Features 
 - Responsive Design
-- Visualizations of my skills using Chart.js
-- A _touch_ of Vue.js, this was for a project requirement
+- Visualizations of my skills
 - Async loading of media
 - ... and more!
 
