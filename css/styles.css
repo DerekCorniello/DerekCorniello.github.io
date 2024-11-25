@@ -19,11 +19,11 @@ body {
 }
 
 .bgdark {
-    background-color: #1F1F1F;
+    background-color: #17191a;
 }
 
 .fgdark {
-    background-color: #282828;
+    background-color: #1F1F1F;
 }
 
 .accent1 {
@@ -56,7 +56,7 @@ a.linkbutton:hover {
 }
 
 .gradient-header {
-    background: linear-gradient(#333FFF, #1F1F1F);
+    background: linear-gradient(#000AAC, #17191A);
     color: white;
     padding: 20px 0;
 }
@@ -69,7 +69,7 @@ a.linkbutton:hover {
     margin-top: 50px;
     margin-bottom: 50px;
     max-width: 100%;
-    border-color: #FFFFFF;
+    border-color: #303436;
     border-width: 5px;
     border-style: solid; 
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.9);
