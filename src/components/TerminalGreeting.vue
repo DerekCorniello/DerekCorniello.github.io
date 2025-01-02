@@ -14,7 +14,7 @@ export default {
   },
   methods: {
     animateTypewriter() {
-      const text = "Welcome, traveller, to Derek Corniello's Space!";
+      const text = "Welcome, traveler, to Derek Corniello's Space!";
       const typewriter = this.$refs.typewriter;
 
       let i = 0;
