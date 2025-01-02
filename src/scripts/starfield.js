@@ -47,7 +47,7 @@ export default function initStarfield(canvas) {
     geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
 
     const material = new THREE.PointsMaterial({
-        color: 0xDDDDDD,
+        color: 0x999999,
     });
 
     // more consts...
