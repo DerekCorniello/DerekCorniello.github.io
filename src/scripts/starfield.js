@@ -51,13 +51,26 @@ export default function initStarfield(canvas) {
         requestAnimationFrame(animate);
 
         for (let i = 0; i < starPositions.length; i += 3) {
-            starPositions[i] += speedX;
-            starPositions[i + 1] += speedY;
-            starPositions[i + 2] += speedZ;
+            let x = starPositions[i];
+            let y = starPositions[i + 1];
+            let z = starPositions[i + 2];
 
-            if (starPositions[i] > 1000) starPositions[i] = -1000;
-            if (starPositions[i + 1] > 1000) starPositions[i + 1] = -1000;
-            if (starPositions[i + 2] > 1000) starPositions[i + 2] = -1000;
+            x += speedX;
+            y += speedY;
+            z += speedZ;
+
+            // wrap stars around the screen when they move out of bounds
+            if (x > 1000) x = -1000;
+            if (x < -1000) x = 1000;
+            if (y > 1000) y = -1000;
+            if (y < -1000) y = 1000;
+            if (z > 1000) z = -1000;
+            if (z < -1000) z = 1000;
+
+            // Update the star positions
+            starPositions[i] = x;
+            starPositions[i + 1] = y;
+            starPositions[i + 2] = z;
         }
 
         geometry.attributes.position.needsUpdate = true;
@@ -65,7 +78,7 @@ export default function initStarfield(canvas) {
     };
 
     animate();
-    
+
     // dynamic resizing
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
