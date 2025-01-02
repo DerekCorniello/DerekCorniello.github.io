@@ -1,17 +1,19 @@
 <template>
   <div class="home-container">
     <Starfield />
-    <h1 class="hello-world">Hello World</h1>
+    <TerminalGreeting />
   </div>
 </template>
 
 <script>
 import Starfield from '@/components/Starfield.vue';
+import TerminalGreeting from '@/components/TerminalGreeting.vue';
 
 export default {
   name: 'Home',
   components: {
-    Starfield
+    Starfield,
+    TerminalGreeting
   }
 };
 </script>
@@ -25,13 +27,5 @@ export default {
   justify-content: center;
   align-items: center;
   background-color: black;
-}
-
-.hello-world {
-  position: relative;
-  font-size: 3rem;
-  color: white;
-  z-index: 2;
-  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
 </style>

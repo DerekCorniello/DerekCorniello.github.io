@@ -11,10 +11,10 @@ export default function initStarfield(canvas) {
     renderer.setPixelRatio(window.devicePixelRatio);
 
     // consts, for setup, these are baseline vals
-    const minSize = 0.5;
-    const maxSize = 2;
-    const minZ = -200;
-    const maxZ = -100;
+    const minSize = 500;
+    const maxSize = 1500;
+    const minZ = -120;
+    const maxZ = -50;
 
     const starCount = 7000;
     const geometry = new THREE.BufferGeometry();
@@ -27,21 +27,9 @@ export default function initStarfield(canvas) {
         positions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
         positions[i * 3 + 2] = Math.random() * (maxZ - minZ) + minZ;
 
+        // Ensure sizes are between minSize and maxSize
         sizes[i] = Math.random() * (maxSize - minSize) + minSize;
     }
-    // DEBUG comment out to get one of the largest
-    // and one of the smallest stars
-    /*
-    positions[0] = 0;
-    positions[1] = 0;
-    positions[2] = minZ;
-    sizes[0] = maxSize;
-
-    positions[1 * 3] = 0;
-    positions[1 * 3 + 1] = 0;
-    positions[1 * 3 + 2] = maxZ;
-    sizes[1] = minSize;
-    */
 
     geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
     geometry.setAttribute('size', new THREE.BufferAttribute(sizes, 1));
@@ -50,7 +38,6 @@ export default function initStarfield(canvas) {
         color: 0x999999,
     });
 
-    // more consts...
     const stars = new THREE.Points(geometry, material);
     scene.add(stars);
 
