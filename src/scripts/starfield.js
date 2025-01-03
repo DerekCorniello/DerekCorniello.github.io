@@ -10,22 +10,23 @@ export default function initStarfield(canvas) {
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setPixelRatio(window.devicePixelRatio);
 
-    // consts, for setup, these are baseline vals
+    // Constants for setup
     const minSize = 500;
-    const maxSize = 1500;
+    const maxSize = 1000;
     const minZ = -120;
     const maxZ = -50;
+    const boundary = 1000; // Boundaries for wrapping stars
 
     const starCount = 7000;
     const geometry = new THREE.BufferGeometry();
     const positions = new Float32Array(starCount * 3);
     const sizes = new Float32Array(starCount);
 
-    // generate all of the stars with random positions
+    // Generate initial stars with random positions and sizes
     for (let i = 0; i < starCount; i++) {
-        positions[i * 3] = (Math.random() - 0.5) * 2000;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
-        positions[i * 3 + 2] = Math.random() * (maxZ - minZ) + minZ;
+        positions[i * 3] = (Math.random() - 0.5) * boundary * 2; // X
+        positions[i * 3 + 1] = (Math.random() - 0.5) * boundary * 2; // Y
+        positions[i * 3 + 2] = Math.random() * (maxZ - minZ) + minZ; // Z
 
         // Ensure sizes are between minSize and maxSize
         sizes[i] = Math.random() * (maxSize - minSize) + minSize;
@@ -42,31 +43,42 @@ export default function initStarfield(canvas) {
     scene.add(stars);
 
     const starPositions = geometry.attributes.position.array;
-    const speedX = 0.05;
-    const speedY = 0.03;
-    const speedZ = 0.01;
+    const speedX = 0.08;
+    const speedY = 0.05;
+    const speedZ = 0.03;
 
-    // animation loop
+    // Animation loop
     const animate = () => {
         requestAnimationFrame(animate);
 
         for (let i = 0; i < starPositions.length; i += 3) {
-            starPositions[i] += speedX;
-            starPositions[i + 1] += speedY;
-            starPositions[i + 2] += speedZ;
+            starPositions[i] += speedX; // Move X
+            starPositions[i + 1] += speedY; // Move Y
+            starPositions[i + 2] += speedZ; // Move Z
 
-            if (starPositions[i] > 1000) starPositions[i] = -1000;
-            if (starPositions[i + 1] > 1000) starPositions[i + 1] = -1000;
-            if (starPositions[i + 2] > 1000) starPositions[i + 2] = -1000;
+            // Reintroduce stars when they go out of bounds
+            if (starPositions[i] > boundary || starPositions[i] < -boundary) {
+                starPositions[i] = (Math.random() - 0.5) * boundary * 2;
+                starPositions[i + 1] = (Math.random() - 0.5) * boundary * 2;
+                starPositions[i + 2] = Math.random() * (maxZ - minZ) + minZ;
+            }
+            if (starPositions[i + 1] > boundary || starPositions[i + 1] < -boundary) {
+                starPositions[i + 1] = (Math.random() - 0.5) * boundary * 2;
+                starPositions[i] = (Math.random() - 0.5) * boundary * 2;
+                starPositions[i + 2] = Math.random() * (maxZ - minZ) + minZ;
+            }
+            if (starPositions[i + 2] > boundary || starPositions[i + 2] < -boundary) {
+                starPositions[i + 2] = Math.random() * (maxZ - minZ) + minZ;
+            }
         }
 
-        geometry.attributes.position.needsUpdate = true;
+        geometry.attributes.position.needsUpdate = true; // Update positions
         renderer.render(scene, camera);
     };
 
     animate();
-    
-    // dynamic resizing
+
+    // Handle dynamic resizing
     window.addEventListener('resize', () => {
         renderer.setSize(window.innerWidth, window.innerHeight);
         camera.aspect = window.innerWidth / window.innerHeight;
