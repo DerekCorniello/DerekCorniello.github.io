@@ -1,12 +1,12 @@
 <template>
     <BasePage>
-    <h1 class="title">About Me</h1>
+    <h1 class="title">Contact</h1>
         <div class="containers-holder">
             <Container>
                 <template #title>
-                    About Me Test Title
+                    Contact Test Title
                 </template>
-                About me Test desc!
+                Contact Test desc!
                 <br>
                 Mult lines!
             </Container>
