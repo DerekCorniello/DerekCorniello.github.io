@@ -46,7 +46,6 @@ export default {
   color: #00ffcc; /* Terminal green */
   white-space: nowrap;
   padding: 1rem;
-  z-index: 10;
   border-radius: 10px; /* Optional rounded corners for terminal box */
   width: 50ch; /* Width is fixed to accommodate the text and the > symbol (adjust '40ch' as needed) */
   background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for the terminal */

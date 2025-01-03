@@ -38,6 +38,7 @@ export default {
 </script>
 
 <style scoped>
+
 .base-page {
   display: flex;
   flex-direction: column;
@@ -49,7 +50,6 @@ export default {
   color: white;
   width: 100%;
   padding: 1rem;
-  z-index: 10;
 }
 
 .page-header .header-content {
@@ -106,6 +106,7 @@ export default {
 .page-content {
   flex-grow: 1;
   padding: 2rem;
+  color: white;
 }
 
 /* Media queries for responsiveness */
