@@ -3,7 +3,7 @@
   <div class="base-page">
     <header class="page-header">
       <div class="header-content">
-        <h1>Derek Corniello</h1>
+          <router-link to="/"><h1>Derek Corniello</h1></router-link>
         <nav class="header-links">
           <router-link to="projects">Projects</router-link>
           <router-link to="contact">Contact</router-link>
