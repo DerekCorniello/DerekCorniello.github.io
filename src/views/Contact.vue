@@ -19,7 +19,7 @@ import BasePage from '@/components/BasePage.vue';
 import Container from '@/components/Container.vue';
 
 export default {
-  name: 'about',
+  name: 'contact',
   components: {
       BasePage,
       Container
