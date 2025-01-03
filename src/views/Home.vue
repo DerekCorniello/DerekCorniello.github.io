@@ -1,34 +1,34 @@
 <template>
-  <div class="home-container">
-    <Starfield />
-    <div class="center-container">
+  <BasePage>
+    <div class="content-container">
       <div class="terminal-greeting-container">
         <TerminalGreeting />
       </div>
-      <div class="landing-card">
-        <div class="intro">
-          <p class="tagline">Innovative developer crafting cutting-edge solutions and intuitive designs to solve real-world problems—driven to deliver impact and elevate user experiences</p>
-        </div>
-        <div class="cta-buttons">
-          <button @click="navigateTo('projects')" class="cta-button">View Projects</button>
-          <button @click="navigateTo('contact')" class="cta-button">Get in Touch</button>
-          <button @click="navigateTo('blog')" class="cta-button">Visit Blog</button>
-          <button @click="navigateTo('about')" class="cta-button">About Me</button>
-          <button @click="navigateTo('base')" class="cta-button">Test</button>
+      <div class="landing-card-container">
+        <div class="landing-card">
+          <div class="intro">
+            <p class="tagline">Innovative developer crafting cutting-edge solutions and intuitive designs to solve real-world problems, driven to deliver impactful and innovative solutions</p>
+          </div>
+          <div class="cta-buttons">
+            <button @click="navigateTo('projects')" class="cta-button">View Projects</button>
+            <button @click="navigateTo('contact')" class="cta-button">Get in Touch</button>
+            <button @click="navigateTo('blog')" class="cta-button">Visit Blog</button>
+            <button @click="navigateTo('about')" class="cta-button">About Me</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
+  </BasePage>
 </template>
 
 <script>
-import Starfield from '@/components/Starfield.vue';
+import BasePage from '@/components/BasePage.vue';
 import TerminalGreeting from '@/components/TerminalGreeting.vue';
 
 export default {
   name: 'Home',
   components: {
-    Starfield,
+    BasePage,
     TerminalGreeting
   },
   methods: {
@@ -40,28 +40,26 @@ export default {
 </script>
 
 <style scoped>
-.home-container {
-  position: relative;
-  height: 100vh;
-  display: flex;
-  flex-direction: column;
-  justify-content: center; /* Vertically center the content */
-  align-items: center;     /* Horizontally center the content */
-  background-color: black;
+
+html, body {
+  background-color: #000; 
 }
 
-.center-container {
+.content-container {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 75vh; /* Takes up the full viewport height */
+  padding: 0 2rem; /* Add horizontal padding */
+  box-sizing: border-box; /* Prevents overflow */
 }
 
-.terminal-greeting-container {
-  width: 100%;
+.terminal-greeting-container,
+.landing-card-container {
   display: flex;
   justify-content: center;
-  z-index: 2;
+  width: 100%;
 }
 
 .landing-card {
@@ -73,7 +71,7 @@ export default {
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
   text-align: center;
   width: 90%;
-  max-width: 700px; /* Add a maximum width for larger screens */
+  max-width: 700px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -90,7 +88,7 @@ export default {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  flex-wrap: wrap; /* Allow buttons to wrap on smaller screens */
+  flex-wrap: wrap;
 }
 
 .cta-button {
@@ -109,10 +107,9 @@ export default {
   box-shadow: 0 4px 12px rgba(0, 255, 204, 0.8);
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
   .landing-card {
-    margin-top: 50px; /* Adjust spacing for smaller screens */
+    margin-top: 50px;
     padding: 1.5rem;
   }
 
@@ -126,7 +123,7 @@ export default {
   }
 
   .cta-buttons {
-    flex-direction: column; /* Stack buttons vertically on small screens */
+    flex-direction: column;
   }
 }
 </style>

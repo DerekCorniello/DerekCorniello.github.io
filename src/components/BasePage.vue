@@ -5,10 +5,10 @@
       <div class="header-content">
         <h1>Derek Corniello</h1>
         <nav class="header-links">
-          <a href="/projects">Projects</a>
-          <a href="/contact">Contact</a>
-          <a href="/blog">Blog</a>
-          <a href="/about">About Me</a>
+          <router-link to="projects">Projects</router-link>
+          <router-link to="contact">Contact</router-link>
+          <router-link to="blog">Blog</router-link>
+          <router-link to="about">About Me</router-link>
         </nav>
       </div>
     </header>
@@ -19,8 +19,7 @@
 
     <footer class="page-footer">
       <div class="footer-content">
-        Created by: Derek Corniello - 
-        <a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank">Source Code</a>
+        Created by: Derek Corniello - <a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" style="margin-left: 0px;">Source Code</a>
       </div>
     </footer>
   </div>
@@ -38,6 +37,15 @@ export default {
 </script>
 
 <style scoped>
+
+body {
+  overscroll-behavior: none; /* Prevents scrolling when content is minimal */
+}
+
+a {
+    margin-left: 6px;
+    margin-right: 6px;
+}
 
 .base-page {
   display: flex;
@@ -104,7 +112,7 @@ export default {
 
 /* Allow page content to take up remaining space */
 .page-content {
-  flex-grow: 1;
+  flex: 1 0 auto; /* Ensures this section grows but does not stretch infinitely */
   padding: 2rem;
   color: white;
 }

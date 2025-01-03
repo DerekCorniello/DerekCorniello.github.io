@@ -27,11 +27,17 @@ export default {
 </script>
 
 <style scoped>
+html, body {
+  background-color: #000; 
+}
+
 .containers-holder {
     display: flex;
-    justify-content: center; /* Centers horizontally */
-    align-items: center;     /* Centers vertically */
-    height: 100vh;           /* Ensures it takes full viewport height */
-    flex-direction: column;  /* Optional: Centers in column direction if you have more containers */
+    justify-content: flex-start; /* Align items to the top */
+    align-items: center;         /* Horizontally center the content */
+    padding: 0;                  /* Remove any padding */
+    margin: 0;                   /* Remove any margin */
+    flex-direction: column;      /* Align items vertically in column direction */
+    flex-grow: 1;                /* Ensures that content grows to fill remaining space */
 }
 </style>
