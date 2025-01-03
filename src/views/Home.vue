@@ -14,6 +14,7 @@
           <button @click="navigateTo('contact')" class="cta-button">Get in Touch</button>
           <button @click="navigateTo('blog')" class="cta-button">Visit Blog</button>
           <button @click="navigateTo('about')" class="cta-button">About Me</button>
+          <button @click="navigateTo('base')" class="cta-button">Test</button>
         </div>
       </div>
     </div>
