@@ -33,6 +33,14 @@ const router = createRouter({
             name: 'projects',
             component: Projects,
         },
+        {
+          path: '/resume',
+          name: 'Resume',
+          beforeEnter: (_, __, next) => {
+            window.open('/resume.pdf', '_blank');
+            next(false);
+          },
+        },
     ],
 })
 

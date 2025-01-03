@@ -28,7 +28,6 @@ export default {
   border-radius: 16px;
   padding: 2.5rem;
   margin: 2rem auto;
-  max-width: 800px;
   width: 90%;
   position: relative;
   backdrop-filter: blur(1px);
