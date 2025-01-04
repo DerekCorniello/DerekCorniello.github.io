@@ -7,7 +7,7 @@
                 <template #title>
                     👋 Hello, I'm Derek Corniello!
                 </template>
-                I'm a CS/SWE student at the University of Cincinnati. I’m passionate about diving into software product design, project management, back-end development, and DevOps. My curiosity and eagerness to learn drive me to keep exploring, one project at a time!
+                I'm a CS/SWE student at the University of Cincinnati. I’m passionate about diving into software product design, project management, and back-end development. My curiosity and eagerness to learn drive me to keep exploring, one project and concept at a time! Please <strong>explore my page</strong> and feel free to <strong><u><router-link to="contact">contact me</router-link></u></strong> or <strong><u><router-link to="contact">view my resume</router-link></u></strong>!
                 <br><br>
                 <div class="links">
                     <a href="https://www.linkedin.com/in/derek-corniello" target="_blank" style="text-decoration: none;">
@@ -64,11 +64,11 @@
                     🏆 My Top Projects
                 </template>
                 <ul>
+                    <li><strong>gitcmd:</strong> Rust - A customizable git terminal. <em>In development</em></li>
                     <li><strong>DevBits:</strong> Go, React, Docker, AWS - A cross between X and LinkedIn for posting project updates. <em>In development</em></li>
                     <li><strong>ReqInspect:</strong> Go, Vue, AWS - Full-stack app for validating `requirements.txt` files, deployed on AWS.</li>
-                    <li><strong>Professional Site:</strong> JavaScript, HTML, CSS, jQuery - Static site showcasing background, projects, and blogs.</li>
+                    <li><strong>Professional Site:</strong> Vue, Vite, JavaScript, HTML, CSS - Portfolio site showcasing background, projects, and blogs.</li>
                     <li><strong>AmandaLynnDashboard:</strong> Python, Django, Vue - Custom inventory and financial management app.</li>
-                    <li><strong>Billiards Bonanza:</strong> C#, Unity - Retro 8-bit billiards game with arcade features.</li>
                 </ul>
             </Container>
             <Container>
@@ -77,9 +77,10 @@
                 </template>
                 <ul>
                     <li>Building <strong>DevBits</strong> - A new social media app.</li>
-                    <li>Enhancing <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a streamlined Arch Linux setup.</li>
-                    <li>Exploring Haskell and Scala as FP languages.</li>
-                    <li>Grinding LeetCode and tackling <a href="https://github.com/DerekCorniello/advent-of-code-2024" target="_blank">Advent of Code</a> challenges in Go!</li>
+                    <li>Building <strong>gitcmd</strong> - A customizable git terminal.</li>
+                    <li>Enhancing <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a streamlined Neovim + Arch Linux setup.</li>
+                    <li>Exploring new programming paradigms.</li>
+                    <li>Grinding LeetCode!</li>
                 </ul>
             </Container>
         </div>
@@ -100,9 +101,6 @@ export default {
 </script>
 
 <style scoped>
-html, body {
-  background-color: #000; 
-}
 
 .containers-holder {
     display: flex;

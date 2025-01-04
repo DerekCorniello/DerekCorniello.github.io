@@ -5,6 +5,7 @@
       <div class="header-content">
           <router-link to="/"><h1>Derek Corniello</h1></router-link>
         <nav class="header-links">
+          <router-link to="resume">Resume</router-link>
           <router-link to="projects">Projects</router-link>
           <router-link to="contact">Contact</router-link>
           <router-link to="blog">Blog</router-link>
@@ -37,11 +38,6 @@ export default {
 </script>
 
 <style scoped>
-
-body {
-  overscroll-behavior: none; /* Prevents scrolling when content is minimal */
-}
-
 a {
     margin-left: 6px;
     margin-right: 6px;
