@@ -4,6 +4,7 @@ import About from '@/views/About.vue'
 import Blog from '@/views/Blog.vue'
 import Contact from '@/views/Contact.vue'
 import Projects from '@/views/Projects.vue'
+import nvim from '@/blogs/nvim.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -41,6 +42,11 @@ const router = createRouter({
             next(false);
           },
         },
+        {
+            path: '/blogs/nvim-transition',
+            name: 'nvim-transition',
+            component: nvim,
+        }
     ],
 })
 
