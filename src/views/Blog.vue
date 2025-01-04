@@ -196,6 +196,7 @@ export default {
 
 .top-row .container {
   width: 30%; /* Adjust to fit 3 items */
+  height: 10%;
 }
 
 .searchbar {
@@ -208,7 +209,7 @@ export default {
 
 ul {
   list-style-type: disc; /* Dots for recent posts */
-  padding-left: 20px;
+  padding-left: .25rem;
 }
 
 ul li {

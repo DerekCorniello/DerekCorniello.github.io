@@ -5,3 +5,14 @@
 :root {
     overscroll-behavior: none;
 }
+
+html {
+  font-size: clamp(8px, 2vw, 14px); /* Scales font size dynamically based on viewport width */
+}
+
+body {
+  font-family: "Inconsolata", monospace; /* Or any desired font */
+  line-height: 1.6; /* Adjust for readability */
+  margin: 0;
+  padding: 0;
+}
