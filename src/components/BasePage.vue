@@ -5,11 +5,11 @@
       <div class="header-content">
           <router-link to="/"><h1>Derek Corniello</h1></router-link>
         <nav class="header-links">
-          <router-link to="about">About Me</router-link>
-          <router-link to="projects">Projects</router-link>
-          <router-link to="blog">Blog</router-link>
-          <router-link to="resume">Resume</router-link>
-          <router-link to="contact">Contact</router-link>
+          <router-link to="/about">About Me</router-link>
+          <router-link to="/projects">Projects</router-link>
+          <router-link to="/blog">Blog</router-link>
+          <router-link to="/resume">Resume</router-link>
+          <router-link to="/contact">Contact</router-link>
         </nav>
       </div>
     </header>

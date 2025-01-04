@@ -23,6 +23,13 @@ const router = createRouter({
             path: '/blog',
             name: 'blog',
             component: Blog,
+            children: [
+                {
+                    path: 'nvim-transition',
+                    name: 'nvim-transition',
+                    component: nvim,
+                },
+            ],
         },
         {
             path: '/contact',

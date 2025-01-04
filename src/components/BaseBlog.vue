@@ -30,7 +30,7 @@ export default {
 <style scoped>
 .blog-container {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.4); /* Adjusted for blog background */
+  background-color: rgba(0, 0, 0, 0.8); /* Adjusted for blog background */
   border-radius: 8px;
 }
 
