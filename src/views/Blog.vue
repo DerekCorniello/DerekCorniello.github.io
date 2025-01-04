@@ -61,18 +61,16 @@
               <div class="read-more">
                 <router-link :to="item.link" :style="{ color: '#00ffcc' }"><strong>Read More</strong></router-link>
               </div>
-
-              
-              <div class="tags-container">
-                <span
-                  v-for="(tag, tagIndex) in item.tags"
-                  :key="tagIndex"
-                  class="tag"
-                  :style="{ backgroundColor: '#ff66b2' }"
-                >
-                  {{ tag }}
-                </span>
-              </div>
+                <div class="tags-container">
+                  <span
+                    v-for="(tag, tagIndex) in item.tags"
+                    :key="tagIndex"
+                    class="tag"
+                    :style="{ backgroundColor: '#ff66b2', color: '#FFFFFF' }"
+                  >
+                    {{ tag }}
+                  </span>
+                </div>
             </Container>
           </div>
         </div>
@@ -255,7 +253,6 @@ ul li {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin-top: 1rem;
 }
 
 .tag {
@@ -291,14 +288,12 @@ ul li {
   z-index: 1;
   border-radius: 5px;
   box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  padding: 0.5rem;
   width: 100%;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
   border: 1px solid white;
-  margin-top: 10px;
 }
 
 label {

@@ -26,7 +26,7 @@
                         Little did I know, I would be sitting here, using NeoVim myself, writing this article, a few
                         months later. Now, here's the short journey of how I migrated from VSC*de to NeoVim.
                         <br><br><br>
-                        <h3>My introduction to Vim</h3>
+                        <div style="text-align: center; font-size: 1.5rem;"><strong><u>My introduction to Vim</u></strong></div>
                         <div class="divider-container">
                             <div class="divider-line"></div>
                             <div class="divider-glow"></div>
@@ -49,7 +49,7 @@
                             get a feel for it, but then it moves mountains in terms of productivity. You've seen me use
                             it in class</i>. Hmmm... It is intriguing...
                         <br><br><br>
-                        <h3>Going Through the (Vim) Motions</h3>
+                        <div style="text-align: center; font-size: 1.5rem;"><strong><u>Going Through the (Vim) Motions</u></strong></div>
                         <div class="divider-container">
                             <div class="divider-line"></div>
                             <div class="divider-glow"></div>
@@ -93,7 +93,7 @@
                         <br><br>
                         Enter NeoVim.
                         <br><br>
-                        <h4>NeoVim, the Editor to End All Editors</h4>
+                        <div style="text-align: center; font-size: 1.5rem;"><strong><u>NeoVim, the Editor to End All Editors</u></strong></div>
                         <div class="divider-container">
                             <div class="divider-line"></div>
                             <div class="divider-glow"></div>
@@ -131,7 +131,7 @@
                         also a good project being put on that helps beginners make their own setup faster, called <a
                             href="https://github.com/nvim-lua/kickstart.nvim">Kickstart</a>. Please try it out!
                         <br><br>
-                        <h4>Concluding Remarks</h4>
+                        <div style="text-align: center; font-size: 1.5rem;"><strong><u>Concluding Remarks</u></strong></div>
                         <div class="divider-container">
                            <div class="divider-line"></div>
                            <div class="divider-glow"></div>
@@ -143,6 +143,18 @@
                         Strive for a better development environment. For efficiency. For *enjoying* coding. Thank you
                         for reading, please reach out to me with any feedback!
                     </div>
+                <br><br>
+        <router-link 
+          style="
+                 text-align: center; 
+                 background-color: #ff66b2; 
+                 color: white; 
+                 padding: 10px 20px; 
+                 border-radius: 5px; 
+                 text-decoration: none;"
+          to="/blog">
+            <- Back to Blogs
+        </router-link>
     </BaseBlog>
 </template>
 
