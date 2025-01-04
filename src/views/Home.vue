@@ -10,10 +10,10 @@
             <p class="tagline">Innovative developer crafting cutting-edge solutions and intuitive designs to solve real-world problems, driven to deliver impactful and innovative solutions</p>
           </div>
           <div class="cta-buttons">
+              <button @click="navigateTo('about')" class="cta-button">About Me</button>
+              <button @click="navigateTo('contact')" class="cta-button">Get in Touch</button>
             <button @click="navigateTo('projects')" class="cta-button">View Projects</button>
-            <button @click="navigateTo('contact')" class="cta-button">Get in Touch</button>
             <button @click="navigateTo('blog')" class="cta-button">Visit Blog</button>
-            <button @click="navigateTo('about')" class="cta-button">About Me</button>
           </div>
         </div>
       </div>
