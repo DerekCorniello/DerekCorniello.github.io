@@ -1,52 +1,101 @@
 <template>
-    <BasePage>
-    <h1 class="title">Contact</h1>
-        <div class="containers-holder">
-            <Container>
-                <template #title>
-                    Contact Test Title
-                </template>
-                Contact Test desc!
-                <br>
-                Mult lines!
-            </Container>
-        </div>
-    </BasePage>
+  <BasePage>
+    <div class="contact-page">
+      <h1 class="title">Contact Me</h1>
+      <p class="subtitle">
+        I'd love to hear from you! Feel free to reach out using the form below or via my socials.
+      </p>
+      <div class="containers-holder" style="width: 70%">
+        <Container>
+          <template #title>
+            Get In Touch
+          </template>
+          <div class="contact-details">
+            <p>Email: <a href="mailto:corniedj@mail.uc.edu">corniedj@mail.uc.edu</a></p>
+            <p>Phone: <a href="tel:+14408215281">440-821-5281</a></p>
+            <p>
+              LinkedIn: 
+              <a href="https://linkedin.com/in/derek-corniello" target="_blank">linkedin.com/in/derek-corniello</a>
+            </p>
+          </div>
+        </Container>
+      </div>
+    </div>
+  </BasePage>
 </template>
 
 <script>
-import BasePage from '@/components/BasePage.vue';
-import Container from '@/components/Container.vue';
+import BasePage from "@/components/BasePage.vue";
+import Container from "@/components/Container.vue";
 
 export default {
-  name: 'contact',
+  name: "contact",
   components: {
-      BasePage,
-      Container
+    BasePage,
+    Container,
   },
 };
 </script>
 
 <style scoped>
-html, body {
-  background-color: #000; 
-}
-
-.containers-holder {
-    display: flex;
-    justify-content: flex-start; /* Align items to the top */
-    align-items: center;         /* Horizontally center the content */
-    padding: 0;                  /* Remove any padding */
-    margin: 0;                   /* Remove any margin */
-    flex-direction: column;      /* Align items vertically in column direction */
-    flex-grow: 1;                /* Ensures that content grows to fill remaining space */
+.contact-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem;
+  color: white;
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00ffcc; /* Neon green for impact */
   margin: 0;
   text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.containers-holder {
+  display: flex;
+  flex-wrap: wrap; /* Allow responsive stacking */
+  justify-content: center;
+  gap: 2rem;
+}
+
+.contact-details p {
+  margin: 0.5rem 0;
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+.contact-details a {
+  color: #00ffcc;
+  text-decoration: none;
+}
+
+.contact-details a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+  .containers-holder {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
 }
 </style>

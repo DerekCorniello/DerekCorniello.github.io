@@ -113,11 +113,19 @@ export default {
 }
 
 .title {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: rgba(255, 255, 255, 0.95);
+  font-size: 3rem;
+  font-weight: bold;
+  color: #00ffcc; /* Neon green for impact */
   margin: 0;
   text-align: center;
+  padding-bottom: 0.5rem;
+}
+
+.subtitle {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  text-align: center;
+  margin-bottom: 2rem;
 }
 
 .links {
