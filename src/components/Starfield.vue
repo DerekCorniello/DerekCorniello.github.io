@@ -21,11 +21,11 @@ export default {
 
 <style scoped>
 .starfield {
-  position: absolute;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  height: 150vh;
+  height: 100%;
   z-index: -1;
 }
 </style>

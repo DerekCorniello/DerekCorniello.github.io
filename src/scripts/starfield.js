@@ -77,11 +77,21 @@ export default function initStarfield(canvas) {
         camera.updateProjectionMatrix();
     };
 
-    window.addEventListener('resize', onResize);
+    // Adjust on load and resize, also listen for orientation changes
+    const adjustCanvasSize = () => {
+        onResize(); // Apply the resize logic to account for height changes
+    };
+
+    window.addEventListener('resize', adjustCanvasSize);
+    window.addEventListener('orientationchange', adjustCanvasSize); // Handles device rotation
+
+    // Ensure resize happens after a small delay to account for dynamic UI changes
+    setTimeout(adjustCanvasSize, 500); // Small timeout to adjust after any initial layout shifts
 
     // Cleanup function
     return () => {
-        window.removeEventListener('resize', onResize);
+        window.removeEventListener('resize', adjustCanvasSize);
+        window.removeEventListener('orientationchange', adjustCanvasSize);
         geometry.dispose();
         material.dispose();
     };
