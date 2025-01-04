@@ -17,11 +17,10 @@
     <main class="page-content">
       <slot></slot> <!-- Content injected here -->
     </main>
-
     <footer class="page-footer">
       <div class="footer-content">
-          Created by: Derek Corniello<br><br>
-          <a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" style="margin-left: 0px;">Source Code</a>
+        <p>Created by: Derek Corniello</p>
+        <p><a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank">Source Code</a></p>
       </div>
     </footer>
   </div>
@@ -94,8 +93,9 @@ a {
 }
 
 .footer-content {
-  display: inline-flex; /* Ensures proper alignment of text and link */
-  gap: 0.3rem; /* Adds consistent spacing between elements */
+  display: flex; /* Ensures proper flexbox behavior */
+  flex-direction: column; /* Stack the items vertically */
+  align-items: center; /* Center the items horizontally */
 }
 
 .page-footer a {
