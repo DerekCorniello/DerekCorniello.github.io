@@ -23,12 +23,12 @@ export default {
 
 <style scoped>
 .container {
-  background: rgba(0, 0, 0, 1); /* Solid black with .5 alpha */
+  background: rgba(0, 0, 0, .5); /* Solid black with .5 alpha */
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 2.5rem;
   margin: 2rem auto;
-  width: 90%;
+  width: 70%;
   position: relative;
   backdrop-filter: blur(1px);
 }

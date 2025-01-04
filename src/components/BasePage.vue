@@ -5,11 +5,11 @@
       <div class="header-content">
           <router-link to="/"><h1>Derek Corniello</h1></router-link>
         <nav class="header-links">
-          <router-link to="resume">Resume</router-link>
-          <router-link to="projects">Projects</router-link>
-          <router-link to="contact">Contact</router-link>
-          <router-link to="blog">Blog</router-link>
           <router-link to="about">About Me</router-link>
+          <router-link to="projects">Projects</router-link>
+          <router-link to="blog">Blog</router-link>
+          <router-link to="resume">Resume</router-link>
+          <router-link to="contact">Contact</router-link>
         </nav>
       </div>
     </header>
@@ -20,7 +20,8 @@
 
     <footer class="page-footer">
       <div class="footer-content">
-        Created by: Derek Corniello - <a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" style="margin-left: 0px;">Source Code</a>
+          Created by: Derek Corniello<br><br>
+          <a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" style="margin-left: 0px;">Source Code</a>
       </div>
     </footer>
   </div>
