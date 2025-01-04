@@ -8,8 +8,8 @@
           <router-link to="/about">About Me</router-link>
           <router-link to="/projects">Projects</router-link>
           <router-link to="/blog">Blog</router-link>
-          <router-link to="/resume">Resume</router-link>
           <router-link to="/contact">Contact</router-link>
+          <router-link to="/resume">Resume</router-link>
         </nav>
       </div>
     </header>
