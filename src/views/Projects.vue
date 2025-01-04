@@ -117,18 +117,18 @@ export default {
 <style scoped>
 .containers-holder {
     display: flex;
-    justify-content: flex-start; /* Align items to the top */
-    align-items: center;         /* Horizontally center the content */
-    padding: 0;                  /* Remove any padding */
-    margin: 0;                   /* Remove any margin */
-    flex-direction: column;      /* Align items vertically in column direction */
-    flex-grow: 1;                /* Ensures that content grows to fill remaining space */
+    justify-content: flex-start; 
+    align-items: center;         
+    padding: 0;                  
+    margin: 0;                   
+    flex-direction: column;      
+    flex-grow: 1;                
 }
 
 .title {
   font-size: 3rem;
   font-weight: bold;
-  color: #00ffcc; /* Neon green for impact */
+  color: #00ffcc; 
   margin: 0;
   text-align: center;
   padding-bottom: 0.5rem;
@@ -136,7 +136,7 @@ export default {
 
 .subtitle {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  color: rgba(255, 255, 255, 0.8); 
   text-align: center;
   margin-bottom: 2rem;
 }

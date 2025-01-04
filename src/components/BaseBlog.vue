@@ -2,9 +2,9 @@
   <BasePage>
     <div class="blog-container">
       <h1 class="blog-title">{{ title }}</h1>
-      <!-- Default slot for the content -->
+      
       <div class="blog-content">
-        <slot></slot> <!-- This will allow you to pass any content into this spot -->
+        <slot></slot> 
       </div>
     </div>
   </BasePage>
@@ -30,13 +30,13 @@ export default {
 <style scoped>
 .blog-container {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8); /* Adjusted for blog background */
+  background-color: rgba(0, 0, 0, 0.8); 
   border-radius: 8px;
 }
 
 .blog-title {
   font-size: 2.5rem;
-  color: #ff66b2; /* Pink color for the title */
+  color: #ff66b2; 
   margin-bottom: 1rem;
 }
 

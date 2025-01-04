@@ -23,7 +23,7 @@ export default {
 
 <style scoped>
 .container {
-  background: rgba(0, 0, 0, .5); /* Solid black with .5 alpha */
+  background: rgba(0, 0, 0, .5); 
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 16px;
   padding: 2.5rem;
@@ -86,7 +86,7 @@ export default {
   padding: 0.5rem 0;
 }
 
-/* Media queries for responsiveness */
+
 @media (max-width: 768px) {
   .container {
     padding: 1.75rem;

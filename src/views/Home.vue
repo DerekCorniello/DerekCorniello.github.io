@@ -53,9 +53,9 @@ html, body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 75vh; /* Takes up the full viewport height */
-  padding: 0 2rem; /* Add horizontal padding */
-  box-sizing: border-box; /* Prevents overflow */
+  height: 75vh; 
+  padding: 0 2rem; 
+  box-sizing: border-box; 
 }
 
 .terminal-greeting-container,
@@ -67,7 +67,7 @@ html, body {
 
 .landing-card {
   position: relative;
-  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  background: rgba(0, 0, 0, 0.5); 
   color: white;
   padding: 2rem;
   border-radius: 1rem;

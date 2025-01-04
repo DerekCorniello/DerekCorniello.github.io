@@ -118,7 +118,7 @@ export default {
 .title {
   font-size: 3rem;
   font-weight: bold;
-  color: #00ffcc; /* Neon green for impact */
+  color: #00ffcc; 
   margin: 0;
   text-align: center;
   padding-bottom: 0.5rem;
@@ -126,7 +126,7 @@ export default {
 
 .subtitle {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8); /* Softer white */
+  color: rgba(255, 255, 255, 0.8); 
   text-align: center;
   margin-bottom: 2rem;
 }

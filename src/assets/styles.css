@@ -7,12 +7,12 @@
 }
 
 html {
-  font-size: clamp(8px, 2vw, 14px); /* Scales font size dynamically based on viewport width */
+  font-size: clamp(8px, 2vw, 14px); 
 }
 
 body {
-  font-family: "Inconsolata", monospace; /* Or any desired font */
-  line-height: 1.6; /* Adjust for readability */
+  font-family: "Inconsolata", monospace; 
+  line-height: 1.6; 
   margin: 0;
   padding: 0;
 }

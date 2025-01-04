@@ -3,9 +3,9 @@
     <div class="blog-content">
       <h1 class="title">Blog</h1>
 
-      <!-- Row for Search, Recent Posts, and Tags -->
+      
       <div class="top-row">
-        <!-- Search -->
+        
         <Container>
           <template #title>Search</template>
           <input
@@ -17,7 +17,7 @@
           />
         </Container>
 
-        <!-- Recent Posts -->
+        
         <Container>
           <template #title>Recent Posts</template>
           <ul id="recent" class="list-unstyled">
@@ -27,7 +27,7 @@
           </ul>
         </Container>
 
-        <!-- Tags Dropdown with Checkboxes -->
+        
         <Container>
           <template #title>Tags</template>
           <div class="dropdown">
@@ -46,23 +46,23 @@
         </Container>
       </div>
 
-      <!-- Main Blog Content -->
+      
       <div class="main-content">
         <div class="blog-items" id="blog-items">
           <div v-for="(item, index) in filteredBlogItems" :key="index" class="blog-item">
             <Container>
-              <!-- Title -->
+              
               <template #title> {{ item.title }} </template>
 
-              <!-- Description -->
+              
               <p>{{ item.description }}</p>
 
-              <!-- Read More Link -->
+              
               <div class="read-more">
                 <router-link :to="item.link" :style="{ color: '#00ffcc' }"><strong>Read More</strong></router-link>
               </div>
 
-              <!-- Tags -->
+              
               <div class="tags-container">
                 <span
                   v-for="(tag, tagIndex) in item.tags"
@@ -186,7 +186,7 @@ export default {
 .title {
   font-size: 3rem;
   font-weight: bold;
-  color: #00ffcc; /* Neon green for impact */
+  color: #00ffcc; 
   margin: 0;
   text-align: center;
   padding-bottom: 0.5rem;
@@ -200,20 +200,20 @@ export default {
 }
 
 .top-row .container {
-  width: 30%; /* Adjust to fit 3 items */
+  width: 30%; 
   height: 10%;
 }
 
 .searchbar {
-  background: rgba(0, 0, 0, .5); /* Solid black with .5 alpha */
+  background: rgba(0, 0, 0, .5); 
   width: 100%;
   padding: 10px;
   border-radius: 10px;
-  border: 1px solid white; /* Specify both width and style */
+  border: 1px solid white; 
 }
 
 ul {
-  list-style-type: disc; /* Dots for recent posts */
+  list-style-type: disc; 
   padding-left: .25rem;
 }
 
@@ -233,15 +233,15 @@ ul li {
 }
 
 .blog-item {
-  width: 100%; /* Make each blog item take up the full width */
-  box-sizing: border-box; /* Ensure padding and margin are included in the width calculation */
+  width: 100%; 
+  box-sizing: border-box; 
 }
 
 .container {
   padding: 1.5rem;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
-  width: 100%; /* Ensure full-width for blog content */
+  width: 100%; 
   display: flex;
   flex-direction: column;
 }
@@ -259,7 +259,7 @@ ul li {
 }
 
 .tag {
-  background-color: #ff66b2; /* Secondary pink color for tags */
+  background-color: #ff66b2; 
   color: black;
   padding: 0.2rem 0.5rem;
   border-radius: 4px;
@@ -270,12 +270,12 @@ ul li {
   position: relative;
   display: inline-block;
   width: 100%;
-  text-align: center; /* Centering the dropdown */
+  text-align: center; 
 }
 
 .dropdown-btn {
   padding: 0.7rem 1.5rem;
-  background-color: #ff66b2; /* Pink color for button */
+  background-color: #ff66b2; 
   color: white;
   border: none;
   border-radius: 5px;
@@ -286,7 +286,7 @@ ul li {
 .dropdown-content {
   display: none;
   position: absolute;
-  background-color: rgba(0, 0, 0, .5); /* Matching the background color */
+  background-color: rgba(0, 0, 0, .5); 
   min-width: 160px;
   z-index: 1;
   border-radius: 5px;
