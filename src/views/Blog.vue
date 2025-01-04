@@ -169,6 +169,9 @@ export default {
       filteredBlogItems,
     };
   },
+  mounted() {
+    document.title = "Derek Corniello's Blogs";
+  }
 };
 </script>
 
@@ -181,10 +184,12 @@ export default {
 }
 
 .title {
-  font-size: 2.5rem;
+  font-size: 3rem;
   font-weight: bold;
   color: #00ffcc; /* Neon green for impact */
-  margin-bottom: 2rem;
+  margin: 0;
+  text-align: center;
+  padding-bottom: 0.5rem;
 }
 
 .top-row {

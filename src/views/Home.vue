@@ -35,6 +35,9 @@ export default {
     navigateTo(section) {
       this.$router.push({ name: section });
     }
+  },
+  mounted() {
+    document.title = "Derek Corniello's Space!";
   }
 };
 </script>

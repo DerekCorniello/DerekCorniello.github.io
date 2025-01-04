@@ -97,6 +97,9 @@ export default {
       BasePage,
       Container
   },
+  mounted() {
+    document.title = "About Derek Corniello";
+  }
 };
 </script>
 

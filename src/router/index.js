@@ -1,10 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Home from '../views/Home.vue'
-import About from '../views/About.vue'
-import Blog from '../views/Blog.vue'
-import Contact from '../views/Contact.vue'
-import Projects from '../views/Projects.vue'
-import nvim from '../blogs/nvim.vue'
+import Home from '@/views/Home.vue'
+import About from '@/views/About.vue'
+import Blog from '@/views/Blog.vue'
+import Contact from '@/views/Contact.vue'
+import Projects from '@/views/Projects.vue'
+import nvim from '@/blogs/nvim.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),

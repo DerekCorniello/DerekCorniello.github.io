@@ -34,6 +34,9 @@ export default {
     BasePage,
     Container,
   },
+  mounted() {
+    document.title = "Contact Derek Corniello";
+  }
 };
 </script>
 
@@ -42,7 +45,6 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 2rem;
   color: white;
 }
 
@@ -60,6 +62,7 @@ export default {
   color: rgba(255, 255, 255, 0.8); /* Softer white */
   text-align: center;
   margin-bottom: 2rem;
+  margin-top: 2rem;
 }
 
 .containers-holder {

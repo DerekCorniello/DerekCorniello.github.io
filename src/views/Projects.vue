@@ -109,6 +109,9 @@ export default {
     BasePage,
     Container,
   },
+  mounted() {
+    document.title = "Derek Corniello's Projects";
+  }
 };
 </script>
 <style scoped>
