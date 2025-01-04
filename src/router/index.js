@@ -53,6 +53,10 @@ const router = createRouter({
             path: '/blogs/nvim-transition',
             name: 'nvim-transition',
             component: nvim,
+        },
+        {
+            path: '/:pathMatch(.*)*',
+            redirect: '/',
         }
     ],
 })
