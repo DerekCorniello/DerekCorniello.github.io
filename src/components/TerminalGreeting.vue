@@ -16,6 +16,7 @@ export default {
     animateTypewriter() {
       const text = "Welcome, traveler, to Derek Corniello's Space!";
       const typewriter = this.$refs.typewriter;
+      typewriter.innerHTML += "> "
 
       let i = 0;
       const speed = 100; // Typing speed (milliseconds per character)
@@ -43,26 +44,20 @@ export default {
 .terminal-container {
   font-family: "Inconsolata", monospace;
   font-size: 2rem;
-  color: #00ffcc; 
-  white-space: nowrap;
+  color: #00ffcc;
+  white-space: normal; /* Allow text to wrap onto the next line */
   padding: 1rem;
-  border-radius: 10px; 
-  width: 50ch; 
+  border-radius: 10px;
+  width: 50ch;
   background-color: rgba(0, 0, 0, 0.5); 
-  overflow: hidden; 
+  overflow: hidden;
+  display: inline-block; /* Ensure it doesn't stretch across the entire width */
 }
 
 .terminal-text {
-  white-space: nowrap;
   padding-right: 5px;
   display: inline-block;
+  text-align: center;
   text-shadow: 0 0 8px #00ffcc; 
 }
-
-.terminal-container::before {
-  content: "> ";
-  font-weight: bold;
-  text-shadow: 0 0 8px #00ffcc; 
-}
-
 </style>
