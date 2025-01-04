@@ -8,6 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "serve": "vite preview",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
