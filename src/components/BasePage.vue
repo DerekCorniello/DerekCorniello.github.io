@@ -20,7 +20,7 @@
     <footer class="page-footer">
       <div class="footer-content">
         <p>Created by: Derek Corniello</p>
-        <p><a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank">Source Code</a></p>
+        <p><a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" class="source-code-button">Source Code</a></p>
       </div>
     </footer>
   </div>
@@ -93,16 +93,6 @@ a {
   flex-direction: column; 
   align-items: center; 
 }
-
-.page-footer a {
-  color: #ff4081;
-  text-decoration: none;
-}
-
-.page-footer a:hover {
-  text-decoration: underline;
-}
-
 
 .page-content {
   flex: 1 0 auto; 

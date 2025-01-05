@@ -51,26 +51,23 @@
         <div class="blog-items" id="blog-items">
           <div v-for="(item, index) in filteredBlogItems" :key="index" class="blog-item">
             <Container>
-              
               <template #title> {{ item.title }} </template>
-
-              
               <p>{{ item.description }}</p>
-
-              
+              <br>
               <div class="read-more">
                 <router-link :to="item.link" class="r-link" :style="{ color: '#00ffcc' }"><strong>Read More</strong></router-link>
               </div>
-                <div class="tags-container">
-                  <span
-                    v-for="(tag, tagIndex) in item.tags"
-                    :key="tagIndex"
-                    class="tag"
-                    :style="{ backgroundColor: '#ff66b2', color: '#FFFFFF' }"
-                  >
-                    {{ tag }}
-                  </span>
-                </div>
+              <br>
+              <div class="tags-container">
+                <span
+                  v-for="(tag, tagIndex) in item.tags"
+                  :key="tagIndex"
+                  class="tag"
+                  :style="{ backgroundColor: '#ff66b2', color: '#FFFFFF' }"
+                >
+                  {{ tag }}
+                </span>
+              </div>
             </Container>
           </div>
         </div>
@@ -246,7 +243,7 @@ ul li {
 
 .read-more {
   text-align: center;
-  margin-top: 1rem;
+  font-size: 1.5rem;
 }
 
 .tags-container {
