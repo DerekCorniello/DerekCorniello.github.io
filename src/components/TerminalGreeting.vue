@@ -48,7 +48,7 @@ export default {
   white-space: normal; /* Allow text to wrap onto the next line */
   padding: 1rem;
   border-radius: 10px;
-  width: 50ch;
+  width: 51ch;
   background-color: rgba(0, 0, 0, 0.5); 
   overflow: hidden;
   display: inline-block; /* Ensure it doesn't stretch across the entire width */
