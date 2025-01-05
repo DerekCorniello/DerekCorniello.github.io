@@ -141,8 +141,4 @@ export default {
   margin-bottom: 2rem;
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
 </style>

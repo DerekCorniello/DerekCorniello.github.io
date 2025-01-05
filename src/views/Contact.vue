@@ -83,10 +83,6 @@ export default {
   text-decoration: none;
 }
 
-.contact-details a:hover {
-  text-decoration: underline;
-}
-
 @media (max-width: 768px) {
   .containers-holder {
     flex-direction: column;

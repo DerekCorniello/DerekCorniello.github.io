@@ -18,3 +18,24 @@ body {
   padding: 0;
   background-color: #000000;
 }
+
+a {
+  text-decoration: none; /* Remove underline */
+  transition: text-shadow 0.2s ease, color 0.2s ease; /* Smooth transition for glowing effect */
+}
+
+a:hover {
+  text-decoration: none; /* Remove underline */
+  text-shadow: 0 0 2px #BBBBBB, 0 0 4px #BBBBBB, 0 0 6px #BBBBBB; /* Subtle white glowing effect */
+}
+
+.r-link {
+  text-decoration: none; /* Remove underline */
+  transition: text-shadow 0.2s ease, color 0.2s ease; /* Smooth transition for glowing effect */
+}
+
+.r-link:hover {
+  text-decoration: none; /* Remove underline */
+  color: #00ffcc; /* Ensure the hover color is applied */
+  text-shadow: 0 0 1px #00ffcc, 0 0 1px #00ffcc, 0 0 2px #00ffcc; /* Subtle teal glowing effect */
+}

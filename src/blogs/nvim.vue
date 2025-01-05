@@ -152,7 +152,7 @@
                  padding: 10px 20px; 
                  border-radius: 5px; 
                  text-decoration: none;"
-          to="/blog">
+            class="r-link" to="/blog">
             <- Back to Blogs
         </router-link>
     </BaseBlog>

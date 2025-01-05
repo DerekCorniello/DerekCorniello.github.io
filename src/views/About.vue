@@ -154,10 +154,6 @@ export default {
   margin: 0 0.5rem;
 }
 
-.links a:hover {
-  text-decoration: underline;
-}
-
 th, td {
   padding: 0.5rem;
   text-align: left;

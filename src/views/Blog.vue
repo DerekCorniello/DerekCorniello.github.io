@@ -22,7 +22,7 @@
           <template #title>Recent Posts</template>
           <ul id="recent" class="list-unstyled">
             <li v-for="(post, index) in recentPosts" :key="index">
-              <router-link :to="post.link">{{ post.title }}</router-link>
+              <router-link :to="post.link" :class="r-link">{{ post.title }}</router-link>
             </li>
           </ul>
         </Container>
@@ -59,7 +59,7 @@
 
               
               <div class="read-more">
-                <router-link :to="item.link" :style="{ color: '#00ffcc' }"><strong>Read More</strong></router-link>
+                <router-link :to="item.link" class="r-link" :style="{ color: '#00ffcc' }"><strong>Read More</strong></router-link>
               </div>
                 <div class="tags-container">
                   <span
