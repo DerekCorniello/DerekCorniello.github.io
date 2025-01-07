@@ -1,10 +1,11 @@
 <template>
   <BasePage>
     <h1 class="title">Projects</h1>
+    <p class="subtitle">Click any project name to view it's source and/or demo!</p>
     <div class="containers-holder">
       <Container>
         <template #title>
-          <a href="https://github.com/DerekCorniello/DevBits" target="_blank">DevBits</a>
+          <a href="https://github.com/DerekCorniello/DevBits" target="_blank" style="text-decoration: underline white;">DevBits</a>
         </template>
         A developer-focused blog and knowledge-sharing platform where users can post concise, useful insights 
         on project progress. Built using React Native for the frontend, Go for backend API, PostgreSQL for DB
@@ -15,8 +16,8 @@
       </Container>
   
       <Container>
-        <template #title>
-          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank">gitcmd</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank" style="text-decoration: underline white;">gitcmd</a>
         </template>
         A terminal-based application acting as a custom shell for Git commands. gitcmd simplifies workflow by offering 
         a tailored prompt and intuitive command input. Built with Rust, it showcases my foray into low-level, high-performance 
@@ -28,27 +29,40 @@
       </Container>
 
       <Container>
-        <template #title>
-            <a href="https://reqinspect.com" target="_blank">reqinspect.com</a> / <a href="https://github.com/DerekCorniello/pip-req-valid" target="_blank">pip-req-valid</a>
+        <template #title style="text-decoration: underline;">
+            <a href="https://reqinspect.com" target="_blank" style="text-decoration: underline white;">reqinspect.com</a> / <a href="https://github.com/DerekCorniello/pip-req-valid" target="_blank" style="text-decoration: underline white;">pip-req-valid</a>
         </template>
         A web app hosted on AWS that validates `requirements.txt` files for pip. It uses Go for backend processing 
         and Vue.js for the frontend, both hosted on AWS architecture. It checks for missing or outdated dependencies 
         and helps ensure that your Python project’s dependencies are up-to-date and properly formatted.
+        <br><br>
+        <img src="/reqinspect.png" alt="[reqinspect.com Screenshot]">
       </Container>
 
       <Container>
-        <template #title>
-          <a href="https://github.com/grillinr/Resume2Web" target="_blank">Resume2Web</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/grillinr/Resume2Web" target="_blank" style="text-decoration: underline white;">Resume2Web</a>
         </template>
         A Hackathon app that uses Vite, React/TypeScript, and Python/Flask. It takes a resume and converts it to a 
         website with custom styling. This hackathon was my first and helped me learn more about full-stack development 
         and new skills in a quick manner!
+        <br><br>
+        <img src="/resume2web.png" alt="[Resume2Web Screenshot]">
       </Container>
 
       <Container>
-        <template #title>
-          <a href="https://github.com/DerekCorniello/NeoVim-Setup" target="_blank">NeoVim</a> / 
-          <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">Linux Setup</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/derekcorniello.github.io" target="_blank" style="text-decoration: underline white;">This Portfolio Site</a>
+        </template>
+        This webpage was made by me! I used Vite, Vue.js, JavaScript, and HTML/CSS to make a very cool and easily navigated portfolio site for viewers like you
+        Three.js was also used to create the very cool backgrounds and word sphere on the landing page. I love space, so introducting you to <strong>my space</strong>
+        has been a pleasure!
+      </Container>
+
+      <Container>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/NeoVim-Setup" target="_blank" style="text-decoration: underline white;">NeoVim</a> / 
+          <a href="https://github.com/DerekCorniello/dotfiles" target="_blank" style="text-decoration: underline white;">Linux Setup</a>
         </template>
         Here is my development setup that I do my programming and software development on. NeoVim enables me to edit, 
         maintain, search through, and navigate a lot of files at one time, in an efficient manner.
@@ -58,8 +72,8 @@
       </Container>
 
       <Container>
-        <template #title>
-          <a href="https://github.com/DerekCorniello/AmandaLynnDashboard" target="_blank">Amanda Lynn Dashboard</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/AmandaLynnDashboard" target="_blank" style="text-decoration: underline white;">Amanda Lynn Dashboard</a>
         </template>
         I made a locally-running app for my (non-technical) Mom, who needed an app that showed her product for her small 
         business. It tracks her revenue vs. expenses, stock, sales, and more! I update it regularly per her requests. 
@@ -70,17 +84,19 @@
       </Container>
 
       <Container>
-        <template #title>
-          <a href="https://github.com/DerekCorniello/Game_BilliardsBonanza" target="_blank">Billiards Bonanza</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/Game_BilliardsBonanza" target="_blank" style="text-decoration: underline white;">Billiards Bonanza</a> / <a href="https://dcoolman.itch.io/Billiards-Bonanza" target="_blank" style="text-decoration: underline white;">Game Homepage</a>
         </template>
         An 8-Ball game with a bunch of twists and funny add-ons. I made it in Unity using C#, and did all of the 
         assets myself. This was a great experience in learning the syntax of C#, and learning more about programming 
         languages and Unity!
+        <br><br>
+        <img src="/billiardsbonanza.png" alt="[Billiards Bonanza Screenshot]">
       </Container>
 
       <Container>
         <template #title>
-          <a href="https://github.com/DerekCorniello/CS4065-Discussion-Board" target="_blank">Discussion Board</a>
+          <a href="https://github.com/DerekCorniello/CS4065-Discussion-Board" target="_blank" style="text-decoration: underline white;">Discussion Board</a>
         </template>
         A live discussion board and chat app made directly in Java, using live, hand-rolled WebSockets, to enable 
         real-time chatting with other people. It includes custom options for privileges and chatting lobbies!
@@ -139,6 +155,14 @@ export default {
   color: rgba(255, 255, 255, 0.8); 
   text-align: center;
   margin-bottom: 2rem;
+  margin-top: 2rem;
+}
+
+img {
+    width: 40%;
+    border-radius: 10px;
+    display: block;
+    margin: 2.5% auto;
 }
 
 </style>

@@ -5,6 +5,7 @@
         <div class="containers-holder">
             <Container>
                 <template #title>
+                    <img src="/favicon.ico" alt="Derek's Headshot" style="width: 15%; height: auto; border-radius: 50%; display: block; margin-left: auto; margin-right: auto; margin-bottom: 2%;">
                     👋 Hello, I'm Derek Corniello!
                 </template>
                 I'm a CS/SWE student at the University of Cincinnati. I’m passionate about diving into software product design, project management, and back-end development. My curiosity and eagerness to learn drive me to keep exploring, one project and concept at a time! Please <strong>explore my page</strong> and feel free to <strong><u><router-link to="contact">contact me</router-link></u></strong> or <strong><u><router-link to="contact">view my resume</router-link></u></strong>!
@@ -81,6 +82,10 @@
                     <li><strong>Professional Site:</strong> Vue, Vite, JavaScript, HTML, CSS - Portfolio site showcasing background, projects, and blogs.</li>
                     <li><strong>AmandaLynnDashboard:</strong> Python, Django, Vue - Custom inventory and financial management app.</li>
                 </ul>
+                <br>
+                <div style="color: #00ffcc; text-align: center; font-size: 1.5rem;">
+                Check out more details <u><strong><router-link class="r-link" to="projects">here</router-link></strong></u>!
+                </div>
             </Container>
             <Container>
                 <template #title>
@@ -93,6 +98,10 @@
                     <li>Exploring new programming paradigms.</li>
                     <li>Grinding LeetCode!</li>
                 </ul>
+                <br>
+                <div style="color: #00ffcc; text-align: center; font-size: 1.5rem;">
+                    Check out the latest code <u><strong><a class="r-link" href="https://www.github.com/DerekCorniello">here</a></strong></u>!
+                </div>
             </Container>
         </div>
     </BasePage>
