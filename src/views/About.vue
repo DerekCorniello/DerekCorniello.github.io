@@ -41,12 +41,6 @@
                     🥇 My Language and Technology Skillset
                 </template>
                 <table>
-                  <thead>
-                    <tr>
-                      <th>Type</th>
-                      <th>Languages / Skills</th>
-                    </tr>
-                  </thead>
                   <tbody>
                     <tr>
                       <td><strong>My Development Tools</strong></td>
@@ -54,7 +48,7 @@
                     </tr>
                     <tr>
                       <td><strong>General Purpose</strong></td>
-                      <td><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=py,go,cs,cpp,c,java" alt="General Purpose"></a></td>
+                      <td><a href="https://skillicons.dev"><img src="https://skillicons.dev/icons?i=py,go,rust,cs,cpp,c,java" alt="General Purpose"></a></td>
                     </tr>
                     <tr>
                       <td><strong>Front-End</strong></td>
@@ -76,8 +70,8 @@
                     🏆 My Top Projects
                 </template>
                 <ul>
-                    <li><strong>gitcmd:</strong> Rust - A customizable git terminal. <em>In development</em></li>
                     <li><strong>DevBits:</strong> Go, React, Docker, AWS - A cross between X and LinkedIn for posting project updates. <em>In development</em></li>
+                    <li><strong>gitcmd:</strong> Rust - A customizable git terminal.</li>
                     <li><strong>ReqInspect:</strong> Go, Vue, AWS - Full-stack app for validating `requirements.txt` files, deployed on AWS.</li>
                     <li><strong>Professional Site:</strong> Vue, Vite, JavaScript, HTML, CSS - Portfolio site showcasing background, projects, and blogs.</li>
                     <li><strong>AmandaLynnDashboard:</strong> Python, Django, Vue - Custom inventory and financial management app.</li>
@@ -93,7 +87,6 @@
                 </template>
                 <ul>
                     <li>Building <strong>DevBits</strong> - A new social media app.</li>
-                    <li>Building <strong>gitcmd</strong> - A customizable git terminal.</li>
                     <li>Enhancing <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a streamlined Neovim + Arch Linux setup.</li>
                     <li>Exploring new programming paradigms.</li>
                     <li>Grinding LeetCode!</li>
