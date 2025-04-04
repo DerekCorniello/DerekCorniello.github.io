@@ -20,6 +20,9 @@
           </div>
         </Container>
       </div>
+      <a href="https://dot.cards/DerekCorniello" target="_blank" style="justify-content: center; align-items: center; display: flex; margin: 1%;">
+          <img src="/qrcode.png" alt="My QR code to contact me!" style="width: 60%; height: auto; border-radius: 10%;"/>
+      </a>
     </div>
   </BasePage>
 </template>

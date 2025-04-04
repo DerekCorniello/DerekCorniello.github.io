@@ -17,15 +17,12 @@
   
       <Container>
         <template #title style="text-decoration: underline;">
-          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank" style="text-decoration: underline white;">gitcmd</a>
+          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank" style="text-decoration: underline white;">gitcmd</a> / 
+          <a href="https://crates.io/crates/gitcmd" target="_blank" style="text-decoration: underline white;">crates.io</a>
         </template>
         A terminal-based application acting as a custom shell for Git commands. gitcmd simplifies workflow by offering 
         a tailored prompt and intuitive command input. Built with Rust, it showcases my foray into low-level, high-performance 
         programming and terminal application development.
-        <br><br>
-        <div style="text-align: center;">
-          🔨 <strong><u>This project is still under development!</u></strong>
-        </div>
       </Container>
 
       <Container>
