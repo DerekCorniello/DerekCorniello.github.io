@@ -4,27 +4,16 @@
     <p class="subtitle">Click any project name to view it's source and/or demo!</p>
     <div class="containers-holder">
       <Container>
-        <template #title>
-          <a href="https://github.com/DerekCorniello/DevBits" target="_blank" style="text-decoration: underline white;">DevBits</a>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/8BitBeats" target="_blank" style="text-decoration: underline white;">8BitBeats</a> / 
+          <a href="https://crates.io/crates/eightbitbeats" target="_blank" style="text-decoration: underline white;">crates.io</a>
         </template>
-        A developer-focused blog and knowledge-sharing platform where users can post concise, useful insights 
-        on project progress. Built using React Native for the frontend, Go for backend API, PostgreSQL for DB
-        and AWS for hosting, DevBits emphasizes a clean, responsive design and easy content management.<br><br>
-        <div style="text-align: center;">
-          🔨 <strong><u>This project is still under development!</u></strong>
-        </div>
+        A terminal-based chiptune generator written in Rust. It lets users create, preview, and replay 8-bit songs using 
+        seed-based track IDs. With real-time TUI controls and efficient audio synthesis, it generates deterministic tracks 
+        in milliseconds, offering a nostalgic and programmable music creation experience right from the command line.
+        <img src="/eightbitbeats.png" alt="[8BitBeats Screenshot]">
       </Container>
   
-      <Container>
-        <template #title style="text-decoration: underline;">
-          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank" style="text-decoration: underline white;">gitcmd</a> / 
-          <a href="https://crates.io/crates/gitcmd" target="_blank" style="text-decoration: underline white;">crates.io</a>
-        </template>
-        A terminal-based application acting as a custom shell for Git commands. gitcmd simplifies workflow by offering 
-        a tailored prompt and intuitive command input. Built with Rust, it showcases my foray into low-level, high-performance 
-        programming and terminal application development.
-      </Container>
-
       <Container>
         <template #title style="text-decoration: underline;">
             <a href="https://reqinspect.com" target="_blank" style="text-decoration: underline white;">reqinspect.com</a> / <a href="https://github.com/DerekCorniello/pip-req-valid" target="_blank" style="text-decoration: underline white;">pip-req-valid</a>
@@ -34,6 +23,16 @@
         and helps ensure that your Python project’s dependencies are up-to-date and properly formatted.
         <br><br>
         <img src="/reqinspect.png" alt="[reqinspect.com Screenshot]">
+      </Container>
+
+      <Container>
+        <template #title style="text-decoration: underline;">
+          <a href="https://github.com/DerekCorniello/gitcmd" target="_blank" style="text-decoration: underline white;">gitcmd</a> / 
+          <a href="https://crates.io/crates/gitcmd" target="_blank" style="text-decoration: underline white;">crates.io</a>
+        </template>
+        A terminal-based application acting as a custom shell for Git commands. gitcmd simplifies workflow by offering 
+        a tailored prompt and intuitive command input. Built with Rust, it showcases my foray into low-level, high-performance 
+        programming and terminal application development.
       </Container>
 
       <Container>
