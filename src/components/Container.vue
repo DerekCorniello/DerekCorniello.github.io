@@ -23,14 +23,15 @@ export default {
 
 <style scoped>
 .container {
-  background: rgba(0, 0, 0, .5); 
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 10, 20, 0.5);
+  border: 1px solid rgba(0, 255, 204, 0.2);
   border-radius: 16px;
   padding: 2.5rem;
   margin: 2rem auto;
   width: 70%;
   position: relative;
-  backdrop-filter: blur(1px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 .container-inner {

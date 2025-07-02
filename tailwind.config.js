@@ -6,7 +6,15 @@ module.exports = {
         './src/*.{vue,js,ts,jsx,tsx}'
     ],
     theme: {
-        extend: {},
+        extend: {
+            fontFamily: {
+                sans: ['Fira Code', 'monospace'],
+                mono: ['Fira Code', 'monospace'],
+            },
+        },
     },
     plugins: [],
+    corePlugins: {
+        fontFamily: true, // Ensures font family utilities are generated
+    }
 }

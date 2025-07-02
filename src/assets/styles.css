@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -5,15 +7,19 @@
 :root {
     overscroll-behavior: none;
     background-color: '#000000';
+    --font-mono: 'Fira Code', monospace;
 }
 
 html {
-  font-size: clamp(10px, 1vw, 14px); 
+  font-size: clamp(10px, 1vw, 14px);
 }
 
 body {
-  font-family: "Inconsolata", monospace; 
-  line-height: 1.6; 
+  font-family: var(--font-mono);
+  font-feature-settings: "calt" 1;  /* Enable ligatures for Fira Code */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5;
   margin: 0;
   padding: 0;
   background-color: #000000;

@@ -26,7 +26,7 @@ export default {
     },
     fontFamily: {
       type: String,
-      default: 'Inconsolata, monospace',
+      default: 'Fira Code, monospace',
     },
     fontWeight: {
       type: String,
@@ -50,6 +50,19 @@ export default {
     };
   },
   methods: {
+    loadFont() {
+      // This ensures the font is loaded before drawing
+      return new Promise((resolve) => {
+        const link = document.createElement('link');
+        link.href = 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@300..700&display=swap';
+        link.rel = 'stylesheet';
+        link.onload = () => {
+          // Small delay to ensure font is loaded
+          setTimeout(resolve, 100);
+        };
+        document.head.appendChild(link);
+      });
+    },
     getRootFontSize() {
       return parseFloat(getComputedStyle(document.documentElement).fontSize);
     },
@@ -159,10 +172,11 @@ export default {
       return rotated.z;
     },
   },
-  mounted() {
+  async mounted() {
+    // Wait for the font to load before initializing the canvas
+    await this.loadFont();
     this.initCanvas();
     this.animate();
-
     window.addEventListener('resize', this.handleResize);
   },
   beforeDestroy() {
