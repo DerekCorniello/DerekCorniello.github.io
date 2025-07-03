@@ -3,6 +3,16 @@
     <div class="content-container">
       
       <div class="terminal-and-card">
+        <div class="floating-headshot-container">
+          <img
+            src="/favicon.ico"
+            alt="Derek Corniello Headshot"
+            class="floating-headshot"
+            ref="headshot"
+            @mousemove="handleHeadshotTilt"
+            @mouseleave="resetHeadshotTilt"
+          />
+        </div>
         <div class="terminal-greeting-container">
           <TerminalGreeting />
         </div>
@@ -51,10 +61,48 @@ export default {
   methods: {
     navigateTo(section) {
       this.$router.push({ name: section });
+    },
+    handleHeadshotTilt(e) {
+      const headshot = this.$refs.headshot;
+      const rect = headshot.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+      const maxTilt = 16;
+      const rotateY = ((x - centerX) / centerX) * maxTilt;
+      const rotateX = -((y - centerY) / centerY) * maxTilt;
+      headshot.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+      headshot.style.boxShadow = [
+        '0 0 0 4px rgba(0,255,204,0.25)',
+        '0 0 12px 4px rgba(0,255,204,0.25)',
+        '0 0 24px 8px rgba(0,255,204,0.25)',
+        '0 0 48px 16px rgba(0,255,204,0.25)'
+      ].join(', ');
+      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1), box-shadow 0.15s cubic-bezier(.25,.8,.25,1)';
+      headshot.style.animation = 'none';
+    },
+    resetHeadshotTilt() {
+      const headshot = this.$refs.headshot;
+      headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
+      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1)';
+      headshot.style.boxShadow = [
+        '0 0 0 2px rgba(0,255,204,0.25)',
+        '0 0 8px 2px rgba(0,255,204,0.25)',
+        '0 0 16px 4px rgba(0,255,204,0.25)',
+        '0 0 32px 12px rgba(0,255,204,0.25)'
+      ].join(', ');
+      setTimeout(() => {
+        headshot.style.transition = '';
+        headshot.style.animation = 'float 5.5s ease-in-out infinite';
+      }, 500);
     }
   },
   mounted() {
     document.title = "Derek Corniello's Space!";
+    if (this.$refs.headshot) {
+      this.$refs.headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
+    }
   }
 };
 </script>
@@ -244,4 +292,50 @@ html, body {
     margin: 0.3rem 0;
   }
 }
+.floating-headshot-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  margin-top: 0.5rem;
+  position: relative;
+}
+
+.floating-headshot {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: #000;
+  /* Glow matches terminal hover (rgba(0,255,204,0.25)) */
+  border: none;
+  box-shadow:
+    0 0 0 2px rgba(0,255,204,0.25), /* tight bright ring */
+    0 0 8px 2px rgba(0,255,204,0.25), /* inner glow */
+    0 0 16px 4px rgba(0,255,204,0.25), /* medium glow */
+    0 0 32px 12px rgba(0,255,204,0.25); /* soft outer glow */
+  transition: transform 0.25s cubic-bezier(.25,.8,.25,1), box-shadow 0.25s cubic-bezier(.25,.8,.25,1);
+  animation: float 5.5s ease-in-out infinite;
+  cursor: pointer;
+  will-change: transform;
+}
+
+.floating-headshot:hover {
+  /* 3D tilt effect on hover */
+  transform: perspective(400px) rotateY(12deg) rotateX(8deg);
+  box-shadow:
+    0 0 0 12px rgba(0, 255, 204, 0.92),
+    0 0 32px 8px rgba(0, 255, 204, 0.85);
+}
+
+@media (max-width: 600px) {
+  .floating-headshot {
+    width: 80px;
+    height: 80px;
+  }
+  .floating-headshot-container {
+    margin-bottom: 1rem;
+  }
+}
+
 </style>
