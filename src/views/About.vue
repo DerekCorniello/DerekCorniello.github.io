@@ -86,7 +86,6 @@
                     🛠️ Currently Learning About and Developing
                 </template>
                 <ul>
-                    <li>Building <strong>BitBoard</strong> - a terminal chess game.</li>
                     <li>Enhancing <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a streamlined Neovim + Arch Linux setup.</li>
                     <li>Exploring new programming paradigms.</li>
                     <li>Grinding LeetCode!</li>

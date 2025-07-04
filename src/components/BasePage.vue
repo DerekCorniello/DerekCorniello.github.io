@@ -20,7 +20,20 @@
     <footer class="page-footer">
       <div class="footer-content">
         <p>Created by: Derek Corniello</p>
-        <p><a href="https://github.com/DerekCorniello/DerekCorniello.github.io" target="_blank" class="source-code-button">Source Code</a></p>
+        <div class="links">
+            <a href="https://www.linkedin.com/in/derek-corniello" target="_blank" style="text-decoration: none;">
+              <i class="bi bi-linkedin"></i> LinkedIn
+            </a>
+            <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none;">
+              <i class="bi bi-github"></i> GitHub
+            </a>
+            <a href="https://twitter.com/DerekCorniello" target="_blank" style="text-decoration: none;">
+                <i class="bi bi-twitter-x"></i> X
+            </a>
+            <a href="/resume" target="_blank" style="text-decoration: none;">
+              <i class="bi bi-file-earmark-text"></i> Resume
+            </a>
+        </div>
       </div>
     </footer>
   </div>
@@ -100,6 +113,17 @@ a {
   color: white;
 }
 
+.links {
+  margin-top: 1rem;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.links a {
+  color: rgba(0, 173, 216, 0.95);
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
 
 @media (max-width: 768px) {
   .page-header h1 {
