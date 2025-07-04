@@ -11,9 +11,9 @@ export default {
     words: {
       type: Array,
       default: () => [
-        'Vue.js', 'JavaScript', 'HTML', 'CSS', 'Neovim', 'ArchLinux', 'C/C++', 'Unity',
+        'Vue.js', 'JavaScript', 'HTML', 'CSS', 'Neovim', 'Arch Linux', 'C/C++', 'Unity',
         'TypeScript', 'Vite', 'Git', 'REST', 'Docker', 'AWS', 'Python', 'Java', 'C#',
-        'Go', 'Rust', 'SQLite', 'PostgreSQL', 'Apache', 'Flask', 'Django'
+        'Go', 'Rust', 'SQLite', 'PostgreSQL', 'Apache', 'Flask', 'Django', 'PHP', 'MySQL'
       ],
     },
     fontSize: {
