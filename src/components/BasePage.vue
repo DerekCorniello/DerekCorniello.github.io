@@ -13,7 +13,6 @@
         </nav>
       </div>
     </header>
-
     <main class="page-content">
       <slot></slot> 
     </main>
@@ -66,7 +65,10 @@ export default {
   color: white;
   width: 100%;
   padding: 0.75rem 1rem;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
   z-index: 1000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
   border-bottom: 1px solid rgba(0, 255, 204, 0.3);
@@ -302,6 +304,20 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
+  min-height: calc(100vh - 25vh);
+}
+
+/* Add more space at the bottom of the content */
+.page-content > * {
+  padding-bottom: 4rem;
+  margin-bottom: 1.5rem;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Extra space for the first element in content */
+.page-content > *:first-child {
+  margin-top: 1.5rem;
 }
 
 .footer-content {

@@ -189,7 +189,7 @@ html, body {
   background: rgba(0, 10, 20, 0.5);
   backdrop-filter: blur(10px);
   color: white;
-  padding: 1.5rem;
+  padding: 2rem;
   border-radius: 0.75rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 255, 204, 0.2);
@@ -199,19 +199,8 @@ html, body {
   transition: all 0.3s ease;
   z-index: 2;
   animation: float-reverse 6s ease-in-out infinite;
-  margin: 1rem 0;
+  margin: 1rem auto;
   box-sizing: border-box;
-  
-  @media (min-width: 640px) {
-    padding: 2rem;
-    border-radius: 1rem;
-    width: 90%;
-  }
-  
-  @media (min-width: 1024px) {
-    width: 70%;
-    padding: 2.5rem;
-  }
 }
 
 .landing-card:hover {
