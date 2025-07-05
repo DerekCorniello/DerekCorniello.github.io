@@ -20,8 +20,10 @@
         </pre>
       </div>
       <div class="greeting-text">
-        <span ref="typewriter" class="terminal-text"></span>
-        <span class="cursor">_</span>
+        <div class="terminal-line">
+          <span ref="typewriter" class="terminal-text"></span>
+          <span class="cursor">_</span>
+        </div>
       </div>
     </div>
   </div>
@@ -68,16 +70,23 @@ export default {
   font-family: var(--font-mono, 'Fira Code', monospace);
   font-size: 1.5rem;
   color: #00ffcc;
-  border-radius: 12px;
+  border-radius: 10px;
   width: 100%;
   max-width: 1000px;
   background-color: rgba(0, 0, 0, 0.85);
   overflow: hidden;
-  box-shadow: 0 0 35px rgba(0, 255, 204, 0.4);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
   border: 2px solid rgba(0, 255, 204, 0.5);
   margin: 0 auto;
-  transform: scale(1.05);
-  padding: 1.5rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+    border-radius: 12px;
+    transform: scale(1.05);
+    box-shadow: 0 0 35px rgba(0, 255, 204, 0.4);
+  }
 }
 
 .terminal-header {
@@ -113,19 +122,47 @@ export default {
 }
 
 .terminal-content {
-  padding: 1.5rem;
+  padding: 1rem 0.5rem;
+  
+  @media (min-width: 640px) {
+    padding: 1.5rem;
+  }
 }
 
 .ascii-art {
   color: #00ffcc;
   text-align: center;
-  margin-bottom: 2rem;
-  line-height: 1.2;
+  margin: 0 0 1.5rem 0;
+  line-height: 1.1;
   opacity: 0.9;
-  font-size: 1.1rem;
-  text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
-  letter-spacing: 1px;
+  font-size: 0.5rem;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.7);
+  letter-spacing: 0.5px;
   font-weight: bold;
+  overflow: hidden;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  
+  @media (min-width: 400px) {
+    font-size: 0.6rem;
+    line-height: 1.15;
+  }
+  
+  @media (min-width: 640px) {
+    font-size: 0.8rem;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.1rem;
+  }
+  
+  pre {
+    margin: 0;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+  }
 }
 
 .greeting-text {
@@ -133,27 +170,64 @@ export default {
   min-height: 2rem;
   display: flex;
   justify-content: center;
-  align-items: center;
-  gap: 0.3rem;
+  padding: 0.5rem 1rem;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.terminal-line {
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  max-width: 100%;
+  white-space: nowrap;
 }
 
 .terminal-text {
   color: #00ffcc;
-  text-shadow: 0 0 10px #00ffcc;
-  font-size: 1.6rem;
-  letter-spacing: 1px;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+  font-size: 1rem;
+  letter-spacing: 0.5px;
   font-weight: 500;
+  line-height: 1.6;
+  display: inline;
+  text-align: center;
+  white-space: pre-wrap;
+  
+  @media (min-width: 400px) {
+    font-size: 1.2rem;
+  }
+  
+  @media (min-width: 640px) {
+    font-size: 1.4rem;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px #00ffcc;
+  }
+  
+  @media (min-width: 768px) {
+    font-size: 1.6rem;
+  }
 }
 
 .cursor {
-  display: inline-block;
+  display: inline;
   font-family: var(--font-mono, 'Fira Code', monospace);
   color: #00ffcc;
   animation: blink .75s step-end infinite;
-  font-size: 1.4rem;
-  line-height: 1;
+  font-size: 1.1rem;
+  line-height: 1.6;
   margin-left: 2px;
-  text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+  
+  @media (min-width: 400px) {
+    font-size: 1.2rem;
+  }
+  
+  @media (min-width: 640px) {
+    font-size: 1.4rem;
+    line-height: 1.6;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.7);
+  }
 }
 
 @keyframes blink {
@@ -161,13 +235,15 @@ export default {
   50% { opacity: 0; }
 }
 
-@media (max-width: 768px) {
-  .terminal-text {
-    font-size: 1.1rem;
+/* Adjust ASCII art for very small screens */
+@media (max-width: 360px) {
+  .ascii-art {
+    font-size: 0.4rem;
+    line-height: 1;
   }
   
-  .ascii-art {
-    font-size: 0.6rem;
+  .terminal-text {
+    font-size: 0.9rem;
   }
 }
 </style>

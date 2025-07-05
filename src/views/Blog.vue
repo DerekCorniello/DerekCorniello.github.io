@@ -175,7 +175,11 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 0 10%;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 1rem;
+  box-sizing: border-box;
 }
 
 .title {
@@ -189,14 +193,46 @@ export default {
 
 .top-row {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 1.5rem;
   width: 100%;
   margin-bottom: 2rem;
 }
 
 .top-row .container {
-  width: 30%; 
-  height: 10%;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .top-row {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 2%;
+  }
+  
+  .top-row .container {
+    width: 49%;
+  }
+  
+  .top-row .container:first-child {
+    width: 100%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .top-row {
+    flex-wrap: nowrap;
+    gap: 2%;
+  }
+  
+  .top-row .container {
+    width: 32%;
+  }
+  
+  .top-row .container:first-child {
+    width: 32%;
+  }
 }
 
 .searchbar {
@@ -221,24 +257,38 @@ ul li {
 }
 
 .blog-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
   width: 100%;
 }
 
 .blog-item {
-  width: 100%; 
-  box-sizing: border-box; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .blog-items {
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 2rem;
+  }
 }
 
 .container {
-  padding: 1.5rem;
+  padding: 1.25rem;
   background: rgba(0, 0, 0, 0.4);
   border-radius: 8px;
-  width: 100%; 
+  width: 100%;
   display: flex;
   flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.container:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .read-more {
@@ -279,13 +329,30 @@ ul li {
 
 .dropdown-content {
   display: none;
-  position: absolute;
-  background-color: rgba(0, 0, 0, .5); 
-  min-width: 160px;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0.5);
   z-index: 1;
   border-radius: 5px;
-  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-  width: 100%;
+  padding: 0.5rem;
+  margin-top: 0.5rem;
+  max-height: 200px;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
+/* Custom scrollbar for WebKit browsers */
+.dropdown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+.dropdown-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.dropdown-content::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
 }
 
 .dropdown:hover .dropdown-content {

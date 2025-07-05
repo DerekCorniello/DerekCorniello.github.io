@@ -74,18 +74,31 @@ export default {
       const container = this.$refs.container;
       this.ctx = canvas.getContext('2d');
 
+      // Set canvas dimensions to match container
       this.width = container.clientWidth;
       this.height = container.clientHeight;
-      canvas.width = this.width;
-      canvas.height = this.height;
-
+      
+      // Set display size (CSS pixels)
+      canvas.style.width = `${this.width}px`;
+      canvas.style.height = `${this.height}px`;
+      
+      // Set actual size in memory (scaled to account for extra pixel density)
+      const scale = window.devicePixelRatio || 1;
+      canvas.width = this.width * scale;
+      canvas.height = this.height * scale;
+      
+      // Scale the context to ensure correct drawing operations
+      this.ctx.scale(scale, scale);
+      
       // Set radius to match the smaller dimension
-      this.radius = Math.min((Math.min(this.width, this.height) / 2 - 10), 200); // Subtract 10 for padding, limit to 200
+      this.radius = Math.min((Math.min(this.width, this.height) * 0.4), 200); // Limit to 200
 
       this.ctx.textAlign = 'center';
       this.ctx.textBaseline = 'middle';
 
       this.generatePoints(); // Regenerate points with the updated radius
+      this.ctx.fillStyle = 'rgba(0, 255, 204, 0.05)';
+      this.ctx.fillRect(0, 0, this.width, this.height);
     },
     handleResize() {
       this.initCanvas();
@@ -173,11 +186,23 @@ export default {
     },
   },
   async mounted() {
-    // Wait for the font to load before initializing the canvas
-    await this.loadFont();
-    this.initCanvas();
-    this.animate();
-    window.addEventListener('resize', this.handleResize);
+    try {
+      // Wait for the font to load and ensure component is mounted
+      await this.loadFont();
+      await this.$nextTick(); // Wait for the next DOM update
+      
+      // Ensure canvas element exists
+      if (!this.$refs.canvas) {
+        console.error('Canvas element not found');
+        return;
+      }
+      
+      this.initCanvas();
+      this.animate();
+      window.addEventListener('resize', this.handleResize);
+    } catch (error) {
+      console.error('Error initializing WordSphere:', error);
+    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
@@ -192,5 +217,17 @@ export default {
 .word-sphere-container {
   position: relative;
   width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+}
+
+canvas {
+  display: block;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 auto;
 }
 </style>

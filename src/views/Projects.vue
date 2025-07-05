@@ -211,15 +211,17 @@ export default {
 }
 
 .tech-badge {
-  height: 26px;
+  height: 20px;
   width: auto;
   opacity: 0.9;
   transition: all 0.2s ease;
-  flex-shrink: 0;
-  border-radius: 4px;
+  flex-shrink: 1;
+  border-radius: 3px;
   margin: 0;
   padding: 0;
   line-height: 1;
+  max-width: 120px;
+  object-fit: contain;
 }
 
 .tech-badge:hover {
@@ -227,9 +229,22 @@ export default {
 }
 
 .project-emoji {
-  margin-right: 8px;
+  margin-right: 6px;
   display: inline-block;
   text-shadow: 0 0 5px rgba(0, 255, 204, 0.3);
+  font-size: 0.9em;
+}
+
+@media (max-width: 768px) {
+  .tech-badge {
+    height: 16px;
+    max-width: 100px;
+  }
+  
+  .project-emoji {
+    margin-right: 4px;
+    font-size: 0.8em;
+  }
 }
 
 .containers-holder {
@@ -260,10 +275,38 @@ export default {
 }
 
 img {
-    width: 40%;
+    max-width: 100%;
+    width: 100%;
     border-radius: 10px;
     display: block;
-    margin: 2.5% auto;
+    margin: 1.5rem auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (min-width: 768px) {
+    img {
+        width: 90%;
+        max-width: 800px;
+    }
+}
+
+@media (min-width: 1024px) {
+    img {
+        width: 85%;
+        max-width: 1000px;
+    }
+}
+
+@media (min-width: 1280px) {
+    img {
+        width: 80%;
+        max-width: 1200px;
+    }
+}
+
+/* Ensure images don't exceed their container */
+img {
+    height: auto;
 }
 
 .project-title {

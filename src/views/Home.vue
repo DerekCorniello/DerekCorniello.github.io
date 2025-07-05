@@ -11,6 +11,8 @@
             ref="headshot"
             @mousemove="handleHeadshotTilt"
             @mouseleave="resetHeadshotTilt"
+            @touchmove.passive="handleTouchMove"
+            @touchend.passive="resetHeadshotTilt"
           />
         </div>
         <div class="terminal-greeting-container">
@@ -38,7 +40,12 @@
           </div>
         </div>
       </div>
-      <WordSphere :font-size="1.5"/>
+      <WordSphere 
+        class="word-sphere"
+        :font-size="1.2" 
+        :rotation-speed="0.0015"
+        text-color="#00ffcc"
+      />
     </div>
   </BasePage>
 </template>
@@ -59,6 +66,16 @@ export default {
     return {};
   },
   methods: {
+    handleTouchMove(e) {
+      if (e.touches.length > 0) {
+        const touch = e.touches[0];
+        const mouseEvent = new MouseEvent('mousemove', {
+          clientX: touch.clientX,
+          clientY: touch.clientY
+        });
+        this.handleHeadshotTilt(mouseEvent);
+      }
+    },
     navigateTo(section) {
       this.$router.push({ name: section });
     },
@@ -108,8 +125,15 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
+
 html, body {
-  background-color: #000; 
+  background-color: #000;
+  font-family: 'Fira Code', monospace;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden; 
 }
 
 .content-container {
@@ -118,10 +142,12 @@ html, body {
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  padding: 2rem;
+  padding: 1rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
+  width: 100%;
+  max-width: 100%;
 }
 
 .terminal-and-card {
@@ -130,9 +156,16 @@ html, body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2rem;
+  gap: 1.5rem;
   position: relative;
   z-index: 2;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  
+  @media (max-width: 768px) {
+    gap: 1rem;
+    padding: 0 0.5rem;
+  }
 }
 
 .terminal-greeting-container {
@@ -140,6 +173,9 @@ html, body {
   display: flex;
   justify-content: center;
   animation: float-reverse 6s ease-in-out infinite;
+  transform-origin: center;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 .landing-card-container {
@@ -153,17 +189,29 @@ html, body {
   background: rgba(0, 10, 20, 0.5);
   backdrop-filter: blur(10px);
   color: white;
-  padding: 2.5rem;
-  border-radius: 1rem;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
   border: 1px solid rgba(0, 255, 204, 0.2);
   text-align: center;
-  width: 70%;
+  width: 100%;
   max-width: 800px;
   transition: all 0.3s ease;
   z-index: 2;
   animation: float-reverse 6s ease-in-out infinite;
-  margin: 2rem auto;
+  margin: 1rem 0;
+  box-sizing: border-box;
+  
+  @media (min-width: 640px) {
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+  }
+  
+  @media (min-width: 1024px) {
+    width: 70%;
+    padding: 2.5rem;
+  }
 }
 
 .landing-card:hover {
@@ -172,42 +220,81 @@ html, body {
 }
 
 .tagline {
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: #ffffff;
-  margin: 1rem 0 2rem;
+  margin: 0.75rem 0 1.5rem;
   line-height: 1.6;
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
   position: relative;
   z-index: 2;
+  
+  @media (min-width: 640px) {
+    font-size: 1.2rem;
+    margin: 1rem 0 2rem;
+  }
+  
+  @media (min-width: 1024px) {
+    font-size: 1.4rem;
+  }
 }
 
 .cta-buttons {
-  margin-top: 2rem;
-  display: flex;
-  justify-content: center;
-  gap: 1.2rem;
-  flex-wrap: wrap;
+  margin: 1.5rem auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.75rem;
   position: relative;
   z-index: 2;
+  width: 100%;
+  max-width: 400px;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  
+  @media (min-width: 640px) {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+    padding: 0;
+    max-width: 600px;
+  }
 }
 
 .cta-button {
-  padding: 0.9rem 2rem;
-  font-size: 1.1rem;
+  padding: 0.7rem 0.5rem;
+  font-size: 0.9rem;
   font-weight: 500;
   border: none;
   border-radius: 6px;
   cursor: pointer;
-  color: #001a1a;
-  background: #00ffcc;
+  color: #000000 !important;
   transition: all 0.2s ease;
+  background: #00ffcc;
   position: relative;
   overflow: hidden;
   z-index: 1;
-  font-family: var(--font-mono, 'Fira Code', monospace);
+  font-family: 'Fira Code', monospace;
   text-align: center;
-  min-width: 120px;
-  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.3);
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
+  text-decoration: none !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+  @media (min-width: 640px) {
+    padding: 0.7rem 1.2rem;
+    width: auto;
+    min-width: 120px;
+    font-size: 0.95rem;
+  }
+  
+  @media (min-width: 768px) {
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+  }
 }
 
 .cta-button:hover {
@@ -239,6 +326,22 @@ html, body {
   }
 }
 
+.word-sphere {
+  width: 100%;
+  height: 300px;
+  margin: 2rem 0;
+  position: relative;
+  
+  @media (min-width: 640px) {
+    height: 350px;
+    margin: 3rem 0;
+  }
+  
+  @media (min-width: 1024px) {
+    height: 450px;
+  }
+}
+
 /* Add some floating space particles */
 .space-particle {
   position: absolute;
@@ -248,48 +351,56 @@ html, body {
   z-index: 1;
 }
 
-@media (min-width: 968px) {
+@media (min-width: 1200px) {
   .content-container {
     flex-direction: row;
     align-items: center;
-    gap: 2rem;
-    height: 75vh;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem;
+    max-width: 1600px;
+    margin: 0 auto;
+    height: auto;
+    min-height: 100vh;
   }
 
   .terminal-and-card {
-    width: 50%;
+    width: auto;
+    max-width: 800px;
+    flex: 0 0 auto;
+    margin: 0;
   }
 
-  .word-sphere-container {
-    width: 50%;
-    margin-top: 0;
-    height: 100%;
+  .word-sphere {
+    width: 500px;
+    height: 500px;
+    margin: 0;
+    flex: 0 0 auto;
+  }
+  
+  .terminal-greeting-container {
+    transform: scale(1);
+    max-width: 100%;
   }
 }
 
 @media (max-width: 768px) {
   .landing-card {
-    margin-top: 50px;
-    padding: 1.5rem;
+    margin: 30px auto 0;
+    padding: 1.5rem 1rem;
+    width: 100%;
+    max-width: 400px;
   }
 
   .tagline {
     font-size: 1rem;
-  }
-
-  .cta-button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-
-  .cta-buttons {
-    flex-direction: column;
-    width: 100%;
+    margin: 0.75rem 0 1.5rem;
+    padding: 0;
+    line-height: 1.5;
   }
   
-  .cta-button {
-    width: 100%;
-    margin: 0.3rem 0;
+  .cta-buttons {
+    margin-top: 1.5rem;
   }
 }
 .floating-headshot-container {
