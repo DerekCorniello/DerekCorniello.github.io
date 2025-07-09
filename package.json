@@ -9,7 +9,7 @@
     "preview": "vite preview",
     "serve": "vite preview",
     "predeploy": "npm run build",
-    "deploy": "cd dist && cp index.html 404.html && cd .. && gh-pages -d dist",
+    "deploy": "cd dist && echo 'derekcorn.dev' > CNAME && cp index.html 404.html && cd .. && gh-pages -d dist",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
