@@ -90,29 +90,17 @@ export default {
       const rotateY = ((x - centerX) / centerX) * maxTilt;
       const rotateX = -((y - centerY) / centerY) * maxTilt;
       headshot.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      headshot.style.boxShadow = [
-        '0 0 0 4px rgba(0,255,204,0.25)',
-        '0 0 12px 4px rgba(0,255,204,0.25)',
-        '0 0 24px 8px rgba(0,255,204,0.25)',
-        '0 0 48px 16px rgba(0,255,204,0.25)'
-      ].join(', ');
-      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1), box-shadow 0.15s cubic-bezier(.25,.8,.25,1)';
+      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1)';
       headshot.style.animation = 'none';
     },
     resetHeadshotTilt() {
       const headshot = this.$refs.headshot;
       headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
-      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s cubic-bezier(.25,.8,.25,1)';
-      headshot.style.boxShadow = [
-        '0 0 0 2px rgba(0,255,204,0.25)',
-        '0 0 8px 2px rgba(0,255,204,0.25)',
-        '0 0 16px 4px rgba(0,255,204,0.25)',
-        '0 0 32px 12px rgba(0,255,204,0.25)'
-      ].join(', ');
+      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1)';
       setTimeout(() => {
         headshot.style.transition = '';
         headshot.style.animation = 'float 5.5s ease-in-out infinite';
-      }, 500);
+      }, 450);
     }
   },
   mounted() {
@@ -407,25 +395,15 @@ html, body {
   height: 110px;
   border-radius: 50%;
   background: #000;
-  /* Glow matches terminal hover (rgba(0,255,204,0.25)) */
   border: none;
   box-shadow:
-    0 0 0 2px rgba(0,255,204,0.25), /* tight bright ring */
-    0 0 8px 2px rgba(0,255,204,0.25), /* inner glow */
-    0 0 16px 4px rgba(0,255,204,0.25), /* medium glow */
-    0 0 32px 12px rgba(0,255,204,0.25); /* soft outer glow */
+    0 0 0 2px rgba(0,255,204,0.4),
+    0 0 4px 6px rgba(0,255,204,0.2),
+    0 0 8px 8px rgba(0,255,204,0.1);
   transition: transform 0.25s cubic-bezier(.25,.8,.25,1), box-shadow 0.25s cubic-bezier(.25,.8,.25,1);
   animation: float 5.5s ease-in-out infinite;
   cursor: pointer;
   will-change: transform;
-}
-
-.floating-headshot:hover {
-  /* 3D tilt effect on hover */
-  transform: perspective(400px) rotateY(12deg) rotateX(8deg);
-  box-shadow:
-    0 0 0 12px rgba(0, 255, 204, 0.92),
-    0 0 32px 8px rgba(0, 255, 204, 0.85);
 }
 
 @media (max-width: 600px) {

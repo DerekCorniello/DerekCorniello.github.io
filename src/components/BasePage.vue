@@ -58,13 +58,12 @@ export default {
   overflow-x: hidden;
 }
 
-/* Header Styles */
 .page-header {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
   color: white;
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1rem 1.25rem;
   position: fixed;
   top: 0;
   left: 0;
@@ -81,26 +80,18 @@ export default {
   bottom: -6px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 16px;
   background: linear-gradient(
     to bottom,
     rgba(0, 255, 204, 0.25) 0%,
     rgba(0, 255, 204, 0.1) 70%,
     transparent 100%
   );
-  filter: blur(6px);
+  filter: blur(4px);
   z-index: 1001;
   pointer-events: none;
-  transform: scale(0.99);
-  transition: all 0.3s ease;
-  opacity: 0.8;
-}
-
-.page-header:hover::after {
   transform: scale(1);
-  opacity: 1;
-  height: 16px;
-  filter: blur(8px);
+  opacity: 0.8;
 }
 
 .page-header .header-content {
@@ -165,7 +156,7 @@ export default {
   white-space: nowrap;
   
   &:hover, &.router-link-active {
-    color: #ffffff;
+    color: #00ffcc;
     background-color: rgba(0, 255, 204, 0.1);
   }
   
@@ -175,7 +166,6 @@ export default {
   }
 }
 
-/* Footer Styles */
 .page-footer {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
@@ -196,52 +186,23 @@ export default {
   top: -6px;
   left: 0;
   right: 0;
-  height: 12px;
+  height: 16px;
   background: linear-gradient(
-    to top,
+    to bottom,
     rgba(0, 255, 204, 0.25) 0%,
     rgba(0, 255, 204, 0.1) 70%,
     transparent 100%
   );
-  filter: blur(6px);
+  filter: blur(4px);
   z-index: 1001;
   pointer-events: none;
-  transform: scale(0.99);
-  transition: all 0.3s ease;
+  transform: scale(1);
   opacity: 0.8;
 }
 
-.page-footer:hover::before {
-  transform: scale(1);
-  opacity: 1;
-  height: 16px;
-  filter: blur(8px);
-  box-shadow: 0 0 15px 2px rgba(0, 255, 204, 0.2);
-}
-
-/* Add a subtle glow to the footer content on hover */
-.page-footer:hover .footer-content {
+.footer-content {
   position: relative;
   z-index: 1;
-}
-
-.page-footer:hover .footer-content::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: 0;
-  right: 0;
-  bottom: -50%;
-  background: radial-gradient(
-    ellipse at center,
-    rgba(0, 255, 204, 0.05) 0%,
-    transparent 70%
-  );
-  z-index: -1;
-  pointer-events: none;
-}
-
-.footer-content {
   max-width: 1400px;
   margin: 0 auto;
   display: flex;
@@ -281,11 +242,14 @@ export default {
   display: flex;
   align-items: center;
   gap: 0.4rem;
-  transition: color 0.2s ease;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
   margin: 0;
   
   &:hover {
-    color: #ffffff;
+    color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.1);
   }
   
   i {
@@ -293,7 +257,6 @@ export default {
   }
 }
 
-/* Main Content */
 .page-content {
   flex: 1;
   width: 100%;
@@ -304,18 +267,30 @@ export default {
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: calc(100vh - 25vh);
+  min-height: 60vh;
+  margin-top: 5rem;
+  padding: 1rem 0;
+  
+  @media (max-width: 767px) {
+    margin-top: 6rem;
+  }
+  
+  @media (max-width: 900px) and (orientation: landscape) {
+    margin-top: 7rem;
+  }
+  
+  @media (max-width: 360px) {
+    margin-top: 8rem;
+  }
 }
 
-/* Add more space at the bottom of the content */
 .page-content > * {
-  padding-bottom: 4rem;
-  margin-bottom: 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 1rem;
   max-width: 1200px;
   width: 100%;
 }
 
-/* Extra space for the first element in content */
 .page-content > *:first-child {
   margin-top: 1.5rem;
 }
