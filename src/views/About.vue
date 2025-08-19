@@ -9,7 +9,7 @@
       <Container>
         <template #title>
           <img
-            src="/favicon.ico"
+            src="/headshot.jpeg"
             alt="Derek's Headshot"
             style="
               width: 15%;
