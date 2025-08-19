@@ -2,16 +2,16 @@
   <BasePage>
     <div class="blog-container">
       <h1 class="blog-title">{{ title }}</h1>
-      
+
       <div class="blog-content">
-        <slot></slot> 
+        <slot></slot>
       </div>
     </div>
   </BasePage>
 </template>
 
 <script>
-import BasePage from '@/components/BasePage.vue';
+import BasePage from '@/components/BasePage.vue'
 
 export default {
   name: 'BaseBlog',
@@ -24,19 +24,19 @@ export default {
       required: true,
     },
   },
-};
+}
 </script>
 
 <style scoped>
 .blog-container {
   padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8); 
+  background-color: rgba(0, 0, 0, 0.8);
   border-radius: 8px;
 }
 
 .blog-title {
   font-size: 2.5rem;
-  color: #ff66b2; 
+  color: #ff66b2;
   margin-bottom: 1rem;
 }
 
@@ -72,7 +72,9 @@ export default {
 .blog-content :deep(a) {
   color: #00ffcc;
   text-decoration: none;
-  transition: color 0.3s ease, opacity 0.2s ease;
+  transition:
+    color 0.3s ease,
+    opacity 0.2s ease;
   position: relative;
 }
 
@@ -95,7 +97,9 @@ export default {
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
   background-color: rgba(255, 255, 255, 0.05);
 }
 
@@ -146,15 +150,15 @@ export default {
   .blog-content :deep(ol) {
     padding-left: 2rem;
   }
-  
+
   .blog-content :deep(.image-container) {
     margin: 3rem auto;
   }
-  
+
   .blog-content :deep(img) {
     max-width: 90%;
   }
-  
+
   .blog-content :deep(.image-caption) {
     max-width: 80%;
   }
@@ -164,15 +168,15 @@ export default {
   .blog-content {
     font-size: 1.1rem;
   }
-  
+
   .blog-content :deep(.image-container) {
     max-width: 85%;
   }
-  
+
   .blog-content :deep(img) {
     max-width: 80%;
   }
-  
+
   .blog-content :deep(.image-caption) {
     max-width: 70%;
     font-size: 1rem;
@@ -184,7 +188,7 @@ export default {
   .blog-content :deep(.image-container) {
     max-width: 80%;
   }
-  
+
   .blog-content :deep(img) {
     max-width: 75%;
   }

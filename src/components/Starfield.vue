@@ -3,20 +3,20 @@
 </template>
 
 <script>
-import { nextTick } from 'vue';
-import initStarfield from '../scripts/starfield.js';
+import { nextTick } from 'vue'
+import initStarfield from '../scripts/starfield.js'
 
 export default {
   name: 'Starfield',
   mounted() {
     nextTick(() => {
-      const canvas = this.$refs.canvas;
+      const canvas = this.$refs.canvas
       if (canvas) {
-        initStarfield(canvas);
+        initStarfield(canvas)
       }
-    });
+    })
   },
-};
+}
 </script>
 
 <style scoped>

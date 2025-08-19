@@ -3,7 +3,7 @@
   <div class="base-page">
     <header class="page-header">
       <div class="header-content">
-          <router-link to="/"><h1>Derek Corniello</h1></router-link>
+        <router-link to="/"><h1>Derek Corniello</h1></router-link>
         <nav class="header-links">
           <router-link class="r-link" to="/about">About Me</router-link>
           <router-link class="r-link" to="/projects">Projects</router-link>
@@ -14,24 +14,32 @@
       </div>
     </header>
     <main class="page-content">
-      <slot></slot> 
+      <slot></slot>
     </main>
     <footer class="page-footer">
       <div class="footer-content">
         <p>Created by: Derek Corniello</p>
         <div class="links">
-            <a href="https://www.linkedin.com/in/derek-corniello" target="_blank" style="text-decoration: none;">
-              <i class="bi bi-linkedin"></i> LinkedIn
-            </a>
-            <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none;">
-              <i class="bi bi-github"></i> GitHub
-            </a>
-            <a href="https://twitter.com/DerekCorniello" target="_blank" style="text-decoration: none;">
-                <i class="bi bi-twitter-x"></i> X
-            </a>
-            <a href="/resume" target="_blank" style="text-decoration: none;">
-              <i class="bi bi-file-earmark-text"></i> Resume
-            </a>
+          <a
+            href="https://www.linkedin.com/in/derek-corniello"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <i class="bi bi-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none">
+            <i class="bi bi-github"></i> GitHub
+          </a>
+          <a
+            href="https://twitter.com/DerekCorniello"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <i class="bi bi-twitter-x"></i> X
+          </a>
+          <a href="/resume" target="_blank" style="text-decoration: none">
+            <i class="bi bi-file-earmark-text"></i> Resume
+          </a>
         </div>
       </div>
     </footer>
@@ -39,14 +47,14 @@
 </template>
 
 <script>
-import Starfield from '@/components/Starfield.vue';
+import Starfield from '@/components/Starfield.vue'
 
 export default {
   name: 'BasePage',
   components: {
     Starfield,
   },
-};
+}
 </script>
 
 <style scoped>
@@ -102,7 +110,7 @@ export default {
   width: 100%;
   box-sizing: border-box;
   padding: 0 1rem;
-  
+
   @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-between;
@@ -115,7 +123,7 @@ export default {
   font-size: 1.5rem;
   margin: 0.5rem 0;
   text-align: center;
-  
+
   @media (min-width: 768px) {
     text-align: left;
     margin: 0;
@@ -126,7 +134,7 @@ export default {
   color: #00ffcc;
   text-decoration: none;
   transition: color 0.2s ease;
-  
+
   &:hover {
     color: #ffffff;
   }
@@ -138,7 +146,7 @@ export default {
   justify-content: center;
   gap: 0.75rem;
   margin-top: 0.5rem;
-  
+
   @media (min-width: 768px) {
     justify-content: flex-end;
     margin-top: 0;
@@ -154,12 +162,13 @@ export default {
   border-radius: 4px;
   transition: all 0.2s ease;
   white-space: nowrap;
-  
-  &:hover, &.router-link-active {
+
+  &:hover,
+  &.router-link-active {
     color: #00ffcc;
     background-color: rgba(0, 255, 204, 0.1);
   }
-  
+
   @media (min-width: 768px) {
     font-size: 1rem;
     padding: 0.5rem 0.75rem;
@@ -210,7 +219,7 @@ export default {
   align-items: center;
   gap: 1rem;
   text-align: center;
-  
+
   @media (min-width: 640px) {
     flex-direction: row;
     justify-content: space-between;
@@ -230,7 +239,7 @@ export default {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
-  
+
   @media (min-width: 640px) {
     gap: 1.5rem;
   }
@@ -246,12 +255,12 @@ export default {
   border-radius: 4px;
   transition: all 0.2s ease;
   margin: 0;
-  
+
   &:hover {
     color: #00ffcc;
     background-color: rgba(0, 255, 204, 0.1);
   }
-  
+
   i {
     font-size: 1.1em;
   }
@@ -270,15 +279,15 @@ export default {
   min-height: 60vh;
   margin-top: 5rem;
   padding: 1rem 0;
-  
+
   @media (max-width: 767px) {
     margin-top: 6rem;
   }
-  
+
   @media (max-width: 900px) and (orientation: landscape) {
     margin-top: 7rem;
   }
-  
+
   @media (max-width: 360px) {
     margin-top: 8rem;
   }
@@ -296,13 +305,13 @@ export default {
 }
 
 .footer-content {
-  display: flex; 
-  flex-direction: column; 
-  align-items: center; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .page-content {
-  flex: 1 0 auto; 
+  flex: 1 0 auto;
   padding: 2rem;
   color: white;
 }

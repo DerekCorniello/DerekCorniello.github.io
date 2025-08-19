@@ -30,39 +30,39 @@
 </template>
 
 <script>
-import { gsap } from "gsap";
+import { gsap } from 'gsap'
 
 export default {
-  name: "TerminalGreeting",
+  name: 'TerminalGreeting',
   mounted() {
-    this.animateTypewriter();
+    this.animateTypewriter()
   },
   methods: {
     animateTypewriter() {
-      const text = "Welcome, traveler, to Derek Corniello's Space!";
-      const typewriter = this.$refs.typewriter;
-      typewriter.innerHTML += "> "
+      const text = "Welcome, traveler, to Derek Corniello's Space!"
+      const typewriter = this.$refs.typewriter
+      typewriter.innerHTML += '> '
 
-      let i = 0;
-      const speed = 100; // Typing speed (milliseconds per character)
-      const typingDuration = 3000; // Total duration of typing effect (3 seconds)
+      let i = 0
+      const speed = 100 // Typing speed (milliseconds per character)
+      const typingDuration = 3000 // Total duration of typing effect (3 seconds)
 
       // Calculate individual character delay based on total duration
-      const delay = typingDuration / text.length;
+      const delay = typingDuration / text.length
 
       // Create the typing effect by adding one character at a time
       const typingEffect = () => {
         if (i < text.length) {
-          typewriter.innerHTML += text.charAt(i);
-          i++;
-          setTimeout(typingEffect, delay);
+          typewriter.innerHTML += text.charAt(i)
+          i++
+          setTimeout(typingEffect, delay)
         }
-      };
+      }
 
-      typingEffect();
+      typingEffect()
     },
   },
-};
+}
 </script>
 
 <style scoped>
@@ -80,7 +80,7 @@ export default {
   margin: 0 auto;
   padding: 1rem;
   box-sizing: border-box;
-  
+
   @media (min-width: 640px) {
     padding: 1.5rem;
     border-radius: 12px;
@@ -110,9 +110,15 @@ export default {
   opacity: 0.7;
 }
 
-.terminal-button.red { background: #ff5f56; }
-.terminal-button.yellow { background: #ffbd2e; }
-.terminal-button.green { background: #27c93f; }
+.terminal-button.red {
+  background: #ff5f56;
+}
+.terminal-button.yellow {
+  background: #ffbd2e;
+}
+.terminal-button.green {
+  background: #27c93f;
+}
 
 .terminal-title {
   font-size: 1.2rem;
@@ -123,7 +129,7 @@ export default {
 
 .terminal-content {
   padding: 1rem 0.5rem;
-  
+
   @media (min-width: 640px) {
     padding: 1.5rem;
   }
@@ -142,22 +148,22 @@ export default {
   overflow: hidden;
   white-space: pre-wrap;
   word-wrap: break-word;
-  
+
   @media (min-width: 400px) {
     font-size: 0.6rem;
     line-height: 1.15;
   }
-  
+
   @media (min-width: 640px) {
     font-size: 0.8rem;
     margin-bottom: 2rem;
     line-height: 1.2;
   }
-  
+
   @media (min-width: 768px) {
     font-size: 1.1rem;
   }
-  
+
   pre {
     margin: 0;
     white-space: pre-wrap;
@@ -193,17 +199,17 @@ export default {
   display: inline;
   text-align: center;
   white-space: pre-wrap;
-  
+
   @media (min-width: 400px) {
     font-size: 1.2rem;
   }
-  
+
   @media (min-width: 640px) {
     font-size: 1.4rem;
     letter-spacing: 1px;
     text-shadow: 0 0 10px #00ffcc;
   }
-  
+
   @media (min-width: 768px) {
     font-size: 1.6rem;
   }
@@ -213,16 +219,16 @@ export default {
   display: inline;
   font-family: var(--font-mono, 'Fira Code', monospace);
   color: #00ffcc;
-  animation: blink .75s step-end infinite;
+  animation: blink 0.75s step-end infinite;
   font-size: 1.1rem;
   line-height: 1.6;
   margin-left: 2px;
   text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
-  
+
   @media (min-width: 400px) {
     font-size: 1.2rem;
   }
-  
+
   @media (min-width: 640px) {
     font-size: 1.4rem;
     line-height: 1.6;
@@ -231,8 +237,13 @@ export default {
 }
 
 @keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
 }
 
 /* Adjust ASCII art for very small screens */
@@ -241,7 +252,7 @@ export default {
     font-size: 0.4rem;
     line-height: 1;
   }
-  
+
   .terminal-text {
     font-size: 0.9rem;
   }

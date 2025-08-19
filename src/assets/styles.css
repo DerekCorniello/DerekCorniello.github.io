@@ -5,9 +5,9 @@
 @tailwind utilities;
 
 :root {
-    overscroll-behavior: none;
-    background-color: '#000000';
-    --font-mono: 'Fira Code', monospace;
+  overscroll-behavior: none;
+  background-color: '#000000';
+  --font-mono: 'Fira Code', monospace;
 }
 
 html {
@@ -16,7 +16,7 @@ html {
 
 body {
   font-family: var(--font-mono);
-  font-feature-settings: "calt" 1;  /* Enable ligatures for Fira Code */
+  font-feature-settings: 'calt' 1; /* Enable ligatures for Fira Code */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   line-height: 1.5;
@@ -26,34 +26,49 @@ body {
 }
 
 a {
-  text-decoration: none; 
-  transition: text-shadow 0.2s ease, color 0.2s ease; 
+  text-decoration: none;
+  transition:
+    text-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
 a:hover {
-  text-decoration: none; 
-  text-shadow: 0 0 2px #BBBBBB, 0 0 4px #BBBBBB, 0 0 6px #BBBBBB; 
+  text-decoration: none;
+  text-shadow:
+    0 0 2px #bbbbbb,
+    0 0 4px #bbbbbb,
+    0 0 6px #bbbbbb;
 }
 
 .r-link {
-  text-decoration: none; 
-  transition: text-shadow 0.2s ease, color 0.2s ease; 
+  text-decoration: none;
+  transition:
+    text-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
 .r-link:hover {
-  text-decoration: none; 
-  color: #00ffcc; 
-  text-shadow: 0 0 1px #00ffcc, 0 0 1px #00ffcc, 0 0 2px #00ffcc; 
+  text-decoration: none;
+  color: #00ffcc;
+  text-shadow:
+    0 0 1px #00ffcc,
+    0 0 1px #00ffcc,
+    0 0 2px #00ffcc;
 }
 
-.source-code-button{
-  color: #ff4081; 
-  text-decoration: none; 
-  transition: text-shadow 0.2s ease, color 0.2s ease; 
+.source-code-button {
+  color: #ff4081;
+  text-decoration: none;
+  transition:
+    text-shadow 0.2s ease,
+    color 0.2s ease;
 }
 
 .source-code-button:hover {
-  text-decoration: none; 
-  color: #ff4081; 
-  text-shadow: 0 0 1px #ff4081, 0 0 1px #ff4081, 0 0 2px #ff4081; 
+  text-decoration: none;
+  color: #ff4081;
+  text-shadow:
+    0 0 1px #ff4081,
+    0 0 1px #ff4081,
+    0 0 2px #ff4081;
 }

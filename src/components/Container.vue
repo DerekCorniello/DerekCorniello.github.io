@@ -17,8 +17,8 @@
 
 <script>
 export default {
-  name: 'Container'
-};
+  name: 'Container',
+}
 </script>
 
 <style scoped>
@@ -56,24 +56,14 @@ export default {
 
 .divider-line {
   height: 1px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 255, 204, 0.8),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.8), transparent);
   width: 100%;
   position: absolute;
 }
 
 .divider-glow {
   height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent,
-    rgba(0, 255, 204, 0.2),
-    transparent
-  );
+  background: linear-gradient(90deg, transparent, rgba(0, 255, 204, 0.2), transparent);
   filter: blur(2px);
   width: 100%;
   position: absolute;
@@ -86,7 +76,6 @@ export default {
   text-align: left;
   padding: 0.5rem 0;
 }
-
 
 @media (max-width: 768px) {
   .container {

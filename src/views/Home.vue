@@ -1,7 +1,6 @@
 <template>
   <BasePage>
     <div class="content-container">
-      
       <div class="terminal-and-card">
         <div class="floating-headshot-container">
           <img
@@ -21,28 +20,23 @@
         <div class="landing-card-container">
           <div class="landing-card">
             <div class="intro">
-              <p class="tagline">Innovative developer crafting cutting-edge solutions and intuitive designs to solve real-world problems, driven to deliver impactful and innovative solutions</p>
+              <p class="tagline">
+                Innovative developer crafting cutting-edge solutions and intuitive designs to solve
+                real-world problems, driven to deliver impactful and innovative solutions
+              </p>
             </div>
             <div class="cta-buttons">
-              <button @click="navigateTo('about')" class="cta-button">
-                About me
-              </button>
-              <button @click="navigateTo('contact')" class="cta-button">
-                Contact
-              </button>
-              <button @click="navigateTo('projects')" class="cta-button">
-                Projects
-              </button>
-              <button @click="navigateTo('blog')" class="cta-button">
-                Blog
-              </button>
+              <button @click="navigateTo('about')" class="cta-button">About me</button>
+              <button @click="navigateTo('contact')" class="cta-button">Contact</button>
+              <button @click="navigateTo('projects')" class="cta-button">Projects</button>
+              <button @click="navigateTo('blog')" class="cta-button">Blog</button>
             </div>
           </div>
         </div>
       </div>
-      <WordSphere 
+      <WordSphere
         class="word-sphere"
-        :font-size="1.2" 
+        :font-size="1.2"
         :rotation-speed="0.0015"
         text-color="#00ffcc"
       />
@@ -51,77 +45,78 @@
 </template>
 
 <script>
-import BasePage from '@/components/BasePage.vue';
-import TerminalGreeting from '@/components/TerminalGreeting.vue';
-import WordSphere from '@/components/WordSphere.vue';
+import BasePage from '@/components/BasePage.vue'
+import TerminalGreeting from '@/components/TerminalGreeting.vue'
+import WordSphere from '@/components/WordSphere.vue'
 
 export default {
   name: 'Home',
   components: {
     BasePage,
     TerminalGreeting,
-    WordSphere
+    WordSphere,
   },
   data() {
-    return {};
+    return {}
   },
   methods: {
     handleTouchMove(e) {
       if (e.touches.length > 0) {
-        const touch = e.touches[0];
+        const touch = e.touches[0]
         const mouseEvent = new MouseEvent('mousemove', {
           clientX: touch.clientX,
-          clientY: touch.clientY
-        });
-        this.handleHeadshotTilt(mouseEvent);
+          clientY: touch.clientY,
+        })
+        this.handleHeadshotTilt(mouseEvent)
       }
     },
     navigateTo(section) {
-      this.$router.push({ name: section });
+      this.$router.push({ name: section })
     },
     handleHeadshotTilt(e) {
-      const headshot = this.$refs.headshot;
-      const rect = headshot.getBoundingClientRect();
-      const x = e.clientX - rect.left;
-      const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
-      const maxTilt = 16;
-      const rotateY = ((x - centerX) / centerX) * maxTilt;
-      const rotateX = -((y - centerY) / centerY) * maxTilt;
-      headshot.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
-      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1)';
-      headshot.style.animation = 'none';
+      const headshot = this.$refs.headshot
+      const rect = headshot.getBoundingClientRect()
+      const x = e.clientX - rect.left
+      const y = e.clientY - rect.top
+      const centerX = rect.width / 2
+      const centerY = rect.height / 2
+      const maxTilt = 16
+      const rotateY = ((x - centerX) / centerX) * maxTilt
+      const rotateX = -((y - centerY) / centerY) * maxTilt
+      headshot.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1)'
+      headshot.style.animation = 'none'
     },
     resetHeadshotTilt() {
-      const headshot = this.$refs.headshot;
-      headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
-      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1)';
+      const headshot = this.$refs.headshot
+      headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
+      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1)'
       setTimeout(() => {
-        headshot.style.transition = '';
-        headshot.style.animation = 'float 5.5s ease-in-out infinite';
-      }, 450);
-    }
+        headshot.style.transition = ''
+        headshot.style.animation = 'float 5.5s ease-in-out infinite'
+      }, 450)
+    },
   },
   mounted() {
-    document.title = "Derek Corniello's Space!";
+    document.title = "Derek Corniello's Space!"
     if (this.$refs.headshot) {
-      this.$refs.headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)';
+      this.$refs.headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
     }
-  }
-};
+  },
+}
 </script>
 
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap');
 
-html, body {
+html,
+body {
   background-color: #000;
   font-family: 'Fira Code', monospace;
   margin: 0;
   padding: 0;
   width: 100%;
-  overflow-x: hidden; 
+  overflow-x: hidden;
 }
 
 .content-container {
@@ -149,7 +144,7 @@ html, body {
   z-index: 2;
   padding: 0 1rem;
   box-sizing: border-box;
-  
+
   @media (max-width: 768px) {
     gap: 1rem;
     padding: 0 0.5rem;
@@ -204,12 +199,12 @@ html, body {
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
   position: relative;
   z-index: 2;
-  
+
   @media (min-width: 640px) {
     font-size: 1.2rem;
     margin: 1rem 0 2rem;
   }
-  
+
   @media (min-width: 1024px) {
     font-size: 1.4rem;
   }
@@ -226,7 +221,7 @@ html, body {
   max-width: 400px;
   padding: 0 1rem;
   box-sizing: border-box;
-  
+
   @media (min-width: 640px) {
     display: flex;
     flex-wrap: wrap;
@@ -260,14 +255,14 @@ html, body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  
+
   @media (min-width: 640px) {
     padding: 0.7rem 1.2rem;
     width: auto;
     min-width: 120px;
     font-size: 0.95rem;
   }
-  
+
   @media (min-width: 768px) {
     padding: 0.8rem 1.8rem;
     font-size: 1rem;
@@ -286,7 +281,8 @@ html, body {
 }
 
 @keyframes float {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -295,7 +291,8 @@ html, body {
 }
 
 @keyframes float-reverse {
-  0%, 100% {
+  0%,
+  100% {
     transform: translateY(0);
   }
   50% {
@@ -308,12 +305,12 @@ html, body {
   height: 300px;
   margin: 2rem 0;
   position: relative;
-  
+
   @media (min-width: 640px) {
     height: 350px;
     margin: 3rem 0;
   }
-  
+
   @media (min-width: 1024px) {
     height: 450px;
   }
@@ -354,7 +351,7 @@ html, body {
     margin: 0;
     flex: 0 0 auto;
   }
-  
+
   .terminal-greeting-container {
     transform: scale(1);
     max-width: 100%;
@@ -375,7 +372,7 @@ html, body {
     padding: 0;
     line-height: 1.5;
   }
-  
+
   .cta-buttons {
     margin-top: 1.5rem;
   }
@@ -397,10 +394,12 @@ html, body {
   background: #000;
   border: none;
   box-shadow:
-    0 0 0 2px rgba(0,255,204,0.4),
-    0 0 4px 6px rgba(0,255,204,0.2),
-    0 0 8px 8px rgba(0,255,204,0.1);
-  transition: transform 0.25s cubic-bezier(.25,.8,.25,1), box-shadow 0.25s cubic-bezier(.25,.8,.25,1);
+    0 0 0 2px rgba(0, 255, 204, 0.4),
+    0 0 4px 6px rgba(0, 255, 204, 0.2),
+    0 0 8px 8px rgba(0, 255, 204, 0.1);
+  transition:
+    transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+    box-shadow 0.25s cubic-bezier(0.25, 0.8, 0.25, 1);
   animation: float 5.5s ease-in-out infinite;
   cursor: pointer;
   will-change: transform;
@@ -415,5 +414,4 @@ html, body {
     margin-bottom: 1rem;
   }
 }
-
 </style>
