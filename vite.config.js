@@ -16,4 +16,28 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     },
   },
+  build: {
+    sourcemap: true,
+    minify: 'terser',
+    terserOptions: {
+      compress: {
+        drop_console: true,
+        drop_debugger: true,
+      },
+    },
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['vue', 'vue-router'],
+          three: ['three'],
+          gsap: ['gsap']
+        },
+      },
+    },
+  },
+  server: {
+    headers: {
+      'Cache-Control': 'public, max-age=31536000',
+    },
+  },
 })

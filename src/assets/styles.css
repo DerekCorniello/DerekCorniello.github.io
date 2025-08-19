@@ -11,7 +11,28 @@
 }
 
 html {
-  font-size: clamp(10px, 1vw, 14px);
+  font-size: clamp(12px, 1.1vw, 16px);
+}
+
+/* Ensure minimum font sizes */
+code, kbd, samp, pre {
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.5;
+}
+
+.tagline {
+  font-size: 1rem; /* 16px */
+}
+
+.page-header .header-links a,
+.footer-content p,
+.cta-button,
+.links {
+  font-size: 0.875rem; /* 14px */
+}
+
+.footer-content .links a i {
+  font-size: 0.9375rem; /* 15px */
 }
 
 body {
