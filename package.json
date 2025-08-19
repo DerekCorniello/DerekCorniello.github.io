@@ -14,25 +14,21 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "axios": "^1.7.9",
-    "gsap": "^3.12.5",
-    "three": "^0.172.0",
-    "vue": "^3.5.13",
-    "vue-router": "^4.5.0"
+    "axios": "^1.6.2",
+    "gsap": "^3.12.2",
+    "three": "^0.162.0",
+    "vue": "^3.3.4",
+    "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@eslint/js": "^9.14.0",
-    "@vitejs/plugin-vue": "^5.2.1",
-    "@vue/eslint-config-prettier": "^10.1.0",
-    "autoprefixer": "^10.4.20",
-    "eslint": "^9.14.0",
-    "eslint-plugin-vue": "^9.30.0",
-    "gh-pages": "^6.3.0",
-    "postcss": "^8.4.49",
-    "prettier": "^3.3.3",
-    "tailwindcss": "^3.4.17",
-    "terser": "^5.43.1",
-    "vite": "^6.0.5",
-    "vite-plugin-vue-devtools": "^7.6.8"
+    "@vitejs/plugin-vue": "^4.3.4",
+    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "autoprefixer": "^10.4.15",
+    "eslint": "^8.45.0",
+    "eslint-plugin-vue": "^9.15.1",
+    "gh-pages": "^5.0.0",
+    "postcss": "^8.4.29",
+    "tailwindcss": "^3.3.3",
+    "vite": "^4.4.9"
   }
 }

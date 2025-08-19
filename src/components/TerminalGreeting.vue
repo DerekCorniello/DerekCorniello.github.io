@@ -9,7 +9,7 @@
       <div class="terminal-title">terminal@dereks-space:~</div>
     </div>
     <div class="terminal-content">
-      <div class="ascii-art">
+      <div v-if="showAsciiArt" class="ascii-art">
         <pre>
  _____                _       _____                 _      _ _       
 |  __ \              | |     / ____|               (_)    | | |      
@@ -34,10 +34,22 @@ import { gsap } from 'gsap'
 
 export default {
   name: 'TerminalGreeting',
+  data() {
+    return {
+      showAsciiArt: window.innerWidth > 620
+    }
+  },
   mounted() {
     this.animateTypewriter()
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize)
   },
   methods: {
+    handleResize() {
+      this.showAsciiArt = window.innerWidth > 620
+    },
     animateTypewriter() {
       const text = "Welcome, traveler, to Derek Corniello's Space!"
       const typewriter = this.$refs.typewriter
