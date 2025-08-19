@@ -153,7 +153,7 @@
                  border-radius: 5px; 
                  text-decoration: none;"
             class="r-link" to="/blog">
-            <- Back to Blogs
+            Back to Blogs
         </router-link>
     </BaseBlog>
 </template>

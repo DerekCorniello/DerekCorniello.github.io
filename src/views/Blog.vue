@@ -63,7 +63,7 @@
                   v-for="(tag, tagIndex) in item.tags"
                   :key="tagIndex"
                   class="tag"
-                  :style="{ backgroundColor: '#ff66b2', color: '#FFFFFF' }"
+                  :style="{ margin: '1rem', backgroundColor: '#ff66b2', color: '#FFFFFF' }"
                 >
                   {{ tag }}
                 </span>
