@@ -206,6 +206,7 @@
     <br /><br />
     Overall, this was a very interesting, fun, and overall useful project that I believe will help
     me for years to come!
+    <br /><br />
     <router-link
       style="
         text-align: center;
