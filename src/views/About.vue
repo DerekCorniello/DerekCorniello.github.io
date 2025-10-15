@@ -60,23 +60,40 @@
 
       <Container>
         <template #title> 📈 GitHub and LeetCode Stats: </template>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem">
-          <img
-            src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&langs_count=8&layout=compact&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript&theme=highcontrast&hide_border=true"
-            alt="Top Languages"
-            style="width: 100%; max-width: 500px"
-          /><br />
-          <img
-            src="https://github-readme-stats.vercel.app/api?username=derekcorniello&show_icons=true&hide=stars&count_private=true&hide_rank=true&theme=highcontrast&hide_border=true"
-            alt="Derek's GitHub Stats"
-            style="width: 100%; max-width: 500px"
-          /><br />
-          <img
-            src="https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=transparent"
-            alt="LeetCode Activity"
-            style="width: 100%; max-width: 400px"
-          />
+        <div
+          style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem"
+        >
+          <div style="position: relative; width: 100%; max-width: 500px; text-align: center;">
+            <span>Loading top languages...</span>
+            <img
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&langs_count=8&layout=compact&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript&theme=highcontrast&hide_border=true"
+              alt="Top Languages"
+              style="width: 100%; max-width: 500px; display: none;"
+              onload="this.previousElementSibling.remove(); this.style.display='block';"
+            />
+          </div>
+
+          <div style="position: relative; width: 100%; max-width: 500px; text-align: center;">
+            <span>Loading GitHub stats...</span>
+            <img
+              src="https://github-readme-stats.vercel.app/api?username=derekcorniello&show_icons=true&hide=stars&count_private=true&hide_rank=true&theme=highcontrast&hide_border=true"
+              alt="Derek's GitHub Stats"
+              style="width: 100%; max-width: 500px; display: none;"
+              onload="this.previousElementSibling.remove(); this.style.display='block';"
+            />
+          </div>
+
+          <div style="position: relative; width: 100%; max-width: 400px; text-align: center;">
+            <span>Loading LeetCode activity...</span>
+            <img
+              src="https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=transparent"
+              alt="LeetCode Activity"
+              style="width: 100%; max-width: 400px; display: none;"
+              onload="this.previousElementSibling.remove(); this.style.display='block';"
+            />
+          </div>
         </div>
+
       </Container>
 
       <Container>
