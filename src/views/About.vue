@@ -170,6 +170,8 @@
             streamlined Neovim + Arch Linux setup.
           </li>
           <li>Exploring new programming paradigms.</li>
+          <li>Building a Compiler in Rust</li>
+          <li>Writing evolutionary algorithms in OCaml</li>
           <li>Grinding LeetCode!</li>
         </ul>
         <br />
