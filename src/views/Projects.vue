@@ -6,6 +6,47 @@
       <Container>
         <template #title>
           <div class="project-title">
+            <span class="project-emoji">🖱️</span>
+            <a
+              href="https://github.com/DerekCorniello/quick-mouse"
+              target="_blank"
+              style="text-decoration: underline white"
+              >Quick Mouse</a
+            >
+          </div>
+          <div class="tech-stack">
+            <img
+              src="https://img.shields.io/badge/Go-00ADD8?style=flat&logo=go&logoColor=white"
+              alt="Go"
+              class="tech-badge"
+            />
+            <img
+              src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
+              alt="React"
+              class="tech-badge"
+            />
+            <img
+              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=websocket&logoColor=white"
+              alt="WebSockets"
+              class="tech-badge"
+            />
+          </div>
+        </template>
+        A wireless mouse solution that turns your smartphone into a fully-functional input device for your computer. Winning first place at the <strong><a href="https://makeuc.io" target="_blank" style="text-decoration: underline #00ffcc">2025 MakeUC Hackathon</a></strong>, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket communication for low-latency control. With multiple input modes including handheld pointer and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without requiring any extra hardware. The application uses Go for the backend service and React for the intuitive touch interface, delivering a seamless user experience.
+        <br /><br />
+        Check out the <a href="https://devpost.com/software/quick-mouse" target="_blank" style="text-decoration: underline #00ffcc">DevPost submission</a> for more details!
+        <br /><br />
+        <img src="/qm-logo.png" alt="[Quick Mouse Logo]" class="logo-scaled" />
+        <div class="screenshot-row">
+          <img src="/qm-base.png" alt="[Quick Mouse Main Interface]" class="screenshot-small" />
+          <img src="/qm-settings.png" alt="[Quick Mouse Settings]" class="screenshot-small" />
+          <img src="/qm-calib.png" alt="[Quick Mouse Calibration]" class="screenshot-small" />
+        </div>
+      </Container>
+
+      <Container>
+        <template #title>
+          <div class="project-title">
             <span class="project-emoji">🎵</span>
             <a
               href="https://github.com/DerekCorniello/8BitBeats"
@@ -50,12 +91,7 @@
         <template #title>
           <div class="project-title">
             <span class="project-emoji">🐍</span>
-            <a
-              href="https://reqinspect.com"
-              target="_blank"
-              style="text-decoration: underline white"
-              >reqinspect.com</a
-            >
+            <span style="color: rgba(255, 255, 255, 0.7)">reqinspect.com (Previously @ reqinspect.com)</span>
             /
             <a
               href="https://github.com/DerekCorniello/pip-req-valid"
@@ -80,12 +116,14 @@
               alt="AWS"
               class="tech-badge"
             />
+            <img
+              src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"
+              alt="Docker"
+              class="tech-badge"
+            />
           </div>
         </template>
-        A web app hosted on AWS that validates `requirements.txt` files for pip. It uses Go for
-        backend processing and Vue.js for the frontend, both hosted on AWS architecture. It checks
-        for missing or outdated dependencies and helps ensure that your Python project’s
-        dependencies are up-to-date and properly formatted.
+A web app that validates `requirements.txt` files for pip. Originally built and hosted on AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go for backend processing and Vue.js for the frontend, checking for missing or outdated dependencies to help ensure that your Python project's dependencies are up-to-date and properly formatted.
         <br /><br />
         <img src="/reqinspect.png" alt="[reqinspect.com Screenshot]" />
       </Container>
@@ -516,5 +554,42 @@ img {
   opacity: 1;
   box-shadow: 0 2px 8px rgba(0, 255, 204, 0.3);
   z-index: 1;
+}
+
+.screenshot-row {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin: 1.5rem auto;
+  flex-wrap: wrap;
+}
+
+.screenshot-small {
+  width: 30%;
+  max-width: 280px;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.logo-scaled {
+  width: 60%;
+  max-width: 60%;
+  height: auto;
+  display: block;
+  margin: 1.5rem auto;
+}
+
+@media (max-width: 768px) {
+  .screenshot-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .screenshot-small {
+    width: 80%;
+    max-width: 300px;
+  }
 }
 </style>

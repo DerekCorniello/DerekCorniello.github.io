@@ -66,7 +66,7 @@
           <div style="position: relative; width: 100%; max-width: 500px; text-align: center;">
             <span>Loading top languages...</span>
             <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&langs_count=8&layout=compact&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript&theme=highcontrast&hide_border=true"
+              src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&langs_count=8&layout=compact&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript,TypeScript&theme=highcontrast&hide_border=true"
               alt="Top Languages"
               style="width: 100%; max-width: 500px; display: none;"
               onload="this.previousElementSibling.remove(); this.style.display='block';"
@@ -115,7 +115,7 @@
               <td>
                 <a href="https://skillicons.dev"
                   ><img
-                    src="https://skillicons.dev/icons?i=py,go,rust,cs,cpp,c,java"
+                    src="https://skillicons.dev/icons?i=py,rust,go,java,cpp,c,cs,ocaml"
                     alt="General Purpose"
                 /></a>
               </td>
