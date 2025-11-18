@@ -21,7 +21,7 @@
         </Container>
       </div>
       <a
-        href="https://dot.cards/DerekCorniello"
+        href="https://dot.cards/derekcorniello"
         target="_blank"
         style="justify-content: center; align-items: center; display: flex; margin: 1%"
       >
