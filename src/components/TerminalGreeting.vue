@@ -51,7 +51,7 @@ export default {
       this.showAsciiArt = window.innerWidth > 620
     },
     animateTypewriter() {
-      const text = "Welcome, traveler, to Derek Corniello's Space!"
+      const text = "Welcome to my space, traveler!"
       const typewriter = this.$refs.typewriter
       typewriter.innerHTML += '> '
 
@@ -153,33 +153,29 @@ export default {
   margin: 0 0 1.5rem 0;
   line-height: 1.1;
   opacity: 0.9;
-  font-size: 0.5rem;
-  text-shadow: 0 0 6px rgba(0, 255, 204, 0.7);
-  letter-spacing: 0.5px;
+  font-size: 11px !important;
+  line-height: 1.1 !important;
+  letter-spacing: 0 !important;
   font-weight: bold;
-  overflow: hidden;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-
-  @media (min-width: 400px) {
-    font-size: 0.6rem;
-    line-height: 1.15;
-  }
-
-  @media (min-width: 640px) {
-    font-size: 0.8rem;
-    margin-bottom: 2rem;
-    line-height: 1.2;
-  }
-
-  @media (min-width: 768px) {
-    font-size: 1.1rem;
-  }
+  font-family: 'Courier New', monospace !important;
+  text-shadow: 0 0 6px rgba(0, 255, 204, 0.7);
+  
+  /* Prevent browser interference */
+  transform: scale(1) !important;
+  text-rendering: pixelated;
+  image-rendering: pixelated;
+  
+  /* Ensure no wrapping */
+  white-space: pre !important;
+  overflow-x: auto !important;
+  word-wrap: normal !important;
+  overflow-wrap: normal !important;
 
   pre {
     margin: 0;
-    white-space: pre-wrap;
-    word-wrap: break-word;
+    white-space: pre !important;
+    word-wrap: normal !important;
+    overflow-wrap: normal !important;
   }
 }
 

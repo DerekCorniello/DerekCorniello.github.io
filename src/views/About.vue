@@ -8,25 +8,24 @@
     <div class="containers-holder">
       <Container>
         <template #title>
-          <img
-            src="/headshot.jpeg"
-            alt="Derek's Headshot"
-            style="
-              width: 15%;
-              height: auto;
-              border-radius: 50%;
-              display: block;
-              margin-left: auto;
-              margin-right: auto;
-              margin-bottom: 2%;
-            "
-          />
+          <div class="image-wrapper" style="width: 15%; margin: 0 auto 2% auto;">
+            <div class="skeleton"></div>
+            <img
+              src="/headshot.jpeg"
+              alt="Derek's Headshot"
+              class="lazy-image"
+              style="border-radius: 50%;"
+              onload="this.previousElementSibling.remove(); this.style.opacity='1';"
+            />
+          </div>
           👋 Hello, I'm Derek Corniello!
         </template>
-        I'm a CS/SWE student at the University of Cincinnati. I’m passionate about diving into
+        I'm a CS/SWE student at the University of Cincinnati. I have interned with Siemens
+        Digital Industry Software for the last 2 years, working on backends and API design.
+        I will be at Fifth Third Bank over the spring and LinkedIn over the summer. I’m excited about 
         software product design, project management, and back-end development. My curiosity and
         eagerness to learn drive me to keep exploring, one project and concept at a time! Please
-        <strong>explore my page</strong> and feel free to
+        explore my page and feel free to
         <strong
           ><u><router-link to="contact">contact me</router-link></u></strong
         >
@@ -63,32 +62,35 @@
         <div
           style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem"
         >
-          <div style="position: relative; width: 100%; max-width: 500px; text-align: center;">
-            <span>Loading top languages...</span>
-            <img
-              src="https://github-readme-stats.vercel.app/api/top-langs/?username=DerekCorniello&langs_count=8&layout=compact&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript,TypeScript&theme=highcontrast&hide_border=true"
-              alt="Top Languages"
-              style="width: 100%; max-width: 500px; display: none;"
-              onload="this.previousElementSibling.remove(); this.style.display='block';"
-            />
-          </div>
+        <div class="image-wrapper" style="max-width: 500px;">
+          <div class="skeleton"></div>
+          <img
+            src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DerekCorniello&theme=transparent&exclude=csharp"
+            alt="Top Languages"
+            loading="lazy"
+            decoding="async"
+            class="lazy-image"
+            onload="this.previousElementSibling.remove(); this.style.opacity='1';"
+          />
+        </div>
 
-          <div style="position: relative; width: 100%; max-width: 500px; text-align: center;">
-            <span>Loading GitHub stats...</span>
-            <img
-              src="https://github-readme-stats.vercel.app/api?username=derekcorniello&show_icons=true&hide=stars&count_private=true&hide_rank=true&theme=highcontrast&hide_border=true"
-              alt="Derek's GitHub Stats"
-              style="width: 100%; max-width: 500px; display: none;"
-              onload="this.previousElementSibling.remove(); this.style.display='block';"
-            />
-          </div>
-
-          <div style="position: relative; width: 100%; max-width: 400px; text-align: center;">
-            <span>Loading LeetCode activity...</span>
+        <div class="image-wrapper" style="max-width: 500px;">
+          <div class="skeleton"></div>
+          <img
+            src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DerekCorniello&theme=transparent"
+            alt="GitHub Stats"
+            loading="lazy"
+            decoding="async"
+            class="lazy-image"
+            onload="this.previousElementSibling.remove(); this.style.opacity='1';"
+          />
+        </div>
+          <div class="image-wrapper" style="max-width: 400px;">
+            <div class="skeleton"></div>
             <img
               src="https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=transparent"
               alt="LeetCode Activity"
-              style="width: 100%; max-width: 400px; display: none;"
+              class="lazy-image"
               onload="this.previousElementSibling.remove(); this.style.display='block';"
             />
           </div>
@@ -101,40 +103,32 @@
         <table>
           <tbody>
             <tr>
-              <td><strong>My Development Tools</strong></td>
+              <td><strong>Development Tools</strong></td>
               <td>
                 <a href="https://skillicons.dev"
                   ><img
-                    src="https://skillicons.dev/icons?i=neovim,arch,git,aws,docker,postman,md,unity"
+                    src="https://skillicons.dev/icons?i=neovim,arch,git,aws,docker,unity,arduino"
                     alt="Development Tools"
                 /></a>
               </td>
             </tr>
             <tr>
-              <td><strong>General Purpose</strong></td>
+              <td><strong>Backend</strong></td>
               <td>
                 <a href="https://skillicons.dev"
                   ><img
-                    src="https://skillicons.dev/icons?i=py,rust,go,java,cpp,c,cs,ocaml"
-                    alt="General Purpose"
+                    src="https://skillicons.dev/icons?i=py,rust,go,java,cpp"
+                    alt="Backend tools"
                 /></a>
               </td>
             </tr>
             <tr>
-              <td><strong>Front-End</strong></td>
+              <td><strong>Frontend</strong></td>
               <td>
                 <a href="https://skillicons.dev"
                   ><img
-                    src="https://skillicons.dev/icons?i=vue,vite,ts,js,html,css,bootstrap"
-                    alt="Front-End"
-                /></a>
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Back-End</strong></td>
-              <td>
-                <a href="https://skillicons.dev"
-                  ><img src="https://skillicons.dev/icons?i=jquery,php,flask,django" alt="Back-End"
+                    src="https://skillicons.dev/icons?i=html,js,ts,vue,vite"
+                    alt="Frontend tools"
                 /></a>
               </td>
             </tr>
@@ -149,35 +143,7 @@
           </tbody>
         </table>
       </Container>
-      <Container>
-        <template #title> 🏆 My Top Projects </template>
-        <ul>
-          <li>
-            <strong>8 Bit Beats:</strong> Rust - A TUI app that generates randomized music in the
-            terminal!
-          </li>
-          <li><strong>gitcmd:</strong> Rust - A customizable git terminal.</li>
-          <li>
-            <strong>ReqInspect:</strong> Go, Vue, AWS - Full-stack app for validating
-            `requirements.txt` files, deployed on AWS.
-          </li>
-          <li>
-            <strong>Professional Site:</strong> Vue, Vite, JavaScript, HTML, CSS - Portfolio site
-            showcasing background, projects, and blogs.
-          </li>
-          <li>
-            <strong>AmandaLynnDashboard:</strong> Python, Django, Vue - Custom inventory and
-            financial management app.
-          </li>
-        </ul>
-        <br />
-        <div style="color: #00ffcc; text-align: center; font-size: 1.5rem">
-          Check out more details
-          <u
-            ><strong><router-link class="r-link" to="projects">here</router-link></strong></u
-          >!
-        </div>
-      </Container>
+
       <Container>
         <template #title> 🛠️ Currently Learning About and Developing </template>
         <ul>
@@ -188,7 +154,7 @@
           </li>
           <li>Exploring new programming paradigms.</li>
           <li>Building a Compiler in Rust</li>
-          <li>Writing evolutionary algorithms in OCaml</li>
+          <li>Probably playing chess on <u><a href="https://www.chess.com/member/derekcorndev">Chess.com</a></u></li>
           <li>Grinding LeetCode!</li>
         </ul>
         <br />
@@ -277,6 +243,40 @@ table {
   margin: 1rem 0;
 }
 
-button::on_hover {
+.image-wrapper {
+  position: relative;
+  width: 100%;
+  text-align: center;
+}
+
+.skeleton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  animation: pulse 2s ease-in-out infinite;
+  z-index: 1;
+}
+
+.lazy-image {
+  width: 100%;
+  height: auto;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 2;
+  border-radius: 8px;
+}
+
+.lazy-image[style*="display: block"]{
+  opacity: 1;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.7; }
 }
 </style>

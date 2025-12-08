@@ -25,12 +25,6 @@
                 real-world problems, driven to deliver impactful and innovative solutions
               </p>
             </div>
-            <div class="cta-buttons">
-              <button @click="navigateTo('about')" class="cta-button">About me</button>
-              <button @click="navigateTo('contact')" class="cta-button">Contact</button>
-              <button @click="navigateTo('projects')" class="cta-button">Projects</button>
-              <button @click="navigateTo('blog')" class="cta-button">Blog</button>
-            </div>
           </div>
         </div>
       </div>
@@ -186,15 +180,10 @@ body {
   box-sizing: border-box;
 }
 
-.landing-card:hover {
-  box-shadow: 0 8px 40px rgba(0, 255, 204, 0.25);
-  border-color: rgba(0, 255, 204, 0.3);
-}
-
 .tagline {
   font-size: 1rem;
   color: #ffffff;
-  margin: 0.75rem 0 1.5rem;
+  margin: 0.75rem 0 0.5rem;
   line-height: 1.6;
   text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
   position: relative;
@@ -202,82 +191,12 @@ body {
 
   @media (min-width: 640px) {
     font-size: 1.2rem;
-    margin: 1rem 0 2rem;
+    margin: 1rem 0 0.75rem;
   }
 
   @media (min-width: 1024px) {
     font-size: 1.4rem;
   }
-}
-
-.cta-buttons {
-  margin: 1.5rem auto 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 0.75rem;
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 400px;
-  padding: 0 1rem;
-  box-sizing: border-box;
-
-  @media (min-width: 640px) {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
-    padding: 0;
-    max-width: 600px;
-  }
-}
-
-.cta-button {
-  padding: 0.7rem 0.5rem;
-  font-size: 0.9rem;
-  font-weight: 500;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  color: #000000 !important;
-  transition: all 0.2s ease;
-  background: #00ffcc;
-  position: relative;
-  overflow: hidden;
-  z-index: 1;
-  font-family: 'Fira Code', monospace;
-  text-align: center;
-  white-space: nowrap;
-  box-shadow: 0 4px 10px rgba(0, 255, 204, 0.3);
-  text-decoration: none !important;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-
-  @media (min-width: 640px) {
-    padding: 0.7rem 1.2rem;
-    width: auto;
-    min-width: 120px;
-    font-size: 0.95rem;
-  }
-
-  @media (min-width: 768px) {
-    padding: 0.8rem 1.8rem;
-    font-size: 1rem;
-  }
-}
-
-.cta-button:hover {
-  background: #00e6b8;
-  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.4);
-  transform: translateY(-2px);
-}
-
-.cta-button:active {
-  transform: translateY(0);
-  box-shadow: 0 2px 10px rgba(0, 255, 204, 0.3);
 }
 
 @keyframes float {
@@ -368,13 +287,9 @@ body {
 
   .tagline {
     font-size: 1rem;
-    margin: 0.75rem 0 1.5rem;
+    margin: 0.75rem 0 0.5rem;
     padding: 0;
     line-height: 1.5;
-  }
-
-  .cta-buttons {
-    margin-top: 1.5rem;
   }
 }
 .floating-headshot-container {

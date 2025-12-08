@@ -3,7 +3,10 @@
   <div class="base-page">
     <header class="page-header">
       <div class="header-content">
-        <router-link to="/"><h1>Derek Corniello</h1></router-link>
+        <div class="directory-path">
+          <router-link to="/" class="home-link">~/</router-link>
+          <span class="current-path">{{ currentPath }}</span>
+        </div>
         <nav class="header-links">
           <router-link class="r-link" to="/about">About Me</router-link>
           <router-link class="r-link" to="/projects">Projects</router-link>
@@ -53,6 +56,19 @@ export default {
   name: 'BasePage',
   components: {
     Starfield,
+  },
+  computed: {
+    currentPath() {
+      const route = this.$route
+      const path = route.path
+      
+      if (path === '/' || path === '') {
+        return ''
+      }
+      
+      // Remove leading slash and add trailing slash
+      return path.substring(1) + (path.endsWith('/') ? '' : '/')
+    },
   },
 }
 </script>
@@ -119,18 +135,22 @@ export default {
   }
 }
 
-.page-header h1 {
-  font-size: 1.5rem;
+.directory-path {
   margin: 0.5rem 0;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
 
   @media (min-width: 768px) {
     text-align: left;
     margin: 0;
+    justify-content: flex-start;
   }
 }
 
-.page-header h1 a {
+.home-link {
   color: #00ffcc;
   text-decoration: none;
   transition: color 0.2s ease;
@@ -138,6 +158,10 @@ export default {
   &:hover {
     color: #ffffff;
   }
+}
+
+.current-path {
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .page-header .header-links {
@@ -277,7 +301,7 @@ export default {
   flex-direction: column;
   align-items: center;
   min-height: 60vh;
-  margin-top: 5rem;
+  margin-top: 2.5rem;
   padding: 1rem 0;
 
   @media (max-width: 767px) {
@@ -329,10 +353,6 @@ export default {
 }
 
 @media (max-width: 768px) {
-  .page-header h1 {
-    font-size: 1.2rem;
-  }
-
   .page-header .header-links {
     gap: 0.8rem;
   }
