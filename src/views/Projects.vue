@@ -114,14 +114,13 @@
         <template #title>
           <div class="project-title">
             <span class="project-emoji">🐍</span>
-            <span style="color: rgba(255, 255, 255, 0.7)">reqinspect.com (Previously @ reqinspect.com)</span>
-            /
             <a
-              href="https://github.com/DerekCorniello/pip-req-valid"
-              target="_blank"
-              style="text-decoration: underline white"
-              >pip-req-valid</a
+                href="https://github.com/DerekCorniello/pip-req-valid"
+                target="_blank"
+                style="text-decoration: underline white"
+                >pip-req-valid</a
             >
+            <span style="color: rgba(255, 255, 255, 0.7)"> - (Previously reqinspect.com)</span>
           </div>
           <div class="tech-stack">
             <img
