@@ -65,6 +65,10 @@ const router = createRouter({
       redirect: '/',
     },
   ],
+  scrollBehavior(to, from, savedPosition) {
+    // Always scroll to top when navigating
+    return { top: 0 }
+  },
 })
 
 export default router

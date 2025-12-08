@@ -3,6 +3,29 @@
     <h1 class="title">Projects</h1>
     <p class="subtitle">Click any project name to view it's source and/or demo!</p>
     <div class="containers-holder">
+
+      <Container>
+        <template #title>
+          <div class="project-title">
+            <span class="project-emoji">♟️</span>
+            <a
+              href="https://github.com/DerekCorniello/better-elo"
+              target="_blank"
+              style="text-decoration: underline white"
+              >Better-Elo</a
+            >
+          </div>
+          <div class="tech-stack">
+            <img
+              src="https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white"
+              alt="Python"
+              class="tech-badge"
+            />
+          </div>
+        </template>
+        A research project that revolutionizes chess rating systems with momentum-enhanced predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+ games from 7 top players. Features cavity prevention and statistical significance (p &lt; 0.001).
+      </Container>
+
       <Container>
         <template #title>
           <div class="project-title">
@@ -112,7 +135,7 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/AWS-FF9900?style=flat&logo=amazonaws&logoColor=white"
+              src="https://custom-icon-badges.demolab.com/badge/AWS-%23FF9900.svg?logo=aws&logoColor=white"
               alt="AWS"
               class="tech-badge"
             />
@@ -209,47 +232,6 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
       <Container>
         <template #title>
           <div class="project-title">
-            <span class="project-emoji">🚀</span>
-            <a
-              href="https://github.com/DerekCorniello/derekcorniello.github.io"
-              target="_blank"
-              style="text-decoration: underline white"
-              >This Portfolio Site</a
-            >
-          </div>
-          <div class="tech-stack">
-            <img
-              src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white"
-              alt="Vue.js"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/Vite-646CFF?style=flat&logo=vite&logoColor=white"
-              alt="Vite"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/Three.js-000000?style=flat&logo=threedotjs&logoColor=white"
-              alt="Three.js"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/Tailwind-06B6D4?style=flat&logo=tailwindcss&logoColor=white"
-              alt="Tailwind CSS"
-              class="tech-badge"
-            />
-          </div>
-        </template>
-        This webpage was made by me! I used Vite, Vue.js, JavaScript, and HTML/CSS to make a very
-        cool and easily navigated portfolio site for viewers like you Three.js was also used to
-        create the very cool backgrounds and word sphere on the landing page. I love space, so
-        introducting you to <strong>my space</strong>
-        has been a pleasure!
-      </Container>
-
-      <Container>
-        <template #title>
-          <div class="project-title">
             <span class="project-emoji">💻</span>
             <a
               href="https://github.com/DerekCorniello/NeoVim-Setup"
@@ -299,49 +281,6 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
       <Container>
         <template #title>
           <div class="project-title">
-            <span class="project-emoji">📊</span>
-            <a
-              href="https://github.com/DerekCorniello/AmandaLynnDashboard"
-              target="_blank"
-              style="text-decoration: underline white"
-              >Amanda Lynn Dashboard</a
-            >
-          </div>
-          <div class="tech-stack">
-            <img
-              src="https://img.shields.io/badge/Vue.js-4FC08D?style=flat&logo=vuedotjs&logoColor=white"
-              alt="Vue.js"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/Django-092E20?style=flat&logo=django&logoColor=white"
-              alt="Django"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/SQLite-003B57?style=flat&logo=sqlite&logoColor=white"
-              alt="SQLite"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white"
-              alt="Docker"
-              class="tech-badge"
-            />
-          </div>
-        </template>
-        I made a locally-running app for my (non-technical) Mom, who needed an app that showed her
-        product for her small business. It tracks her revenue vs. expenses, stock, sales, and more!
-        I update it regularly per her requests. It runs on a Vue frontend, Django for backend,
-        SQLite for storage, and Docker to build and run the app.
-        <br />
-        Since she is not a tech expert, Docker was able to help her start and run the new app
-        updates and changes without using the command line!
-      </Container>
-
-      <Container>
-        <template #title>
-          <div class="project-title">
             <span class="project-emoji">🎮</span>
             <a
               href="https://github.com/DerekCorniello/Game_BilliardsBonanza"
@@ -378,39 +317,10 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
       </Container>
 
       <Container>
-        <template #title>
-          <div class="project-title">
-            <span class="project-emoji">💬</span>
-            <a
-              href="https://github.com/DerekCorniello/CS4065-Discussion-Board"
-              target="_blank"
-              style="text-decoration: underline white"
-              >Discussion Board</a
-            >
-          </div>
-          <div class="tech-stack">
-            <img
-              src="https://img.shields.io/badge/Java-007396?style=flat&logo=openjdk&logoColor=white"
-              alt="Java"
-              class="tech-badge"
-            />
-            <img
-              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=websocket&logoColor=white"
-              alt="WebSockets"
-              class="tech-badge"
-            />
-          </div>
-        </template>
-        A live discussion board and chat app made directly in Java, using live, hand-rolled
-        WebSockets, to enable real-time chatting with other people. It includes custom options for
-        privileges and chatting lobbies!
-      </Container>
-
-      <Container>
         <template #title> That's not all! </template>
         <div style="text-align: center">
-          Please check out the rest of my projects
-          <a href="https://github.com/DerekCorniello" target="_blank"><u>here</u></a
+          Please check out the rest of my projects on my 
+          <a href="https://github.com/DerekCorniello" target="_blank"><u>GitHub</u></a
           >!
         </div>
       </Container>

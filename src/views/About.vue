@@ -105,39 +105,25 @@
             <tr>
               <td><strong>Development Tools</strong></td>
               <td>
-                <a href="https://skillicons.dev"
-                  ><img
-                    src="https://skillicons.dev/icons?i=neovim,arch,git,aws,docker,unity,arduino"
-                    alt="Development Tools"
-                /></a>
+                <img src="https://skillicons.dev/icons?i=neovim,arch,git,aws,docker,unity,arduino" alt="Development Tools" />
               </td>
             </tr>
             <tr>
               <td><strong>Backend</strong></td>
               <td>
-                <a href="https://skillicons.dev"
-                  ><img
-                    src="https://skillicons.dev/icons?i=py,rust,go,java,cpp"
-                    alt="Backend tools"
-                /></a>
+                 <img src="https://skillicons.dev/icons?i=py,rust,go,java,cpp" alt="Backend tools" />
               </td>
             </tr>
             <tr>
               <td><strong>Frontend</strong></td>
               <td>
-                <a href="https://skillicons.dev"
-                  ><img
-                    src="https://skillicons.dev/icons?i=html,js,ts,vue,vite"
-                    alt="Frontend tools"
-                /></a>
+                 <img src="https://skillicons.dev/icons?i=html,js,ts,vue,vite" alt="Frontend tools" />
               </td>
             </tr>
             <tr>
               <td><strong>Database</strong></td>
               <td>
-                <a href="https://skillicons.dev"
-                  ><img src="https://skillicons.dev/icons?i=sqlite,postgresql,mysql" alt="Database"
-                /></a>
+                 <img src="https://skillicons.dev/icons?i=sqlite,postgresql,mysql" alt="Database" />
               </td>
             </tr>
           </tbody>

@@ -1,5 +1,14 @@
 import * as THREE from 'three'
+
+// Global flag to prevent multiple initializations
+let isGloballyInit = false
+
 export default function initStarfield(canvas) {
+  // Check if already initialized globally
+  if (isGloballyInit) {
+    return window.renderer // Return existing renderer
+  }
+
   const scene = new THREE.Scene()
   const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000)
   camera.position.z = 10
@@ -70,11 +79,31 @@ export default function initStarfield(canvas) {
 
   animate()
 
+  // Navigation state to prevent refreshes during route changes
+  let isNavigating = false
+
   // Handle window resizing
   const onResize = () => {
-    renderer.setSize(window.innerWidth, window.innerHeight)
-    camera.aspect = window.innerWidth / window.innerHeight
-    camera.updateProjectionMatrix()
+    if (!isNavigating) {
+      renderer.setSize(window.innerWidth, window.innerHeight)
+      camera.aspect = window.innerWidth / window.innerHeight
+      camera.updateProjectionMatrix()
+    }
+  }
+
+  // Listen for router navigation events
+  if (typeof window !== 'undefined' && window.gtag) {
+    // Simple router detection - will work with most setups
+    document.addEventListener('click', (e) => {
+      // Check if click is on a navigation link
+      const target = e.target.closest('a[href], router-link')
+      if (target) {
+        isNavigating = true
+        setTimeout(() => {
+          isNavigating = false
+        }, 500) // Reset after navigation completes
+      }
+    })
   }
 
   window.addEventListener('resize', onResize)

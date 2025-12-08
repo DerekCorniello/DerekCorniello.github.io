@@ -12,7 +12,7 @@ export default {
     nextTick(() => {
       const canvas = this.$refs.canvas
       if (canvas) {
-        initStarfield(canvas)
+        initStarfield(canvas);
       }
     })
   },

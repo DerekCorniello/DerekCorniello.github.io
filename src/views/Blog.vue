@@ -19,7 +19,7 @@
           <template #title>Recent Posts</template>
           <ul id="recent" class="list-unstyled">
             <li v-for="(post, index) in recentPosts" :key="index">
-              <router-link :to="post.link" :class="r - link">{{ post.title }}</router-link>
+              <router-link :to="post.link" class="r-link">{{ post.title }}</router-link>
             </li>
           </ul>
         </Container>
@@ -282,11 +282,6 @@ ul li {
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-}
-
-.container:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .read-more {

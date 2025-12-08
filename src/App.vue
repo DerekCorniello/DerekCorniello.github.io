@@ -1,16 +1,17 @@
 <template>
   <div>
+    <Starfield />
     <router-view />
   </div>
 </template>
 
 <script>
-import Home from '@/views/Home.vue'
+import Starfield from '@/components/Starfield.vue'
 
 export default {
   name: 'App',
   components: {
-    Home,
+    Starfield,
   },
 }
 </script>

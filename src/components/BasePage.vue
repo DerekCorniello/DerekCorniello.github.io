@@ -1,10 +1,9 @@
 <template>
-  <Starfield />
   <div class="base-page">
     <header class="page-header">
       <div class="header-content">
         <div class="directory-path">
-          <router-link to="/" class="home-link">~/</router-link>
+          <router-link to="/" class="r-link home-link">~/</router-link>
           <span class="current-path">{{ currentPath }}</span>
         </div>
         <nav class="header-links">
@@ -40,6 +39,13 @@
           >
             <i class="bi bi-twitter-x"></i> X
           </a>
+          <a
+            href="https://www.youtube.com/@DerekCornDev"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <i class="bi bi-youtube"></i> YouTube
+          </a>
           <a href="/resume" target="_blank" style="text-decoration: none">
             <i class="bi bi-file-earmark-text"></i> Resume
           </a>
@@ -50,13 +56,8 @@
 </template>
 
 <script>
-import Starfield from '@/components/Starfield.vue'
-
 export default {
   name: 'BasePage',
-  components: {
-    Starfield,
-  },
   computed: {
     currentPath() {
       const route = this.$route
@@ -153,10 +154,12 @@ export default {
 .home-link {
   color: #00ffcc;
   text-decoration: none;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  border-radius: 4px;
 
   &:hover {
-    color: #ffffff;
+    color: #00ffcc;
+    background-color: rgba(0, 255, 204, 0.1);
   }
 }
 
@@ -202,7 +205,7 @@ export default {
 .page-footer {
   background-color: rgba(0, 0, 0, 0.7);
   backdrop-filter: blur(5px);
-  color: #ffffff;
+  color: #00ffcc;
   width: 100%;
   padding: 1.5rem 1rem;
   font-size: 0.9rem;
@@ -269,7 +272,7 @@ export default {
   }
 }
 
-.footer-content .links a {
+.page-footer .footer-content .links a {
   color: #00ffcc;
   text-decoration: none;
   display: flex;
@@ -279,11 +282,6 @@ export default {
   border-radius: 4px;
   transition: all 0.2s ease;
   margin: 0;
-
-  &:hover {
-    color: #00ffcc;
-    background-color: rgba(0, 255, 204, 0.1);
-  }
 
   i {
     font-size: 1.1em;
@@ -350,6 +348,13 @@ export default {
   color: rgba(0, 173, 216, 0.95);
   text-decoration: none;
   margin: 0 0.5rem;
+
+}
+.links a:hover {
+    text-decoration: none;
+    text-shadow:
+        0 0 1px #00ffcc,
+        0 0 2px #00ffcc;
 }
 
 @media (max-width: 768px) {

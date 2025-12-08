@@ -55,9 +55,8 @@ a {
 a:hover {
   text-decoration: none;
   text-shadow:
-    0 0 2px #bbbbbb,
-    0 0 4px #bbbbbb,
-    0 0 6px #bbbbbb;
+    0 0 2px #ffffff,
+    0 0 4px #ffffff;
 }
 
 .r-link {
