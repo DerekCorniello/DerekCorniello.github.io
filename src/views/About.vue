@@ -51,6 +51,13 @@
           >
             <i class="bi bi-twitter-x"></i> X
           </a>
+          <a
+            href="https://youtube.com/@DerekCornDev"
+            target="_blank"
+            style="text-decoration: none"
+          >
+            <i class="bi bi-youtube"></i> YouTube
+          </a>
           <a href="/resume" target="_blank" style="text-decoration: none">
             <i class="bi bi-file-earmark-text"></i> Resume
           </a>
@@ -210,6 +217,12 @@ export default {
   color: rgba(0, 173, 216, 0.95);
   text-decoration: none;
   margin: 0 0.5rem;
+  &:hover {
+    color: #004C61;
+    text-shadow:
+        0 0 1px #004C61,
+        0 0 2px #004C61;
+  }
 }
 
 th,
