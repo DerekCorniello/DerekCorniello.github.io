@@ -19,21 +19,14 @@
         </div>
         <div class="landing-card-container">
           <div class="landing-card">
-            <div class="intro">
-              <p class="tagline">
-                Innovative developer crafting cutting-edge solutions and intuitive designs to solve
-                real-world problems, driven to deliver impactful and innovative solutions
-              </p>
-            </div>
+             <div class="intro">
+                <p class="tagline">
+                  I'm a Computer Science student at the University of Cincinnati and a backend developer focused on API design, tooling, and software product development, with internships at Siemens and upcoming roles at Fifth Third Bank and LinkedIn.
+                </p>
+             </div>
           </div>
         </div>
       </div>
-      <WordSphere
-        class="word-sphere"
-        :font-size="1.2"
-        :rotation-speed="0.0015"
-        text-color="#00ffcc"
-      />
     </div>
   </BasePage>
 </template>
@@ -41,14 +34,12 @@
 <script>
 import BasePage from '@/components/BasePage.vue'
 import TerminalGreeting from '@/components/TerminalGreeting.vue'
-import WordSphere from '@/components/WordSphere.vue'
 
 export default {
   name: 'Home',
   components: {
     BasePage,
     TerminalGreeting,
-    WordSphere,
   },
   data() {
     return {}

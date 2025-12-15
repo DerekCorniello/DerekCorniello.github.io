@@ -6,7 +6,7 @@
         <span class="terminal-button yellow"></span>
         <span class="terminal-button green"></span>
       </div>
-      <div class="terminal-title">terminal@dereks-space:~</div>
+      <div class="terminal-title">terminal@portfolio:~</div>
     </div>
     <div class="terminal-content">
       <div v-if="showAsciiArt" class="ascii-art">
@@ -43,7 +43,7 @@ export default {
     this.animateTypewriter()
     window.addEventListener('resize', this.handleResize)
   },
-  beforeDestroy() {
+  beforeUnmount() {
     window.removeEventListener('resize', this.handleResize)
   },
   methods: {
