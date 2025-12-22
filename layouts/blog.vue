@@ -3,20 +3,26 @@
     <header class="page-header">
       <div class="header-content">
         <div class="directory-path">
-          <router-link to="/" class="r-link home-link">~/</router-link>
+          <NuxtLink to="/" class="r-link home-link">~/</NuxtLink>
           <span class="current-path">{{ currentPath }}</span>
         </div>
         <nav class="header-links">
-          <router-link class="r-link" to="/about">About Me</router-link>
-          <router-link class="r-link" to="/projects">Projects</router-link>
-          <router-link class="r-link" to="/blog">Blog</router-link>
-          <router-link class="r-link" to="/contact">Contact</router-link>
-          <router-link class="r-link" to="/resume">Resume</router-link>
+          <NuxtLink class="r-link" to="/about">About Me</NuxtLink>
+          <NuxtLink class="r-link" to="/projects">Projects</NuxtLink>
+          <NuxtLink class="r-link" to="/blog">Blog</NuxtLink>
+          <NuxtLink class="r-link" to="/contact">Contact</NuxtLink>
+          <NuxtLink class="r-link" to="/resume">Resume</NuxtLink>
         </nav>
       </div>
     </header>
     <main class="page-content">
-      <slot></slot>
+      <div class="blog-container">
+        <h1 class="blog-title">{{ title }}</h1>
+
+        <div class="blog-content">
+          <slot></slot>
+        </div>
+      </div>
     </main>
     <footer class="page-footer">
       <div class="footer-content">
@@ -55,23 +61,28 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BasePage',
-  computed: {
-    currentPath() {
-      const route = this.$route
-      const path = route.path
-      
-      if (path === '/' || path === '') {
-        return ''
-      }
-      
-      // Remove leading slash and add trailing slash
-      return path.substring(1) + (path.endsWith('/') ? '' : '/')
-    },
+<script setup>
+import { computed } from 'vue'
+
+defineProps({
+  title: {
+    type: String,
+    required: true,
   },
-}
+})
+
+const route = useRoute()
+
+const currentPath = computed(() => {
+  const path = route.path
+
+  if (path === '/' || path === '') {
+    return ''
+  }
+
+  // Remove leading slash and add trailing slash
+  return path.substring(1) + (path.endsWith('/') ? '' : '/')
+})
 </script>
 
 <style scoped>
@@ -315,27 +326,178 @@ export default {
   }
 }
 
-.page-content > * {
-  padding-bottom: 2rem;
-  margin-bottom: 1rem;
-  max-width: 1200px;
-  width: 100%;
-}
-
-.page-content > *:first-child {
-  margin-top: 1.5rem;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
 .page-content {
   flex: 1 0 auto;
   padding: 2rem;
   color: white;
+}
+
+.blog-container {
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius: 8px;
+  max-width: 1200px;
+  width: 100%;
+}
+
+.blog-title {
+  font-size: 2.5rem;
+  color: #ff66b2;
+  margin-bottom: 1rem;
+}
+
+.blog-content {
+  font-size: 1.2rem;
+  color: white;
+  line-height: 1.7;
+}
+
+.blog-content :deep(p) {
+  margin: 1.5rem 0;
+}
+
+.blog-content :deep(ul),
+.blog-content :deep(ol) {
+  list-style-position: outside;
+  padding-left: 2.5rem;
+  margin: 1.5rem 0;
+  line-height: 1.8;
+}
+
+.blog-content :deep(li) {
+  margin: 0.8rem 0;
+  color: white;
+  padding-left: 0.5rem;
+}
+
+.blog-content :deep(ul ul),
+.blog-content :deep(ol ol) {
+  margin: 0.5rem 0 0.5rem 1.5rem;
+}
+
+.blog-content :deep(a) {
+  color: #00ffcc;
+  text-decoration: none;
+  transition:
+    color 0.3s ease,
+    opacity 0.2s ease;
+  position: relative;
+}
+
+.blog-content :deep(a:hover) {
+  text-decoration: underline;
+  opacity: 0.9;
+}
+
+.blog-content :deep(.image-container) {
+  margin: 2.5rem auto;
+  max-width: 100%;
+  text-align: center;
+}
+
+.blog-content :deep(img) {
+  border-radius: 8px;
+  border: 4px solid #00ffcc;
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.blog-content :deep(img:hover) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.3);
+}
+
+.blog-content :deep(.image-caption) {
+  color: #a0a0a0;
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0.8rem auto 0;
+  text-align: center;
+  max-width: 90%;
+  line-height: 1.5;
+}
+
+.blog-content :deep(h1),
+.blog-content :deep(h2),
+.blog-content :deep(h3),
+.blog-content :deep(h4) {
+  margin: 2.5rem 0 1.5rem;
+  line-height: 1.3;
+}
+
+/* Blockquotes */
+.blog-content :deep(blockquote) {
+  border-left: 3px solid #00ffcc;
+  margin: 1.5rem 0;
+  padding: 0.5rem 0 0.5rem 1.5rem;
+  color: #d1d1d1;
+  font-style: italic;
+}
+
+/* Code blocks */
+.blog-content :deep(pre) {
+  margin: 1.5rem 0;
+  padding: 1.2rem;
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.3);
+  overflow-x: auto;
+}
+
+/* Responsive adjustments */
+@media (min-width: 640px) {
+  .blog-content :deep(ul),
+  .blog-content :deep(ol) {
+    padding-left: 2rem;
+  }
+
+  .blog-content :deep(.image-container) {
+    margin: 3rem auto;
+  }
+
+  .blog-content :deep(img) {
+    max-width: 90%;
+  }
+
+  .blog-content :deep(.image-caption) {
+    max-width: 80%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-content {
+    font-size: 1.1rem;
+  }
+
+  .blog-content :deep(.image-container) {
+    max-width: 85%;
+  }
+
+  .blog-content :deep(img) {
+    max-width: 80%;
+  }
+
+  .blog-content :deep(.image-caption) {
+    max-width: 70%;
+    font-size: 1rem;
+  }
+}
+
+/* Large screens */
+@media (min-width: 1280px) {
+  .blog-content :deep(.image-container) {
+    max-width: 80%;
+  }
+
+  .blog-content :deep(img) {
+    max-width: 75%;
+  }
 }
 
 .links {
@@ -348,13 +510,12 @@ export default {
   color: rgba(0, 173, 216, 0.95);
   text-decoration: none;
   margin: 0 0.5rem;
-
 }
 .links a:hover {
-    text-decoration: none;
-    text-shadow:
-        0 0 1px #00ffcc,
-        0 0 2px #00ffcc;
+  text-decoration: none;
+  text-shadow:
+    0 0 1px #00ffcc,
+    0 0 2px #00ffcc;
 }
 
 @media (max-width: 768px) {

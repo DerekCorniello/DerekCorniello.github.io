@@ -1,9 +1,8 @@
 <template>
-  <BasePage>
+  <NuxtLayout>
     <h1 class="title">Projects</h1>
     <p class="subtitle">Click any project name to view it's source and/or demo!</p>
     <div class="containers-holder">
-
       <Container>
         <template #title>
           <div class="project-title">
@@ -23,7 +22,10 @@
             />
           </div>
         </template>
-        A research project that revolutionizes chess rating systems with momentum-enhanced predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+ games from 7 top players. Features cavity prevention and statistical significance (p &lt; 0.001).
+        A research project that revolutionizes chess rating systems with momentum-enhanced
+        predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+
+        games from 7 top players. Features cavity prevention and statistical significance (p &lt;
+        0.001).
       </Container>
 
       <Container>
@@ -55,9 +57,26 @@
             />
           </div>
         </template>
-        A wireless mouse solution that turns your smartphone into a fully-functional input device for your computer. Winning first place at the <strong><a href="https://makeuc.io" target="_blank" style="text-decoration: underline #00ffcc">2025 MakeUC Hackathon</a></strong>, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket communication for low-latency control. With multiple input modes including handheld pointer and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without requiring any extra hardware. The application uses Go for the backend service and React for the intuitive touch interface, delivering a seamless user experience.
+        A wireless mouse solution that turns your smartphone into a fully-functional input device
+        for your computer. Winning first place at the
+        <strong
+          ><a href="https://makeuc.io" target="_blank" style="text-decoration: underline #00ffcc"
+            >2025 MakeUC Hackathon</a
+          ></strong
+        >, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket
+        communication for low-latency control. With multiple input modes including handheld pointer
+        and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without
+        requiring any extra hardware. The application uses Go for the backend service and React for
+        the intuitive touch interface, delivering a seamless user experience.
         <br /><br />
-        Check out the <a href="https://devpost.com/software/quick-mouse" target="_blank" style="text-decoration: underline #00ffcc">DevPost submission</a> for more details!
+        Check out the
+        <a
+          href="https://devpost.com/software/quick-mouse"
+          target="_blank"
+          style="text-decoration: underline #00ffcc"
+          >DevPost submission</a
+        >
+        for more details!
         <br /><br />
         <img src="/qm-logo.png" alt="[Quick Mouse Logo]" class="logo-scaled" />
         <div class="screenshot-row">
@@ -115,10 +134,10 @@
           <div class="project-title">
             <span class="project-emoji">🐍</span>
             <a
-                href="https://github.com/DerekCorniello/pip-req-valid"
-                target="_blank"
-                style="text-decoration: underline white"
-                >pip-req-valid</a
+              href="https://github.com/DerekCorniello/pip-req-valid"
+              target="_blank"
+              style="text-decoration: underline white"
+              >pip-req-valid</a
             >
             <span style="color: rgba(255, 255, 255, 0.7)"> - (Previously reqinspect.com)</span>
           </div>
@@ -145,7 +164,11 @@
             />
           </div>
         </template>
-A web app that validates `requirements.txt` files for pip. Originally built and hosted on AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go for backend processing and Vue.js for the frontend, checking for missing or outdated dependencies to help ensure that your Python project's dependencies are up-to-date and properly formatted.
+        A web app that validates `requirements.txt` files for pip. Originally built and hosted on
+        AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go
+        for backend processing and Vue.js for the frontend, checking for missing or outdated
+        dependencies to help ensure that your Python project's dependencies are up-to-date and
+        properly formatted.
         <br /><br />
         <img src="/reqinspect.png" alt="[reqinspect.com Screenshot]" />
       </Container>
@@ -318,30 +341,21 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
       <Container>
         <template #title> That's not all! </template>
         <div style="text-align: center">
-          Please check out the rest of my projects on my 
+          Please check out the rest of my projects on my
           <a href="https://github.com/DerekCorniello" target="_blank"><u>GitHub</u></a
           >!
         </div>
       </Container>
     </div>
-  </BasePage>
+  </NuxtLayout>
 </template>
 
-<script>
-import BasePage from '@/components/BasePage.vue'
-import Container from '@/components/Container.vue'
-
-export default {
-  name: 'Projects',
-  components: {
-    BasePage,
-    Container,
-  },
-  mounted() {
-    document.title = "Derek Corniello's Projects"
-  },
-}
+<script setup>
+useHead({
+  title: "Derek Corniello's Projects",
+})
 </script>
+
 <style scoped>
 .tech-stack {
   display: flex;
@@ -495,7 +509,7 @@ img {
     align-items: center;
     gap: 10px;
   }
-  
+
   .screenshot-small {
     width: 80%;
     max-width: 300px;

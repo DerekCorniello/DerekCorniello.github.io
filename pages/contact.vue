@@ -1,5 +1,5 @@
 <template>
-  <BasePage>
+  <NuxtLayout>
     <div class="contact-page">
       <h1 class="title">Contact Me</h1>
       <p class="subtitle">
@@ -32,23 +32,13 @@
         />
       </a>
     </div>
-  </BasePage>
+  </NuxtLayout>
 </template>
 
-<script>
-import BasePage from '@/components/BasePage.vue'
-import Container from '@/components/Container.vue'
-
-export default {
-  name: 'contact',
-  components: {
-    BasePage,
-    Container,
-  },
-  mounted() {
-    document.title = 'Contact Derek Corniello'
-  },
-}
+<script setup>
+useHead({
+  title: 'Contact Derek Corniello',
+})
 </script>
 
 <style scoped>

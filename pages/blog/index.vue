@@ -1,5 +1,5 @@
 <template>
-  <BasePage>
+  <NuxtLayout>
     <div class="blog-content">
       <h1 class="title">Blog</h1>
 
@@ -19,7 +19,7 @@
           <template #title>Recent Posts</template>
           <ul id="recent" class="list-unstyled">
             <li v-for="(post, index) in recentPosts" :key="index">
-              <router-link :to="post.link" class="r-link">{{ post.title }}</router-link>
+              <NuxtLink :to="post.link" class="r-link">{{ post.title }}</NuxtLink>
             </li>
           </ul>
         </Container>
@@ -46,8 +46,8 @@
               <p>{{ item.description }}</p>
               <br />
               <div class="read-more">
-                <router-link :to="item.link" class="r-link" :style="{ color: '#00ffcc' }"
-                  ><strong>Read More</strong></router-link
+                <NuxtLink :to="item.link" class="r-link" :style="{ color: '#00ffcc' }"
+                  ><strong>Read More</strong></NuxtLink
                 >
               </div>
               <br />
@@ -66,104 +66,85 @@
         </div>
       </div>
     </div>
-  </BasePage>
+  </NuxtLayout>
 </template>
 
-<script>
-import BasePage from '@/components/BasePage.vue'
-import Container from '@/components/Container.vue'
+<script setup>
 import { ref, onMounted, computed } from 'vue'
 import axios from 'axios'
 
-export default {
-  name: 'Blog',
-  components: {
-    BasePage,
-    Container,
-  },
-  setup() {
-    const blogItems = ref([])
-    const recentPosts = ref([])
-    const tags = ref([])
-    const selectedTags = ref([])
-    const searchQuery = ref('')
-    const tagDict = {}
+useHead({
+  title: "Derek Corniello's Blogs",
+})
 
-    // Fetching blog data
-    onMounted(() => {
-      axios
-        .get('/blog-data.json')
-        .then((response) => {
-          const data = response.data
-          data.forEach((val) => {
-            // Populate blog items
-            blogItems.value.push(val)
+const blogItems = ref([])
+const recentPosts = ref([])
+const tags = ref([])
+const selectedTags = ref([])
+const searchQuery = ref('')
+const tagDict = {}
 
-            // Add recent posts (limit to 3)
-            if (recentPosts.value.length < 3) {
-              recentPosts.value.push({ title: val.title, link: val.link })
-            }
+// Fetching blog data
+onMounted(() => {
+  axios
+    .get('/blog-data.json')
+    .then((response) => {
+      const data = response.data
+      data.forEach((val) => {
+        // Populate blog items
+        blogItems.value.push(val)
 
-            // Collect tags and counts
-            val.tags.forEach((tag) => {
-              if (tagDict[tag]) {
-                tagDict[tag]++
-              } else {
-                tagDict[tag] = 1
-              }
-            })
-          })
+        // Add recent posts (limit to 3)
+        if (recentPosts.value.length < 3) {
+          recentPosts.value.push({ title: val.title, link: val.link })
+        }
 
-          // Set tags for display
-          tags.value = Object.entries(tagDict).map(([tag, count]) => ({ tag, count }))
+        // Collect tags and counts
+        val.tags.forEach((tag) => {
+          if (tagDict[tag]) {
+            tagDict[tag]++
+          } else {
+            tagDict[tag] = 1
+          }
         })
-        .catch((error) => {
-          console.error('Error loading blog data:', error)
-        })
+      })
+
+      // Set tags for display
+      tags.value = Object.entries(tagDict).map(([tag, count]) => ({ tag, count }))
     })
-
-    // Filter blogs by selected tags and search query
-    const filteredBlogItems = computed(() => {
-      let filtered = blogItems.value
-
-      // Filter by tags if selected
-      if (selectedTags.value.length > 0) {
-        filtered = filtered.filter((item) =>
-          item.tags.some((tag) => selectedTags.value.includes(tag)),
-        )
-      }
-
-      // Filter by search query
-      if (searchQuery.value) {
-        filtered = filtered.filter((item) => {
-          const title = item.title.toLowerCase()
-          const description = item.description.toLowerCase()
-          const tags = item.tags.map((tag) => tag.toLowerCase())
-
-          return (
-            title.includes(searchQuery.value.toLowerCase()) ||
-            description.includes(searchQuery.value.toLowerCase()) ||
-            tags.some((tag) => tag.includes(searchQuery.value.toLowerCase()))
-          )
-        })
-      }
-
-      return filtered
+    .catch((error) => {
+      console.error('Error loading blog data:', error)
     })
+})
 
-    return {
-      blogItems,
-      recentPosts,
-      tags,
-      selectedTags,
-      searchQuery,
-      filteredBlogItems,
-    }
-  },
-  mounted() {
-    document.title = "Derek Corniello's Blogs"
-  },
-}
+// Filter blogs by selected tags and search query
+const filteredBlogItems = computed(() => {
+  let filtered = blogItems.value
+
+  // Filter by tags if selected
+  if (selectedTags.value.length > 0) {
+    filtered = filtered.filter((item) =>
+      item.tags.some((tag) => selectedTags.value.includes(tag)),
+    )
+  }
+
+  // Filter by search query
+  if (searchQuery.value) {
+    filtered = filtered.filter((item) => {
+      const title = item.title.toLowerCase()
+      const description = item.description.toLowerCase()
+      const tags = item.tags.map((tag) => tag.toLowerCase())
+
+      return (
+        title.includes(searchQuery.value.toLowerCase()) ||
+        description.includes(searchQuery.value.toLowerCase()) ||
+        tags.some((tag) => tag.includes(searchQuery.value.toLowerCase()))
+      )
+    })
+  }
+
+  return filtered
+})
 </script>
 
 <style scoped>

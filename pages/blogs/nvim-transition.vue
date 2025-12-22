@@ -1,5 +1,5 @@
 <template>
-  <BaseBlog title="My Transition from VSC*de to NeoVim">
+  <NuxtLayout name="blog" title="My Transition from VSC*de to NeoVim">
     <div class="divider-container">
       <div class="divider-line"></div>
       <div class="divider-glow"></div>
@@ -155,7 +155,7 @@
       for reading, please reach out to me with any feedback!
     </div>
     <br /><br />
-    <router-link
+    <NuxtLink
       style="
         text-align: center;
         background-color: #ff66b2;
@@ -168,19 +168,14 @@
       to="/blog"
     >
       Back to Blogs
-    </router-link>
-  </BaseBlog>
+    </NuxtLink>
+  </NuxtLayout>
 </template>
 
-<script>
-import BaseBlog from '@/components/BaseBlog.vue'
-
-export default {
-  name: 'blog1',
-  components: {
-    BaseBlog,
-  },
-}
+<script setup>
+useHead({
+  title: 'My Transition from VSC*de to NeoVim - Derek Corniello',
+})
 </script>
 
 <style scoped>

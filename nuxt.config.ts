@@ -1,0 +1,234 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
+export default defineNuxtConfig({
+  compatibilityDate: '2024-11-01',
+  devtools: { enabled: true },
+
+  modules: ['@nuxtjs/tailwindcss'],
+
+  css: ['~/assets/styles.css'],
+
+  app: {
+    head: {
+      charset: 'utf-8',
+      viewport: 'width=device-width, initial-scale=1',
+      title: "Derek Corniello's Space!",
+      meta: [
+        {
+          name: 'description',
+          content:
+            "Explore Derek Corniello's space-themed portfolio — a showcase of tech projects, contact info, and a stellar design made for recruiters and devs alike.",
+        },
+        {
+          name: 'keywords',
+          content:
+            'Derek Corniello, DerekCorniello, DCoolMan, portfolio, software engineer, web developer, tech projects, frontend, backend, full stack, personal site',
+        },
+        { name: 'author', content: 'Derek Corniello' },
+        { property: 'og:title', content: "Derek Corniello's Space!" },
+        {
+          property: 'og:description',
+          content:
+            "A retro, space-themed portfolio showcasing Derek Corniello's tech work. Fly through his projects, resume, and more!",
+        },
+        { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
+        { property: 'og:url', content: 'https://derekcorn.dev/' },
+        { property: 'og:type', content: 'website' },
+        { name: 'twitter:card', content: 'summary_large_image' },
+        { name: 'twitter:title', content: "Derek Corniello's Space!" },
+        {
+          name: 'twitter:description',
+          content:
+            "Explore Derek Corniello's retro, space-themed tech portfolio. Perfect for recruiters and devs alike.",
+        },
+        { name: 'twitter:image', content: 'https://derekcorn.dev/preview.png' },
+        {
+          name: 'google-site-verification',
+          content: 'kO3UtmTEPE9AvAaw4G3slfx9nJFKUZoCRA49vuNR7Bg',
+        },
+      ],
+      link: [
+        { rel: 'icon', href: '/favicon.ico', sizes: 'any' },
+        { rel: 'icon', href: '/favicon.svg', type: 'image/svg+xml' },
+        { rel: 'apple-touch-icon', href: '/favicon.ico' },
+        { rel: 'manifest', href: '/site.webmanifest' },
+        { rel: 'canonical', href: 'https://derekcorn.dev/' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
+        { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
+        {
+          rel: 'stylesheet',
+          href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap',
+        },
+        {
+          rel: 'stylesheet',
+          href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css',
+        },
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          innerHTML: JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'Person',
+            name: 'Derek Corniello',
+            description:
+              "CS/SWE student at the University of Cincinnati. I have interned with Siemens Digital Industry Software for the last 2 years, working on backends and API design. I will be at Fifth Third Bank over the spring and LinkedIn over the summer. I'm excited about software product design, project management, and back-end development. My curiosity and eagerness to learn drive me to keep exploring, one project and concept at a time!",
+            jobTitle: 'Computer Science Student and Backend Developer',
+            url: 'https://derekcorn.dev',
+            sameAs: [
+              'https://github.com/DerekCorniello',
+              'https://www.linkedin.com/in/derek-corniello',
+              'https://x.com/DerekCorniello',
+              'https://www.youtube.com/@DerekCornDev',
+            ],
+            knowsAbout: [
+              'Backend Development',
+              'Rust',
+              'Go',
+              'Python',
+              'Java',
+              'C++',
+              'Vue.js',
+              'Vite',
+              'Database',
+              'SQLite',
+              'PostgreSQL',
+              'MySQL',
+              'NeoVim',
+              'Arch Linux',
+              'Git',
+              'AWS',
+              'Docker',
+              'Unity',
+              'Arduino',
+              'API Design',
+              'Software Product Design',
+              'Project Management',
+            ],
+            hasOccupation: [
+              {
+                '@type': 'Occupation',
+                name: 'Intern',
+                occupationLocation: 'Siemens Digital Industry Software',
+              },
+              {
+                '@type': 'Occupation',
+                name: 'Intern',
+                occupationLocation: 'Fifth Third Bank',
+              },
+              {
+                '@type': 'Occupation',
+                name: 'Intern',
+                occupationLocation: 'LinkedIn',
+              },
+            ],
+            hasCredential: [
+              {
+                '@type': 'EducationalOccupationalCredential',
+                name: 'B.S. Computer Science',
+                educationalLevel: "Bachelor's Degree",
+                provider: {
+                  '@type': 'EducationalOrganization',
+                  name: 'University of Cincinnati',
+                },
+              },
+              {
+                '@type': 'EducationalOccupationalCredential',
+                name: 'M.Eng. Software Engineering',
+                educationalLevel: "Master's Degree",
+                provider: {
+                  '@type': 'EducationalOrganization',
+                  name: 'University of Cincinnati',
+                },
+              },
+            ],
+            mainEntityOfPage: {
+              '@type': 'WebPage',
+              '@id': 'https://derekcorn.dev',
+            },
+            owns: [
+              {
+                '@type': 'SoftwareApplication',
+                name: 'Better-Elo',
+                description:
+                  'A research project that revolutionizes chess rating systems with momentum-enhanced predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+ games from 7 top players. Features cavity prevention and statistical significance (p < 0.001).',
+                url: 'https://github.com/DerekCorniello/better-elo',
+                programmingLanguage: 'Python',
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: 'Quick Mouse',
+                description:
+                  'A wireless mouse solution that turns your smartphone into a fully-functional input device for your computer. Winning first place at the 2025 MakeUC Hackathon, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket communication for low-latency control. With multiple input modes including handheld pointer and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without requiring any extra hardware. The application uses Go for the backend service and React for the intuitive touch interface, delivering a seamless user experience.',
+                url: 'https://github.com/DerekCorniello/quick-mouse',
+                programmingLanguage: ['Go', 'React', 'TypeScript'],
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: '8BitBeats',
+                description:
+                  'A terminal-based chiptune generator written in Rust. It lets users create, preview, and replay 8-bit songs using seed-based track IDs. With real-time TUI controls and efficient audio synthesis, it generates deterministic tracks in milliseconds, offering a nostalgic and programmable music creation experience right from the command line.',
+                url: 'https://github.com/DerekCorniello/8BitBeats',
+                programmingLanguage: 'Rust',
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: 'pip-req-valid',
+                description:
+                  "A web app that validates requirements.txt files for pip. Originally built and hosted on AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go for backend processing and Vue.js for the frontend, checking for missing or outdated dependencies to help ensure that your Python project's dependencies are up-to-date and properly formatted.",
+                url: 'https://github.com/DerekCorniello/pip-req-valid',
+                programmingLanguage: ['Go', 'Vue.js'],
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: 'gitcmd',
+                description:
+                  'A terminal-based application acting as a custom shell for Git commands. gitcmd simplifies workflow by offering a tailored prompt and intuitive command input. Built with Rust, it showcases my foray into low-level, high-performance programming and terminal application development.',
+                url: 'https://github.com/DerekCorniello/gitcmd',
+                programmingLanguage: 'Rust',
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: 'Resume2Web',
+                description:
+                  'A Hackathon app that uses Vite, React/TypeScript, and Python/Flask. It takes a resume and converts it to a website with custom styling. This hackathon was my first and helped me learn more about full-stack development and new skills in a quick manner!',
+                url: 'https://github.com/grillinr/Resume2Web',
+                programmingLanguage: ['React', 'TypeScript', 'Python', 'Flask'],
+              },
+              {
+                '@type': 'CreativeWork',
+                name: 'NeoVim Setup',
+                description:
+                  'My development setup that I do my programming and software development on. NeoVim enables me to edit, maintain, search through, and navigate a lot of files at one time, in an efficient manner. My dotfiles contain my ArchLinux dotfiles setup, which include, but are not limited to, tmux, hyprland, oh my zsh, and kitty.',
+                url: 'https://github.com/DerekCorniello/dotfiles',
+              },
+              {
+                '@type': 'SoftwareApplication',
+                name: 'Billiards Bonanza',
+                description:
+                  'An 8-Ball game with a bunch of twists and funny add-ons. I made it in Unity using C#, and did all of the assets myself. This was a great experience in learning the syntax of C#, and learning more about programming languages and Unity!',
+                url: 'https://github.com/DerekCorniello/Game_BilliardsBonanza',
+                programmingLanguage: 'C#',
+              },
+            ],
+          }),
+        },
+      ],
+    },
+  },
+
+  // Configure router for SPA-like behavior and scroll behavior
+  router: {
+    options: {
+      scrollBehaviorType: 'smooth',
+    },
+  },
+
+  // Build configuration
+  build: {
+    transpile: ['three', 'gsap'],
+  },
+
+  // SSR configuration - disable for SPA behavior with Three.js
+  ssr: false,
+})

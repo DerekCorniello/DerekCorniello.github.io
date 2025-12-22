@@ -11,12 +11,12 @@
     <div class="terminal-content">
       <div v-if="showAsciiArt" class="ascii-art">
         <pre>
- _____                _       _____                 _      _ _       
-|  __ \              | |     / ____|               (_)    | | |      
-| |  | | ___ _ __ ___| | __ | |     ___  _ __ _ __  _  ___| | | ___  
-| |  | |/ _ \ '__/ _ \ |/ / | |    / _ \| '__| '_ \| |/ _ \ | |/ _ \ 
+ _____                _       _____                 _      _ _
+|  __ \              | |     / ____|               (_)    | | |
+| |  | | ___ _ __ ___| | __ | |     ___  _ __ _ __  _  ___| | | ___
+| |  | |/ _ \ '__/ _ \ |/ / | |    / _ \| '__| '_ \| |/ _ \ | |/ _ \
 | |__| |  __/ | |  __/   <  | |___| (_) | |  | | | | |  __/ | | (_) |
-|_____/ \___|_|  \___|_|\_\  \_____\___/|_|  |_| |_|_|\___|_|_|\___/ 
+|_____/ \___|_|  \___|_|\_\  \_____\___/|_|  |_| |_|_|\___|_|_|\___/
         </pre>
       </div>
       <div class="greeting-text">
@@ -29,52 +29,50 @@
   </div>
 </template>
 
-<script>
-import { gsap } from 'gsap'
+<script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 
-export default {
+defineOptions({
   name: 'TerminalGreeting',
-  data() {
-    return {
-      showAsciiArt: window.innerWidth > 620
-    }
-  },
-  mounted() {
-    this.animateTypewriter()
-    window.addEventListener('resize', this.handleResize)
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.handleResize)
-  },
-  methods: {
-    handleResize() {
-      this.showAsciiArt = window.innerWidth > 620
-    },
-    animateTypewriter() {
-      const text = "Welcome to my space, traveler!"
-      const typewriter = this.$refs.typewriter
-      typewriter.innerHTML += '> '
+})
 
-      let i = 0
-      const speed = 100 // Typing speed (milliseconds per character)
-      const typingDuration = 3000 // Total duration of typing effect (3 seconds)
+const showAsciiArt = ref(typeof window !== 'undefined' ? window.innerWidth > 620 : true)
+const typewriter = ref(null)
 
-      // Calculate individual character delay based on total duration
-      const delay = typingDuration / text.length
-
-      // Create the typing effect by adding one character at a time
-      const typingEffect = () => {
-        if (i < text.length) {
-          typewriter.innerHTML += text.charAt(i)
-          i++
-          setTimeout(typingEffect, delay)
-        }
-      }
-
-      typingEffect()
-    },
-  },
+const handleResize = () => {
+  showAsciiArt.value = window.innerWidth > 620
 }
+
+const animateTypewriter = () => {
+  const text = 'Welcome to my space, traveler!'
+  const el = typewriter.value
+  if (!el) return
+
+  el.innerHTML += '> '
+
+  let i = 0
+  const typingDuration = 3000
+  const delay = typingDuration / text.length
+
+  const typingEffect = () => {
+    if (i < text.length) {
+      el.innerHTML += text.charAt(i)
+      i++
+      setTimeout(typingEffect, delay)
+    }
+  }
+
+  typingEffect()
+}
+
+onMounted(() => {
+  animateTypewriter()
+  window.addEventListener('resize', handleResize)
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', handleResize)
+})
 </script>
 
 <style scoped>
@@ -159,12 +157,12 @@ export default {
   font-weight: bold;
   font-family: 'Courier New', monospace !important;
   text-shadow: 0 0 6px rgba(0, 255, 204, 0.7);
-  
+
   /* Prevent browser interference */
   transform: scale(1) !important;
   text-rendering: pixelated;
   image-rendering: pixelated;
-  
+
   /* Ensure no wrapping */
   white-space: pre !important;
   overflow-x: auto !important;
