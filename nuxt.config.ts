@@ -55,13 +55,19 @@ export default defineNuxtConfig({
         { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
         { rel: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: '' },
         { rel: 'preconnect', href: 'https://cdn.jsdelivr.net' },
+        { rel: 'dns-prefetch', href: 'https://github-profile-summary-cards.vercel.app' },
+        { rel: 'dns-prefetch', href: 'https://leetcard.jacoblin.cool' },
+        { rel: 'preconnect', href: 'https://github-profile-summary-cards.vercel.app' },
+        { rel: 'preconnect', href: 'https://leetcard.jacoblin.cool' },
         {
           rel: 'stylesheet',
-          href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap',
+          href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap&font-display=swap',
         },
         {
           rel: 'stylesheet',
           href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css',
+          media: 'print',
+          onload: "this.media='all'",
         },
       ],
       script: [
