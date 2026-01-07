@@ -1,5 +1,5 @@
 <template>
-  <BasePage>
+  <NuxtLayout>
     <div class="content-container">
       <div class="terminal-and-card">
         <div class="floating-headshot-container">
@@ -19,76 +19,72 @@
         </div>
         <div class="landing-card-container">
           <div class="landing-card">
-             <div class="intro">
-                <p class="tagline">
-                  I'm a Computer Science student at the University of Cincinnati and a backend developer focused on API design, tooling, and software product development, with internships at Siemens and upcoming roles at Fifth Third Bank and LinkedIn.
-                </p>
-             </div>
+            <div class="intro">
+               <p class="tagline">
+                 I'm a Computer Science student at the University of Cincinnati and a backend
+                 developer focused on API design, tooling, and software product development, with
+                 internships at Siemens DISW and upcoming roles at Fifth Third Bank and LinkedIn.
+               </p>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </BasePage>
+  </NuxtLayout>
 </template>
 
-<script>
-import BasePage from '@/components/BasePage.vue'
-import TerminalGreeting from '@/components/TerminalGreeting.vue'
+<script setup>
+import { ref, onMounted } from 'vue'
 
-export default {
-  name: 'Home',
-  components: {
-    BasePage,
-    TerminalGreeting,
-  },
-  data() {
-    return {}
-  },
-  methods: {
-    handleTouchMove(e) {
-      if (e.touches.length > 0) {
-        const touch = e.touches[0]
-        const mouseEvent = new MouseEvent('mousemove', {
-          clientX: touch.clientX,
-          clientY: touch.clientY,
-        })
-        this.handleHeadshotTilt(mouseEvent)
-      }
-    },
-    navigateTo(section) {
-      this.$router.push({ name: section })
-    },
-    handleHeadshotTilt(e) {
-      const headshot = this.$refs.headshot
-      const rect = headshot.getBoundingClientRect()
-      const x = e.clientX - rect.left
-      const y = e.clientY - rect.top
-      const centerX = rect.width / 2
-      const centerY = rect.height / 2
-      const maxTilt = 16
-      const rotateY = ((x - centerX) / centerX) * maxTilt
-      const rotateX = -((y - centerY) / centerY) * maxTilt
-      headshot.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
-      headshot.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1)'
-      headshot.style.animation = 'none'
-    },
-    resetHeadshotTilt() {
-      const headshot = this.$refs.headshot
-      headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
-      headshot.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1)'
-      setTimeout(() => {
-        headshot.style.transition = ''
-        headshot.style.animation = 'float 5.5s ease-in-out infinite'
-      }, 450)
-    },
-  },
-  mounted() {
-    document.title = "Derek Corniello's Space!"
-    if (this.$refs.headshot) {
-      this.$refs.headshot.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
-    }
-  },
+useHead({
+  title: "Derek Corniello's Space!",
+})
+
+const headshot = ref(null)
+
+const handleTouchMove = (e) => {
+  if (e.touches.length > 0) {
+    const touch = e.touches[0]
+    const mouseEvent = new MouseEvent('mousemove', {
+      clientX: touch.clientX,
+      clientY: touch.clientY,
+    })
+    handleHeadshotTilt(mouseEvent)
+  }
 }
+
+const handleHeadshotTilt = (e) => {
+  const el = headshot.value
+  if (!el) return
+  const rect = el.getBoundingClientRect()
+  const x = e.clientX - rect.left
+  const y = e.clientY - rect.top
+  const centerX = rect.width / 2
+  const centerY = rect.height / 2
+  const maxTilt = 16
+  const rotateY = ((x - centerX) / centerX) * maxTilt
+  const rotateX = -((y - centerY) / centerY) * maxTilt
+  el.style.transform = `perspective(400px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
+  el.style.transition = 'transform 0.15s cubic-bezier(.25,.8,.25,1)'
+  el.style.animation = 'none'
+}
+
+const resetHeadshotTilt = () => {
+  const el = headshot.value
+  if (!el) return
+  el.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
+  el.style.transition = 'transform 0.45s cubic-bezier(.25,.8,.25,1)'
+  setTimeout(() => {
+    el.style.transition = ''
+    el.style.animation = 'float 5.5s ease-in-out infinite'
+  }, 450)
+}
+
+onMounted(() => {
+  if (headshot.value) {
+    headshot.value.style.transform = 'perspective(400px) rotateX(0deg) rotateY(0deg)'
+  }
+})
 </script>
 
 <style scoped>

@@ -3,15 +3,15 @@
     <header class="page-header">
       <div class="header-content">
         <div class="directory-path">
-          <router-link to="/" class="r-link home-link">~/</router-link>
+          <NuxtLink to="/" class="r-link home-link">~/</NuxtLink>
           <span class="current-path">{{ currentPath }}</span>
         </div>
         <nav class="header-links">
-          <router-link class="r-link" to="/about">About Me</router-link>
-          <router-link class="r-link" to="/projects">Projects</router-link>
-          <router-link class="r-link" to="/blog">Blog</router-link>
-          <router-link class="r-link" to="/contact">Contact</router-link>
-          <router-link class="r-link" to="/resume">Resume</router-link>
+          <NuxtLink class="r-link" to="/about">About Me</NuxtLink>
+          <NuxtLink class="r-link" to="/projects">Projects</NuxtLink>
+          <NuxtLink class="r-link" to="/blog">Blog</NuxtLink>
+          <NuxtLink class="r-link" to="/contact">Contact</NuxtLink>
+          <NuxtLink class="r-link" to="/resume">Resume</NuxtLink>
         </nav>
       </div>
     </header>
@@ -55,23 +55,21 @@
   </div>
 </template>
 
-<script>
-export default {
-  name: 'BasePage',
-  computed: {
-    currentPath() {
-      const route = this.$route
-      const path = route.path
-      
-      if (path === '/' || path === '') {
-        return ''
-      }
-      
-      // Remove leading slash and add trailing slash
-      return path.substring(1) + (path.endsWith('/') ? '' : '/')
-    },
-  },
-}
+<script setup>
+import { computed } from 'vue'
+
+const route = useRoute()
+
+const currentPath = computed(() => {
+  const path = route.path
+
+  if (path === '/' || path === '') {
+    return ''
+  }
+
+  // Remove leading slash and add trailing slash
+  return path.substring(1) + (path.endsWith('/') ? '' : '/')
+})
 </script>
 
 <style scoped>
@@ -315,21 +313,11 @@ export default {
   }
 }
 
-.page-content > * {
+.page-content > :deep(*) {
   padding-bottom: 2rem;
   margin-bottom: 1rem;
   max-width: 1200px;
   width: 100%;
-}
-
-.page-content > *:first-child {
-  margin-top: 1.5rem;
-}
-
-.footer-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .page-content {
@@ -348,13 +336,12 @@ export default {
   color: rgba(0, 173, 216, 0.95);
   text-decoration: none;
   margin: 0 0.5rem;
-
 }
 .links a:hover {
-    text-decoration: none;
-    text-shadow:
-        0 0 1px #00ffcc,
-        0 0 2px #00ffcc;
+  text-decoration: none;
+  text-shadow:
+    0 0 1px #00ffcc,
+    0 0 2px #00ffcc;
 }
 
 @media (max-width: 768px) {
