@@ -163,7 +163,7 @@ const filteredBlogItems = computed(() => {
   font-size: 3rem;
   font-weight: bold;
   color: #00ffcc;
-  margin: 0;
+  margin: 2rem 0 0 0;
   text-align: center;
   padding-bottom: 0.5rem;
 }

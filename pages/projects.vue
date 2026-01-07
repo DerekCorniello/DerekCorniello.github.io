@@ -46,12 +46,12 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
+              src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB"
               alt="React"
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=websocket&logoColor=white"
+              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=socketdotio&logoColor=white"
               alt="WebSockets"
               class="tech-badge"
             />
@@ -60,7 +60,7 @@
         A wireless mouse solution that turns your smartphone into a fully-functional input device
         for your computer. Winning first place at the
         <strong
-          ><a href="https://makeuc.io" target="_blank" style="text-decoration: underline #00ffcc"
+          ><a href="https://makeuc.io" target="_blank" style="text-decoration: underline white"
             >2025 MakeUC Hackathon</a
           ></strong
         >, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket
@@ -73,7 +73,7 @@
         <a
           href="https://devpost.com/software/quick-mouse"
           target="_blank"
-          style="text-decoration: underline #00ffcc"
+          style="text-decoration: underline white"
           >DevPost submission</a
         >
         for more details!
@@ -111,12 +111,12 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/TUI-4EAA25?style=flat&logo=terminal&logoColor=white"
+              src="https://img.shields.io/badge/Terminal-4EAA25?style=flat&logo=gnubash&logoColor=white"
               alt="TUI"
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/Audio-FF8C00?style=flat&logo=audio-technica&logoColor=white"
+              src="https://img.shields.io/badge/Audio-FF6B35?style=flat&logo=soundcloud&logoColor=white"
               alt="Audio"
               class="tech-badge"
             />
@@ -325,7 +325,7 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white"
+              src="https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white"
               alt="C#"
               class="tech-badge"
             />
@@ -381,9 +381,7 @@ useHead({
   object-fit: contain;
 }
 
-.tech-badge:hover {
-  opacity: 1;
-}
+
 
 .project-emoji {
   margin-right: 6px;
@@ -418,7 +416,7 @@ useHead({
   font-size: 3rem;
   font-weight: bold;
   color: #00ffcc;
-  margin: 0;
+  margin: 2rem 0 0 0;
   text-align: center;
   padding-bottom: 0.5rem;
 }
@@ -473,11 +471,7 @@ img {
   line-height: 1.4;
 }
 
-.tech-badge:hover {
-  opacity: 1;
-  box-shadow: 0 2px 8px rgba(0, 255, 204, 0.3);
-  z-index: 1;
-}
+
 
 .screenshot-row {
   display: flex;

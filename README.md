@@ -1,13 +1,13 @@
-![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Vue.js](https://img.shields.io/badge/Vue.js-%234FC08D.svg?style=for-the-badge&logo=vue.js&logoColor=white) ![Nuxt](https://img.shields.io/badge/Nuxt-00DC82.svg?style=for-the-badge&logo=nuxtdotjs&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23F7DF1E.svg?style=for-the-badge&logo=javascript&logoColor=black) ![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white) ![CSS3](https://img.shields.io/badge/css3-%231572B6.svg?style=for-the-badge&logo=css3&logoColor=white) ![Vue.js](https://img.shields.io/badge/Vue.js-%234FC08D.svg?style=for-the-badge&logo=vue.js&logoColor=white) ![Nuxt](https://img.shields.io/badge/Nuxt-002E3B?logo=nuxt&logoColor=#00DC82) ![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-%2338B2AC.svg?logo=tailwind-css&logoColor=white)]
 
-# [derekcorniello.github.io](https://www.derekcorniello.github.io)
+# [derekcorn.dev](https://derekcorn.dev) or [derekcorniello.github.io](https://www.derekcorniello.github.io)
 My personal portfolio site that showcases my skills, work, and projects as a software engineer in training!
 
 ## Features
 - Responsive Design
 - Visualizations of my skills
 - Async loading of media
-- Interactive terminal-style greeting for first-time users
+- Interactive terminal-style greeting
 - Smooth page transitions with dynamic routing
 - ... and more!
 

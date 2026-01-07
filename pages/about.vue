@@ -8,7 +8,7 @@
     <div class="containers-holder">
       <Container>
         <template #title>
-          <div class="image-wrapper" style="width: 15%; margin: 0 auto 2% auto">
+          <div class="image-wrapper headshot" style="width: 15%; margin: 0 auto 2% auto">
             <div class="skeleton"></div>
             <img
               src="/headshot.jpeg"
@@ -16,6 +16,7 @@
               class="lazy-image"
               style="border-radius: 50%"
               @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+              @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
             />
           </div>
           👋 Hello, I'm Derek Corniello!
@@ -31,7 +32,7 @@
         >
         or
         <strong
-          ><u><NuxtLink to="contact">view my resume</NuxtLink></u></strong
+          ><u><NuxtLink to="resume">view my resume</NuxtLink></u></strong
         >! <br /><br />
         <div class="links">
           <a
@@ -66,37 +67,41 @@
 
       <Container>
         <template #title> 📈 GitHub and LeetCode Stats: </template>
-        <div style="display: flex; flex-direction: column; align-items: center; gap: 1.5rem">
-          <div class="image-wrapper" style="max-width: 500px">
-            <div class="skeleton"></div>
-            <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DerekCorniello&theme=transparent&exclude=csharp"
-              alt="Top Languages"
-              loading="lazy"
-              decoding="async"
-              class="lazy-image"
-              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-            />
+        <div class="stats-collage">
+          <div class="github-column">
+            <div class="image-wrapper github-languages-card">
+              <div class="skeleton"></div>
+              <img
+                :src="`https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DerekCorniello&theme=transparent&exclude=csharp&t=${Date.now()}`"
+                alt="Top Languages"
+                loading="lazy"
+                decoding="async"
+                class="lazy-image"
+                @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+                @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+              />
+            </div>
+            <div class="image-wrapper github-stats-card">
+              <div class="skeleton"></div>
+              <img
+                :src="`https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DerekCorniello&theme=transparent&t=${Date.now()}`"
+                alt="GitHub Stats"
+                loading="lazy"
+                decoding="async"
+                class="lazy-image"
+                @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+                @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+              />
+            </div>
           </div>
-
-          <div class="image-wrapper" style="max-width: 500px">
+          <div class="image-wrapper leetcode-card">
             <div class="skeleton"></div>
             <img
-              src="https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DerekCorniello&theme=transparent"
-              alt="GitHub Stats"
-              loading="lazy"
-              decoding="async"
-              class="lazy-image"
-              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-            />
-          </div>
-          <div class="image-wrapper" style="max-width: 400px">
-            <div class="skeleton"></div>
-            <img
-              src="https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=transparent"
+              :src="`https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=dark&t=${Date.now()}`"
               alt="LeetCode Activity"
               class="lazy-image"
-              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.display='block'; }"
+              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
+              @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
             />
           </div>
         </div>
@@ -151,7 +156,7 @@
             <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a
             streamlined Neovim + Arch Linux setup.
           </li>
-          <li>Exploring new programming paradigms.</li>
+          <li>Exploring new programming paradigms</li>
           <li>Building a Compiler in Rust</li>
           <li>
             Probably playing chess on
@@ -194,7 +199,7 @@ useHead({
   font-size: 3rem;
   font-weight: bold;
   color: #00ffcc;
-  margin: 0;
+  margin: 2rem 0 0 0;
   text-align: center;
   padding-bottom: 0.5rem;
 }
@@ -245,7 +250,68 @@ table {
   position: relative;
   width: 100%;
   text-align: center;
+  min-height: 100px;
 }
+
+.image-wrapper.headshot {
+  aspect-ratio: 1/1;
+  min-height: 120px;
+}
+
+.image-wrapper.github-languages-card,
+.image-wrapper.github-stats-card {
+  width: 100%;
+  aspect-ratio: 340/200;
+}
+
+.image-wrapper.leetcode-card {
+  width: 48%;
+  aspect-ratio: 500/400;
+  align-self: center;
+}
+
+.image-wrapper.leetcode-card .lazy-image {
+  border-radius: 0;
+}
+
+
+
+.stats-collage {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  align-items: stretch;
+}
+
+.github-column {
+  align-items: stretch;
+}
+
+.github-column {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1;
+  width: 48%;
+}
+
+@media (max-width: 767px) {
+  .stats-collage {
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 95%;
+  }
+  
+  .github-column {
+    order: 1;
+  }
+  
+  .image-wrapper.leetcode-card {
+    order: 2;
+  }
+}
+
+
 
 .skeleton {
   position: absolute;
@@ -254,8 +320,12 @@ table {
   width: 100%;
   height: 100%;
   border-radius: 8px;
-  background: rgba(255, 255, 255, 0.1);
-  animation: pulse 2s ease-in-out infinite;
+  background: linear-gradient(90deg, 
+    rgba(255,255,255,0.1) 0%, 
+    rgba(255,255,255,0.3) 50%, 
+    rgba(255,255,255,0.1) 100%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s ease-in-out infinite;
   z-index: 1;
 }
 
@@ -263,23 +333,47 @@ table {
   width: 100%;
   height: auto;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.5s ease;
   position: relative;
   z-index: 2;
   border-radius: 8px;
+  display: block;
 }
 
-.lazy-image[style*='display: block'] {
-  opacity: 1;
-}
 
-@keyframes pulse {
-  0%,
-  100% {
-    opacity: 0.3;
+
+
+
+
+
+@media (max-width: 767px) {
+  .image-wrapper.github-languages-card,
+  .image-wrapper.github-stats-card {
+    width: 100%;
+    max-width: 340px;
+    height: auto;
+    min-height: 200px;
   }
-  50% {
-    opacity: 0.7;
+  
+  .image-wrapper.leetcode-card {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .github-cards {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% 0;
+  }
+  100% {
+    background-position: 200% 0;
   }
 }
 </style>

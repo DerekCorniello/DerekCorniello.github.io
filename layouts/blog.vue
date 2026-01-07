@@ -403,15 +403,7 @@ const currentPath = computed(() => {
   display: block;
   margin: 0 auto;
   box-shadow: 0 4px 15px rgba(0, 255, 204, 0.2);
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
   background-color: rgba(255, 255, 255, 0.05);
-}
-
-.blog-content :deep(img:hover) {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 255, 204, 0.3);
 }
 
 .blog-content :deep(.image-caption) {

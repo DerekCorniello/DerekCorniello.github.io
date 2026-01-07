@@ -320,10 +320,6 @@ const currentPath = computed(() => {
   width: 100%;
 }
 
-.page-content > :deep(*:first-child) {
-  margin-top: 1.5rem;
-}
-
 .page-content {
   flex: 1 0 auto;
   padding: 2rem;

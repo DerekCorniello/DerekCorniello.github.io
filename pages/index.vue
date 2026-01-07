@@ -20,11 +20,11 @@
         <div class="landing-card-container">
           <div class="landing-card">
             <div class="intro">
-              <p class="tagline">
-                I'm a Computer Science student at the University of Cincinnati and a backend
-                developer focused on API design, tooling, and software product development, with
-                internships at Siemens and upcoming roles at Fifth Third Bank and LinkedIn.
-              </p>
+               <p class="tagline">
+                 I'm a Computer Science student at the University of Cincinnati and a backend
+                 developer focused on API design, tooling, and software product development, with
+                 internships at Siemens DISW and upcoming roles at Fifth Third Bank and LinkedIn.
+               </p>
             </div>
           </div>
         </div>
