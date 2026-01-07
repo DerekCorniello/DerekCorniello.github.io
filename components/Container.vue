@@ -15,10 +15,10 @@
   </div>
 </template>
 
-<script>
-export default {
+<script setup>
+defineOptions({
   name: 'Container',
-}
+})
 </script>
 
 <style scoped>

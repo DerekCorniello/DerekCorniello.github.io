@@ -1,5 +1,5 @@
 <template>
-  <BaseBlog title="I Built a Custom Keyboard!">
+  <NuxtLayout name="blog" title="I Built a Custom Keyboard!">
     <div class="image-container">
       <img src="/kb-over.jpeg" alt="An over the shoulder shot of me testing the keyboard." />
       <p class="image-caption">
@@ -13,7 +13,7 @@
     Ever since I started watching
     <a href="https://www.youtube.com/c/theprimeagen">ThePrimeagen</a> and his
     <a href="https://kinesis-ergo.com/">Kinesis keyboard</a>, I have wanted to try one out for a
-    very long time. Initially, I couldn’t justify spending so much money, so I decided to take
+    very long time. Initially, I couldn't justify spending so much money, so I decided to take
     matters into my own hands. Thus, a new project was born.
 
     <div class="divider-container">
@@ -68,8 +68,8 @@
     a <em>column</em>. Press a key → that row and column are now electrically connected. What
     happens is...
     <ul>
-      <li>The microcontroller sets one row “active” at a time (drives it high/low).</li>
-      <li>It then reads all the columns to see which ones are “lit up”.</li>
+      <li>The microcontroller sets one row "active" at a time (drives it high/low).</li>
+      <li>It then reads all the columns to see which ones are "lit up".</li>
       <li>It moves to the next row and repeats. This happens thousands of times per second.</li>
     </ul>
     From that row+column pair, it knows exactly which key you hit. Fast enough that it feels
@@ -78,8 +78,8 @@
     (2,1), the microcontroller will notice that rows 1 and 2 are active, and columns 1 and 2 are
     also active. Therefore, the key in position (2,2) would appeae as pressed, and is therefore
     "ghosted". Without diodes, current can sneak through multiple pressed switches and make it
-    <em>look</em> like an extra key (the “fourth corner” of a rectangle) is pressed. A diode on each
-    switch forces current to flow in only one direction, so signals don’t backfeed through other
+    <em>look</em> like an extra key (the "fourth corner" of a rectangle) is pressed. A diode on each
+    switch forces current to flow in only one direction, so signals don't backfeed through other
     keys, which fixes the ghosting problem! To deal with all of these columns and rows, we will
     deploy a firmware (QMK in my case) to the microcontroller to deal with taking the data from
     current to serial data. It does this with the following features and techniques:
@@ -88,7 +88,7 @@
         <strong>Matrix scanning:</strong> Runs that row→column loop nonstop to detect closures.
       </li>
       <li>
-        <strong>Debouncing:</strong> Mechanical switches “chatter” for a few ms; firmware smooths
+        <strong>Debouncing:</strong> Mechanical switches "chatter" for a few ms; firmware smooths
         that into a single press.
       </li>
       <li>
@@ -97,7 +97,7 @@
       </li>
       <li>
         <strong>Split comms (for two halves):</strong> One side is master. It scans its half,
-        receives the other half’s scan data over TRRS/serial, merges both, then sends a single USB
+        receives the other half's scan data over TRRS/serial, merges both, then sends a single USB
         HID report to the computer.
       </li>
     </ul>
@@ -207,7 +207,7 @@
     Overall, this was a very interesting, fun, and overall useful project that I believe will help
     me for years to come!
     <br /><br />
-    <router-link
+    <NuxtLink
       style="
         text-align: center;
         background-color: #ff66b2;
@@ -220,19 +220,14 @@
       to="/blog"
     >
       Back to Blogs
-    </router-link>
-  </BaseBlog>
+    </NuxtLink>
+  </NuxtLayout>
 </template>
 
-<script>
-import BaseBlog from '@/components/BaseBlog.vue'
-
-export default {
-  name: 'blog1',
-  components: {
-    BaseBlog,
-  },
-}
+<script setup>
+useHead({
+  title: 'I Built a Custom Keyboard! - Derek Corniello',
+})
 </script>
 
 <style scoped>

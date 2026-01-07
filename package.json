@@ -4,12 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview",
-    "serve": "vite preview",
-    "predeploy": "npm run build",
-    "deploy": "cd dist && echo 'derekcorn.dev' > CNAME && cp index.html 404.html && cd .. && gh-pages -d dist",
+    "dev": "nuxt dev",
+    "build": "nuxt build",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
@@ -17,19 +16,19 @@
     "axios": "^1.6.2",
     "gsap": "^3.12.2",
     "three": "^0.162.0",
-    "vue": "^3.3.4",
-    "vue-router": "^4.2.4"
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^4.3.4",
-    "@vitejs/plugin-vue-jsx": "^3.0.1",
+    "@nuxt/eslint": "^0.7.5",
+    "@nuxtjs/tailwindcss": "^6.12.2",
     "@vue/eslint-config-prettier": "^10.2.0",
     "autoprefixer": "^10.4.15",
-    "eslint": "^8.45.0",
+    "eslint": "^9.17.0",
     "eslint-plugin-vue": "^9.15.1",
     "gh-pages": "^5.0.0",
+    "nuxt": "^3.15.1",
     "postcss": "^8.4.29",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.9"
+    "tailwindcss": "^3.3.3"
   }
 }

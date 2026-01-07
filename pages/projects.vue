@@ -1,9 +1,8 @@
 <template>
-  <BasePage>
+  <NuxtLayout>
     <h1 class="title">Projects</h1>
     <p class="subtitle">Click any project name to view it's source and/or demo!</p>
     <div class="containers-holder">
-
       <Container>
         <template #title>
           <div class="project-title">
@@ -23,7 +22,10 @@
             />
           </div>
         </template>
-        A research project that revolutionizes chess rating systems with momentum-enhanced predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+ games from 7 top players. Features cavity prevention and statistical significance (p &lt; 0.001).
+        A research project that revolutionizes chess rating systems with momentum-enhanced
+        predictions. Achieves 73.1% accuracy (3.7% improvement over traditional Elo) across 20,456+
+        games from 7 top players. Features cavity prevention and statistical significance (p &lt;
+        0.001).
       </Container>
 
       <Container>
@@ -44,20 +46,37 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/React-61DAFB?style=flat&logo=react&logoColor=black"
+              src="https://img.shields.io/badge/React-%2320232a.svg?logo=react&logoColor=%2361DAFB"
               alt="React"
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=websocket&logoColor=white"
+              src="https://img.shields.io/badge/WebSockets-010101?style=flat&logo=socketdotio&logoColor=white"
               alt="WebSockets"
               class="tech-badge"
             />
           </div>
         </template>
-        A wireless mouse solution that turns your smartphone into a fully-functional input device for your computer. Winning first place at the <strong><a href="https://makeuc.io" target="_blank" style="text-decoration: underline #00ffcc">2025 MakeUC Hackathon</a></strong>, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket communication for low-latency control. With multiple input modes including handheld pointer and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without requiring any extra hardware. The application uses Go for the backend service and React for the intuitive touch interface, delivering a seamless user experience.
+        A wireless mouse solution that turns your smartphone into a fully-functional input device
+        for your computer. Winning first place at the
+        <strong
+          ><a href="https://makeuc.io" target="_blank" style="text-decoration: underline white"
+            >2025 MakeUC Hackathon</a
+          ></strong
+        >, Quick Mouse leverages QR code pairing for instant secure connections and WebSocket
+        communication for low-latency control. With multiple input modes including handheld pointer
+        and trackpad, it offers cross-platform compatibility (Windows, macOS, Linux) without
+        requiring any extra hardware. The application uses Go for the backend service and React for
+        the intuitive touch interface, delivering a seamless user experience.
         <br /><br />
-        Check out the <a href="https://devpost.com/software/quick-mouse" target="_blank" style="text-decoration: underline #00ffcc">DevPost submission</a> for more details!
+        Check out the
+        <a
+          href="https://devpost.com/software/quick-mouse"
+          target="_blank"
+          style="text-decoration: underline white"
+          >DevPost submission</a
+        >
+        for more details!
         <br /><br />
         <img src="/qm-logo.png" alt="[Quick Mouse Logo]" class="logo-scaled" />
         <div class="screenshot-row">
@@ -92,12 +111,12 @@
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/TUI-4EAA25?style=flat&logo=terminal&logoColor=white"
+              src="https://img.shields.io/badge/Terminal-4EAA25?style=flat&logo=gnubash&logoColor=white"
               alt="TUI"
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/Audio-FF8C00?style=flat&logo=audio-technica&logoColor=white"
+              src="https://img.shields.io/badge/Audio-FF6B35?style=flat&logo=soundcloud&logoColor=white"
               alt="Audio"
               class="tech-badge"
             />
@@ -115,10 +134,10 @@
           <div class="project-title">
             <span class="project-emoji">🐍</span>
             <a
-                href="https://github.com/DerekCorniello/pip-req-valid"
-                target="_blank"
-                style="text-decoration: underline white"
-                >pip-req-valid</a
+              href="https://github.com/DerekCorniello/pip-req-valid"
+              target="_blank"
+              style="text-decoration: underline white"
+              >pip-req-valid</a
             >
             <span style="color: rgba(255, 255, 255, 0.7)"> - (Previously reqinspect.com)</span>
           </div>
@@ -145,7 +164,11 @@
             />
           </div>
         </template>
-A web app that validates `requirements.txt` files for pip. Originally built and hosted on AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go for backend processing and Vue.js for the frontend, checking for missing or outdated dependencies to help ensure that your Python project's dependencies are up-to-date and properly formatted.
+        A web app that validates `requirements.txt` files for pip. Originally built and hosted on
+        AWS, it has since been migrated to Docker for easier deployment and maintenance. It uses Go
+        for backend processing and Vue.js for the frontend, checking for missing or outdated
+        dependencies to help ensure that your Python project's dependencies are up-to-date and
+        properly formatted.
         <br /><br />
         <img src="/reqinspect.png" alt="[reqinspect.com Screenshot]" />
       </Container>
@@ -302,7 +325,7 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
               class="tech-badge"
             />
             <img
-              src="https://img.shields.io/badge/C%23-239120?style=flat&logo=c-sharp&logoColor=white"
+              src="https://custom-icon-badges.demolab.com/badge/C%23-%23239120.svg?logo=cshrp&logoColor=white"
               alt="C#"
               class="tech-badge"
             />
@@ -318,30 +341,21 @@ A web app that validates `requirements.txt` files for pip. Originally built and 
       <Container>
         <template #title> That's not all! </template>
         <div style="text-align: center">
-          Please check out the rest of my projects on my 
+          Please check out the rest of my projects on my
           <a href="https://github.com/DerekCorniello" target="_blank"><u>GitHub</u></a
           >!
         </div>
       </Container>
     </div>
-  </BasePage>
+  </NuxtLayout>
 </template>
 
-<script>
-import BasePage from '@/components/BasePage.vue'
-import Container from '@/components/Container.vue'
-
-export default {
-  name: 'Projects',
-  components: {
-    BasePage,
-    Container,
-  },
-  mounted() {
-    document.title = "Derek Corniello's Projects"
-  },
-}
+<script setup>
+useHead({
+  title: "Derek Corniello's Projects",
+})
 </script>
+
 <style scoped>
 .tech-stack {
   display: flex;
@@ -367,9 +381,7 @@ export default {
   object-fit: contain;
 }
 
-.tech-badge:hover {
-  opacity: 1;
-}
+
 
 .project-emoji {
   margin-right: 6px;
@@ -404,7 +416,7 @@ export default {
   font-size: 3rem;
   font-weight: bold;
   color: #00ffcc;
-  margin: 0;
+  margin: 2rem 0 0 0;
   text-align: center;
   padding-bottom: 0.5rem;
 }
@@ -459,11 +471,7 @@ img {
   line-height: 1.4;
 }
 
-.tech-badge:hover {
-  opacity: 1;
-  box-shadow: 0 2px 8px rgba(0, 255, 204, 0.3);
-  z-index: 1;
-}
+
 
 .screenshot-row {
   display: flex;
@@ -495,7 +503,7 @@ img {
     align-items: center;
     gap: 10px;
   }
-  
+
   .screenshot-small {
     width: 80%;
     max-width: 300px;

@@ -62,8 +62,8 @@ export default function initStarfield(canvas) {
   camera.position.set(0, 0, 10)
 
   const rotationSpeed = {
-    x: 0.0002,
-    y: 0.0004,
+    x: 0.0001,
+    y: 0.0002,
   }
 
   // Animation loop
