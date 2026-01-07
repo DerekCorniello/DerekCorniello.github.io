@@ -1,0 +1,1 @@
+import{M as a,N as s,O as r,x as u,Q as o}from"./DEPsLRCN.js";function i(e){const t=e||s();return t?.ssrContext?.head||t?.runWithContext(()=>{if(r())return u(o)})}function c(e,t={}){const n=i(t.nuxt);if(n)return a(e,{head:n,...t})}export{c as u};

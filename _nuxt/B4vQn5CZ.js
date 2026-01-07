@@ -1,0 +1,1 @@
+import{u as e,c as o,o as r}from"./DEPsLRCN.js";const c={__name:"resume",setup(t){return typeof window<"u"&&window.open("/resume.pdf","_blank"),e().replace("/"),(s,u)=>(r(),o("div"))}};export{c as default};
