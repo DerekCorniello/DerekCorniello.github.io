@@ -4,18 +4,23 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import initStarfield from '~/scripts/starfield.js'
 
 const canvas = ref(null)
 
 onMounted(() => {
-  if (canvas.value) {
+  // Defer Three.js loading to improve initial page render
+  // This reduces main-thread work and improves FCP
+  const loadStarfield = async () => {
+    // Dynamically import the entire starfield module (including Three.js)
+    const initStarfield = (await import('~/scripts/starfield.js')).default
     initStarfield(canvas.value)
-    // Add visible class after a short delay for smooth fade-in
-    setTimeout(() => {
-      canvas.value.classList.add('visible')
-    }, 100)
+    
+    // Add visible class after Three.js initializes
+    canvas.value.classList.add('visible')
   }
+  
+  // Start loading after a short delay to prioritize initial page render
+  setTimeout(loadStarfield, 100)
 })
 </script>
 

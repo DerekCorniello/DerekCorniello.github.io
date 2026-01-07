@@ -66,12 +66,6 @@ export default defineNuxtConfig({
           rel: 'stylesheet',
           href: 'https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&display=swap&font-display=swap',
         },
-        {
-          rel: 'stylesheet',
-          href: 'https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css',
-          media: 'print',
-          onload: "this.media='all'",
-        },
       ],
       script: [
         {

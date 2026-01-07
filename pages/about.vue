@@ -1,9 +1,5 @@
 <template>
   <NuxtLayout>
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
-      rel="stylesheet"
-    />
     <h1 class="title">About Me</h1>
     <div class="containers-holder">
       <Container>
@@ -40,27 +36,27 @@
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-linkedin"></i> LinkedIn
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/linkedin.svg" width="18" height="18" alt="LinkedIn" class="icon-link"> LinkedIn
           </a>
           <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none">
-            <i class="bi bi-github"></i> GitHub
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/github.svg" width="18" height="18" alt="GitHub" class="icon-link"> GitHub
           </a>
           <a
             href="https://twitter.com/DerekCorniello"
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-twitter-x"></i> X
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/twitter-x.svg" width="18" height="18" alt="X" class="icon-link"> X
           </a>
           <a
             href="https://youtube.com/@DerekCornDev"
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-youtube"></i> YouTube
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/youtube.svg" width="18" height="18" alt="YouTube" class="icon-link"> YouTube
           </a>
           <a href="/resume" target="_blank" style="text-decoration: none">
-            <i class="bi bi-file-earmark-text"></i> Resume
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/file-earmark-text.svg" width="18" height="18" alt="Resume" class="icon-link"> Resume
           </a>
         </div>
       </Container>
@@ -375,5 +371,18 @@ table {
   100% {
     background-position: 200% 0;
   }
+}
+
+.icon-link {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(160deg);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
+  margin: 0 12px;
 }
 </style>

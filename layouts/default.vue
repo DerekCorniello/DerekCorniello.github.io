@@ -27,27 +27,27 @@
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-linkedin"></i> LinkedIn
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/linkedin.svg" width="18" height="18" alt="LinkedIn" class="icon-link">
           </a>
           <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none">
-            <i class="bi bi-github"></i> GitHub
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/github.svg" width="18" height="18" alt="GitHub" class="icon-link">
           </a>
           <a
             href="https://twitter.com/DerekCorniello"
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-twitter-x"></i> X
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/twitter-x.svg" width="18" height="18" alt="X" class="icon-link">
           </a>
           <a
             href="https://www.youtube.com/@DerekCornDev"
             target="_blank"
             style="text-decoration: none"
           >
-            <i class="bi bi-youtube"></i> YouTube
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/youtube.svg" width="18" height="18" alt="YouTube" class="icon-link">
           </a>
           <a href="/resume" target="_blank" style="text-decoration: none">
-            <i class="bi bi-file-earmark-text"></i> Resume
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/file-earmark-text.svg" width="18" height="18" alt="Resume" class="icon-link">
           </a>
         </div>
       </div>
@@ -244,13 +244,13 @@ const currentPath = computed(() => {
   align-items: center;
   gap: 1rem;
   text-align: center;
+}
 
-  @media (min-width: 640px) {
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    text-align: left;
-  }
+.footer-content .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
 }
 
 .footer-content p {
@@ -352,5 +352,17 @@ const currentPath = computed(() => {
   .page-footer {
     font-size: 0.9rem;
   }
+}
+
+.icon-link {
+  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(160deg);
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 4px;
+}
+
+.links a {
+  display: inline-flex;
+  align-items: center;
 }
 </style>
