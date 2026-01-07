@@ -9,8 +9,6 @@
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
-    "predeploy": "npm run generate",
-    "deploy": "cd .output/public && echo 'derekcorn.dev' > CNAME && cp index.html 404.html && cd ../.. && gh-pages -d .output/public",
     "lint": "eslint . --fix",
     "format": "prettier --write src/"
   },
