@@ -7,7 +7,7 @@
           <div class="image-wrapper headshot" style="width: 15%; margin: 0 auto 2% auto">
             <div class="skeleton"></div>
             <img
-              src="/headshot.jpeg"
+              src="/headshot.jpg"
               alt="Derek's Headshot"
               class="lazy-image"
               style="border-radius: 50%"

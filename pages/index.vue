@@ -4,7 +4,7 @@
       <div class="terminal-and-card">
         <div class="floating-headshot-container">
           <img
-            src="/headshot.jpeg"
+            src="/headshot.jpg"
             alt="Derek Corniello Headshot"
             class="floating-headshot"
             ref="headshot"
