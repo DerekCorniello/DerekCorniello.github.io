@@ -1,12 +1,13 @@
 <template>
   <div class="base-page">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
     <header class="page-header">
       <div class="header-content">
         <div class="directory-path">
           <NuxtLink to="/" class="r-link home-link">~/</NuxtLink>
           <span class="current-path">{{ currentPath }}</span>
         </div>
-        <nav class="header-links">
+        <nav class="header-links" aria-label="Main navigation">
           <NuxtLink class="r-link" to="/about">About Me</NuxtLink>
           <NuxtLink class="r-link" to="/projects">Projects</NuxtLink>
           <NuxtLink class="r-link" to="/blog">Blog</NuxtLink>
@@ -15,7 +16,7 @@
         </nav>
       </div>
     </header>
-    <main class="page-content">
+    <main id="main-content" class="page-content">
       <slot></slot>
     </main>
     <footer class="page-footer">
@@ -26,28 +27,31 @@
             href="https://www.linkedin.com/in/derek-corniello"
             target="_blank"
             style="text-decoration: none"
+            aria-label="LinkedIn profile"
           >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/linkedin.svg" width="18" height="18" alt="LinkedIn" class="icon-link">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/linkedin.svg" width="18" height="18" alt="" aria-hidden="true" class="icon-link">
           </a>
-          <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none">
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/github.svg" width="18" height="18" alt="GitHub" class="icon-link">
+          <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none" aria-label="GitHub profile">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/github.svg" width="18" height="18" alt="" aria-hidden="true" class="icon-link">
           </a>
           <a
             href="https://twitter.com/DerekCorniello"
             target="_blank"
             style="text-decoration: none"
+            aria-label="X (Twitter) profile"
           >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/twitter-x.svg" width="18" height="18" alt="X" class="icon-link">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/twitter-x.svg" width="18" height="18" alt="" aria-hidden="true" class="icon-link">
           </a>
           <a
             href="https://www.youtube.com/@DerekCornDev"
             target="_blank"
             style="text-decoration: none"
+            aria-label="YouTube channel"
           >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/youtube.svg" width="18" height="18" alt="YouTube" class="icon-link">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/youtube.svg" width="18" height="18" alt="" aria-hidden="true" class="icon-link">
           </a>
-          <a href="/resume" target="_blank" style="text-decoration: none">
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/file-earmark-text.svg" width="18" height="18" alt="Resume" class="icon-link">
+          <a href="/resume" target="_blank" style="text-decoration: none" aria-label="Resume">
+            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/file-earmark-text.svg" width="18" height="18" alt="" aria-hidden="true" class="icon-link">
           </a>
         </div>
       </div>
@@ -73,6 +77,28 @@ const currentPath = computed(() => {
 </script>
 
 <style scoped>
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #00ffcc;
+  color: #000;
+  padding: 8px 16px;
+  z-index: 9999;
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 4px 0;
+  transition: top 0.3s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 2px solid #00ffcc;
+  outline-offset: 2px;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+}
+
 .base-page {
   display: flex;
   flex-direction: column;
@@ -333,7 +359,7 @@ const currentPath = computed(() => {
 }
 
 .links a {
-  color: rgba(0, 173, 216, 0.95);
+  color: #00ffcc;
   text-decoration: none;
   margin: 0 0.5rem;
 }

@@ -1,7 +1,7 @@
 <template>
   <NuxtLayout>
     <h1 class="title">Projects</h1>
-    <p class="subtitle">Click any project name to view it's source and/or demo!</p>
+    <p class="subtitle">Click any project name to view its source and/or demo!</p>
     <div class="containers-holder">
       <Container>
         <template #title>

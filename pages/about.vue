@@ -4,7 +4,7 @@
     <div class="containers-holder">
       <Container>
         <template #title>
-          <div class="image-wrapper headshot" style="width: 15%; margin: 0 auto 2% auto">
+          <div class="image-wrapper headshot" style="width: 25%; margin: 0 auto 2% auto">
             <div class="skeleton"></div>
             <img
               src="/headshot.jpg"
@@ -18,8 +18,8 @@
           👋 Hello, I'm Derek Corniello!
         </template>
         I'm a CS/SWE student at the University of Cincinnati. I have interned with Siemens Digital
-        Industry Software for the last 2 years, working on backends and API design. I will be at
-        Fifth Third Bank over the spring and LinkedIn over the summer. I'm excited about software
+        Industry Software for the last 2 years, working on backends and API design. I am currently at
+        Fifth Third Bank and will be at LinkedIn this summer. I'm excited about software
         product design, project management, and back-end development. My curiosity and eagerness to
         learn drive me to keep exploring, one project and concept at a time! Please explore my page
         and feel free to
@@ -251,7 +251,7 @@ table {
 
 .image-wrapper.headshot {
   aspect-ratio: 1/1;
-  min-height: 120px;
+  min-height: 180px;
 }
 
 .image-wrapper.github-languages-card,

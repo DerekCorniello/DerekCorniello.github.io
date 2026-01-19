@@ -3,7 +3,7 @@
     <div class="contact-page">
       <h1 class="title">Contact Me</h1>
       <p class="subtitle">
-        I'd love to hear from you! Feel free to reach out using the form below or via my socials.
+        I'd love to hear from you! Feel free to reach out via my socials or the QR code below.
       </p>
       <div class="containers-holder" style="width: 70%">
         <Container>

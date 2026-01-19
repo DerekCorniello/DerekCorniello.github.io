@@ -1,28 +1,28 @@
 <template>
-  <div class="terminal-container">
+  <div class="terminal-container" role="region" aria-label="Terminal greeting">
     <div class="terminal-header">
       <div class="terminal-buttons">
-        <span class="terminal-button red"></span>
-        <span class="terminal-button yellow"></span>
-        <span class="terminal-button green"></span>
+        <span class="terminal-button red" aria-hidden="true"></span>
+        <span class="terminal-button yellow" aria-hidden="true"></span>
+        <span class="terminal-button green" aria-hidden="true"></span>
       </div>
-      <div class="terminal-title">terminal@portfolio:~</div>
+      <div class="terminal-title" aria-hidden="true">ssh@space:~</div>
     </div>
     <div class="terminal-content">
-      <div v-if="showAsciiArt" class="ascii-art">
+      <div v-if="showAsciiArt" class="ascii-art" aria-hidden="true">
         <pre>
- _____                _       _____                 _      _ _       
-|  __ \              | |     / ____|               (_)    | | |      
-| |  | | ___ _ __ ___| | __ | |     ___  _ __ _ __  _  ___| | | ___  
-| |  | |/ _ \ '__/ _ \ |/ / | |    / _ \| '__| '_ \| |/ _ \ | |/ _ \ 
-| |__| |  __/ | |  __/   <  | |___| (_) | |  | | | | |  __/ | | (_) |
-|_____/ \___|_|  \___|_|\_\  \_____\___/|_|  |_| |_|_|\___|_|_|\___/ 
+  _____                _       _____                 _      _ _       
+ |  __ \              | |     / ____|               (_)    | | |      
+ | |  | | ___ _ __ ___| | __ | |     ___  _ __ _ __  _  ___| | | ___  
+ | |  | |/ _ \ '__/ _ \ |/ / | |    / _ \| '__| '_ \| |/ _ \ | |/ _ \ 
+ | |__| |  __/ | |  __/   <  | |___| (_) | |  | | | | |  __/ | | (_) |
+ |_____/ \___|_|  \___|_|\_\  \_____\___/|_|  |_| |_|_|\___|_|_|\___/ 
         </pre>
       </div>
       <div class="greeting-text">
-        <div class="terminal-line">
+        <div class="terminal-line" role="status" aria-live="polite" aria-label="Welcome message">
           <span ref="typewriter" class="terminal-text"></span>
-          <span class="cursor">_</span>
+          <span class="cursor" aria-hidden="true">_</span>
         </div>
       </div>
     </div>
@@ -48,10 +48,10 @@ const animateTypewriter = () => {
   const el = typewriter.value
   if (!el) return
 
-  el.innerHTML += '> '
+  el.innerHTML = '> '
 
   let i = 0
-  const typingDuration = 3000
+  const typingDuration = 1000
   const delay = typingDuration / text.length
 
   const typingEffect = () => {

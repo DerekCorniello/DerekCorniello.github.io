@@ -17,14 +17,22 @@
         <div class="terminal-greeting-container">
           <TerminalGreeting />
         </div>
-        <div class="landing-card-container">
+<div class="landing-card-container">
           <div class="landing-card">
             <div class="intro">
-               <p class="tagline">
-                 I'm a Computer Science student at the University of Cincinnati and a backend
-                 developer focused on API design, tooling, and software product development, with
-                 internships at Siemens DISW and upcoming roles at Fifth Third Bank and LinkedIn.
-               </p>
+                <p class="tagline">
+                  I'm a Computer Science student at the University of Cincinnati and a backend
+                  developer focused on API design, tooling, and software product development, with
+                  internships at Siemens DISW and a current role at Fifth Third Bank (and LinkedIn this summer).
+                </p>
+                <div class="cta-buttons">
+                  <NuxtLink to="/projects" class="cta-button primary">
+                    View My Projects
+                  </NuxtLink>
+                  <NuxtLink to="/contact" class="cta-button primary">
+                    Contact Me
+                  </NuxtLink>
+                </div>
             </div>
           </div>
         </div>
@@ -186,6 +194,63 @@ body {
   }
 }
 
+.cta-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+}
+
+.cta-button {
+  padding: 0.875rem 1.75rem;
+  font-family: 'Fira Code', monospace;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.cta-button.primary {
+  background: linear-gradient(135deg, #00ffcc 0%, #00cc99 100%);
+  color: #000;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+}
+
+.cta-button.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(0, 255, 204, 0.6);
+}
+
+.cta-button.secondary {
+  background: transparent;
+  color: #00ffcc;
+  border-color: #00ffcc;
+  box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+}
+
+.cta-button.secondary:hover {
+  background: rgba(0, 255, 204, 0.1);
+  transform: translateY(-2px);
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+}
+
+@media (max-width: 600px) {
+  .cta-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+    text-align: center;
+  }
+}
+
 @keyframes float {
   0%,
   100% {
@@ -290,14 +355,14 @@ body {
 }
 
 .floating-headshot {
-  width: 110px;
-  height: 110px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   background: #000;
   border: none;
   box-shadow:
     0 0 0 2px rgba(0, 255, 204, 0.4),
-    0 0 4px 6px rgba(0, 255, 204, 0.2),
+    0 0 4px 6px rgba(0, 255,  204, 0.2),
     0 0 8px 8px rgba(0, 255, 204, 0.1);
   transition:
     transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
@@ -309,8 +374,8 @@ body {
 
 @media (max-width: 600px) {
   .floating-headshot {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
   .floating-headshot-container {
     margin-bottom: 1rem;
