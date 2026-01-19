@@ -313,18 +313,15 @@ const currentPath = computed(() => {
 }
 
 .page-content {
-  flex: 1;
+  flex: 1 0 auto;
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  min-height: 60vh;
   margin-top: 2.5rem;
-  padding: 1rem 0;
+  padding: 2rem;
 
   @media (max-width: 767px) {
     margin-top: 6rem;
@@ -344,12 +341,6 @@ const currentPath = computed(() => {
   margin-bottom: 1rem;
   max-width: 1200px;
   width: 100%;
-}
-
-.page-content {
-  flex: 1 0 auto;
-  padding: 2rem;
-  color: white;
 }
 
 .links {

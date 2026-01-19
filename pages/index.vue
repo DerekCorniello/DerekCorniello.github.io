@@ -113,13 +113,20 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-height: 100vh;
-  padding: 1rem;
+  padding: 2rem;
   box-sizing: border-box;
   position: relative;
   overflow: hidden;
   width: 100%;
   max-width: 100%;
+  flex: 1;
+}
+
+@media (max-width: 1200px) {
+  .content-container {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
 }
 
 .terminal-and-card {
@@ -305,8 +312,6 @@ body {
     padding: 2rem;
     max-width: 1600px;
     margin: 0 auto;
-    height: auto;
-    min-height: 100vh;
   }
 
   .terminal-and-card {
