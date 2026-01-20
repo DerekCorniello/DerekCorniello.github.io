@@ -1,341 +1,267 @@
 <template>
-  <NuxtLayout>
-    <div class="blog-content">
-      <h1 class="title">Blog</h1>
+  <div class="blog">
+    <header class="blog-header">
+      <h1>Blog</h1>
+      <p>Thoughts on software engineering and development</p>
+    </header>
 
-      <div class="top-row">
-        <Container>
-          <template #title>Search</template>
-          <input
-            type="text"
-            id="search-input"
-            class="searchbar"
-            placeholder="Search..."
-            v-model="searchQuery"
-          />
-        </Container>
-
-        <Container>
-          <template #title>Recent Posts</template>
-          <ul id="recent" class="list-unstyled">
-            <li v-for="(post, index) in recentPosts" :key="index">
-              <NuxtLink :to="post.link" class="r-link">{{ post.title }}</NuxtLink>
-            </li>
-          </ul>
-        </Container>
-
-        <Container>
-          <template #title>Tags</template>
-          <div class="dropdown">
-            <button class="dropdown-btn">Select Tags</button>
-            <div class="dropdown-content">
-              <label v-for="(tag, index) in tags" :key="index">
-                <input type="checkbox" :value="tag.tag" v-model="selectedTags" />
-                {{ tag.tag }}
-              </label>
-            </div>
-          </div>
-        </Container>
+    <div class="blog-controls">
+      <div class="search-box">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <input
+          v-model="searchQuery"
+          type="text"
+          placeholder="Search posts..."
+          class="search-input"
+        />
       </div>
 
-      <div class="main-content">
-        <div class="blog-items" id="blog-items">
-          <div v-for="(item, index) in filteredBlogItems" :key="index" class="blog-item">
-            <Container>
-              <template #title> {{ item.title }} </template>
-              <p>{{ item.description }}</p>
-              <br />
-              <div class="read-more">
-                <NuxtLink :to="item.link" class="r-link" :style="{ color: '#00ffcc' }"
-                  ><strong>Read More</strong></NuxtLink
-                >
-              </div>
-              <br />
-              <div class="tags-container">
-                <span
-                  v-for="(tag, tagIndex) in item.tags"
-                  :key="tagIndex"
-                  class="tag"
-                  :style="{ margin: '1rem', backgroundColor: '#ff66b2', color: '#FFFFFF' }"
-                >
-                  {{ tag }}
-                </span>
-              </div>
-            </Container>
-          </div>
-        </div>
+      <div class="tags-filter">
+        <button
+          :class="['tag-filter', { active: selectedTag === null }]"
+          @click="selectedTag = null"
+        >
+          All
+        </button>
+        <button
+          v-for="tag in allTags"
+          :key="tag"
+          :class="['tag-filter', { active: selectedTag === tag }]"
+          @click="selectedTag = tag"
+        >
+          {{ tag }}
+        </button>
       </div>
     </div>
-  </NuxtLayout>
+
+    <div class="blog-posts">
+      <NuxtLink
+        v-for="post in filteredPosts"
+        :key="post.slug"
+        :to="`/blog/${post.slug}`"
+        class="blog-card"
+      >
+        <div class="post-date">{{ post.date }}</div>
+        <h2>{{ post.title }}</h2>
+        <p class="excerpt">{{ post.excerpt }}</p>
+        <div class="post-tags">
+          <span v-for="tag in post.tags" :key="tag" class="post-tag">{{ tag }}</span>
+        </div>
+        <p class="meta">Read more &gt;</p>
+      </NuxtLink>
+
+      <p v-if="filteredPosts.length === 0" class="no-results">
+        No posts found matching your search.
+      </p>
+    </div>
+  </div>
 </template>
 
-<script setup>
-import { ref, onMounted, computed } from 'vue'
-import axios from 'axios'
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+
+const searchQuery = ref('')
+const selectedTag = ref<string | null>(null)
+
+const posts = [
+  {
+    slug: 'nvim-transition',
+    date: 'Jul 21, 2024',
+    title: 'My Transition from VSCode to NeoVim',
+    excerpt: 'My experience transitioning from VSCode to NeoVim, including setting up lazy.nvim, Mason, and other plugins that improved my development workflow.',
+    tags: ['Neovim', 'Development'],
+  },
+  {
+    slug: 'keyboard',
+    date: 'Aug 22, 2025',
+    title: 'I Built a Custom Keyboard!',
+    excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, handwiring process, and lessons learned along the way.',
+    tags: ['Hardware', 'DIY'],
+  },
+]
+
+const allTags = computed(() => {
+  const tags = new Set<string>()
+  posts.forEach(post => post.tags.forEach(tag => tags.add(tag)))
+  return Array.from(tags).sort()
+})
+
+const filteredPosts = computed(() => {
+  return posts.filter(post => {
+    const matchesSearch = searchQuery.value === '' ||
+      post.title.toLowerCase().includes(searchQuery.value.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.value.toLowerCase())
+    
+    const matchesTag = selectedTag.value === null ||
+      post.tags.includes(selectedTag.value)
+    
+    return matchesSearch && matchesTag
+  })
+})
 
 useHead({
-  title: "Derek Corniello's Blogs",
-})
-
-const blogItems = ref([])
-const recentPosts = ref([])
-const tags = ref([])
-const selectedTags = ref([])
-const searchQuery = ref('')
-const tagDict = {}
-
-// Fetching blog data
-onMounted(() => {
-  axios
-    .get('/blog-data.json')
-    .then((response) => {
-      const data = response.data
-      data.forEach((val) => {
-        // Populate blog items
-        blogItems.value.push(val)
-
-        // Add recent posts (limit to 3)
-        if (recentPosts.value.length < 3) {
-          recentPosts.value.push({ title: val.title, link: val.link })
-        }
-
-        // Collect tags and counts
-        val.tags.forEach((tag) => {
-          if (tagDict[tag]) {
-            tagDict[tag]++
-          } else {
-            tagDict[tag] = 1
-          }
-        })
-      })
-
-      // Set tags for display
-      tags.value = Object.entries(tagDict).map(([tag, count]) => ({ tag, count }))
-    })
-    .catch((error) => {
-      console.error('Error loading blog data:', error)
-    })
-})
-
-// Filter blogs by selected tags and search query
-const filteredBlogItems = computed(() => {
-  let filtered = blogItems.value
-
-  // Filter by tags if selected
-  if (selectedTags.value.length > 0) {
-    filtered = filtered.filter((item) =>
-      item.tags.some((tag) => selectedTags.value.includes(tag)),
-    )
-  }
-
-  // Filter by search query
-  if (searchQuery.value) {
-    filtered = filtered.filter((item) => {
-      const title = item.title.toLowerCase()
-      const description = item.description.toLowerCase()
-      const tags = item.tags.map((tag) => tag.toLowerCase())
-
-      return (
-        title.includes(searchQuery.value.toLowerCase()) ||
-        description.includes(searchQuery.value.toLowerCase()) ||
-        tags.some((tag) => tag.includes(searchQuery.value.toLowerCase()))
-      )
-    })
-  }
-
-  return filtered
+  title: 'Blog',
+  meta: [
+    { name: 'description', content: 'Read Derek Corniello\'s blog posts about NeoVim, custom keyboard building, and software development.' },
+    { property: 'og:title', content: 'Blog - Derek Corniello' },
+    { property: 'og:description', content: 'Thoughts on software engineering, NeoVim, custom keyboards, and development workflows.' },
+    { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
+    { property: 'og:url', content: 'https://derekcorn.dev/blog' },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:title', content: 'Blog - Derek Corniello' },
+    { name: 'twitter:description', content: 'Thoughts on software engineering and development.' },
+    { name: 'twitter:image', content: 'https://derekcorn.dev/preview.png' },
+  ],
 })
 </script>
 
 <style scoped>
-.blog-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-  max-width: 1400px;
+.blog {
+  max-width: 700px;
   margin: 0 auto;
-  padding: 0 1rem;
-  box-sizing: border-box;
 }
 
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #00ffcc;
-  margin: 2rem 0 0 0;
+.blog-header {
   text-align: center;
-  padding-bottom: 0.5rem;
-}
-
-.top-row {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  width: 100%;
   margin-bottom: 2rem;
 }
 
-.top-row .container {
-  width: 100%;
-  box-sizing: border-box;
+.blog-header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
-@media (min-width: 768px) {
-  .top-row {
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 2%;
-  }
-
-  .top-row .container {
-    width: 49%;
-  }
-
-  .top-row .container:first-child {
-    width: 100%;
-  }
+.blog-header p {
+  color: var(--text-secondary);
 }
 
-@media (min-width: 1024px) {
-  .top-row {
-    flex-wrap: nowrap;
-    gap: 2%;
-  }
-
-  .top-row .container {
-    width: 32%;
-  }
-
-  .top-row .container:first-child {
-    width: 32%;
-  }
+.blog-controls {
+  margin-bottom: 2rem;
 }
 
-.searchbar {
-  background: rgba(0, 0, 0, 0.5);
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid white;
-}
-
-ul {
-  list-style-type: disc;
-  padding-left: 0.25rem;
-}
-
-ul li {
-  padding: 0.5rem 0;
-}
-
-.main-content {
-  width: 100%;
-}
-
-.blog-items {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 1.5rem;
-  width: 100%;
-}
-
-.blog-item {
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-  .blog-items {
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    gap: 2rem;
-  }
-}
-
-.container {
-  padding: 1.25rem;
-  background: rgba(0, 0, 0, 0.4);
+.search-box {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1rem;
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
   border-radius: 8px;
-  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.search-box svg {
+  color: var(--text-muted);
+}
+
+.search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+}
+
+.search-input::placeholder {
+  color: var(--text-muted);
+}
+
+.tags-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tag-filter {
+  padding: 0.35rem 0.75rem;
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.tag-filter.active {
+  background: var(--accent-mauve);
+  color: var(--bg-crust);
+  border-color: var(--accent-mauve);
+}
+
+.blog-posts {
   display: flex;
   flex-direction: column;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  gap: 1.5rem;
 }
 
-.read-more {
-  text-align: center;
-  font-size: 1.5rem;
+.blog-card {
+  display: block;
+  padding: 1.5rem;
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  text-decoration: none;
 }
 
-.tags-container {
+.blog-card:hover {
+  border-color: var(--accent-mauve);
+}
+
+.blog-card h2 {
+  font-size: 1.25rem;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.post-date {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.excerpt {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.post-tags {
   display: flex;
-  justify-content: center;
   flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-.tag {
-  background-color: #ff66b2;
-  color: black;
-  padding: 0.2rem 0.5rem;
-  border-radius: 4px;
-  margin-right: 0.5rem;
+.post-tag {
+  padding: 0.2rem 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-blue);
+  border: 1px solid var(--accent-blue);
+  border-radius: 20px;
 }
 
-.dropdown {
-  position: relative;
+.meta {
+  color: var(--accent-mauve);
+  font-size: 0.9rem;
+  text-decoration: none;
   display: inline-block;
-  width: 100%;
+}
+
+.meta:hover {
+  text-decoration: underline;
+}
+
+.no-results {
   text-align: center;
-}
-
-.dropdown-btn {
-  padding: 0.7rem 1.5rem;
-  background-color: #ff66b2;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-
-.dropdown-content {
-  display: none;
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1;
-  border-radius: 5px;
-  padding: 0.5rem;
-  margin-top: 0.5rem;
-  max-height: 200px;
-  overflow-y: auto;
-  scrollbar-width: thin;
-  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
-}
-
-/* Custom scrollbar for WebKit browsers */
-.dropdown-content::-webkit-scrollbar {
-  width: 6px;
-}
-
-.dropdown-content::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-.dropdown-content::-webkit-scrollbar-thumb {
-  background-color: rgba(255, 255, 255, 0.3);
-  border-radius: 3px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-  border: 1px solid white;
-}
-
-label {
-  display: block;
-  margin: 5px 0;
+  color: var(--text-muted);
+  padding: 2rem;
 }
 </style>

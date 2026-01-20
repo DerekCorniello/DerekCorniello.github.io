@@ -1,388 +1,373 @@
 <template>
-  <NuxtLayout>
-    <h1 class="title">About Me</h1>
-    <div class="containers-holder">
-      <Container>
-        <template #title>
-          <div class="image-wrapper headshot" style="width: 25%; margin: 0 auto 2% auto">
-            <div class="skeleton"></div>
-            <img
-              src="/headshot.jpg"
-              alt="Derek's Headshot"
-              class="lazy-image"
-              style="border-radius: 50%"
-              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-              @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-            />
-          </div>
-          👋 Hello, I'm Derek Corniello!
-        </template>
-        I'm a CS/SWE student at the University of Cincinnati. I have interned with Siemens Digital
-        Industry Software for the last 2 years, working on backends and API design. I am currently at
-        Fifth Third Bank and will be at LinkedIn this summer. I'm excited about software
-        product design, project management, and back-end development. My curiosity and eagerness to
-        learn drive me to keep exploring, one project and concept at a time! Please explore my page
-        and feel free to
-        <strong
-          ><u><NuxtLink to="contact">contact me</NuxtLink></u></strong
+  <div class="about">
+    <section class="about-intro">
+      <h1>About Me</h1>
+      <p>
+        I'm a Software Engineer Intern at Fifth Third Bank based out of Cincinnati, Ohio.
+        I'm pursuing my Master of Engineering in Software Engineering at the University of Cincinnati.
+      </p>
+        <p>
+          I specialize in backend development with experience in Go, Rust, and Python.
+          I've worked on backend systems at Siemens and am passionate about building scalable systems that help people.
+          When I'm not coding, I'm probably customizing my Neovim setup, <a href="https://www.chess.com/member/DerekCornDev" target="_blank" rel="noopener noreferrer">playing chess</a>, or picking up my guitar.
+        </p>
+    </section>
+
+    <section class="tabs-section">
+      <div class="tabs">
+        <button
+          :class="['tab', { active: activeTab === 'experience' }]"
+          @click="activeTab = 'experience'"
         >
-        or
-        <strong
-          ><u><NuxtLink to="resume">view my resume</NuxtLink></u></strong
-        >! <br /><br />
-        <div class="links">
-          <a
-            href="https://www.linkedin.com/in/derek-corniello"
-            target="_blank"
-            style="text-decoration: none"
-          >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/linkedin.svg" width="18" height="18" alt="LinkedIn" class="icon-link"> LinkedIn
-          </a>
-          <a href="https://github.com/DerekCorniello" target="_blank" style="text-decoration: none">
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/github.svg" width="18" height="18" alt="GitHub" class="icon-link"> GitHub
-          </a>
-          <a
-            href="https://twitter.com/DerekCorniello"
-            target="_blank"
-            style="text-decoration: none"
-          >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/twitter-x.svg" width="18" height="18" alt="X" class="icon-link"> X
-          </a>
-          <a
-            href="https://youtube.com/@DerekCornDev"
-            target="_blank"
-            style="text-decoration: none"
-          >
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/youtube.svg" width="18" height="18" alt="YouTube" class="icon-link"> YouTube
-          </a>
-          <a href="/resume" target="_blank" style="text-decoration: none">
-            <img src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/icons/file-earmark-text.svg" width="18" height="18" alt="Resume" class="icon-link"> Resume
-          </a>
-        </div>
-      </Container>
+          Experience
+        </button>
+        <button
+          :class="['tab', { active: activeTab === 'education' }]"
+          @click="activeTab = 'education'"
+        >
+          Education
+        </button>
+      </div>
 
-      <Container>
-        <template #title> 📈 GitHub and LeetCode Stats: </template>
-        <div class="stats-collage">
-          <div class="github-column">
-            <div class="image-wrapper github-languages-card">
-              <div class="skeleton"></div>
-              <img
-                :src="`https://github-profile-summary-cards.vercel.app/api/cards/repos-per-language?username=DerekCorniello&theme=transparent&exclude=csharp&t=${Date.now()}`"
-                alt="Top Languages"
-                loading="lazy"
-                decoding="async"
-                class="lazy-image"
-                @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-                @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-              />
-            </div>
-            <div class="image-wrapper github-stats-card">
-              <div class="skeleton"></div>
-              <img
-                :src="`https://github-profile-summary-cards.vercel.app/api/cards/stats?username=DerekCorniello&theme=transparent&t=${Date.now()}`"
-                alt="GitHub Stats"
-                loading="lazy"
-                decoding="async"
-                class="lazy-image"
-                @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-                @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-              />
+      <div v-show="activeTab === 'experience'" class="tab-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Backend Engineer</h3>
+              <p class="company">LinkedIn</p>
+              <p class="period">May 2026 - Aug 2027</p>
             </div>
           </div>
-          <div class="image-wrapper leetcode-card">
-            <div class="skeleton"></div>
-            <img
-              :src="`https://leetcard.jacoblin.cool/DerekCorn?ext=activity&theme=dark&t=${Date.now()}`"
-              alt="LeetCode Activity"
-              class="lazy-image"
-              @load="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-              @error="(e) => { e.target.previousElementSibling?.remove(); e.target.style.opacity='1'; }"
-            />
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Software Engineer Intern</h3>
+              <p class="company">Fifth Third Bank</p>
+              <p class="period">Present (until May 2026)</p>
+              <ul class="details">
+                <li>Building scalable backend services</li>
+                <li>Working with Go and distributed systems</li>
+              </ul>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Software Engineering Intern</h3>
+              <p class="company">Siemens DISW</p>
+              <p class="period">Jan 2024 - Dec 2025</p>
+              <ul class="details">
+                <li>Working on backend systems and API design</li>
+                <li>Built tooling for internal development workflows</li>
+                <li>Collaborating with cross-functional engineering teams</li>
+              </ul>
+            </div>
           </div>
         </div>
-      </Container>
+      </div>
 
-      <Container>
-        <template #title> 🥇 My Language and Technology Skillset </template>
-        <table>
-          <tbody>
-            <tr>
-              <td><strong>Development Tools</strong></td>
-              <td>
-                <img
-                  src="https://skillicons.dev/icons?i=neovim,arch,git,aws,docker,unity,arduino"
-                  alt="Development Tools"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Backend</strong></td>
-              <td>
-                <img
-                  src="https://skillicons.dev/icons?i=py,rust,go,java,cpp"
-                  alt="Backend tools"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Frontend</strong></td>
-              <td>
-                <img
-                  src="https://skillicons.dev/icons?i=html,js,ts,vue,vite"
-                  alt="Frontend tools"
-                />
-              </td>
-            </tr>
-            <tr>
-              <td><strong>Database</strong></td>
-              <td>
-                <img src="https://skillicons.dev/icons?i=sqlite,postgresql,mysql" alt="Database" />
-              </td>
-            </tr>
-          </tbody>
-        </table>
-      </Container>
-
-      <Container>
-        <template #title> 🛠️ Currently Learning About and Developing </template>
-        <ul>
-          <li>
-            Enhancing
-            <a href="https://github.com/DerekCorniello/dotfiles" target="_blank">dotfiles</a> for a
-            streamlined Neovim + Arch Linux setup.
-          </li>
-          <li>Exploring new programming paradigms</li>
-          <li>Building a Compiler in Rust</li>
-          <li>
-            Probably playing chess on
-            <u><a href="https://www.chess.com/member/derekcorndev">Chess.com</a></u>
-          </li>
-          <li>Grinding LeetCode!</li>
-        </ul>
-        <br />
-        <div style="color: #00ffcc; text-align: center; font-size: 1.5rem">
-          Check out the latest code
-          <u
-            ><strong
-              ><a class="r-link" href="https://www.github.com/DerekCorniello">here</a></strong
-            ></u
-          >!
+      <div v-show="activeTab === 'education'" class="tab-content">
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Master of Engineering in Software Engineering</h3>
+              <p class="company">University of Cincinnati</p>
+              <p class="period">Expected: May 2027</p>
+            </div>
+          </div>
+          <div class="timeline-item">
+            <div class="timeline-marker"></div>
+            <div class="timeline-content">
+              <h3>Bachelor of Science in Computer Science</h3>
+              <p class="company">University of Cincinnati</p>
+              <p class="period">Expected: May 2027</p>
+            </div>
+          </div>
         </div>
-      </Container>
-    </div>
-  </NuxtLayout>
+      </div>
+    </section>
+
+    <section class="skills-section">
+      <h2>Skills & Technologies</h2>
+      <div class="skills-grid">
+        <div class="skill-category">
+          <h3>Tools & DevOps</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=neovim" alt="Neovim" class="skill-icon" />
+              <span>Neovim</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=arch" alt="Arch Linux" class="skill-icon" />
+              <span>Arch Linux</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=git" alt="Git" class="skill-icon" />
+              <span>Git</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=aws" alt="AWS" class="skill-icon" />
+              <span>AWS</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=docker" alt="Docker" class="skill-icon" />
+              <span>Docker</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Backend</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=py" alt="Python" class="skill-icon" />
+              <span>Python</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=rust" alt="Rust" class="skill-icon" />
+              <span>Rust</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=go" alt="Go" class="skill-icon" />
+              <span>Go</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=java" alt="Java" class="skill-icon" />
+              <span>Java</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=cpp" alt="C++" class="skill-icon" />
+              <span>C++</span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-category">
+          <h3>Frontend</h3>
+          <div class="skill-list">
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=html" alt="HTML" class="skill-icon" />
+              <span>HTML</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=js" alt="JavaScript" class="skill-icon" />
+              <span>JavaScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=ts" alt="TypeScript" class="skill-icon" />
+              <span>TypeScript</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=vue" alt="Vue" class="skill-icon" />
+              <span>Vue</span>
+            </div>
+            <div class="skill-item">
+              <img src="https://skillicons.dev/icons?i=vite" alt="Vite" class="skill-icon" />
+              <span>Vite</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+import { ref } from 'vue'
+
+const activeTab = ref('experience')
+
 useHead({
-  title: 'About Derek Corniello',
+  title: 'About - Derek Corniello',
+  meta: [
+    {
+      name: 'description',
+      content: 'Learn more about Derek Corniello, a Software Engineer Intern at Fifth Third Bank.',
+    },
+  ],
 })
 </script>
 
 <style scoped>
-.containers-holder {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-  flex-direction: column;
-  flex-grow: 1;
+.about {
+  max-width: 800px;
+  margin: 0 auto;
+  padding-bottom: 6rem;
 }
 
-.title {
-  font-size: 3rem;
-  font-weight: bold;
-  color: #00ffcc;
-  margin: 2rem 0 0 0;
-  text-align: center;
-  padding-bottom: 0.5rem;
+.about-intro {
+  margin-bottom: 3rem;
 }
 
-.subtitle {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.8);
-  text-align: center;
-  margin-bottom: 2rem;
+.about-intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
-.links {
-  margin-top: 1rem;
-  font-size: 1rem;
-  text-align: center;
+.about-intro p {
+  margin-bottom: 1rem;
 }
 
-.links a {
-  color: rgba(0, 173, 216, 0.95);
+.about-intro a {
+  color: var(--accent-mauve);
   text-decoration: none;
-  margin: 0 0.5rem;
-  &:hover {
-    color: #004c61;
-    text-shadow:
-      0 0 1px #004c61,
-      0 0 2px #004c61;
-  }
 }
 
-th,
-td {
-  padding: 0.5rem;
-  text-align: left;
-  color: rgba(255, 255, 255, 0.95);
+.about-intro a:hover {
+  text-decoration: underline;
 }
 
-th {
-  font-weight: bold;
+.tabs-section {
+  margin-top: 2rem;
+  margin-bottom: 4rem;
 }
 
-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin: 1rem 0;
-}
-
-.image-wrapper {
-  position: relative;
-  width: 100%;
-  text-align: center;
-  min-height: 100px;
-}
-
-.image-wrapper.headshot {
-  aspect-ratio: 1/1;
-  min-height: 180px;
-}
-
-.image-wrapper.github-languages-card,
-.image-wrapper.github-stats-card {
-  width: 100%;
-  aspect-ratio: 340/200;
-}
-
-.image-wrapper.leetcode-card {
-  width: 48%;
-  aspect-ratio: 500/400;
-  align-self: center;
-}
-
-.image-wrapper.leetcode-card .lazy-image {
-  border-radius: 0;
-}
-
-
-
-.stats-collage {
+.tabs {
   display: flex;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.tab {
+  flex: 1;
+  padding: 1rem 2rem;
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-secondary);
+  font-family: var(--font-mono);
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.tab.active {
+  background: var(--accent-blue);
+  color: var(--bg-crust);
+  border-color: var(--accent-blue);
+}
+
+.tab-content {
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 6px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2rem;
+  top: 6px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent-blue);
+  border-radius: 50%;
+  border: 3px solid var(--bg-base);
+}
+
+.timeline-content h3 {
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+}
+
+.timeline-content .company {
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+}
+
+.timeline-content .period {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.timeline-content .details {
+  margin: 0.5rem 0 0 1.25rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+}
+
+.timeline-content .details li {
+  margin-bottom: 0.25rem;
+}
+
+.skills-section {
+  margin-bottom: 4rem;
+}
+
+.skills-section h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 1rem;
-  justify-content: center;
-  align-items: stretch;
 }
 
-.github-column {
-  align-items: stretch;
+.skill-category {
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 1rem;
 }
 
-.github-column {
+.skill-category h3 {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.skill-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  flex: 1;
-  width: 48%;
+  gap: 0.5rem;
 }
 
-@media (max-width: 767px) {
-  .stats-collage {
-    flex-direction: column;
-    gap: 1rem;
-    max-width: 95%;
-  }
-  
-  .github-column {
-    order: 1;
-  }
-  
-  .image-wrapper.leetcode-card {
-    order: 2;
-  }
-}
-
-
-
-.skeleton {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  border-radius: 8px;
-  background: linear-gradient(90deg, 
-    rgba(255,255,255,0.1) 0%, 
-    rgba(255,255,255,0.3) 50%, 
-    rgba(255,255,255,0.1) 100%);
-  background-size: 200% 100%;
-  animation: shimmer 1.5s ease-in-out infinite;
-  z-index: 1;
-}
-
-.lazy-image {
-  width: 100%;
-  height: auto;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  position: relative;
-  z-index: 2;
-  border-radius: 8px;
-  display: block;
-}
-
-
-
-
-
-
-
-@media (max-width: 767px) {
-  .image-wrapper.github-languages-card,
-  .image-wrapper.github-stats-card {
-    width: 100%;
-    max-width: 340px;
-    height: auto;
-    min-height: 200px;
-  }
-  
-  .image-wrapper.leetcode-card {
-    width: 100%;
-    max-width: 500px;
-    height: auto;
-    min-height: 400px;
-  }
-  
-  .github-cards {
-    grid-template-columns: 1fr;
-    gap: 1rem;
-  }
-}
-
-@keyframes shimmer {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 200% 0;
-  }
-}
-
-.icon-link {
-  filter: invert(0.5) sepia(1) saturate(5) hue-rotate(160deg);
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: 6px;
-}
-
-.links a {
-  display: inline-flex;
+.skill-item {
+  display: flex;
   align-items: center;
-  margin: 0 12px;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  color: var(--text-primary);
+}
+
+.skill-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.skill-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
 }
 </style>
