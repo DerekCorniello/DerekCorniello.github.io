@@ -11,6 +11,7 @@
           <NuxtLink class="r-link" to="/projects">Projects</NuxtLink>
           <NuxtLink class="r-link" to="/blog">Blog</NuxtLink>
           <NuxtLink class="r-link" to="/contact">Contact</NuxtLink>
+          <NuxtLink class="r-link" to="/terminal">Terminal</NuxtLink>
           <NuxtLink class="r-link" to="/resume">Resume</NuxtLink>
         </nav>
       </div>
