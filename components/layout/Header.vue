@@ -27,16 +27,15 @@
   background: var(--bg-base);
   border-bottom: 1px solid var(--border);
   z-index: 1000;
-  padding: 0.5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .header-inner {
   max-width: var(--container-max);
-  margin: 0 auto;
+  width: 100%;
   padding: 0 0.75rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .nav {

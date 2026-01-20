@@ -28,9 +28,6 @@
 </template>
 
 <script setup lang="ts">
-useHead({
-  title: 'GitHub Stats - Derek Corniello',
-})
 </script>
 
 <style scoped>
@@ -91,6 +88,9 @@ useHead({
   .stat-image {
     width: 100%;
     height: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 
   .stat-image img {
