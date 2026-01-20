@@ -1,12 +1,68 @@
 <template>
-  <div></div>
+  <div class="resume-page">
+    <header class="resume-header">
+      <h1>Resume</h1>
+    </header>
+    <div class="download-wrapper">
+      <a href="/resume.pdf" download class="btn btn-download">
+        Download PDF
+      </a>
+    </div>
+
+    <div class="resume-pdf">
+      <iframe src="/resume.pdf" title="Resume PDF"></iframe>
+    </div>
+  </div>
 </template>
 
-<script setup>
-if (typeof window !== 'undefined') {
-  window.open('/resume.pdf', '_blank')
+<script setup lang="ts">
+useHead({
+  title: 'Resume - Derek Corniello',
+  meta: [
+    {
+      name: 'description',
+      content: 'View Derek Corniello\'s resume - Software Engineer Intern at Fifth Third Bank.',
+    },
+  ],
+})
+</script>
+
+<style scoped>
+.resume-page {
+  max-width: 900px;
+  margin: 0 auto;
 }
 
-const router = useRouter()
-router.replace('/')
-</script>
+.resume-header {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.resume-header h1 {
+  font-size: 2rem;
+}
+
+.download-wrapper {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.btn-download {
+  padding: 0.5rem 1rem;
+  font-size: 0.8rem;
+}
+
+.resume-pdf {
+  width: 100%;
+  height: calc(100vh - 200px);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.resume-pdf iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+</style>
