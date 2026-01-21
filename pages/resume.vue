@@ -29,7 +29,7 @@ useHead({
 
 <style scoped>
 .resume-page {
-  max-width: 900px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -53,11 +53,13 @@ useHead({
 }
 
 .resume-pdf {
-  width: 100%;
-  height: calc(100vh - 200px);
+  width: 95%;
+  aspect-ratio: 8.5 / 11;
+  max-height: 75vh;
   border: 1px solid var(--border);
   border-radius: 12px;
-  overflow: hidden;
+  overflow: auto;
+  margin: 0 auto;
 }
 
 .resume-pdf iframe {

@@ -17,7 +17,7 @@
         </svg>
         Cincinnati, OH
       </p>
-      <p class="bio">Building scalable, reliable, and performant backend systems. Currently working on cloud-based services with AWS at Fifth Third Bank. Creating a compiler in my free time.</p>
+      <p class="bio">Building scalable, reliable, and performant backend systems. Currently working on cloud-based services with AWS at Fifth Third Bank. Creating a compiler in my free time. You can also find me in the <NuxtLink to="/terminal" class="terminal-link">terminal</NuxtLink>.</p>
       <div class="cta-buttons">
         <NuxtLink to="/projects" class="btn">
           View Projects
@@ -91,6 +91,16 @@
   font-size: 0.95rem;
   margin-bottom: 2rem;
   font-family: var(--font-mono);
+}
+
+.terminal-link {
+  color: var(--accent-mauve);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.terminal-link:hover {
+  text-decoration: underline;
 }
 
 .cta-buttons {

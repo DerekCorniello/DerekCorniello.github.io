@@ -248,7 +248,15 @@ useHead({
 }
 
 .tab-content {
+  height: 25vh;
+  overflow-y: auto;
   animation: fadeIn 0.2s ease;
+}
+
+@media (max-height: 600px) {
+  .tab-content {
+    height: 50vh;
+  }
 }
 
 @keyframes fadeIn {
