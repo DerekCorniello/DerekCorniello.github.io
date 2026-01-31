@@ -70,8 +70,8 @@ const posts = [
   {
     slug: 'nvim-transition',
     date: 'Jul 21, 2024',
-    title: 'My Transition from VSCode to NeoVim',
-    excerpt: 'My experience transitioning from VSCode to NeoVim, including setting up lazy.nvim, Mason, and other plugins that improved my development workflow.',
+    title: 'My Transition from VSC*de to NeoVim',
+    excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins that improved my development workflow.',
     tags: ['Neovim', 'Development'],
   },
   {
