@@ -1,15 +1,24 @@
 <template>
   <section class="featured-projects">
     <h2 class="section-title">Featured Projects</h2>
-    <div class="projects-grid">
+    <div class="projects-bento">
       <ProjectCard
-        v-for="project in featuredProjects"
+        class="project-large"
+        :title="featuredProjects[0].title"
+        :description="featuredProjects[0].description"
+        :tech="featuredProjects[0].tech"
+        :url="featuredProjects[0].url"
+        :icon="featuredProjects[0].icon"
+        size="large"
+      />
+      <ProjectCard
+        v-for="project in featuredProjects.slice(1)"
         :key="project.title"
         :title="project.title"
         :description="project.description"
         :tech="project.tech"
-        :icon-component="project.iconComponent"
         :url="project.url"
+        :icon="project.icon"
       />
     </div>
     <div class="view-all">
@@ -21,7 +30,6 @@
 </template>
 
 <script setup lang="ts">
-import { Mouse, ChessKing, Music } from 'lucide-vue-next'
 import ProjectCard from '~/components/ui/ProjectCard.vue'
 
 const featuredProjects = [
@@ -29,23 +37,20 @@ const featuredProjects = [
     title: 'Quick Mouse',
     url: 'https://github.com/DerekCorniello/quick-mouse',
     icon: 'mouse',
-    iconComponent: Mouse,
     description: '1st place @ MakeUC 2025. Turn your phone into a wireless mouse using QR codes.',
     tech: ['Go', 'React', 'WebSockets'],
   },
   {
-    title: 'Better-Elo',
-    url: 'https://github.com/DerekCorniello/better-elo',
-    icon: 'chess-king',
-    iconComponent: ChessKing,
-    description: 'Chess rating system with 73.1% accuracy using momentum-based algorithms.',
-    tech: ['Python'],
+    title: 'MuxLang',
+    url: 'https://github.com/DerekCorniello/mux-lang',
+    icon: 'code-block',
+    description: 'A strong and statically-typed programming language with a focus on simplicity and performance. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',
+    tech: ['Rust', 'LLVM', 'C'],
   },
   {
     title: '8BitBeats',
     url: 'https://github.com/DerekCorniello/8BitBeats',
     icon: 'music',
-    iconComponent: Music,
     description: 'Terminal-based chiptune generator in Rust with real-time TUI controls.',
     tech: ['Rust', 'TUI', 'Audio'],
   },
@@ -57,14 +62,36 @@ const featuredProjects = [
   padding: 2rem 0;
 }
 
-.projects-grid {
+.section-title {
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-red);
+  text-align: center;
+}
+
+.projects-bento {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.25rem;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 1rem;
+}
+
+.project-large {
+  grid-column: 1 / -1;
 }
 
 .view-all {
   text-align: center;
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 768px) {
+  .projects-bento {
+    grid-template-columns: 1fr;
+  }
+
+  .project-large {
+    grid-column: 1;
+  }
 }
 </style>

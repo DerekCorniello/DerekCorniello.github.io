@@ -36,10 +36,12 @@ useHead({
 .resume-header {
   text-align: center;
   margin-bottom: 1rem;
+  padding-top: 1rem;
 }
 
 .resume-header h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .download-wrapper {

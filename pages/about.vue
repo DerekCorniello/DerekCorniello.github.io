@@ -197,6 +197,7 @@ useHead({
 
 .about-intro {
   margin-bottom: 3rem;
+  text-align: center;
 }
 
 .about-intro h1 {
@@ -236,7 +237,7 @@ useHead({
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text-secondary);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1rem;
   cursor: pointer;
 }
@@ -248,7 +249,7 @@ useHead({
 }
 
 .tab-content {
-  height: 25vh;
+  height: 500px;
   overflow-y: auto;
   animation: fadeIn 0.2s ease;
 }

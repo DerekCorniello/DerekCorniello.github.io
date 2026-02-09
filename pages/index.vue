@@ -124,14 +124,14 @@ useHead({
 }
 
 .company-name {
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.85rem;
   color: var(--text-primary);
   line-height: 1.2;
 }
 
 .status-badge {
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.6rem;
   padding: 0.1rem 0.4rem;
   border-radius: 4px;
@@ -155,7 +155,7 @@ useHead({
 
 .separator {
   color: var(--text-muted);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 1.25rem;
 }
 </style>

@@ -1,30 +1,28 @@
 <template>
   <section class="hero">
-    <div class="hero-content">
-      <div class="headshot-container">
+    <div class="hero-layout">
+      <div class="hero-visual">
         <img
           src="/headshot.jpg"
           alt="Derek Corniello"
           class="headshot"
         />
       </div>
-      <h1 class="name">Derek Corniello</h1>
-      <h2 class="role">Software Engineer Intern @ Fifth Third Bank</h2>
-      <p class="location">
-        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-          <circle cx="12" cy="10" r="3"/>
-        </svg>
-        Cincinnati, OH
-      </p>
-      <p class="bio">Building scalable, reliable, and performant backend systems. Currently working on cloud-based services with AWS at Fifth Third Bank. Creating a compiler in my free time. You can also find me in the <NuxtLink to="/terminal" class="terminal-link">terminal</NuxtLink>.</p>
-      <div class="cta-buttons">
-        <NuxtLink to="/projects" class="btn">
-          View Projects
-        </NuxtLink>
-        <NuxtLink to="/contact" class="btn">
-          Contact Me
-        </NuxtLink>
+      <div class="hero-content">
+        <h1 class="name">Derek Corniello</h1>
+        <h2 class="role">Software Engineer Intern @ Fifth Third Bank</h2>
+        <p class="location">
+          Cincinnati, OH
+        </p>
+        <p class="bio">Building scalable, reliable, and performant backend systems. Currently working on cloud-based services with AWS at Fifth Third Bank. Creating a compiler in my free time. You can also find me in the <NuxtLink to="/terminal" class="terminal-link">terminal</NuxtLink>.</p>
+        <div class="cta-buttons">
+          <NuxtLink to="/projects" class="btn">
+            View Projects
+          </NuxtLink>
+          <NuxtLink to="/contact" class="btn btn-outline">
+            Contact Me
+          </NuxtLink>
+        </div>
       </div>
     </div>
   </section>
@@ -38,59 +36,61 @@
   padding: 2rem 0;
 }
 
-.hero-content {
-  display: flex;
-  flex-direction: column;
+.hero-layout {
+  display: grid;
+  grid-template-columns: 180px 1fr;
+  gap: 3rem;
   align-items: center;
-  text-align: center;
-  max-width: 700px;
+  max-width: 850px;
   margin: 0 auto;
 }
 
-.headshot-container {
-  margin-bottom: 1.5rem;
+.hero-visual {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .headshot {
-  width: 150px;
-  height: 150px;
-  border-radius: 50%;
+  width: 170px;
+  height: 170px;
+  border-radius: 16px;
   object-fit: cover;
   object-position: center;
-  border: 3px solid var(--accent-orange);
+  border: 2px solid var(--border);
   box-shadow: var(--shadow-lg);
+}
+
+.hero-content {
+  text-align: left;
 }
 
 .name {
   font-size: 2.5rem;
+  font-weight: 700;
   margin-bottom: 0.5rem;
-  color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .role {
-  font-size: 1.25rem;
+  font-size: 1.2rem;
   font-weight: 500;
   color: var(--accent-orange);
-  margin-bottom: 0.75rem;
-}
-
-.location {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--text-secondary);
-  font-size: 1rem;
   margin-bottom: 0.5rem;
 }
 
-.bio {
-  color: var(--accent-green);
+.location {
+  color: var(--text-secondary);
   font-size: 0.95rem;
-  margin-bottom: 2rem;
-  font-family: var(--font-mono);
+  margin-bottom: 1rem;
+}
+
+.bio {
+  color: var(--text-secondary);
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  max-width: 500px;
 }
 
 .terminal-link {
@@ -105,23 +105,40 @@
 
 .cta-buttons {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
   flex-wrap: wrap;
-  justify-content: center;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .hero-layout {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .hero-visual {
+    justify-content: center;
+  }
+
+  .hero-content {
+    text-align: center;
+  }
+
+  .bio {
+    max-width: none;
+  }
+
+  .cta-buttons {
+    justify-content: center;
+  }
+
   .name {
     font-size: 2rem;
   }
 
-  .role {
-    font-size: 1.1rem;
-  }
-
   .headshot {
-    width: 120px;
-    height: 120px;
+    width: 150px;
+    height: 150px;
   }
 }
 </style>

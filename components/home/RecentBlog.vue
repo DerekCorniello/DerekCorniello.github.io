@@ -35,18 +35,18 @@
 <script setup lang="ts">
 const recentPosts = [
   {
-    slug: 'nvim-transition',
-    date: 'Jul 21, 2024',
-    title: 'My Transition from VSC*de to NeoVim',
-    excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins.',
-    tags: ['Neovim', 'Development'],
-  },
-  {
     slug: 'keyboard',
     date: 'Aug 22, 2025',
     title: 'I Built a Custom Keyboard!',
     excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, and lessons learned.',
     tags: ['Hardware', 'DIY'],
+  },
+  {
+    slug: 'nvim-transition',
+    date: 'Jul 21, 2024',
+    title: 'My Transition from VSC*de to NeoVim',
+    excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins.',
+    tags: ['Neovim', 'Development'],
   },
 ]
 </script>
@@ -108,7 +108,7 @@ const recentPosts = [
 
 .post-tag {
   padding: 0.15rem 0.5rem;
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.7rem;
   color: var(--accent-blue);
   border: 1px solid var(--accent-blue);

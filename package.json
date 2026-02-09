@@ -11,6 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@phosphor-icons/vue": "^2.2.1",
     "lucide-vue-next": "^0.562.0",
     "vue": "^3.5.13",
     "vue-router": "^4.5.0"

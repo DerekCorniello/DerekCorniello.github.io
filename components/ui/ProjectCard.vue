@@ -1,14 +1,24 @@
 <template>
-  <article class="project-card">
+  <article class="project-card" :class="{ 'card-large': size === 'large' }">
     <div class="project-icon">
-      <component :is="iconComponent" />
+      <PhMouse v-if="icon === 'mouse'" :size="iconSize" />
+      <PhCrown v-else-if="icon === 'chess-piece'" :size="iconSize" />
+      <PhMusicNotes v-else-if="icon === 'music'" :size="iconSize" />
+      <PhCode v-else-if="icon === 'code'" :size="iconSize" />
+      <PhCodeBlock v-else-if="icon === 'code-block'" :size="iconSize" />
+      <PhTerminal v-else-if="icon === 'terminal'" :size="iconSize" />
+      <PhFile v-else-if="icon === 'file'" :size="iconSize" />
+      <PhGear v-else-if="icon === 'settings'" :size="iconSize" />
+      <PhGameController v-else-if="icon === 'game'" :size="iconSize" />
+      <PhHorse v-else-if="icon === 'horse'" :size="iconSize" />
+      <PhFolder v-else :size="iconSize" />
     </div>
     <div class="project-content">
       <div class="project-header">
         <h3 class="project-title">
           <a v-if="url" :href="url" target="_blank" rel="noopener noreferrer">
             {{ title }}
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
               <polyline points="15 3 21 3 21 9"/>
               <line x1="10" y1="14" x2="21" y2="3"/>
@@ -18,7 +28,7 @@
         </h3>
         <div v-if="links.length" class="project-links">
           <a v-for="link in links" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer" class="project-link">
-            Link to {{ link.label }} &gt;
+            {{ link.label }} ->
           </a>
         </div>
       </div>
@@ -40,6 +50,17 @@
 
 <script setup lang="ts">
 import LoadingImage from './LoadingImage.vue'
+import { PhMouse } from '@phosphor-icons/vue'
+import { PhCrown } from '@phosphor-icons/vue'
+import { PhMusicNotes } from '@phosphor-icons/vue'
+import { PhCode } from '@phosphor-icons/vue'
+import { PhCodeBlock } from '@phosphor-icons/vue'
+import { PhTerminal } from '@phosphor-icons/vue'
+import { PhFile } from '@phosphor-icons/vue'
+import { PhGear } from '@phosphor-icons/vue'
+import { PhGameController } from '@phosphor-icons/vue'
+import { PhFolder } from '@phosphor-icons/vue'
+import { PhHorse } from '@phosphor-icons/vue'
 
 interface Link {
   label: string
@@ -50,26 +71,34 @@ const props = withDefaults(defineProps<{
   title: string
   description: string
   tech: string[]
-  iconComponent: any
+  icon?: string
   url?: string
   links?: Link[]
   images?: string[]
   image?: string
+  size?: 'normal' | 'large'
 }>(), {
   links: () => [],
   images: () => [],
+  size: 'normal'
 })
+
+const iconSize = computed(() => props.size === 'large' ? 28 : 24)
 </script>
 
 <style scoped>
 .project-card {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 0.75rem;
   background: var(--bg-mantle);
   border: 1px solid var(--border);
   border-radius: 12px;
   padding: 1.25rem;
+}
+
+.card-large {
+  padding: 1.5rem;
 }
 
 .project-header {
@@ -82,8 +111,8 @@ const props = withDefaults(defineProps<{
 
 .project-icon {
   flex-shrink: 0;
-  width: 48px;
-  height: 48px;
+  width: 44px;
+  height: 44px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -92,9 +121,9 @@ const props = withDefaults(defineProps<{
   color: var(--accent-red);
 }
 
-.project-icon :deep(svg) {
-  width: 28px;
-  height: 28px;
+.card-large .project-icon {
+  width: 52px;
+  height: 52px;
 }
 
 .project-content {
@@ -103,14 +132,14 @@ const props = withDefaults(defineProps<{
 }
 
 .project-title {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-bottom: 0.5rem;
 }
 
 .project-title a {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.35rem;
   color: var(--text-primary);
   text-decoration: none;
 }
@@ -121,15 +150,13 @@ const props = withDefaults(defineProps<{
 
 .project-links {
   display: flex;
-  gap: 1rem;
+  gap: 0.75rem;
 }
 
 .project-link {
   color: var(--accent-blue);
-  font-size: 0.85rem;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-  transition: color var(--transition-fast);
+  font-size: 0.8rem;
+  text-decoration: none;
 }
 
 .project-link:hover {
@@ -141,6 +168,11 @@ const props = withDefaults(defineProps<{
   color: var(--text-secondary);
   margin-bottom: 0.75rem;
   line-height: 1.5;
+}
+
+.card-large .project-description {
+  font-size: 0.9rem;
+  max-width: 600px;
 }
 
 .project-tech {

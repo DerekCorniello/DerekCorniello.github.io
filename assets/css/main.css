@@ -23,7 +23,7 @@
   --shadow-md: 0 4px 8px rgba(0, 0, 0, 0.4);
   --shadow-lg: 0 8px 16px rgba(0, 0, 0, 0.5);
 
-  --font-mono: 'fira code', 'jetbrains mono', 'consolas', monospace;
+  --font-mono: 'Space Grotesk', sans-serif;
 
   --container-max: 1200px;
   --header-height: 70px;
@@ -50,7 +50,7 @@ html {
 }
 
 body {
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   background-color: var(--bg-base);
   color: var(--text-primary);
   line-height: 1.6;
@@ -72,6 +72,7 @@ body {
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   line-height: 1.3;
   color: var(--text-primary);
@@ -101,7 +102,7 @@ a:hover {
   align-items: center;
   justify-content: center;
   padding: 0.75rem 1.5rem;
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.9rem;
   font-weight: 500;
   border-radius: 8px;
@@ -148,7 +149,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   padding: 0.2rem 0.5rem;
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 0.7rem;
   border-radius: 20px;
   border: 1px solid;
@@ -272,7 +273,7 @@ a:hover {
   padding: 0.75rem 1rem;
   background: var(--accent-red);
   color: var(--bg-crust);
-  font-family: var(--font-mono);
+  font-family: 'Space Grotesk', sans-serif;
   font-weight: 600;
   z-index: 9999;
   transition: top var(--transition-fast);
