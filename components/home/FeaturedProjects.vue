@@ -44,7 +44,7 @@ const featuredProjects = [
     title: 'MuxLang',
     url: 'https://github.com/DerekCorniello/mux-lang',
     icon: 'code-block',
-    description: 'A strong and statically-typed programming language with a focus on simplicity and performance. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',
+    description: 'A strong and statically-typed programming language with a focus on explicitness and typing. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',
     tech: ['Rust', 'LLVM', 'C'],
   },
   {
