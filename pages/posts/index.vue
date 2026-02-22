@@ -81,6 +81,11 @@
             <div class="post-date">{{ post.date }}</div>
             <h2>{{ post.title }}</h2>
             <p class="excerpt">{{ post.excerpt }}</p>
+            <div v-if="post.likes !== undefined" class="video-stats">
+              <span class="stat">{{ post.likesFormatted }} likes</span>
+              <span class="stat-divider">/</span>
+              <span class="stat">{{ post.viewsFormatted }} views</span>
+            </div>
             <div class="post-tags">
               <span v-for="tag in post.tags" :key="tag" class="post-tag">{{ tag }}</span>
             </div>
@@ -310,8 +315,12 @@ useHead({
   justify-content: flex-start;
 }
 
-.blog-card.youtube-card .post-tags {
+.blog-card.youtube-card .video-stats {
   margin-top: auto;
+}
+
+.blog-card.youtube-card .post-tags {
+  margin-top: 0;
   margin-bottom: 0;
 }
 
@@ -338,9 +347,27 @@ useHead({
 
 .excerpt {
   color: var(--text-secondary);
-  font-size: 0.95rem;
+  font-size: 0.85rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.video-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.75rem;
+}
+
+.video-stats .stat {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.video-stats .stat-divider {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  opacity: 0.5;
 }
 
 .post-tags {

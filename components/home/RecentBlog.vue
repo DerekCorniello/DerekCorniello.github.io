@@ -30,6 +30,11 @@
           </NuxtLink>
         </h3>
         <p class="post-excerpt">{{ post.excerpt }}</p>
+        <div v-if="post.type === 'youtube' && post.likes !== undefined" class="post-stats">
+          <span class="stat">{{ post.likesFormatted }} likes</span>
+          <span class="stat-divider">/</span>
+          <span class="stat">{{ post.viewsFormatted }} views</span>
+        </div>
         <div class="post-meta">
           <span v-for="tag in post.tags" :key="tag" class="post-tag">{{ tag }}</span>
         </div>
@@ -118,10 +123,28 @@ onMounted(async () => {
 }
 
 .post-excerpt {
-  font-size: 0.85rem;
+  font-size: 0.8rem;
   color: var(--text-secondary);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.5rem;
   line-height: 1.5;
+}
+
+.post-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-bottom: 0.5rem;
+}
+
+.stat {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+}
+
+.stat-divider {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  opacity: 0.5;
 }
 
 .post-meta {
