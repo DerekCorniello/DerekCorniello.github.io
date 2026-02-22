@@ -41,6 +41,17 @@ useHead({
 
 const projects = [
   {
+    title: 'nvim-keymap-migrator',
+    icon: 'keyboard',
+    description: 'A CLI tool that extracts user-defined keymaps from your Neovim configuration and integrates them with vim emulator plugins (IdeaVim, VSCodeVim).',
+    tech: ['Node.js', 'Neovim'],
+    image: '/nkm-download.png',
+    links: [
+      { label: 'GitHub', url: 'https://github.com/DerekCorniello/nvim-keymap-migrator' },
+      { label: 'npm', url: 'https://www.npmjs.com/package/nvim-keymap-migrator' },
+    ],
+  },
+  {
     title: 'MuxLang',
     icon: 'code-block',
     description: 'A strong and statically-typed programming language with a focus on explicitness and typing. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',

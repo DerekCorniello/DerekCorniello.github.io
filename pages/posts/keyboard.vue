@@ -92,7 +92,7 @@
         which switch closed. No magic, just clever wiring and some firmware doing laps. This matrix
         adaptation of a keyboard is what allows smaller hardware to make quick scans for key presses.
         Instead of one pin per key, keys share wires in a matrix. Each switch connects a <em>row</em> to
-        a <em>column</em>. Press a key → that row and column are now electrically connected. What
+        a <em>column</em>. Press a key > that row and column are now electrically connected. What
         happens is...
       </p>
 
@@ -118,7 +118,7 @@
 
       <ul>
         <li>
-          <strong>Matrix scanning:</strong> Runs that row→column loop nonstop to detect closures.
+          <strong>Matrix scanning:</strong> Runs that row>column loop nonstop to detect closures.
         </li>
         <li>
           <strong>Debouncing:</strong> Mechanical switches "chatter" for a few ms; firmware smooths
@@ -138,8 +138,8 @@
       <p>
         So the flow ends up looking loke this:
         <code
-          >Switch press → row/column connect → diode keeps it one-way → MCU sees it during scan →
-          firmware debounces & maps → USB HID event → OS gets a keypress</code
+          >Switch press > row/column connect > diode keeps it one-way > MCU sees it during scan >
+          firmware debounces & maps > USB HID event > OS gets a keypress</code
         >
       </p>
 
@@ -270,8 +270,8 @@
     </div>
 
     <footer class="post-footer">
-      <NuxtLink to="/blog" class="btn">
-        Back to Blog
+      <NuxtLink to="/posts" class="btn">
+        Back to Posts
       </NuxtLink>
     </footer>
   </article>
@@ -285,7 +285,7 @@ useHead({
     { property: 'og:title', content: 'I Built a Custom Keyboard!' },
     { property: 'og:description', content: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, matrix scanning, ghosting prevention, build process, and final upgrades.' },
     { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
-    { property: 'og:url', content: 'https://derekcorn.dev/blog/keyboard' },
+    { property: 'og:url', content: 'https://derekcorn.dev/posts/keyboard' },
     { property: 'og:type', content: 'article' },
     { name: 'twitter:title', content: 'I Built a Custom Keyboard!' },
     { name: 'twitter:description', content: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, matrix scanning, ghosting prevention, build process, and final upgrades.' },

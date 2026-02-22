@@ -170,8 +170,8 @@
     </div>
 
     <footer class="post-footer">
-      <NuxtLink to="/blog" class="btn">
-        Back to Blog
+      <NuxtLink to="/posts" class="btn">
+        Back to Posts
       </NuxtLink>
     </footer>
   </article>
@@ -185,7 +185,7 @@ useHead({
     { property: 'og:title', content: 'My Transition from VSC*de to NeoVim' },
     { property: 'og:description', content: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and plugins that improved my workflow.' },
     { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
-    { property: 'og:url', content: 'https://derekcorn.dev/blog/nvim-transition' },
+    { property: 'og:url', content: 'https://derekcorn.dev/posts/nvim-transition' },
     { property: 'og:type', content: 'article' },
     { name: 'twitter:title', content: 'My Transition from VSC*de to NeoVim' },
     { name: 'twitter:description', content: 'How I transitioned from VSC*de to NeoVim.' },

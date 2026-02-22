@@ -34,7 +34,7 @@
           <div class="timeline-item">
             <div class="timeline-marker"></div>
             <div class="timeline-content">
-              <h3>Backend Engineer</h3>
+              <h3>Backend Engineer Intern</h3>
               <p class="company">LinkedIn</p>
               <p class="period">May 2026 - Aug 2027</p>
             </div>

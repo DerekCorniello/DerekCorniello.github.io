@@ -17,6 +17,14 @@
         />
       </div>
     </div>
+    <div class="github-chart-container">
+      <h3 class="chart-title">Contributions in the Last Year</h3>
+      <img 
+        :src="chartUrl" 
+        alt="Derek Corniello's GitHub chart"
+        class="github-chart"
+      />
+    </div>
     <div class="view-all">
       <a :href="githubUrl" target="_blank" rel="noopener noreferrer" class="btn">
         View on GitHub
@@ -29,6 +37,7 @@
 const githubUrl = 'https://github.com/DerekCorniello'
 const statsUrl = 'https://github-readme-stats-fast.vercel.app/api?username=DerekCorniello&theme=transparent&show_icons=true&hide_border=true'
 const langsUrl = 'https://github-readme-stats-fast.vercel.app/api/top-langs/?username=DerekCorniello&hide_border=true&theme=transparent&layout=compact&langs_count=8&exclude_repo=dotfiles,NeoVim-Setup&size_weight=0.5&count_weight=0.5&hide=MATLAB,HTML,CSS,JavaScript'
+const chartUrl = 'https://ghchart.rshah.org/1a473e/DerekCorniello'
 </script>
 
 <style scoped>
@@ -73,6 +82,27 @@ const langsUrl = 'https://github-readme-stats-fast.vercel.app/api/top-langs/?use
 .view-all {
   text-align: center;
   margin-top: 1.5rem;
+}
+
+.github-chart-container {
+  background: var(--bg-mantle);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+}
+
+.chart-title {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  text-align: center;
+}
+
+.github-chart {
+  width: 100%;
+  height: auto;
 }
 
 @media (max-width: 768px) {

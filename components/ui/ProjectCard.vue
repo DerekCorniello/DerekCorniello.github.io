@@ -28,7 +28,7 @@
         </h3>
         <div v-if="links.length" class="project-links">
           <a v-for="link in links" :key="link.url" :href="link.url" target="_blank" rel="noopener noreferrer" class="project-link">
-            {{ link.label }} ->
+            {{ link.label }} >
           </a>
         </div>
       </div>
@@ -43,7 +43,7 @@
       <LoadingImage v-for="(img, idx) in images" :key="idx" :src="img" :alt="title" />
     </div>
     <div v-else-if="image" class="project-image">
-      <LoadingImage :src="image" :alt="title" aspect-ratio="16/9" />
+      <LoadingImage :src="image" :alt="title" />
     </div>
   </article>
 </template>

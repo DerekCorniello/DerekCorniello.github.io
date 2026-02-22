@@ -1,21 +1,32 @@
 <template>
   <section class="recent-blog">
     <h2 class="section-title">Recent Posts</h2>
-    <div class="posts-grid">
+    <div v-if="loading" class="loading-posts">
+      <p>Loading posts...</p>
+    </div>
+    <div v-else class="posts-grid">
       <article
         v-for="post in recentPosts"
         :key="post.slug"
         class="post-card"
       >
-        <div class="post-date">{{ post.date }}</div>
+        <div class="card-header">
+          <div class="post-date">{{ post.date }}</div>
+          <svg v-if="post.type === 'youtube'" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor" class="post-icon">
+            <polygon points="5 3 19 12 5 21 5 3"/>
+          </svg>
+          <svg v-else xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="post-icon">
+            <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+            <polyline points="15 3 21 3 21 9"/>
+            <line x1="10" y1="14" x2="21" y2="3"/>
+          </svg>
+        </div>
         <h3 class="post-title">
-          <NuxtLink :to="`/blog/${post.slug}`">
+          <a v-if="post.type === 'youtube'" :href="post.url" target="_blank" rel="noopener noreferrer" class="post-link">
             {{ post.title }}
-            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
-              <polyline points="15 3 21 3 21 9"/>
-              <line x1="10" y1="14" x2="21" y2="3"/>
-            </svg>
+          </a>
+          <NuxtLink v-else :to="`/posts/${post.slug}`" class="post-link">
+            {{ post.title }}
           </NuxtLink>
         </h3>
         <p class="post-excerpt">{{ post.excerpt }}</p>
@@ -25,7 +36,7 @@
       </article>
     </div>
     <div class="view-all">
-      <NuxtLink to="/blog" class="btn">
+      <NuxtLink to="/posts" class="btn">
         View All Posts
       </NuxtLink>
     </div>
@@ -33,22 +44,82 @@
 </template>
 
 <script setup lang="ts">
-const recentPosts = [
-  {
-    slug: 'keyboard',
-    date: 'Aug 22, 2025',
-    title: 'I Built a Custom Keyboard!',
-    excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, and lessons learned.',
-    tags: ['Hardware', 'DIY'],
-  },
-  {
-    slug: 'nvim-transition',
-    date: 'Jul 21, 2024',
-    title: 'My Transition from VSC*de to NeoVim',
-    excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins.',
-    tags: ['Neovim', 'Development'],
-  },
-]
+import { ref, onMounted } from 'vue'
+
+interface Post {
+  slug?: string
+  type: 'blog' | 'youtube'
+  date: string
+  dateObj: Date
+  title: string
+  excerpt: string
+  tags: string[]
+  url?: string
+}
+
+const recentPosts = ref<Post[]>([])
+const loading = ref(true)
+
+const fetchRecentPosts = async () => {
+  const blogPosts = [
+    {
+      slug: 'keyboard',
+      type: 'blog' as const,
+      date: 'Aug 22, 2025',
+      dateObj: new Date('2025-08-22'),
+      title: 'I Built a Custom Keyboard!',
+      excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, and lessons learned.',
+      tags: ['Hardware', 'DIY'],
+    },
+    {
+      slug: 'nvim-transition',
+      type: 'blog' as const,
+      date: 'Jul 21, 2024',
+      dateObj: new Date('2024-07-21'),
+      title: 'My Transition from VSC*de to NeoVim',
+      excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins.',
+      tags: ['Neovim', 'Development'],
+    },
+  ]
+
+  let youtubeVideos: Post[] = []
+
+  try {
+    const channelId = 'UCRhMRc50jbl7B_dfjS5lsqw'
+    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
+    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`
+    
+    const response = await fetch(apiUrl)
+    const data = await response.json()
+    
+    if (data.status === 'ok' && data.items) {
+      youtubeVideos = data.items.slice(0, 4).map((item: any) => {
+        const videoId = item.guid.split(':').pop()
+        return {
+          type: 'youtube' as const,
+          id: videoId,
+          date: new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+          dateObj: new Date(item.pubDate),
+          title: item.title,
+          excerpt: item.description ? item.description.replace(/<[^>]*>/g, '').slice(0, 80) : '',
+          tags: ['YouTube'],
+          url: `https://www.youtube.com/watch?v=${videoId}`,
+        }
+      })
+    }
+  } catch (error) {
+    console.error('Failed to fetch YouTube videos:', error)
+  }
+
+  const allPosts = [...blogPosts, ...youtubeVideos]
+  allPosts.sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime())
+  recentPosts.value = allPosts.slice(0, 4)
+  loading.value = false
+}
+
+onMounted(() => {
+  fetchRecentPosts()
+})
 </script>
 
 <style scoped>
@@ -62,18 +133,38 @@ const recentPosts = [
   gap: 1rem;
 }
 
+.loading-posts {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+}
+
 .post-card {
-  display: block;
+  display: flex;
+  flex-direction: column;
   padding: 1.25rem;
   background: var(--bg-mantle);
   border: 1px solid var(--border);
   border-radius: 12px;
 }
 
+.post-card .card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.post-card .post-icon {
+  flex-shrink: 0;
+  width: 16px;
+  height: 16px;
+  margin-left: 0.5rem;
+}
+
 .post-date {
   font-size: 0.75rem;
   color: var(--text-muted);
-  margin-bottom: 0.5rem;
 }
 
 .post-title {
@@ -81,10 +172,7 @@ const recentPosts = [
   margin-bottom: 0.5rem;
 }
 
-.post-title a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.35rem;
+.post-title .post-link {
   color: var(--text-primary);
   text-decoration: none;
 }
