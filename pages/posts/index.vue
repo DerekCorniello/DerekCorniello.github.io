@@ -99,27 +99,14 @@
 
 <script setup lang="ts">
 import { ref, computed, onMounted } from 'vue'
+import { usePosts, type Post } from '~/composables/usePosts'
+
+const { getAllPosts } = usePosts()
 
 const searchQuery = ref('')
 const selectedTag = ref<string | null>(null)
-
-interface Post {
-  slug: string
-  type: 'blog' | 'youtube'
-  date: string
-  title: string
-  excerpt: string
-  tags: string[]
-  url?: string
-  thumbnail?: string
-}
-
 const allPosts = ref<Post[]>([])
 const postsLoading = ref(true)
-
-const getThumbnailUrl = (videoId: string): string => {
-  return `https://img.youtube.com/vi/${videoId}/maxresdefault.jpg`
-}
 
 const thumbnailSources = ['maxresdefault', 'sddefault', 'hqdefault', 'mqdefault', 'default']
 
@@ -130,62 +117,9 @@ const handleThumbnailError = (event: Event, videoId: string, currentIndex: numbe
   }
 }
 
-const fetchPosts = async () => {
-  const blogPosts: Post[] = [
-    {
-      slug: 'nvim-transition',
-      type: 'blog',
-      date: 'Jul 21, 2024',
-      title: 'My Transition from VSC*de to NeoVim',
-      excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins that improved my development workflow.',
-      tags: ['Neovim', 'Development'],
-    },
-    {
-      slug: 'keyboard',
-      type: 'blog',
-      date: 'Aug 22, 2025',
-      title: 'I Built a Custom Keyboard!',
-      excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, handwiring process, and lessons learned along the way.',
-      tags: ['Hardware', 'DIY'],
-    },
-  ]
-
-  let youtubeVideos: Post[] = []
-
-  try {
-    const channelId = 'UCRhMRc50jbl7B_dfjS5lsqw'
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`
-    
-    const response = await fetch(apiUrl)
-    const data = await response.json()
-    
-    if (data.status === 'ok' && data.items) {
-      youtubeVideos = data.items.map((item: any) => {
-        const videoId = item.guid.split(':').pop()
-        return {
-          slug: videoId,
-          type: 'youtube',
-          id: videoId,
-          date: new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          title: item.title,
-          excerpt: item.description ? item.description.replace(/<[^>]*>/g, '').slice(0, 120) : '',
-          tags: ['YouTube'],
-          url: `https://www.youtube.com/watch?v=${videoId}`,
-          thumbnail: item.thumbnail || getThumbnailUrl(videoId),
-        }
-      })
-    }
-  } catch (error) {
-    console.error('Failed to fetch YouTube videos:', error)
-  }
-
-  allPosts.value = [...youtubeVideos, ...blogPosts]
+onMounted(async () => {
+  allPosts.value = await getAllPosts()
   postsLoading.value = false
-}
-
-onMounted(() => {
-  fetchPosts()
 })
 
 const allTags = computed(() => {

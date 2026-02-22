@@ -47,6 +47,9 @@
 
 <script setup lang="ts">
 import { ref, onMounted, nextTick, computed } from 'vue'
+import { useProjects } from '~/composables/useProjects'
+import { usePosts } from '~/composables/usePosts'
+import { useSiteData } from '~/composables/useSiteData'
 
 definePageMeta({
   layout: 'terminal',
@@ -58,6 +61,10 @@ interface HistoryLine {
   valid?: boolean
 }
 
+const { getAllProjects } = useProjects()
+const { getRecentPosts } = usePosts()
+const { socialLinks, stackInfo, aboutInfo } = useSiteData()
+
 const history = ref<HistoryLine[]>([])
 const currentInput = ref('')
 const inputRef = ref<HTMLInputElement | null>(null)
@@ -66,66 +73,9 @@ const historyIndex = ref(-1)
 const copied = ref(false)
 const copiedField = ref<string | null>(null)
 
-const projects = [
-  {
-    name: 'Better-Elo',
-    description: 'Chess rating system research with momentum-enhanced predictions. Achieves 73.1% accuracy across 20,000+ games.',
-    tech: ['Python'],
-    url: 'https://github.com/DerekCorniello/better-elo'
-  },
-  {
-    name: 'Quick Mouse',
-    description: 'Turns your smartphone into a wireless mouse using QR codes and WebSockets. Won 1st place at MakeUC 2025.',
-    tech: ['Go', 'React', 'WebSockets'],
-    url: 'https://github.com/DerekCorniello/quick-mouse'
-  },
-  {
-    name: '8BitBeats',
-    description: 'Terminal-based chiptune generator in Rust. Seed-based tracks, real-time TUI controls, deterministic synthesis.',
-    tech: ['Rust', 'TUI', 'Audio'],
-    url: 'https://github.com/DerekCorniello/8BitBeats'
-  },
-  {
-    name: 'pip-req-valid',
-    description: 'Web app that validates requirements.txt files. Originally on AWS, now Dockerized for easy deployment.',
-    tech: ['Go', 'Vue.js', 'Docker'],
-    url: 'https://github.com/DerekCorniello/pip-req-valid'
-  },
-  {
-    name: 'gitcmd',
-    description: 'Custom Git shell built with Rust. Tailored prompts and intuitive command input for workflow efficiency.',
-    tech: ['Rust', 'CLI'],
-    url: 'https://github.com/DerekCorniello/gitcmd'
-  },
-  {
-    name: 'Resume2Web',
-    description: 'Hackathon project that converts resumes to websites. Built with React/TypeScript and Python/Flask.',
-    tech: ['React', 'TypeScript', 'Flask'],
-    url: 'https://github.com/grillinr/Resume2Web'
-  },
-  {
-    name: 'dotfiles',
-    description: 'Arch Linux with Hyprland, Neovim, Tmux, and Kitty: the ultimate developer experience.',
-    tech: ['Hyprland', 'Lua', 'Arch'],
-    url: 'https://github.com/DerekCorniello/dotfiles'
-  },
-  {
-    name: 'Billiards Bonanza',
-    description: '8-Ball pool game with twists. Built in Unity using C# with custom assets.',
-    tech: ['Unity', 'C#'],
-    url: 'https://github.com/DerekCorniello/Game_BilliardsBonanza'
-  }
-]
+const projects = getAllProjects()
 
-const socials = [
-  { name: 'GitHub', url: 'https://github.com/DerekCorniello' },
-  { name: 'LinkedIn', url: 'https://www.linkedin.com/in/derek-corniello' },
-  { name: 'Twitter', url: 'https://x.com/DerekCorniello' },
-  { name: 'YouTube', url: 'https://www.youtube.com/@DerekCornDev' },
-  { name: 'Email', url: 'corniedj@mail.uc.edu' }
-]
-
-const commandList = ['help', 'about', 'socials', 'projects', 'stack', 'contact', 'whoami', 'date', 'clear', 'echo', 'home']
+const commandList = ['help', 'about', 'socials', 'projects', 'posts', 'stack', 'contact', 'whoami', 'date', 'clear', 'echo', 'home']
 const commandsWithArgs = ['echo']
 
 const isValidCommand = computed(() => {
@@ -150,7 +100,7 @@ const isInvalidCommand = computed(() => {
   return false
 })
 
-const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; content: string }> = {
+const commands: Record<string, (args: string[]) => Promise<{ type: 'output' | 'error'; content: string }> | { type: 'output' | 'error'; content: string }> = {
   help: () => ({
     type: 'output',
     content: `
@@ -159,6 +109,7 @@ const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; c
         <p>about</p>
         <p>socials</p>
         <p>projects</p>
+        <p>posts</p>
         <p>stack</p>
         <p>contact</p>
         <p>whoami</p>
@@ -174,11 +125,11 @@ const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; c
     type: 'output',
     content: `
       <div class="about-section">
-        <p class="accent">Hi, I'm Derek Corniello!</p>
-        <p class="mt-1">Software Engineer Intern at Fifth Third Bank</p>
-        <p class="mt-1">Based in Cincinnati, OH</p>
+        <p class="accent">Hi, I'm ${aboutInfo.name}!</p>
+        <p class="mt-1">${aboutInfo.role} at ${aboutInfo.company}</p>
+        <p class="mt-1">Based in ${aboutInfo.location}</p>
         <p class="mt-1">I build with Go, Rust, Python and more.</p>
-        <p class="mt-1">Currently building a compiler in my free time.</p>
+        <p class="mt-1">${aboutInfo.currentFocus}</p>
         <p class="mt-1">Type 'socials' to find me elsewhere.</p>
       </div>
     `
@@ -188,7 +139,7 @@ const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; c
     type: 'output',
     content: `
       <div class="socials-section">
-        ${socials.map(s => `<p><span class="accent">${s.name}:</span> ${s.url}</p>`).join('')}
+        ${socialLinks.map(s => `<p><span class="accent">${s.name}:</span> ${s.url}</p>`).join('')}
       </div>
     `
   }),
@@ -197,25 +148,50 @@ const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; c
     type: 'output',
     content: `
       <div class="projects-section">
-        ${projects.map(p => `
-          <p class="mt-1"><span class="accent">${p.name}</span></p>
-          <p class="indent">${p.description}</p>
-          <p class="indent tech">${p.tech.join(' ')}</p>
-        `).join('\n---\n')}
+        ${projects.map(p => {
+          const url = p.links?.[0]?.url || p.url || '#'
+          return `
+            <p class="mt-1"><span class="accent">${p.title}</span></p>
+            <p class="indent">${p.description}</p>
+            <p class="indent tech">${p.tech.join(' ')} <a href="${url}" target="_blank" class="link">[link]</a></p>
+          `
+        }).join('\n---\n')}
       </div>
     `
   }),
+
+  posts: async () => {
+    const recentPosts = await getRecentPosts(4)
+    return {
+      type: 'output',
+      content: `
+        <div class="posts-section">
+          <p class="accent">Recent Posts:</p>
+          ${recentPosts.map(post => {
+            const link = post.type === 'youtube' ? post.url : `/posts/${post.slug}`
+            const icon = post.type === 'youtube' ? '▶' : '📝'
+            return `
+              <p class="mt-1"><span class="post-icon">${icon}</span> <span class="accent">${post.title}</span></p>
+              <p class="indent">${post.date}</p>
+              <p class="indent post-excerpt">${post.excerpt.slice(0, 80)}${post.excerpt.length > 80 ? '...' : ''}</p>
+              <p class="indent"><a href="${link}" target="${post.type === 'youtube' ? '_blank' : ''}" class="link">${post.type === 'youtube' ? 'Watch on YouTube' : 'Read more'}</a></p>
+            `
+          }).join('\n')}
+        </div>
+      `
+    }
+  },
 
   stack: () => ({
     type: 'output',
     content: `
       <div class="stack-section">
         <p class="accent">Languages:</p>
-        <p>Go, Rust, Python, TypeScript, Lua, C</p>
+        <p>${stackInfo.languages.join(', ')}</p>
         <p class="mt-1 accent">Tools:</p>
-        <p>Neovim, Git, Docker, Linux, Arch Linux, Hyprland</p>
+        <p>${stackInfo.tools.join(', ')}</p>
         <p class="mt-1 accent">Frameworks:</p>
-        <p>Vue, Nuxt, Gin, FastAPI</p>
+        <p>${stackInfo.frameworks.join(', ')}</p>
       </div>
     `
   }),
@@ -262,7 +238,7 @@ const commands: Record<string, (args: string[]) => { type: 'output' | 'error'; c
   },
 }
 
-function executeCommand(input: string): void {
+async function executeCommand(input: string): Promise<void> {
   const trimmed = input.trim()
   const parts = trimmed.split(/\s+/)
   const cmd = parts[0].toLowerCase()
@@ -294,7 +270,7 @@ function executeCommand(input: string): void {
         content: `<p>${cmd} expects 0 args, but ${args.length} provided</p>`
       })
     } else {
-      const result = commands[cmd](args)
+      const result = await Promise.resolve(commands[cmd](args))
       if (result.content) {
         history.value.push(result)
       }
@@ -505,6 +481,7 @@ onMounted(() => {
 .about-section,
 .socials-section,
 .projects-section,
+.posts-section,
 .stack-section,
 .contact-section,
 .ascii-art {
@@ -538,6 +515,15 @@ onMounted(() => {
 .tech {
   color: var(--accent-yellow);
   font-size: 0.8rem;
+}
+
+.post-icon {
+  color: var(--accent-red);
+}
+
+.post-excerpt {
+  font-size: 0.85rem;
+  color: var(--text-muted);
 }
 
 :deep(.clickable),

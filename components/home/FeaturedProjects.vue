@@ -7,7 +7,7 @@
         :title="featuredProjects[0].title"
         :description="featuredProjects[0].description"
         :tech="featuredProjects[0].tech"
-        :url="featuredProjects[0].url"
+        :url="featuredProjects[0].links?.[0]?.url"
         :icon="featuredProjects[0].icon"
         size="large"
       />
@@ -17,7 +17,7 @@
         :title="project.title"
         :description="project.description"
         :tech="project.tech"
-        :url="project.url"
+        :url="project.links?.[0]?.url"
         :icon="project.icon"
       />
     </div>
@@ -31,30 +31,10 @@
 
 <script setup lang="ts">
 import ProjectCard from '~/components/ui/ProjectCard.vue'
+import { useProjects } from '~/composables/useProjects'
 
-const featuredProjects = [
-  {
-    title: 'Quick Mouse',
-    url: 'https://github.com/DerekCorniello/quick-mouse',
-    icon: 'mouse',
-    description: '1st place @ MakeUC 2025. Turn your phone into a wireless mouse using QR codes.',
-    tech: ['Go', 'React', 'WebSockets'],
-  },
-  {
-    title: 'MuxLang',
-    url: 'https://github.com/DerekCorniello/mux-lang',
-    icon: 'code-block',
-    description: 'A strong and statically-typed programming language with a focus on explicitness and typing. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',
-    tech: ['Rust', 'LLVM', 'C'],
-  },
-  {
-    title: '8BitBeats',
-    url: 'https://github.com/DerekCorniello/8BitBeats',
-    icon: 'music',
-    description: 'Terminal-based chiptune generator in Rust with real-time TUI controls.',
-    tech: ['Rust', 'TUI', 'Audio'],
-  },
-]
+const { getFeaturedProjects } = useProjects()
+const featuredProjects = getFeaturedProjects()
 </script>
 
 <style scoped>

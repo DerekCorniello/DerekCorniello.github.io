@@ -45,80 +45,16 @@
 
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { usePosts, type Post } from '~/composables/usePosts'
 
-interface Post {
-  slug?: string
-  type: 'blog' | 'youtube'
-  date: string
-  dateObj: Date
-  title: string
-  excerpt: string
-  tags: string[]
-  url?: string
-}
+const { getRecentPosts } = usePosts()
 
 const recentPosts = ref<Post[]>([])
 const loading = ref(true)
 
-const fetchRecentPosts = async () => {
-  const blogPosts = [
-    {
-      slug: 'keyboard',
-      type: 'blog' as const,
-      date: 'Aug 22, 2025',
-      dateObj: new Date('2025-08-22'),
-      title: 'I Built a Custom Keyboard!',
-      excerpt: 'Building a custom Dactyl Manuform keyboard from scratch - the BOM, firmware, and lessons learned.',
-      tags: ['Hardware', 'DIY'],
-    },
-    {
-      slug: 'nvim-transition',
-      type: 'blog' as const,
-      date: 'Jul 21, 2024',
-      dateObj: new Date('2024-07-21'),
-      title: 'My Transition from VSC*de to NeoVim',
-      excerpt: 'My experience transitioning from VSC*de to NeoVim, including setting up lazy.nvim, Mason, and other plugins.',
-      tags: ['Neovim', 'Development'],
-    },
-  ]
-
-  let youtubeVideos: Post[] = []
-
-  try {
-    const channelId = 'UCRhMRc50jbl7B_dfjS5lsqw'
-    const rssUrl = `https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}`
-    const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`
-    
-    const response = await fetch(apiUrl)
-    const data = await response.json()
-    
-    if (data.status === 'ok' && data.items) {
-      youtubeVideos = data.items.slice(0, 4).map((item: any) => {
-        const videoId = item.guid.split(':').pop()
-        return {
-          type: 'youtube' as const,
-          id: videoId,
-          date: new Date(item.pubDate).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
-          dateObj: new Date(item.pubDate),
-          title: item.title,
-          excerpt: item.description ? item.description.replace(/<[^>]*>/g, '').slice(0, 80) : '',
-          tags: ['YouTube'],
-          url: `https://www.youtube.com/watch?v=${videoId}`,
-        }
-      })
-    }
-  } catch (error) {
-    console.error('Failed to fetch YouTube videos:', error)
-  }
-
-  const allPosts = [...blogPosts, ...youtubeVideos]
-  allPosts.sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime())
-  recentPosts.value = allPosts.slice(0, 4)
+onMounted(async () => {
+  recentPosts.value = await getRecentPosts(4)
   loading.value = false
-}
-
-onMounted(() => {
-  fetchRecentPosts()
 })
 </script>
 
