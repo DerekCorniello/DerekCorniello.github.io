@@ -17,6 +17,6 @@ useHead({
 .terminal-layout {
   min-height: 100vh;
   background-color: var(--bg-base);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
 }
 </style>

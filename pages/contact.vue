@@ -186,7 +186,7 @@ const copyToClipboard = async (text: string) => {
 
 .contact-details .value {
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
 }
 
 .copy-btn {

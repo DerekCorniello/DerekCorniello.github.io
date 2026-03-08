@@ -155,7 +155,7 @@ onMounted(async () => {
 
 .post-tag {
   padding: 0.15rem 0.5rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   color: var(--accent-blue);
   border: 1px solid var(--accent-blue);

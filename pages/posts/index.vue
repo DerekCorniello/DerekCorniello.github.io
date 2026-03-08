@@ -213,7 +213,7 @@ useHead({
   border: none;
   outline: none;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.95rem;
 }
 
@@ -233,7 +233,7 @@ useHead({
   border: 1px solid var(--border);
   border-radius: 20px;
   color: var(--text-secondary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.8rem;
   cursor: pointer;
 }
@@ -403,7 +403,7 @@ useHead({
 
 .post-tag {
   padding: 0.2rem 0.6rem;
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.7rem;
   color: var(--accent-blue);
   border: 1px solid var(--accent-blue);

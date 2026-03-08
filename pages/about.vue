@@ -237,7 +237,7 @@ useHead({
   border: 1px solid var(--border);
   border-radius: 8px;
   color: var(--text-secondary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 1rem;
   cursor: pointer;
 }

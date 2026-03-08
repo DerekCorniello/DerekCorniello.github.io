@@ -388,7 +388,7 @@ onMounted(() => {
   padding: 0.5rem 1rem;
   overflow-y: auto;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: 0.875rem;
   cursor: text;
 }
@@ -444,7 +444,7 @@ onMounted(() => {
   background: transparent;
   border: none;
   color: var(--text-primary);
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   font-size: inherit;
   flex: 1;
   outline: none;
@@ -541,7 +541,7 @@ onMounted(() => {
 }
 
 .ascii-art pre {
-  font-family: 'Space Grotesk', sans-serif;
+  font-family: 'Space Mono', monospace;
   margin: 0;
   line-height: 1.1;
   font-size: 0.75rem;
