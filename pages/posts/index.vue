@@ -275,16 +275,7 @@ useHead({
   border-color: var(--accent-red);
 }
 
-.blog-card.youtube-card .video-thumbnail {
-  position: relative;
-  background: #000;
-}
 
-.blog-card.youtube-card .video-thumbnail img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
 
 .blog-card.youtube-card .play-icon {
   position: absolute;
@@ -315,6 +306,30 @@ useHead({
   justify-content: flex-start;
 }
 
+/* Improve thumbnail / text layout and readability */
+.blog-card.youtube-card {
+  align-items: stretch;
+}
+
+.blog-card.youtube-card .video-thumbnail {
+  flex: 0 0 260px;
+  max-width: 40%;
+  min-width: 160px;
+  /* force a consistent visual box and let the image fill it; any overflow will be cropped
+     so there is no empty letterbox area */
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+}
+
+.blog-card.youtube-card .video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
 .blog-card.youtube-card .video-stats {
   margin-top: auto;
 }
@@ -330,7 +345,16 @@ useHead({
 }
 
 .blog-card.youtube-card h2 {
-  font-size: 1.1rem;
+  font-size: 1.15rem;
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+  /* ensure long titles truncate cleanly */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .blog-card h2 {
@@ -347,9 +371,9 @@ useHead({
 
 .excerpt {
   color: var(--text-secondary);
-  font-size: 0.85rem;
-  line-height: 1.6;
-  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  margin-bottom: 0.5rem;
 }
 
 .video-stats {
@@ -401,5 +425,40 @@ useHead({
   text-align: center;
   color: var(--text-muted);
   padding: 2rem;
+}
+
+/* Mobile adjustments for better readability */
+@media (max-width: 720px) {
+  .blog-card.youtube-card {
+    flex-direction: column;
+  }
+
+  .blog-card.youtube-card .video-thumbnail {
+    flex: none;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    aspect-ratio: 16 / 9;
+  }
+
+  .blog-card.youtube-card .card-content {
+    padding: 0.75rem;
+  }
+
+  .blog-card.youtube-card h2 {
+    font-size: 1.05rem;
+    -webkit-line-clamp: 3;
+    line-height: 1.3;
+  }
+
+  .excerpt {
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+
+  .blog-card.youtube-card .play-icon {
+    width: 48px;
+    height: 48px;
+  }
 }
 </style>
