@@ -27,16 +27,16 @@ const socialLinks: SocialLink[] = [
 
 const stackInfo: StackInfo = {
     languages: ['Go', 'Rust', 'Python', 'TypeScript', 'Lua', 'C'],
-    tools: ['Neovim', 'Git', 'Docker', 'Linux', 'Arch Linux', 'Hyprland'],
-    frameworks: ['Vue', 'Nuxt', 'Gin', 'FastAPI'],
+    tools: ['Neovim', 'Docker', 'Kubernetes', 'Linux', 'Arch Linux', 'Terraform'],
+    frameworks: ['Gin', 'FastAPI', 'Vue', 'Nuxt'],
 };
 
 const aboutInfo: AboutInfo = {
     name: 'Derek Corniello',
     role: 'Software Engineer Intern',
-    company: 'Fifth Third Bank',
+    company: 'LinkedIn',
     location: 'Cincinnati, OH',
-    currentFocus: 'Currently building a compiler in my free time.',
+    currentFocus: 'Working on developer tools at LinkedIn. Building a compiler in my free time.',
 };
 
 export function useSiteData() {

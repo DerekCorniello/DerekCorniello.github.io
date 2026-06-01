@@ -3,14 +3,14 @@
         <section class="about-intro">
             <h1>About Me</h1>
             <p>
-                I'm a Software Engineer Intern at Fifth Third Bank based out of Cincinnati, Ohio.
-                I'm pursuing my Master of Engineering in Software Engineering at the University of
-                Cincinnati.
+                I'm a Software Engineer Intern at LinkedIn based out of Cincinnati, Ohio.
+                I'm pursuing my Master of Engineering in Software Engineering and
+                Bachelor of Science in Computer Science at the University of Cincinnati.
             </p>
             <p>
                 I specialize in backend development with experience in Go, Rust, and Python. I've
-                worked on backend systems at Siemens and am passionate about building scalable
-                systems that help people. When I'm not coding, I'm probably customizing my Neovim
+                worked on developer tooling and productivity engineering at LinkedIn and built
+                backend systems at Siemens. When I'm not coding, I'm probably customizing my Neovim
                 setup,
                 <a
                     href="https://www.chess.com/member/DerekCornDev"
@@ -42,9 +42,14 @@
                     <div class="timeline-item">
                         <div class="timeline-marker"></div>
                         <div class="timeline-content">
-                            <h3>Backend Engineer Intern</h3>
+                            <h3>Software Engineer Intern</h3>
                             <p class="company">LinkedIn</p>
-                            <p class="period">May 2026 - Aug 2027</p>
+                            <p class="period">May 2026 - August 2026</p>
+                            <ul class="details">
+                                <li>Building developer tooling and automation for internal engineering teams</li>
+                                <li>Working on productivity engineering to streamline developer workflows</li>
+                                <li>Developing internal AI agent workflows and orchestration platforms</li>
+                            </ul>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -52,10 +57,10 @@
                         <div class="timeline-content">
                             <h3>Software Engineer Intern</h3>
                             <p class="company">Fifth Third Bank</p>
-                            <p class="period">Present (until May 2026)</p>
+                            <p class="period">Jan 2026 - May 2026</p>
                             <ul class="details">
-                                <li>Building scalable backend services</li>
-                                <li>Working with Go and distributed systems</li>
+                                <li>Designed and deployed cloud-based IVR systems using AWS Connect and Lambda</li>
+                                <li>Built automated call routing and natural language processing pipelines</li>
                             </ul>
                         </div>
                     </div>
@@ -83,6 +88,7 @@
                             <h3>Master of Engineering in Software Engineering</h3>
                             <p class="company">University of Cincinnati</p>
                             <p class="period">Expected: May 2027</p>
+                            <p class="gpa">GPA: 4.0</p>
                         </div>
                     </div>
                     <div class="timeline-item">
@@ -91,6 +97,7 @@
                             <h3>Bachelor of Science in Computer Science</h3>
                             <p class="company">University of Cincinnati</p>
                             <p class="period">Expected: May 2027</p>
+                            <p class="gpa">GPA: 3.9</p>
                         </div>
                     </div>
                 </div>
@@ -121,11 +128,11 @@
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=git"
-                                alt="Git"
+                                src="https://skillicons.dev/icons?i=terraform"
+                                alt="Terraform"
                                 class="skill-icon"
                             />
-                            <span>Git</span>
+                            <span>Terraform</span>
                         </div>
                         <div class="skill-item">
                             <img
@@ -142,6 +149,14 @@
                                 class="skill-icon"
                             />
                             <span>Docker</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=unity"
+                                alt="Unity"
+                                class="skill-icon"
+                            />
+                            <span>Unity</span>
                         </div>
                     </div>
                 </div>
@@ -188,50 +203,66 @@
                             />
                             <span>C++</span>
                         </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=nodejs"
+                                alt="Node.js"
+                                class="skill-icon"
+                            />
+                            <span>Node.js</span>
+                        </div>
                     </div>
                 </div>
                 <div class="skill-category">
-                    <h3>Frontend</h3>
+                    <h3>Platform & Infrastructure</h3>
                     <div class="skill-list">
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=html"
-                                alt="HTML"
+                                src="https://skillicons.dev/icons?i=postgres"
+                                alt="PostgreSQL"
                                 class="skill-icon"
                             />
-                            <span>HTML</span>
+                            <span>PostgreSQL</span>
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=js"
-                                alt="JavaScript"
+                                src="https://skillicons.dev/icons?i=jenkins"
+                                alt="Jenkins"
                                 class="skill-icon"
                             />
-                            <span>JavaScript</span>
+                            <span>Jenkins</span>
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=ts"
-                                alt="TypeScript"
+                                src="https://skillicons.dev/icons?i=terraform"
+                                alt="Terraform"
                                 class="skill-icon"
                             />
-                            <span>TypeScript</span>
+                            <span>Terraform</span>
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=vue"
-                                alt="Vue"
+                                src="https://skillicons.dev/icons?i=kafka"
+                                alt="Kafka"
                                 class="skill-icon"
                             />
-                            <span>Vue</span>
+                            <span>Kafka</span>
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=vite"
-                                alt="Vite"
+                                src="https://skillicons.dev/icons?i=githubactions"
+                                alt="CI/CD"
                                 class="skill-icon"
                             />
-                            <span>Vite</span>
+                            <span>CI/CD</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=cloudflare"
+                                alt="Cloudflare"
+                                class="skill-icon"
+                            />
+                            <span>Cloudflare</span>
                         </div>
                     </div>
                 </div>
@@ -251,7 +282,7 @@ useHead({
         {
             name: 'description',
             content:
-                'Learn more about Derek Corniello, a Software Engineer Intern at Fifth Third Bank.',
+                'Learn more about Derek Corniello, a Software Engineer Intern at LinkedIn.',
         },
     ],
 });
@@ -318,14 +349,14 @@ useHead({
 }
 
 .tab-content {
-    height: 500px;
+    height: 600px;
     overflow-y: auto;
     animation: fadeIn 0.2s ease;
 }
 
 @media (max-height: 600px) {
     .tab-content {
-        height: 50vh;
+        height: 60vh;
     }
 }
 
@@ -382,6 +413,12 @@ useHead({
 .timeline-content .period {
     color: var(--text-muted);
     font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.timeline-content .gpa {
+    color: var(--accent-green);
+    font-size: 0.85rem;
     margin-bottom: 0.5rem;
 }
 

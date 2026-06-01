@@ -3,31 +3,22 @@
         <HomeHero />
         <section class="companies-section">
             <div class="companies-timeline">
-                <div class="company-item past">
-                    <img src="/siemens-logo.png" alt="Siemens" class="company-logo" />
-                    <div class="company-info">
-                        <span class="company-name">Siemens DISW</span>
-                        <span class="status-badge">[Past]</span>
+                <span class="companies-label">Internships with</span>
+                <div class="company-past">
+                    <div class="company-past-item">
+                        <img src="/siemens-logo.png" alt="Siemens" class="company-logo-sm" />
+                        <span class="company-past-name">Siemens DISW</span>
+                    </div>
+                    <div class="company-past-item">
+                        <img src="/fifththird-logo.png" alt="Fifth Third" class="company-logo-sm" />
+                        <span class="company-past-name">Fifth Third Bank</span>
                     </div>
                 </div>
-                <span class="separator">/</span>
-                <div class="company-item present">
-                    <img
-                        src="/fifththird-logo.png"
-                        alt="Fifth Third"
-                        class="company-logo fifth-third"
-                    />
-                    <div class="company-info">
-                        <span class="company-name">Fifth Third Bank</span>
-                        <span class="status-badge">[Present]</span>
-                    </div>
-                </div>
-                <span class="separator">/</span>
-                <div class="company-item future">
+                <div class="company-item current">
                     <img src="/linkedin-logo.png" alt="LinkedIn" class="company-logo" />
-                    <div class="company-info">
+                    <div class="company-current-info">
                         <span class="company-name">LinkedIn</span>
-                        <span class="status-badge">[Future]</span>
+                        <span class="company-subtitle">Software Engineer Intern</span>
                     </div>
                 </div>
             </div>
@@ -45,7 +36,7 @@ useHead({
         {
             name: 'description',
             content:
-                'Derek Corniello - Software Engineer building with Go, Rust, Python, and more. Explore my projects, blog, and the tech I use.',
+                'Derek Corniello - Software Engineer Intern @ LinkedIn building developer tools with Go, Rust, Python, and more. Explore my projects, blog, and the tech I use.',
         },
         { property: 'og:title', content: 'Derek Corniello' },
         {
@@ -90,87 +81,87 @@ useHead({
 
 .companies-timeline {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: center;
+    gap: 1.25rem;
 }
 
-.company-item {
+.companies-label {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.company-past {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    opacity: 0.55;
+}
+
+.company-past-item {
     display: flex;
     align-items: center;
-    gap: 0.75rem;
-    padding: 0.75rem 1rem;
-    background: var(--bg-mantle);
-    border: 1px solid var(--border);
-    border-radius: 8px;
+    gap: 0.5rem;
 }
 
-.company-item.past {
-    border-color: var(--accent-red);
+.company-past-item + .company-past-item::before {
+    content: '/';
+    color: var(--text-muted);
+    margin-right: 1rem;
 }
 
-.company-item.present {
-    border-color: var(--accent-mauve);
+.company-past-name {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
 }
 
-.company-item.future {
-    border-color: var(--accent-blue);
-}
-
-.company-logo {
-    width: 24px;
-    height: 24px;
+.company-logo-sm {
+    width: 18px;
+    height: 18px;
     object-fit: contain;
-    border-radius: 4px;
+    border-radius: 3px;
     flex-shrink: 0;
 }
 
-.company-logo.fifth-third {
-    width: 40px;
-    height: 40px;
+.company-item.current {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    padding: 1.25rem 2rem;
+    background: rgba(137, 180, 250, 0.08);
+    border: 2px solid var(--accent-blue);
+    border-radius: 12px;
 }
 
-.company-info {
+.company-logo {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.company-current-info {
     display: flex;
     flex-direction: column;
     gap: 0.15rem;
-    align-items: center;
 }
 
 .company-name {
     font-family: 'Space Mono', monospace;
-    font-size: 0.85rem;
-    color: var(--text-primary);
-    line-height: 1.2;
-}
-
-.status-badge {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.6rem;
-    padding: 0.1rem 0.4rem;
-    border-radius: 4px;
-    margin-top: 0.1rem;
-}
-
-.company-item.past .status-badge {
-    color: var(--accent-red);
-    background: rgba(243, 139, 168, 0.1);
-}
-
-.company-item.present .status-badge {
-    color: var(--accent-mauve);
-    background: rgba(203, 166, 247, 0.1);
-}
-
-.company-item.future .status-badge {
+    font-size: 1.2rem;
+    font-weight: 600;
     color: var(--accent-blue);
-    background: rgba(137, 180, 250, 0.1);
+    line-height: 1.3;
 }
 
-.separator {
-    color: var(--text-muted);
+.company-subtitle {
     font-family: 'Space Mono', monospace;
-    font-size: 1.25rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
 }
 </style>

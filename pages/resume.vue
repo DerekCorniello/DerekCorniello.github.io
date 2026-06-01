@@ -20,7 +20,7 @@ useHead({
         {
             name: 'description',
             content:
-                "View Derek Corniello's resume - Software Engineer Intern at Fifth Third Bank.",
+                "View Derek Corniello's resume - Software Engineer Intern at LinkedIn.",
         },
     ],
 });

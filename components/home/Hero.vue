@@ -6,12 +6,12 @@
             </div>
             <div class="hero-content">
                 <h1 class="name">Derek Corniello</h1>
-                <h2 class="role">Software Engineer Intern @ Fifth Third Bank</h2>
+                <h2 class="role">Software Engineer Intern @ LinkedIn</h2>
                 <p class="location">Cincinnati, OH</p>
                 <p class="bio">
-                    Building scalable, reliable, and performant backend systems. Currently working
-                    on cloud-based services with AWS at Fifth Third Bank. Creating a compiler in my
-                    free time. You can also find me in the
+                    Working on developer tools at LinkedIn. Building scalable, reliable, and
+                    performant backend systems. Creating a compiler in my free time. You can
+                    also find me in the
                     <NuxtLink to="/terminal" class="terminal-link">terminal</NuxtLink>.
                 </p>
                 <div class="cta-buttons">

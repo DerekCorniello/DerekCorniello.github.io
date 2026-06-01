@@ -18,7 +18,7 @@ export default defineNuxtConfig({
             meta: [
                 {
                     name: 'description',
-                    content: 'Derek Corniello - Software Engineer Intern at Fifth Third Bank',
+                    content: 'Derek Corniello - Software Engineer Intern at LinkedIn',
                 },
                 {
                     name: 'keywords',
@@ -29,7 +29,7 @@ export default defineNuxtConfig({
                 { property: 'og:title', content: 'Derek Corniello' },
                 {
                     property: 'og:description',
-                    content: 'Software Engineer Intern at Fifth Third Bank',
+                    content: 'Software Engineer Intern at LinkedIn',
                 },
                 { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
                 { property: 'og:url', content: 'https://derekcorn.dev/' },
@@ -38,7 +38,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:title', content: 'Derek Corniello' },
                 {
                     name: 'twitter:description',
-                    content: 'Software Engineer Intern at Fifth Third Bank',
+                    content: 'Software Engineer Intern at LinkedIn',
                 },
                 { name: 'twitter:image', content: 'https://derekcorn.dev/preview.png' },
                 {
@@ -61,7 +61,7 @@ export default defineNuxtConfig({
                         '@context': 'https://schema.org',
                         '@type': 'Person',
                         name: 'Derek Corniello',
-                        description: 'Software Engineer Intern at Fifth Third Bank',
+                        description: 'Software Engineer Intern at LinkedIn',
                         jobTitle: 'Software Engineer Intern',
                         url: 'https://derekcorn.dev',
                         sameAs: [
