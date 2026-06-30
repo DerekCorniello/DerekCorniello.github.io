@@ -25,7 +25,7 @@
         </section>
         <HomeFeaturedProjects />
         <HomeRecentBlog />
-        <HomeGitHubActivity />
+        <HomeDeveloperCard />
     </div>
 </template>
 
