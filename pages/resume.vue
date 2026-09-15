@@ -4,11 +4,11 @@
             <h1>Resume</h1>
         </header>
         <div class="download-wrapper">
-            <a href="/resume.pdf" download class="btn btn-download"> Download PDF </a>
+            <a href="/DerekCornielloResume.pdf" download="DerekCornielloResume.pdf" class="btn btn-download"> Download PDF </a>
         </div>
 
         <div class="resume-pdf">
-            <iframe src="/resume.pdf" title="Resume PDF"></iframe>
+            <iframe src="/DerekCornielloResume.pdf" title="Resume PDF"></iframe>
         </div>
     </div>
 </template>
@@ -20,7 +20,7 @@ useHead({
         {
             name: 'description',
             content:
-                "View Derek Corniello's resume - Software Engineer Intern at LinkedIn.",
+                "View Derek Corniello's resume and software engineering experience.",
         },
     ],
 });

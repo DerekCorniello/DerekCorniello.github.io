@@ -9,6 +9,8 @@
                 :tech="featuredProjects[0].tech"
                 :url="featuredProjects[0].links?.[0]?.url"
                 :icon="featuredProjects[0].icon"
+                :image="featuredProjects[0].image"
+                :images="featuredProjects[0].images"
                 size="large"
             />
             <ProjectCard
@@ -19,6 +21,8 @@
                 :tech="project.tech"
                 :url="project.links?.[0]?.url"
                 :icon="project.icon"
+                :image="project.image"
+                :images="project.images"
             />
         </div>
         <div class="view-all">

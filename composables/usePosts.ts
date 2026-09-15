@@ -16,6 +16,16 @@ export interface Post {
 
 const blogPosts: Post[] = [
     {
+        slug: 'hindley-milner',
+        type: 'blog',
+        date: 'Aug 9, 2026',
+        dateObj: new Date('2026-08-09'),
+        title: 'The MuxLang Type System: What Hindley-Milner Got Wrong',
+        excerpt:
+            'How the Mux programming language handles type inference differently than Hindley-Milner - explicit generics, local inference, and why the compiler should not always guess.',
+        tags: ['Mux', 'Type Systems'],
+    },
+    {
         slug: 'keyboard',
         type: 'blog',
         date: 'Aug 22, 2025',
@@ -53,7 +63,17 @@ function formatNumber(num: number): string {
     return num.toString();
 }
 
-function mapItemToPost(item: any): Post {
+interface FeedItem {
+    guid: string;
+    description?: string;
+    pubDate: string;
+    title: string;
+    thumbnail?: string;
+    likes?: number;
+    views?: number;
+}
+
+function mapItemToPost(item: FeedItem): Post {
     const videoId = item.guid.split(':').pop();
     const cleanDescription = item.description ? item.description.replace(/<[^>]*>/g, '') : '';
     const truncatedExcerpt =
@@ -111,8 +131,12 @@ async function fetchFromRss2Json(): Promise<Post[]> {
 }
 
 export function usePosts() {
+    const sortByDateDesc = (posts: Post[]): Post[] => {
+        return [...posts].sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime());
+    };
+
     const getBlogPosts = (): Post[] => {
-        return blogPosts;
+        return sortByDateDesc(blogPosts);
     };
 
     const fetchYouTubePosts = async (): Promise<Post[]> => {
@@ -145,14 +169,12 @@ export function usePosts() {
 
     const getRecentPosts = async (count: number = 4): Promise<Post[]> => {
         const youtubePosts = await fetchYouTubePosts();
-        const allPosts = [...blogPosts, ...youtubePosts];
-        allPosts.sort((a, b) => b.dateObj.getTime() - a.dateObj.getTime());
-        return allPosts.slice(0, count);
+        return sortByDateDesc([...blogPosts, ...youtubePosts]).slice(0, count);
     };
 
     const getAllPosts = async (): Promise<Post[]> => {
         const youtubePosts = await fetchYouTubePosts();
-        return [...youtubePosts, ...blogPosts];
+        return sortByDateDesc([...youtubePosts, ...blogPosts]);
     };
 
     return {

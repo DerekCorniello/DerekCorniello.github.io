@@ -3,8 +3,12 @@
         <HomeHero />
         <section class="companies-section">
             <div class="companies-timeline">
-                <span class="companies-label">Internships with</span>
+                <span class="companies-label">Experience with</span>
                 <div class="company-past">
+                    <div class="company-past-item">
+                        <img src="/linkedin-logo.png" alt="LinkedIn" class="company-logo-sm" />
+                        <span class="company-past-name">LinkedIn</span>
+                    </div>
                     <div class="company-past-item">
                         <img src="/siemens-logo.png" alt="Siemens" class="company-logo-sm" />
                         <span class="company-past-name">Siemens DISW</span>
@@ -12,13 +16,6 @@
                     <div class="company-past-item">
                         <img src="/fifththird-logo.png" alt="Fifth Third" class="company-logo-sm" />
                         <span class="company-past-name">Fifth Third Bank</span>
-                    </div>
-                </div>
-                <div class="company-item current">
-                    <img src="/linkedin-logo.png" alt="LinkedIn" class="company-logo" />
-                    <div class="company-current-info">
-                        <span class="company-name">LinkedIn</span>
-                        <span class="company-subtitle">Software Engineer Intern</span>
                     </div>
                 </div>
             </div>
@@ -36,7 +33,7 @@ useHead({
         {
             name: 'description',
             content:
-                'Derek Corniello - Software Engineer Intern @ LinkedIn building developer tools with Go, Rust, Python, and more. Explore my projects, blog, and the tech I use.',
+                'Derek Corniello - Software Engineer building developer tools with Go, Rust, Python, and more. Explore my projects, blog, and the tech I use.',
         },
         { property: 'og:title', content: 'Derek Corniello' },
         {
@@ -98,7 +95,6 @@ useHead({
     display: flex;
     gap: 1.5rem;
     align-items: center;
-    opacity: 0.55;
 }
 
 .company-past-item {
@@ -116,7 +112,7 @@ useHead({
 .company-past-name {
     font-family: 'Space Mono', monospace;
     font-size: 0.8rem;
-    color: var(--text-secondary);
+    color: var(--text-primary);
 }
 
 .company-logo-sm {
@@ -127,41 +123,4 @@ useHead({
     flex-shrink: 0;
 }
 
-.company-item.current {
-    display: flex;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 1.25rem 2rem;
-    background: rgba(137, 180, 250, 0.08);
-    border: 2px solid var(--accent-blue);
-    border-radius: 12px;
-}
-
-.company-logo {
-    width: 40px;
-    height: 40px;
-    object-fit: contain;
-    border-radius: 6px;
-    flex-shrink: 0;
-}
-
-.company-current-info {
-    display: flex;
-    flex-direction: column;
-    gap: 0.15rem;
-}
-
-.company-name {
-    font-family: 'Space Mono', monospace;
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: var(--accent-blue);
-    line-height: 1.3;
-}
-
-.company-subtitle {
-    font-family: 'Space Mono', monospace;
-    font-size: 0.8rem;
-    color: var(--text-secondary);
-}
 </style>

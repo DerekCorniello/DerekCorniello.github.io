@@ -154,7 +154,6 @@ const iconSize = computed(() => (props.size === 'large' ? 28 : 24));
 }
 
 .project-content {
-    flex: 1;
     min-width: 0;
 }
 
@@ -210,9 +209,18 @@ const iconSize = computed(() => (props.size === 'large' ? 28 : 24));
 }
 
 .project-images {
+    flex: 1;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    align-content: center;
     gap: 0.5rem;
+}
+
+.project-image {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 @media (max-width: 600px) {

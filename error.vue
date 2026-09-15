@@ -17,8 +17,8 @@
 </template>
 
 <script setup lang="ts">
-const props = defineProps<{
-    error: any;
+defineProps<{
+    error: { statusCode: number; message: string };
 }>();
 </script>
 
