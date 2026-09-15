@@ -11,6 +11,36 @@ export interface Project {
 
 const projects: Project[] = [
     {
+        title: 'The Mux Programming Language',
+        icon: 'code-block',
+        description:
+            'A statically-typed, reference-counted programming language combining Python\u2019s readability, Go\u2019s simplicity, and Rust\u2019s type safety, compiled to native code via LLVM.',
+        tech: ['Rust', 'LLVM'],
+        image: '/mux-social-card.png',
+        links: [
+            { label: 'GitHub', url: 'https://github.com/muxlang' },
+            { label: 'Docs', url: 'https://mux-lang.dev' },
+        ],
+    },
+    {
+        title: 'dia',
+        icon: 'settings',
+        description:
+            'The "Do It All" app - a tmux-like cross-platform desktop launcher for dev workspaces. Define a workspace in YAML, click start, and it brings up your editor, terminal, browser, and services.',
+        tech: ['Go', 'Wails', 'Svelte'],
+        image: '/dia-demo.gif',
+        links: [{ label: 'GitHub', url: 'https://github.com/DerekCorniello/dia' }],
+    },
+    {
+        title: 'hunch',
+        icon: 'terminal',
+        description:
+            'Predicts your next shell command from your own history. Local, statistical, zero telemetry, with ghost-text suggestions you accept with a keystroke.',
+        tech: ['Go', 'zsh', 'SQLite'],
+        image: '/hunch.gif',
+        links: [{ label: 'GitHub', url: 'https://github.com/DerekCorniello/hunch' }],
+    },
+    {
         title: 'nvim-keymap-migrator',
         icon: 'keyboard',
         description:
@@ -20,18 +50,6 @@ const projects: Project[] = [
         links: [
             { label: 'GitHub', url: 'https://github.com/DerekCorniello/nvim-keymap-migrator' },
             { label: 'npm', url: 'https://www.npmjs.com/package/nvim-keymap-migrator' },
-        ],
-    },
-    {
-        title: 'MuxLang',
-        icon: 'code-block',
-        description:
-            'A strong and statically-typed programming language with a focus on explicitness and typing. Inspired by Rust, Go, and Python, designed for beginners and simplicity.',
-        tech: ['Rust', 'LLVM'],
-        images: ['/muxlang.png'],
-        links: [
-            { label: 'GitHub', url: 'https://github.com/DerekCorniello/mux-lang' },
-            { label: 'Docs', url: 'https://mux-lang.dev' },
         ],
     },
     {
@@ -121,7 +139,7 @@ const projects: Project[] = [
     },
 ];
 
-const featuredProjectTitles = ['Quick Mouse', 'MuxLang', '8BitBeats'];
+const featuredProjectTitles = ['The Mux Programming Language', 'hunch', 'dia'];
 
 export function useProjects() {
     const getAllProjects = (): Project[] => {

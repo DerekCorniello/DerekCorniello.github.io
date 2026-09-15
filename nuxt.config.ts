@@ -3,6 +3,10 @@ export default defineNuxtConfig({
     compatibilityDate: '2024-11-01',
     devtools: { enabled: true },
 
+    experimental: {
+        appManifest: false,
+    },
+
     modules: [],
 
     css: ['~/assets/css/main.css'],
@@ -18,18 +22,18 @@ export default defineNuxtConfig({
             meta: [
                 {
                     name: 'description',
-                    content: 'Derek Corniello - Software Engineer Intern at LinkedIn',
+                    content: 'Derek Corniello - Software Engineer',
                 },
                 {
                     name: 'keywords',
                     content:
-                        'Derek Corniello, software engineer intern, Go, Rust, Python, software engineering, Cincinnati',
+                        'Derek Corniello, software engineer, Go, Rust, Python, software engineering, Cincinnati',
                 },
                 { name: 'author', content: 'Derek Corniello' },
                 { property: 'og:title', content: 'Derek Corniello' },
                 {
                     property: 'og:description',
-                    content: 'Software Engineer Intern at LinkedIn',
+                    content: 'Software Engineer building developer tools with Go, Rust, Python, and more.',
                 },
                 { property: 'og:image', content: 'https://derekcorn.dev/preview.png' },
                 { property: 'og:url', content: 'https://derekcorn.dev/' },
@@ -38,7 +42,7 @@ export default defineNuxtConfig({
                 { name: 'twitter:title', content: 'Derek Corniello' },
                 {
                     name: 'twitter:description',
-                    content: 'Software Engineer Intern at LinkedIn',
+                    content: 'Software Engineer building developer tools with Go, Rust, Python, and more.',
                 },
                 { name: 'twitter:image', content: 'https://derekcorn.dev/preview.png' },
                 {
@@ -61,8 +65,8 @@ export default defineNuxtConfig({
                         '@context': 'https://schema.org',
                         '@type': 'Person',
                         name: 'Derek Corniello',
-                        description: 'Software Engineer Intern at LinkedIn',
-                        jobTitle: 'Software Engineer Intern',
+                        description: 'Software Engineer building developer tools with Go, Rust, Python, and more.',
+                        jobTitle: 'Software Engineer',
                         url: 'https://derekcorn.dev',
                         sameAs: [
                             'https://github.com/DerekCorniello',

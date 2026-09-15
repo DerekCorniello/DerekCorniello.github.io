@@ -3,15 +3,16 @@
         <section class="about-intro">
             <h1>About Me</h1>
             <p>
-                I'm a Software Engineer Intern at LinkedIn based out of Cincinnati, Ohio.
+                I'm a Software Engineer based out of Cincinnati, Ohio. I recently completed a
+                software engineering internship at LinkedIn.
                 I'm pursuing my Master of Engineering in Software Engineering and
                 Bachelor of Science in Computer Science at the University of Cincinnati.
             </p>
             <p>
                 I specialize in backend development with experience in Go, Rust, and Python. I've
-                worked on developer tooling and productivity engineering at LinkedIn and built
-                backend systems at Siemens. When I'm not coding, I'm probably customizing my Neovim
-                setup,
+                built internal tooling that streamlined workflows for go-to-market (sales and
+                marketing) teams at LinkedIn and backend systems at Siemens. When I'm not coding,
+                I'm probably customizing my Neovim setup,
                 <a
                     href="https://www.chess.com/member/DerekCornDev"
                     target="_blank"
@@ -46,9 +47,9 @@
                             <p class="company">LinkedIn</p>
                             <p class="period">May 2026 - August 2026</p>
                             <ul class="details">
-                                <li>Building developer tooling and automation for internal engineering teams</li>
-                                <li>Working on productivity engineering to streamline developer workflows</li>
-                                <li>Developing internal AI agent workflows and orchestration platforms</li>
+                                <li>Built internal tooling and automation that streamlined workflows for go-to-market (GTM) teams</li>
+                                <li>Worked on productivity workflows, AI agents, and automation for sales and marketing teams</li>
+                                <li>Developed AI agent workflows and orchestration platforms to accelerate GTM execution</li>
                             </ul>
                         </div>
                     </div>
@@ -108,8 +109,69 @@
             <h2>Skills & Technologies</h2>
             <div class="skills-grid">
                 <div class="skill-category">
-                    <h3>Tools & DevOps</h3>
+                    <h3>Languages</h3>
                     <div class="skill-list">
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=go"
+                                alt="Go"
+                                class="skill-icon"
+                            />
+                            <span>Go</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=rust"
+                                alt="Rust"
+                                class="skill-icon"
+                            />
+                            <span>Rust</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=py"
+                                alt="Python"
+                                class="skill-icon"
+                            />
+                            <span>Python</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=ts"
+                                alt="TypeScript"
+                                class="skill-icon"
+                            />
+                            <span>TypeScript</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=java"
+                                alt="Java"
+                                class="skill-icon"
+                            />
+                            <span>Java</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <div class="skill-list">
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=unity"
+                                alt="Unity"
+                                class="skill-icon"
+                            />
+                            <span>Unity</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
+                                src="https://skillicons.dev/icons?i=docker"
+                                alt="Docker"
+                                class="skill-icon"
+                            />
+                            <span>Docker</span>
+                        </div>
                         <div class="skill-item">
                             <img
                                 src="https://skillicons.dev/icons?i=neovim"
@@ -120,12 +182,25 @@
                         </div>
                         <div class="skill-item">
                             <img
+                                src="https://skillicons.dev/icons?i=git"
+                                alt="Git"
+                                class="skill-icon"
+                            />
+                            <span>Git</span>
+                        </div>
+                        <div class="skill-item">
+                            <img
                                 src="https://skillicons.dev/icons?i=arch"
                                 alt="Arch Linux"
                                 class="skill-icon"
                             />
                             <span>Arch Linux</span>
                         </div>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Infra</h3>
+                    <div class="skill-list">
                         <div class="skill-item">
                             <img
                                 src="https://skillicons.dev/icons?i=terraform"
@@ -144,78 +219,12 @@
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=docker"
-                                alt="Docker"
+                                src="https://skillicons.dev/icons?i=cloudflare"
+                                alt="Cloudflare"
                                 class="skill-icon"
                             />
-                            <span>Docker</span>
+                            <span>Cloudflare</span>
                         </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=unity"
-                                alt="Unity"
-                                class="skill-icon"
-                            />
-                            <span>Unity</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Backend</h3>
-                    <div class="skill-list">
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=py"
-                                alt="Python"
-                                class="skill-icon"
-                            />
-                            <span>Python</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=rust"
-                                alt="Rust"
-                                class="skill-icon"
-                            />
-                            <span>Rust</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=go"
-                                alt="Go"
-                                class="skill-icon"
-                            />
-                            <span>Go</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=java"
-                                alt="Java"
-                                class="skill-icon"
-                            />
-                            <span>Java</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=cpp"
-                                alt="C++"
-                                class="skill-icon"
-                            />
-                            <span>C++</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=nodejs"
-                                alt="Node.js"
-                                class="skill-icon"
-                            />
-                            <span>Node.js</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="skill-category">
-                    <h3>Platform & Infrastructure</h3>
-                    <div class="skill-list">
                         <div class="skill-item">
                             <img
                                 src="https://skillicons.dev/icons?i=postgres"
@@ -226,43 +235,11 @@
                         </div>
                         <div class="skill-item">
                             <img
-                                src="https://skillicons.dev/icons?i=jenkins"
-                                alt="Jenkins"
-                                class="skill-icon"
-                            />
-                            <span>Jenkins</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=terraform"
-                                alt="Terraform"
-                                class="skill-icon"
-                            />
-                            <span>Terraform</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
                                 src="https://skillicons.dev/icons?i=kafka"
                                 alt="Kafka"
                                 class="skill-icon"
                             />
                             <span>Kafka</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=githubactions"
-                                alt="CI/CD"
-                                class="skill-icon"
-                            />
-                            <span>CI/CD</span>
-                        </div>
-                        <div class="skill-item">
-                            <img
-                                src="https://skillicons.dev/icons?i=cloudflare"
-                                alt="Cloudflare"
-                                class="skill-icon"
-                            />
-                            <span>Cloudflare</span>
                         </div>
                     </div>
                 </div>
@@ -282,7 +259,7 @@ useHead({
         {
             name: 'description',
             content:
-                'Learn more about Derek Corniello, a Software Engineer Intern at LinkedIn.',
+                'Learn more about Derek Corniello, a Software Engineer based in Cincinnati, Ohio.',
         },
     ],
 });
@@ -349,15 +326,7 @@ useHead({
 }
 
 .tab-content {
-    height: 600px;
-    overflow-y: auto;
     animation: fadeIn 0.2s ease;
-}
-
-@media (max-height: 600px) {
-    .tab-content {
-        height: 60vh;
-    }
 }
 
 @keyframes fadeIn {

@@ -6,7 +6,7 @@ export interface SocialLink {
 export interface StackInfo {
     languages: string[];
     tools: string[];
-    frameworks: string[];
+    infra: string[];
 }
 
 export interface AboutInfo {
@@ -26,17 +26,18 @@ const socialLinks: SocialLink[] = [
 ];
 
 const stackInfo: StackInfo = {
-    languages: ['Go', 'Rust', 'Python', 'TypeScript', 'Lua', 'C'],
-    tools: ['Neovim', 'Docker', 'Kubernetes', 'Linux', 'Arch Linux', 'Terraform'],
-    frameworks: ['Gin', 'FastAPI', 'Vue', 'Nuxt'],
+    languages: ['Go', 'Rust', 'Python', 'TypeScript', 'Java'],
+    tools: ['Unity', 'Docker', 'Neovim', 'Git', 'Arch Linux'],
+    infra: ['Terraform', 'AWS', 'Cloudflare', 'PostgreSQL', 'Kafka'],
 };
 
 const aboutInfo: AboutInfo = {
     name: 'Derek Corniello',
-    role: 'Software Engineer Intern',
-    company: 'LinkedIn',
+    role: 'Software Engineer',
+    company: 'Independent',
     location: 'Cincinnati, OH',
-    currentFocus: 'Working on developer tools at LinkedIn. Building a compiler in my free time.',
+    currentFocus:
+        'Building a compiler in my free time and exploring scalable, reliable backend systems.',
 };
 
 export function useSiteData() {

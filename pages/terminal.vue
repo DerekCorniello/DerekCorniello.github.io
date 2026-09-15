@@ -221,8 +221,8 @@ const commands: Record<
         <p>${stackInfo.languages.join(', ')}</p>
         <p class="mt-1 accent">Tools:</p>
         <p>${stackInfo.tools.join(', ')}</p>
-        <p class="mt-1 accent">Frameworks:</p>
-        <p>${stackInfo.frameworks.join(', ')}</p>
+        <p class="mt-1 accent">Infra:</p>
+        <p>${stackInfo.infra.join(', ')}</p>
       </div>
     `,
     }),

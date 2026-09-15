@@ -2,6 +2,7 @@
     <div class="image-wrapper" :style="{ aspectRatio: aspectRatio }">
         <div v-if="!loaded" class="shimmer"></div>
         <img
+            ref="image"
             :src="src"
             :alt="alt"
             :loading="lazy ? 'lazy' : 'eager'"
@@ -31,6 +32,7 @@ const emit = defineEmits<{
     (e: 'error', err: Event): void;
 }>();
 
+const image = ref<HTMLImageElement>();
 const loaded = ref(false);
 
 const onLoad = () => {
@@ -41,6 +43,13 @@ const onLoad = () => {
 const onError = (err: Event) => {
     emit('error', err);
 };
+
+onMounted(() => {
+    // SSR or browser cache can finish the request before Vue attaches @load.
+    if (image.value?.complete && image.value.naturalWidth > 0) {
+        onLoad();
+    }
+});
 </script>
 
 <style scoped>
